@@ -1,0 +1,355 @@
+<!-- Layout: single-column broadsheet front page — masthead, rule, stacked sections each with rubrique eyebrow, serif headline, lead, columns of body text and a boxed "L'essentiel" sidebar-style list -->
+<title>Le Diplomate — 14 octobre</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400..500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ---- tokens ---- */
+  :root{
+    --paper: #f3ecdc;
+    --paper-2: #ebe1cc;
+    --ink: #262019;
+    --ink-soft: #55493c;
+    --rule: #c8bba0;
+    --accent: #8a2f23;   /* masthead red, rubrique UNE / GEOPOLITIQUE */
+    --accent-2: #3d5440;  /* geoeconomie green */
+    --gold: #9c7a2e;      /* regard du diplomate */
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper: #211c16;
+      --paper-2: #2a241c;
+      --ink: #ece4d4;
+      --ink-soft: #c6b89f;
+      --rule: #4a4132;
+      --accent: #d98f7f;
+      --accent-2: #8fb79a;
+      --gold: #d4ae5c;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper: #211c16;
+    --paper-2: #2a241c;
+    --ink: #ece4d4;
+    --ink-soft: #c6b89f;
+    --rule: #4a4132;
+    --accent: #d98f7f;
+    --accent-2: #8fb79a;
+    --gold: #d4ae5c;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    line-height: 1.62;
+    padding-left: max(18px, env(safe-area-inset-left, 0px));
+    padding-right: max(18px, env(safe-area-inset-right, 0px));
+  }
+  .wrap{ max-width: 680px; margin: 0 auto; padding-block: 28px 64px; }
+
+  /* masthead */
+  .masthead{ text-align:center; padding-bottom: 18px; }
+  .masthead .kicker{
+    font-family:"Jost",sans-serif; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+    font-size: .68rem; color: var(--ink-soft);
+  }
+  .masthead h1{
+    font-family:"Fraunces", Georgia, serif; font-weight:600; font-size: clamp(2.4rem, 11vw, 3.4rem);
+    letter-spacing: .01em; margin: 6px 0 10px; text-wrap: balance;
+  }
+  .masthead .meta{
+    display:flex; justify-content:center; gap: 10px; flex-wrap:wrap;
+    font-family:"Jost",sans-serif; font-size:.78rem; color: var(--ink-soft);
+    letter-spacing:.03em; text-transform: uppercase;
+  }
+  .meta .sep{ opacity:.5 }
+
+  .rule{ border:none; border-top: 1px solid var(--rule); margin: 0; }
+  .rule-thick{ border:none; border-top: 3px double var(--ink); margin: 14px 0; }
+
+  /* controls bar */
+  .controls{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    margin: 18px 0 2px;
+  }
+  #listen-btn{
+    font-family:"Jost",sans-serif; font-weight:500; font-size:.82rem; letter-spacing:.02em;
+    background: var(--paper-2); color: var(--ink); border: 1px solid var(--rule);
+    border-radius: 999px; padding: 9px 18px; cursor:pointer;
+    display:inline-flex; align-items:center; gap:8px;
+    transition: background .15s ease, transform .1s ease;
+  }
+  #listen-btn:hover{ background: var(--rule); }
+  #listen-btn:active{ transform: scale(.97); }
+  #listen-btn[data-playing="true"]{ background: var(--accent); color: var(--paper); border-color: var(--accent); }
+  .controls .hint{ font-family:"Jost",sans-serif; font-size:.72rem; color: var(--ink-soft); }
+
+  /* sections */
+  article.section{ padding-block: 34px 10px; }
+  article.section + article.section{ border-top: 1px solid var(--rule); }
+
+  .eyebrow{
+    font-family:"Jost",sans-serif; font-weight:600; font-size:.74rem; letter-spacing:.16em;
+    text-transform:uppercase; display:inline-flex; align-items:center; gap:8px;
+    margin-bottom: 10px;
+  }
+  .eyebrow::before{ content:""; width:18px; height:2px; background: currentColor; display:inline-block; }
+  .r-UNE{ color: var(--accent); }
+  .r-GEOPOLITIQUE{ color: var(--accent); }
+  .r-GEOECONOMIE{ color: var(--accent-2); }
+  .r-FRANCE{ color: var(--ink-soft); }
+  .r-REGARD_DIPLOMATE{ color: var(--gold); }
+
+  h2.titre{
+    font-family:"Fraunces", Georgia, serif; font-weight:600; font-size: clamp(1.5rem, 5.4vw, 2.05rem);
+    line-height:1.18; margin: 0 0 12px; text-wrap: balance;
+  }
+  p.chapeau{
+    font-family:"Fraunces", Georgia, serif; font-style: italic; font-weight: 400;
+    font-size: 1.14rem; color: var(--ink-soft); margin: 0 0 18px; line-height:1.5;
+  }
+  .duree{
+    font-family:"Jost",sans-serif; font-size:.72rem; letter-spacing:.05em; color: var(--ink-soft);
+    text-transform: uppercase; margin-bottom: 14px; display:block;
+  }
+
+  .corps{ max-width: 42em; }
+  .corps p{ margin: 0 0 1.05em; font-size: 1.04rem; }
+  .corps p:first-of-type::first-letter{
+    font-family:"Fraunces", Georgia, serif; font-weight:600; font-size: 2.5em; float:left;
+    line-height:.85; padding: .03em .07em 0 0; color: var(--accent);
+  }
+
+  .essentiel{
+    background: var(--paper-2); border: 1px solid var(--rule); border-radius: 4px;
+    padding: 16px 18px; margin: 20px 0 10px;
+  }
+  .essentiel .lab{
+    font-family:"Jost",sans-serif; font-weight:600; font-size:.72rem; letter-spacing:.12em;
+    text-transform: uppercase; color: var(--ink-soft); margin-bottom:8px; display:block;
+  }
+  .essentiel ul{ margin:0; padding-left: 1.1em; }
+  .essentiel li{ font-family:"Jost",sans-serif; font-size:.92rem; margin-bottom:6px; line-height:1.45; }
+  .essentiel li::marker{ color: var(--accent); }
+
+  .signature{
+    text-align:right; font-family:"Jost",sans-serif; font-style: normal; font-size:.82rem;
+    color: var(--ink-soft); margin-top: 14px; letter-spacing:.02em;
+  }
+
+  footer{
+    text-align:center; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--rule);
+    font-family:"Jost",sans-serif; font-size:.72rem; color: var(--ink-soft); letter-spacing:.03em;
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    article.section{ animation: rise .5s ease both; }
+    @keyframes rise{ from{ opacity:0; transform: translateY(6px) } to{ opacity:1; transform:none } }
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="kicker">Revue de presse diplomatique</div>
+    <h1>Le Diplomate</h1>
+    <div class="meta">
+      <span>Mercredi 14 octobre 2026</span><span class="sep">·</span>
+      <span>N° 7</span><span class="sep">·</span>
+      <span>Édition de 07:45</span>
+    </div>
+  </div>
+  <hr class="rule-thick">
+
+  <div class="controls">
+    <button id="listen-btn" data-playing="false" aria-pressed="false">
+      <span aria-hidden="true">🔊</span><span id="listen-label">Écouter l'édition</span>
+    </button>
+  </div>
+  <div class="controls"><span class="hint">Lecture vocale hors-ligne du navigateur — à activer manuellement</span></div>
+
+  <main id="content">
+
+    <article class="section" data-rubrique="UNE">
+      <span class="eyebrow r-UNE">Une</span>
+      <h2 class="titre">Les Houthis frappent le siège d'Aramco à Dhahran en représailles aux raids saoudiens sur Sanaa</h2>
+      <p class="chapeau">Dans la nuit du 13 au 14 octobre, des rebelles houthis yéménites ont visé le complexe du siège de Saudi Aramco à Dhahran, dans la province orientale d'Arabie saoudite, quelques heures après que la coalition dirigée par Riyad a mené de nouveaux raids aériens sur Sanaa, la capitale yéménite sous contrôle houthi. L'épisode illustre la reprise des hostilités directes entre les deux camps et expose, selon plusieurs analyses militaires, les limites du bouclier antimissile saoudien malgré des investissements colossaux.</p>
+      <span class="duree">6 min de lecture</span>
+      <div class="corps">
+        <p>Selon des informations rapportées par le Financial Times et confirmées par une source ayant une connaissance directe du dossier, le site du siège de Saudi Aramco à Dhahran a été touché dans la nuit et était en feu. L'attaque est survenue après que la coalition militaire dirigée par l'Arabie saoudite a frappé Sanaa, la capitale yéménite contrôlée depuis 2014 par le mouvement houthi, soutenu par l'Iran. Aucun bilan humain précis n'avait été communiqué au moment de la rédaction de cette édition.</p>
+        <p>Cet échange de frappes marque une nouvelle étape dans la reprise des hostilités entre Riyad et les Houthis, intervenue après l'effondrement de la trêve négociée en 2022, dans le sillage plus large de la reprise du conflit entre les États-Unis et l'Iran depuis cet été. Pour les Houthis, cibler des infrastructures pétrolières saoudiennes de premier plan, comme ils l'avaient déjà fait en 2019 contre les sites d'Abqaiq et de Khurais, reste un levier de pression stratégique visant à peser sur les calculs économiques et politiques de Riyad.</p>
+        <p>Une analyse militaire publiée par le Financial Times souligne que les frappes houthies de ce mois ont mis en évidence les limites du dispositif antimissile saoudien, en dépit de dizaines de milliards de dollars investis dans l'armement et la défense aérienne du royaume depuis une décennie. Ce constat alimente les interrogations sur la capacité de Riyad à protéger durablement ses infrastructures énergétiques critiques, qui restent un pilier de l'économie mondiale de l'énergie.</p>
+        <p>Les marchés de l'énergie, déjà tendus par la fermeture prolongée du détroit d'Ormuz et par la reprise des hostilités américano-iraniennes, ont réagi avec prudence : le Brent évoluait en légère hausse autour de 106 dollars le baril mercredi matin, tandis que le gaz naturel progressait également. L'Agence internationale de l'énergie doit publier ce mercredi son rapport mensuel sur le marché pétrolier, très attendu dans ce contexte de nervosité persistante.</p>
+        <p>Aucune réaction officielle française spécifique à cette frappe n'était disponible au moment de la rédaction de cette édition. Par le passé, Paris a condamné à plusieurs reprises des attaques houthies contre des infrastructures et aéroports saoudiens, et réaffirmé son attachement à la sécurité des approvisionnements énergétiques du Golfe et à la liberté de navigation en mer Rouge, sans qu'une déclaration distincte ait pu être identifiée concernant l'incident de Dhahran à cette heure.</p>
+      </div>
+      <div class="essentiel">
+        <span class="lab">L'essentiel</span>
+        <ul>
+          <li>Le QG d'Aramco à Dhahran visé par une frappe attribuée aux Houthis après des raids saoudiens sur Sanaa.</li>
+          <li>L'épisode confirme les limites du bouclier antimissile saoudien, pointées par plusieurs analyses militaires.</li>
+          <li>Marchés pétroliers sous tension : Brent proche de 106 dollars, rapport mensuel de l'AIE attendu ce mercredi.</li>
+          <li>Aucune réaction officielle française spécifique identifiée à ce stade.</li>
+        </ul>
+      </div>
+      <div class="signature">Par la rédaction du Diplomate</div>
+    </article>
+
+    <article class="section" data-rubrique="GEOPOLITIQUE">
+      <span class="eyebrow r-GEOPOLITIQUE">Géopolitique</span>
+      <h2 class="titre">Procès Nord Stream, impasse du renseignement en Ukraine et offensive de Marine Le Pen contre Bruxelles</h2>
+      <p class="chapeau">Trois dossiers structurent l'agenda diplomatique de ce mercredi : l'ouverture à Hambourg du procès du sabotage de Nord Stream, les critiques de Volodymyr Zelensky sur le partage du renseignement avec les alliés de Kiev, et l'offensive verbale de Marine Le Pen contre les institutions européennes à l'approche de la présidentielle de 2027.</p>
+      <span class="duree">9 min de lecture</span>
+      <div class="corps">
+        <p>Le tribunal régional supérieur de Hambourg a ouvert ce mercredi le procès de Serhii Kuznietsov, ancien officier de l'armée ukrainienne accusé d'avoir dirigé une équipe de plongeurs ayant posé les explosifs à l'origine du sabotage des gazoducs germano-russes Nord Stream en septembre 2022. Le parquet allemand le poursuit pour crime de guerre, au titre de l'utilisation de méthodes de guerre prohibées contre un bien civil. Selon l'accusation, l'accusé aurait utilisé des documents d'identité falsifiés pour affréter le voilier parti de Rostock ayant permis l'opération. Les débats doivent se poursuivre jusqu'en février 2027.</p>
+        <p>Le parquet allemand affirme que Kuznietsov a agi sur ordre d'autorités étatiques ukrainiennes, une accusation que Kiev a toujours démentie. Un complice présumé, Volodymyr Zhuravlyov, a été arrêté le mois dernier en Croatie, où il travaillait, selon la presse, sur une adaptation hollywoodienne de l'opération. <strong>Position de la France :</strong> la France s'est exprimée en août 2025 devant le Conseil de sécurité des Nations unies, à l'occasion d'une réunion convoquée par Moscou sur ce dossier, pour affirmer l'indépendance des enquêtes judiciaires allemande, suédoise et danoise et pour accuser la Russie de chercher à peser sur les travaux du Conseil. Aucune réaction officielle française spécifique à l'ouverture du procès de ce mercredi n'a cependant été identifiée à ce stade.</p>
+        <p>En Ukraine, le président Volodymyr Zelensky a affirmé que les partenaires occidentaux de Kiev n'avaient pas transmis à temps d'alerte avant une récente attaque de missile balistique russe, posant à nouveau la question de la qualité du partage de renseignement entre l'Ukraine et ses soutiens. Il s'est toutefois abstenu d'établir un lien direct entre cette défaillance et les menaces de l'administration Trump de réduire le soutien américain à Kiev. <strong>Position de la France :</strong> aucune réaction officielle du Quai d'Orsay ou de l'Élysée sur ces propos n'a été identifiée à ce stade.</p>
+        <p>Sur un autre front, des frappes ukrainiennes ont gravement endommagé trois des six centres de données du géant technologique russe Yandex au cours de la semaine écoulée, perturbant des services allant de la messagerie aux applications de VTC et de rencontres dans toute la Russie. L'épisode illustre le choix ukrainien de cibler l'infrastructure numérique, fortement centralisée en Russie autour d'un nombre restreint d'opérateurs, pour amplifier l'effet de ses frappes au-delà du strict champ militaire.</p>
+        <p>En France, la cheffe du Rassemblement national, Marine Le Pen, a affirmé dans un entretien au Financial Times son intention d'engager, si elle est élue présidente en 2027, une « épreuve de force » avec l'Union européenne sur le budget et les compétences du bloc, allant jusqu'à interroger le maintien de l'actuelle direction de la Commission européenne. Elle a toutefois cherché à rassurer sur sa capacité à gérer les finances publiques déjà dégradées de la France, qu'elle a qualifiées de principale contrainte extérieure à son action. Mme Le Pen lie ses ambitions à d'éventuels succès de partis nationalistes alliés en Espagne, en Italie et en Pologne, qu'elle présente comme les conditions d'un changement radical des équilibres européens.</p>
+        <p><strong>Position de la France :</strong> en tant que déclaration de campagne d'une candidate de l'opposition, les propos de Marine Le Pen n'ont pas suscité de réaction officielle de l'Élysée ou du Quai d'Orsay, le gouvernement s'abstenant traditionnellement de commenter les prises de position des candidats à l'approche d'une échéance électorale. Aucune réaction officielle française n'a donc été identifiée à ce stade.</p>
+      </div>
+      <div class="essentiel">
+        <span class="lab">L'essentiel</span>
+        <ul>
+          <li>Ouverture à Hambourg du procès du premier suspect dans le sabotage de Nord Stream, pour une durée prévue jusqu'en février 2027.</li>
+          <li>Zelensky critique un défaut d'alerte de ses partenaires avant une frappe de missile balistique russe.</li>
+          <li>Les frappes ukrainiennes contre les centres de données de Yandex perturbent la vie numérique russe.</li>
+          <li>Marine Le Pen annonce vouloir engager une épreuve de force avec Bruxelles si elle est élue en 2027.</li>
+        </ul>
+      </div>
+      <div class="signature">Par la rédaction du Diplomate</div>
+    </article>
+
+    <article class="section" data-rubrique="GEOECONOMIE">
+      <span class="eyebrow r-GEOECONOMIE">Géoéconomie</span>
+      <h2 class="titre">Excédent commercial record en vue pour la Chine, marchés de l'énergie sous tension, Wall Street nerveuse sur l'IA</h2>
+      <p class="chapeau">La flambée des exportations chinoises, portée par l'intelligence artificielle, la persistance d'une prime de risque énergétique liée aux tensions au Moyen-Orient, et les premiers signes de nervosité des marchés sur le rythme des investissements dans l'IA dessinent le paysage géoéconomique de ce mercredi.</p>
+      <span class="duree">7 min de lecture</span>
+      <div class="corps">
+        <p>Les exportations chinoises ont bondi de 36 % en septembre sur un an, tirées par l'envolée des expéditions liées à l'intelligence artificielle, rapprochant Pékin d'un excédent commercial record pour l'année 2026. Les importations ont elles aussi grimpé d'environ un tiers, sous l'effet de la hausse des prix pétroliers provoquée par les tensions au Moyen-Orient, qui alourdit la facture énergétique chinoise. Cette combinaison illustre la position particulière de la Chine, à la fois principal bénéficiaire des chaînes d'approvisionnement technologiques mondiales et acheteur vulnérable aux chocs énergétiques géopolitiques.</p>
+        <p>Sur les marchés pétroliers, le baril de Brent évoluait mercredi matin autour de 106 dollars et le WTI près de 95 dollars, dans un contexte marqué par la fermeture prolongée du détroit d'Ormuz depuis la reprise des hostilités entre les États-Unis et l'Iran, et désormais par l'attaque visant le siège d'Aramco à Dhahran. L'Agence internationale de l'énergie doit publier ce mercredi son rapport mensuel, qui sera scruté pour mesurer l'ampleur de la prime de risque intégrée dans les cours.</p>
+        <p>Le Trésor américain a infligé une amende de plus d'un milliard de dollars à Bank of America pour des manquements « graves et persistants » à ses obligations de lutte contre le blanchiment et de respect des sanctions, la banque n'ayant pas signalé plus de 5 milliards de dollars de transactions suspectes, certaines liées à des flux financiers illicites présumés en provenance de Chine et de la frontière sud des États-Unis. Ce dossier s'inscrit dans un contexte plus large de durcissement du contrôle américain sur les circuits financiers transfrontaliers jugés sensibles.</p>
+        <p>Les valeurs technologiques liées à l'intelligence artificielle ont souffert mercredi après des propos jugés alarmistes du patron de Broadcom, comparant certains investissements du secteur à une mise de casino. Les actions Samsung et SK Hynix ont lourdement chuté, entraînant l'indice sud-coréen Kospi dans leur sillage, les investisseurs s'inquiétant du rythme et de la soutenabilité des dépenses mondiales consacrées à l'IA, un sujet désormais central pour les équilibres industriels entre États-Unis, Corée du Sud, Taïwan et Chine.</p>
+      </div>
+      <div class="essentiel">
+        <span class="lab">L'essentiel</span>
+        <ul>
+          <li>Les exportations chinoises bondissent de 36 % en septembre, portées par l'IA ; la Chine se rapproche d'un excédent commercial record en 2026.</li>
+          <li>Le Brent proche de 106 dollars, sous l'effet cumulé d'Ormuz et de l'attaque contre Aramco.</li>
+          <li>Bank of America écope d'une amende de 1,2 milliard de dollars pour manquements à la lutte anti-blanchiment.</li>
+          <li>Les valeurs technologiques liées à l'IA chutent après des propos alarmistes du patron de Broadcom.</li>
+        </ul>
+      </div>
+      <div class="signature">Par la rédaction du Diplomate</div>
+    </article>
+
+    <article class="section" data-rubrique="FRANCE">
+      <span class="eyebrow r-FRANCE">France</span>
+      <h2 class="titre">Budget 2027 à l'Assemblée, mobilisation lycéenne persistante et fusillade dans un collège d'Aubagne</h2>
+      <p class="chapeau">Trois sujets dominent l'actualité intérieure française de ce mercredi : l'ouverture des débats budgétaires à l'Assemblée nationale, la poursuite du mouvement de mobilisation lycéenne, et l'onde de choc provoquée par la fusillade survenue lundi dans un collège des Bouches-du-Rhône.</p>
+      <span class="duree">7 min de lecture</span>
+      <div class="corps">
+        <p>Le projet de loi de finances pour 2027, déposé début octobre, est entré dans l'hémicycle de l'Assemblée nationale, où plus de 1 700 amendements doivent être examinés. Le texte fixe une cible de déficit public de 5 % du produit intérieur brut pour 2027, contre une prévision révisée à 5,4 % pour 2026, pour un effort budgétaire total annoncé à environ 54 milliards d'euros. Sans ces mesures d'économies, le déficit pourrait selon Matignon approcher 6,5 % du PIB l'an prochain.</p>
+        <p>Plusieurs points font déjà l'objet de fortes tensions, y compris au sein de la majorité : la baisse de 10 % du plafond de l'abattement fiscal applicable aux retraités et la réduction de la surtaxe sur les grandes entreprises, qui passerait de 7,3 à 5 milliards d'euros de recettes attendues. Le Premier ministre Sébastien Lecornu a écarté pour l'instant le recours à l'article 49.3 ou aux ordonnances, misant sur un vote classique en fin de parcours parlementaire, alors qu'aucune majorité claire ne se dégage dans l'hémicycle.</p>
+        <p>Le mouvement de mobilisation lycéenne, né à la mi-septembre dans la région parisienne autour des classes surchargées, du bâti scolaire dégradé et du non-remplacement des enseignants absents, en particulier dans les établissements des quartiers populaires, se poursuit. Sa journée la plus forte, le 6 octobre, avait rassemblé selon les estimations entre 266 000 et 450 000 personnes dans une trentaine de villes, avec près de 900 établissements perturbés selon le ministère de l'Intérieur. Le ministre de l'Éducation nationale Édouard Geffray a promis 3 000 postes de remplaçants pour les établissements les plus touchés, et le gouvernement a annoncé des amendements au projet de budget reprenant certaines propositions lycéennes, sans que la mobilisation ne faiblisse.</p>
+        <p>La fusillade survenue lundi au collège Joseph-Lakanal d'Aubagne, dans les Bouches-du-Rhône, continue de susciter l'émotion. Un élève de troisième, âgé de 14 ans, a ouvert le feu avec un fusil de chasse dissimulé dans un étui de guitare, blessant le principal de l'établissement et une enseignante, avant d'être désarmé par un conseiller principal d'éducation. Le parquet de Marseille a ouvert une enquête pour tentative d'assassinat ; le pronostic vital des victimes n'est pas engagé. Selon la préfecture, l'adolescent n'était pas connu pour des faits de délinquance ou de radicalisation, et l'établissement n'était pas concerné par le mouvement de mobilisation lycéenne en cours. Ses parents ont été placés en garde à vue afin de déterminer comment il s'est procuré l'arme.</p>
+      </div>
+      <div class="essentiel">
+        <span class="lab">L'essentiel</span>
+        <ul>
+          <li>Débat budgétaire 2027 : déficit visé à 5 % du PIB, 54 milliards d'euros d'économies, plus de 1 700 amendements et aucune majorité claire.</li>
+          <li>La mobilisation lycéenne se poursuit malgré l'annonce de 3 000 postes de remplaçants supplémentaires.</li>
+          <li>Fusillade au collège d'Aubagne : un adolescent de 14 ans blesse deux adultes, enquête pour tentative d'assassinat.</li>
+        </ul>
+      </div>
+      <div class="signature">Par la rédaction du Diplomate</div>
+    </article>
+
+    <article class="section" data-rubrique="REGARD_DIPLOMATE">
+      <span class="eyebrow r-REGARD_DIPLOMATE">Le regard du Diplomate</span>
+      <h2 class="titre">Infrastructures concentrées, attribution incertaine : deux leçons de méthode diplomatique</h2>
+      <p class="chapeau">Un regard éditorial sur les fils qui relient, au-delà de l'actualité du jour, la frappe contre Aramco, les cyberattaques ukrainiennes contre Yandex et l'ouverture du procès Nord Stream.</p>
+      <span class="duree">4 min de lecture</span>
+      <div class="corps">
+        <p>Deux épisodes de cette édition, en apparence sans rapport, racontent une même mutation des conflits contemporains : la frappe houthie contre le siège d'Aramco, qui expose les limites d'un bouclier antimissile saoudien pourtant financé à coups de dizaines de milliards de dollars, et les frappes ukrainiennes ayant mis hors service trois des six centres de données du géant russe Yandex, paralysant une partie de la vie numérique quotidienne du pays. Dans les deux cas, un nombre restreint de cibles à forte valeur ajoutée — un site pétrolier emblématique, une poignée de centres de données — suffit à produire un effet disproportionné par rapport aux moyens engagés. C'est, à notre sens, une leçon durable pour quiconque pense la sécurité nationale en 2026 : la centralisation des infrastructures critiques, énergétiques comme numériques, crée des points de vulnérabilité que des acteurs aux moyens limités peuvent exploiter avec un effet stratégique bien supérieur à leur puissance apparente.</p>
+        <p>L'autre fil de cette édition est plus discret mais tout aussi instructif : l'ouverture, trois ans après les faits, du procès du premier suspect dans le sabotage de Nord Stream rappelle combien l'attribution formelle d'un acte hostile reste, en diplomatie comme en justice, un exercice lent et exigeant en preuves — à rebours des accusations immédiates qui circulent souvent dans les heures suivant un incident. C'est une règle que cette revue de presse s'efforce elle-même d'appliquer : lorsqu'aucune réaction officielle française n'est documentée sur un dossier, comme c'est le cas aujourd'hui pour plusieurs sujets de ce numéro, nous préférons le dire explicitement plutôt que de suppléer ce silence par une improvisation. Ce choix n'est, bien sûr, qu'un point de vue éditorial sur la méthode, non un constat établi.</p>
+      </div>
+      <div class="essentiel">
+        <span class="lab">L'essentiel</span>
+        <ul>
+          <li>Point de vue : les infrastructures centralisées, énergétiques ou numériques, deviennent des points de vulnérabilité stratégique disproportionnés par rapport aux moyens des attaquants.</li>
+          <li>Point de vue : l'attribution formelle d'un acte hostile reste un exercice lent, comme le rappelle le procès Nord Stream trois ans après les faits.</li>
+          <li>Point de vue : signaler l'absence de réaction officielle vaut mieux que de l'improviser.</li>
+        </ul>
+      </div>
+      <div class="signature">L'éditorial du Diplomate</div>
+    </article>
+
+  </main>
+
+  <footer>Le Diplomate — revue de presse quotidienne à usage d'étude en diplomatie · générée automatiquement le 14 octobre 2026 à 07:45</footer>
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById('listen-btn');
+  var label = document.getElementById('listen-label');
+  var synth = window.speechSynthesis;
+
+  if (!synth) { btn.style.display = 'none'; return; }
+
+  function buildText(){
+    var parts = [];
+    document.querySelectorAll('#content article.section').forEach(function(sec){
+      var rub = sec.querySelector('.eyebrow');
+      var titre = sec.querySelector('.titre');
+      var chapeau = sec.querySelector('.chapeau');
+      if (rub) parts.push(rub.textContent + '.');
+      if (titre) parts.push(titre.textContent + '.');
+      if (chapeau) parts.push(chapeau.textContent);
+      sec.querySelectorAll('.corps p').forEach(function(p){ parts.push(p.textContent); });
+      var sig = sec.querySelector('.signature');
+      if (sig) parts.push(sig.textContent + '.');
+    });
+    return parts.join(' ');
+  }
+
+  var playing = false;
+
+  function stop(){
+    try { synth.cancel(); } catch(e){}
+    playing = false;
+    btn.dataset.playing = 'false';
+    btn.setAttribute('aria-pressed', 'false');
+    label.textContent = "Écouter l'édition";
+  }
+
+  function start(){
+    try { synth.cancel(); } catch(e){}
+    var text = buildText();
+    var utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'fr-FR';
+    utter.rate = 0.98;
+    utter.onend = stop;
+    utter.onerror = stop;
+    synth.speak(utter);
+    playing = true;
+    btn.dataset.playing = 'true';
+    btn.setAttribute('aria-pressed', 'true');
+    label.textContent = 'Couper la lecture';
+  }
+
+  btn.addEventListener('click', function(){
+    if (playing) { stop(); } else { start(); }
+  });
+
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden && playing) stop();
+  });
+})();
+</script>
