@@ -1,0 +1,349 @@
+<!-- Layout: single-column broadsheet front page — masthead, rule, stacked sections each with rubrique eyebrow, serif headline, lead, columns of body text and a boxed "L'essentiel" sidebar-style list -->
+<title>Le Diplomate — 16 octobre</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400..500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ---- tokens ---- */
+  :root{
+    --paper: #f3ecdc;
+    --paper-2: #ebe1cc;
+    --ink: #262019;
+    --ink-soft: #55493c;
+    --rule: #c8bba0;
+    --accent: #8a2f23;   /* masthead red, rubrique UNE / GEOPOLITIQUE */
+    --accent-2: #3d5440;  /* geoeconomie green */
+    --gold: #9c7a2e;      /* regard du diplomate */
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper: #211c16;
+      --paper-2: #2a241c;
+      --ink: #ece4d4;
+      --ink-soft: #c6b89f;
+      --rule: #4a4132;
+      --accent: #d98f7f;
+      --accent-2: #8fb79a;
+      --gold: #d4ae5c;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper: #211c16;
+    --paper-2: #2a241c;
+    --ink: #ece4d4;
+    --ink-soft: #c6b89f;
+    --rule: #4a4132;
+    --accent: #d98f7f;
+    --accent-2: #8fb79a;
+    --gold: #d4ae5c;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    line-height: 1.62;
+    padding-left: max(18px, env(safe-area-inset-left, 0px));
+    padding-right: max(18px, env(safe-area-inset-right, 0px));
+  }
+  .wrap{ max-width: 680px; margin: 0 auto; padding-block: 28px 64px; }
+
+  /* masthead */
+  .masthead{ text-align:center; padding-bottom: 18px; }
+  .masthead .kicker{
+    font-family:"Jost",sans-serif; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+    font-size: .68rem; color: var(--ink-soft);
+  }
+  .masthead h1{
+    font-family:"Fraunces", Georgia, serif; font-weight:600; font-size: clamp(2.4rem, 11vw, 3.4rem);
+    letter-spacing: .01em; margin: 6px 0 10px; text-wrap: balance;
+  }
+  .masthead .meta{
+    display:flex; justify-content:center; gap: 10px; flex-wrap:wrap;
+    font-family:"Jost",sans-serif; font-size:.78rem; color: var(--ink-soft);
+    letter-spacing:.03em; text-transform: uppercase;
+  }
+  .meta .sep{ opacity:.5 }
+
+  .rule{ border:none; border-top: 1px solid var(--rule); margin: 0; }
+  .rule-thick{ border:none; border-top: 3px double var(--ink); margin: 14px 0; }
+
+  /* controls bar */
+  .controls{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    margin: 18px 0 2px;
+  }
+  #listen-btn{
+    font-family:"Jost",sans-serif; font-weight:500; font-size:.82rem; letter-spacing:.02em;
+    background: var(--paper-2); color: var(--ink); border: 1px solid var(--rule);
+    border-radius: 999px; padding: 9px 18px; cursor:pointer;
+    display:inline-flex; align-items:center; gap:8px;
+    transition: background .15s ease, transform .1s ease;
+  }
+  #listen-btn:hover{ background: var(--rule); }
+  #listen-btn:active{ transform: scale(.97); }
+  #listen-btn[data-playing="true"]{ background: var(--accent); color: var(--paper); border-color: var(--accent); }
+  .controls .hint{ font-family:"Jost",sans-serif; font-size:.72rem; color: var(--ink-soft); }
+
+  /* sections */
+  article.section{ padding-block: 34px 10px; }
+  article.section + article.section{ border-top: 1px solid var(--rule); }
+
+  .eyebrow{
+    font-family:"Jost",sans-serif; font-weight:600; font-size:.74rem; letter-spacing:.16em;
+    text-transform:uppercase; display:inline-flex; align-items:center; gap:8px;
+    margin-bottom: 10px;
+  }
+  .eyebrow::before{ content:""; width:18px; height:2px; background: currentColor; display:inline-block; }
+  .r-UNE{ color: var(--accent); }
+  .r-GEOPOLITIQUE{ color: var(--accent); }
+  .r-GEOECONOMIE{ color: var(--accent-2); }
+  .r-FRANCE{ color: var(--ink-soft); }
+  .r-REGARD_DIPLOMATE{ color: var(--gold); }
+
+  h2.titre{
+    font-family:"Fraunces", Georgia, serif; font-weight:600; font-size: clamp(1.5rem, 5.4vw, 2.05rem);
+    line-height:1.18; margin: 0 0 12px; text-wrap: balance;
+  }
+  p.chapeau{
+    font-family:"Fraunces", Georgia, serif; font-style: italic; font-weight: 400;
+    font-size: 1.14rem; color: var(--ink-soft); margin: 0 0 18px; line-height:1.5;
+  }
+  .duree{
+    font-family:"Jost",sans-serif; font-size:.72rem; letter-spacing:.05em; color: var(--ink-soft);
+    text-transform: uppercase; margin-bottom: 14px; display:block;
+  }
+
+  .corps{ max-width: 42em; }
+  .corps p{ margin: 0 0 1.05em; font-size: 1.04rem; }
+  .corps p:first-of-type::first-letter{
+    font-family:"Fraunces", Georgia, serif; font-weight:600; font-size: 2.5em; float:left;
+    line-height:.85; padding: .03em .07em 0 0; color: var(--accent);
+  }
+
+  .essentiel{
+    background: var(--paper-2); border: 1px solid var(--rule); border-radius: 4px;
+    padding: 16px 18px; margin: 20px 0 10px;
+  }
+  .essentiel .lab{
+    font-family:"Jost",sans-serif; font-weight:600; font-size:.72rem; letter-spacing:.12em;
+    text-transform: uppercase; color: var(--ink-soft); margin-bottom:8px; display:block;
+  }
+  .essentiel ul{ margin:0; padding-left: 1.1em; }
+  .essentiel li{ font-family:"Jost",sans-serif; font-size:.92rem; margin-bottom:6px; line-height:1.45; }
+  .essentiel li::marker{ color: var(--accent); }
+
+  .signature{
+    text-align:right; font-family:"Jost",sans-serif; font-style: normal; font-size:.82rem;
+    color: var(--ink-soft); margin-top: 14px; letter-spacing:.02em;
+  }
+
+  footer{
+    text-align:center; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--rule);
+    font-family:"Jost",sans-serif; font-size:.72rem; color: var(--ink-soft); letter-spacing:.03em;
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    article.section{ animation: rise .5s ease both; }
+    @keyframes rise{ from{ opacity:0; transform: translateY(6px) } to{ opacity:1; transform:none } }
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="kicker">Revue de presse diplomatique</div>
+    <h1>Le Diplomate</h1>
+    <div class="meta">
+      <span>Vendredi 16 octobre 2026</span><span class="sep">·</span>
+      <span>N° 9</span><span class="sep">·</span>
+      <span>Édition de 08:40</span>
+    </div>
+  </div>
+  <hr class="rule-thick">
+
+  <div class="controls">
+    <button id="listen-btn" data-playing="false" aria-pressed="false">
+      <span aria-hidden="true">🔊</span><span id="listen-label">Écouter l'édition</span>
+    </button>
+  </div>
+  <div class="controls"><span class="hint">Lecture vocale hors-ligne du navigateur — à activer manuellement</span></div>
+
+  <main id="content">
+
+    <article class="section" data-rubrique="UNE">
+      <span class="eyebrow r-UNE">Une</span>
+      <h2 class="titre">Washington envisage d'assouplir les sanctions sur les flottes fantômes russe et iranienne</h2>
+      <p class="chapeau">Selon le Financial Times, la Maison Blanche étudie un relâchement des restrictions visant les pétroliers qui contournent les sanctions contre Moscou et Téhéran, dans l'espoir de faire baisser les prix du carburant avant les élections de mi-mandat américaines.</p>
+      <span class="duree">6 min de lecture</span>
+      <div class="corps">
+        <p>L'administration Trump envisage d'assouplir les restrictions imposées aux flottes de pétroliers vieillissants qui permettent à la Russie et à l'Iran d'exporter leur pétrole en contournant les sanctions occidentales, rapporte le Financial Times. Cette hypothèse, encore à l'état de discussion interne selon le journal, viserait un objectif principalement intérieur : faire refluer les prix du carburant aux États-Unis à l'approche des élections de mi-mandat de novembre, qui s'annoncent difficiles pour le camp présidentiel.</p>
+        <p>La mesure marquerait un revirement notable. Le 8 octobre, le Trésor américain avait au contraire durci la pression sur Téhéran en désignant dix-sept pétroliers commerciaux et plusieurs sociétés affiliées au secteur pétrolier iranien, une action présentée par les autorités américaines comme neutralisant « la grande majorité » du réseau de flotte fantôme iranien encore actif, dans le cadre de la campagne dite « Operation Economic Outcast ». Du côté russe, Washington avait déjà procédé ponctuellement à des levées temporaires de blocage sur des cargaisons immobilisées en mer, le secrétaire au Trésor Scott Bessent ayant évoqué la possibilité de remettre sur le marché plusieurs centaines de millions de barils de brut pour calmer des prix tendus par la crise iranienne.</p>
+        <p>Un assouplissement plus large et durable poserait une question de fond pour la diplomatie occidentale : les sanctions pétrolières contre Moscou constituent, depuis le début de la guerre en Ukraine, l'un des leviers économiques les plus visibles de la pression occidentale sur le Kremlin. Les relâcher, même partiellement, reviendrait à desserrer l'étau financier sur une économie de guerre russe déjà fragilisée, au moment même où l'Ukraine intensifie ses propres frappes contre les raffineries russes. Pour l'Iran, un geste similaire interviendrait à peine une semaine après le tour de vis du Trésor, ce qui illustrerait la difficulté de Washington à maintenir une ligne cohérente entre ses objectifs stratégiques de non-prolifération et de containment, et les impératifs de politique intérieure liés au prix à la pompe.</p>
+        <p>Aucune décision officielle n'a été annoncée à ce stade ; le Financial Times précise que l'option est encore à l'étude et pourrait ne pas aboutir. Les marchés pétroliers, déjà nerveux, ont réagi avec prudence : le Brent évoluait vendredi matin légèrement sous les 106 dollars le baril, sans mouvement spectaculaire, les opérateurs attendant une confirmation officielle avant de réviser leurs anticipations sur l'offre mondiale.</p>
+      </div>
+      <div class="essentiel">
+        <span class="lab">L'essentiel</span>
+        <ul>
+          <li>La Maison Blanche étudierait un assouplissement des sanctions visant les flottes fantômes russe et iranienne, selon le Financial Times.</li>
+          <li>Objectif avancé : faire baisser les prix du carburant avant les élections de mi-mandat de novembre.</li>
+          <li>Le geste contrasterait avec le récent tour de vis du Trésor américain contre dix-sept pétroliers liés à l'Iran (8 octobre).</li>
+          <li>Aucune décision officielle n'a été annoncée ; les marchés pétroliers restent pour l'instant stables.</li>
+        </ul>
+      </div>
+      <div class="signature">Par la rédaction du Diplomate</div>
+    </article>
+
+    <article class="section" data-rubrique="GEOPOLITIQUE">
+      <span class="eyebrow r-GEOPOLITIQUE">Géopolitique</span>
+      <h2 class="titre">Yémen-Arabie saoudite, Ukraine, Inde, Gaza : les autres fronts de la semaine</h2>
+      <p class="chapeau">De la poursuite des menaces houthies contre l'aviation saoudienne à la reprise des frappes ukrainiennes sur les raffineries russes, en passant par une révision électorale controversée en Inde et le blocage persistant de l'aide à Gaza, quatre dossiers retiennent l'attention des diplomaties.</p>
+      <span class="duree">9 min de lecture</span>
+      <div class="corps">
+        <p>Les Houthis poursuivent leurs menaces contre les infrastructures aériennes saoudiennes après la vague d'attaques meurtrières ayant visé l'aéroport international Roi Khaled de Riyad début octobre, la plus coûteuse en vies humaines sur le sol saoudien depuis plus d'une décennie selon les autorités françaises. Le groupe armé a revendiqué de nouvelles frappes et averti les compagnies aériennes que l'espace aérien du royaume n'était plus sûr, provoquant la suspension de vols par plusieurs transporteurs, dont Lufthansa et Air India. La coalition menée par Ryad a qualifié ces attaques de crime de guerre et promis une réponse. <strong>Position de la France :</strong> le ministère de l'Europe et des Affaires étrangères a condamné le 11 octobre « avec la plus grande fermeté l'attaque odieuse » conduite par les Houthis contre l'aéroport de Riyad, présenté ses condoléances aux familles des victimes — parmi lesquelles une ressortissante française figurait au nombre des blessés —, réaffirmé « sa totale solidarité » avec l'Arabie saoudite dans la défense de son territoire, et appelé les Houthis « à cesser immédiatement leurs attaques ».</p>
+        <p>En Ukraine, le président Volodymyr Zelensky a annoncé la reprise des frappes contre les raffineries russes, au moment même où il exprimait, dans un entretien au Financial Times, sa colère devant ce qu'il a qualifié de retrait « dangereux » du partage de renseignement américain avec Kyiv. L'épisode, s'il se confirme, toucherait à l'un des piliers les plus sensibles du soutien occidental à l'effort de guerre ukrainien, le renseignement satellitaire et électronique américain ayant joué un rôle déterminant dans la défense antiaérienne et le ciblage ukrainien depuis 2022. <strong>Position de la France :</strong> aucune réaction officielle française n'a pu être identifiée à ce stade sur ce développement précis.</p>
+        <p>En Inde, une enquête approfondie révèle qu'une révision controversée des listes électorales a conduit au retrait de plus de 130 millions d'électeurs, une proportion disproportionnée de musulmans figurant, selon des critiques, parmi les personnes radiées à tort. L'opposition accuse cette « révision agressive » d'avoir pu favoriser le parti du Premier ministre Narendra Modi lors de scrutins récents. <strong>Position de la France :</strong> aucune réaction officielle française n'a été identifiée à ce stade, Paris ne s'étant pas exprimé sur ce dossier de politique intérieure indienne.</p>
+        <p>À Gaza, Israéliens et Palestiniens se rejettent la responsabilité du blocage de l'entrée de nouveaux biens commerciaux dans l'enclave, dans un contexte humanitaire toujours très dégradé. <strong>Position de la France :</strong> aucune réaction officielle française n'a été identifiée à ce stade sur cet épisode précis.</p>
+      </div>
+      <div class="essentiel">
+        <span class="lab">L'essentiel</span>
+        <ul>
+          <li>Les Houthis maintiennent la pression sur l'aviation saoudienne ; la France a condamné le 11 octobre l'attaque de l'aéroport de Riyad et exprimé sa solidarité avec Ryad.</li>
+          <li>Kyiv reprend ses frappes sur les raffineries russes ; Zelensky dénonce un retrait « dangereux » du partage de renseignement américain — aucune réaction française identifiée sur ce point précis.</li>
+          <li>Inde : une révision électorale aurait radié 130 millions d'électeurs, en majorité musulmans selon les critiques ; aucune réaction officielle française identifiée.</li>
+          <li>Gaza : blocage de l'entrée de biens commerciaux, Israéliens et Palestiniens se renvoyant la responsabilité ; aucune réaction officielle française identifiée.</li>
+        </ul>
+      </div>
+      <div class="signature">Par la rédaction du Diplomate</div>
+    </article>
+
+    <article class="section" data-rubrique="GEOECONOMIE">
+      <span class="eyebrow r-GEOECONOMIE">Géoéconomie</span>
+      <h2 class="titre">La fébrilité des marchés de l'IA s'accentue, Jakarta vacille, Paris et Berlin verrouillent leur ligne automobile face à la Chine</h2>
+      <p class="chapeau">Entre un marché obligataire de l'IA sous tension, la menace d'une exclusion de l'Indonésie des indices MSCI et un rapprochement franco-allemand sur la politique automobile européenne face à la Chine, le paysage géoéconomique du jour mêle finance, énergie industrielle et commerce.</p>
+      <span class="duree">6 min de lecture</span>
+      <div class="corps">
+        <p>La correction des marchés liés à l'intelligence artificielle s'est poursuivie cette semaine, les valeurs des semi-conducteurs ayant connu des séances très volatiles sur fond de doutes croissants quant à la soutenabilité du boom de l'IA. Signe de ces tensions, les prix des obligations émises pour financer la construction de centres de données destinés à héberger Meta, Nvidia, Oracle et d'autres géants du secteur sont tombés nettement sous le pair ces dernières semaines, les investisseurs perdant confiance dans la capacité des revenus futurs de l'IA à couvrir cette dette. Dans le même temps, l'agence de notation Kroll Bond Rating Agency a attribué à Anthropic, dès juin, la note la plus élevée jamais obtenue par un acteur de l'IA dans la catégorie spéculative, une étape qui pourrait ouvrir la voie à un statut « investment grade » — signe que le marché du crédit reste malgré tout disposé à financer certains acteurs du secteur. Les bons du Trésor américain ont servi de valeur refuge, les investisseurs s'y repliant face à ces turbulences, tandis qu'un éditorial du Financial Times avertit que « le risque d'un choc lié à l'IA pour les marchés actions est en hausse » et que l'épisode de cette semaine pourrait n'être qu'un avant-goût.</p>
+        <p>En Asie du Sud-Est, la bourse indonésienne, déjà la moins performante de l'année parmi les grandes places émergentes, a chuté vendredi après que le fournisseur d'indices MSCI a averti qu'il pourrait exclure le pays de ses indices de référence, une mise en garde qui relance les interrogations sur l'« investabilité » de la plus grande économie d'Asie du Sud-Est.</p>
+        <p>Sur le dossier automobile, Paris et Berlin se rapprocheraient d'un accord sur le programme de subventions « Made in Europe » et sur le calendrier de sortie du moteur à combustion, deux dossiers industriels majeurs pour la compétitivité européenne face à la concurrence chinoise. Parallèlement, la France et l'Allemagne seraient prêtes à laisser le Royaume-Uni rejoindre la politique automobile de l'Union européenne, à condition que Londres s'aligne sur les droits de douane du bloc visant les véhicules chinois. Ce rapprochement intervient alors que l'accord conclu par l'UE avec Pékin sur les véhicules hybrides, s'il apaise temporairement les tensions commerciales, n'offrirait selon plusieurs analystes qu'un répit de courte durée face à la stratégie chinoise de montée en gamme industrielle.</p>
+      </div>
+      <div class="essentiel">
+        <span class="lab">L'essentiel</span>
+        <ul>
+          <li>Les marchés de l'IA restent sous tension : obligations des centres de données sous le pair, chute des valeurs technologiques, replis vers les bons du Trésor américain.</li>
+          <li>Anthropic a obtenu dès juin la meilleure notation jamais atteinte par un acteur de l'IA en catégorie spéculative, selon Kroll Bond Rating Agency.</li>
+          <li>La bourse indonésienne plonge après une mise en garde de MSCI sur une possible exclusion de ses indices.</li>
+          <li>Paris et Berlin avancent vers un accord sur les subventions « Made in Europe » et la sortie du moteur à combustion, et envisageraient d'associer le Royaume-Uni à la politique automobile de l'UE sous condition d'alignement sur les tarifs anti-Chine.</li>
+        </ul>
+      </div>
+      <div class="signature">Par la rédaction du Diplomate</div>
+    </article>
+
+    <article class="section" data-rubrique="FRANCE">
+      <span class="eyebrow r-FRANCE">France</span>
+      <h2 class="titre">Budget 2027 à l'Assemblée, fusillade scolaire à Aubagne, accident au tunnel sous la Manche</h2>
+      <p class="chapeau">Trois sujets dominent l'actualité intérieure française de ce vendredi : l'entrée du budget 2027 dans sa phase d'examen parlementaire, l'onde de choc d'une fusillade dans un collège des Bouches-du-Rhône, et un accident ferroviaire côté français du tunnel sous la Manche.</p>
+      <span class="duree">5 min de lecture</span>
+      <div class="corps">
+        <p>Le projet de loi de finances pour 2027, déposé début octobre, est entré dans sa phase d'examen à l'Assemblée nationale dans un climat politique et budgétaire tendu. Le texte vise une cible de déficit public de 5,0 % du PIB en 2027, contre une prévision révisée à 5,4 % pour 2026, sur une hypothèse de croissance de 1,0 %. Il prévoit notamment des économies sur les retraites, un gel des salaires dans la fonction publique et des modifications des règles de prise en charge des arrêts maladie. Dans un Parlement toujours sans majorité claire, les débats s'annoncent âpres, le rapporteur général du budget ayant publiquement fait part de son inquiétude quant à l'effet de ces discussions sur les marchés financiers.</p>
+        <p>Un adolescent a ouvert le feu avec un fusil de chasse au collège Joseph-Lakanal d'Aubagne, dans les Bouches-du-Rhône, blessant un chef d'établissement avant d'être interpellé. Le parquet national antiterroriste s'est saisi de l'enquête ; le suspect a depuis été mis en examen et placé en détention provisoire.</p>
+        <p>Côté transports, un accident a fait dix-neuf blessés sur le versant français du tunnel sous la Manche, après la collision d'un autocar avec un train au terminal de Coquelles. Deux personnes ont été évacuées par hélicoptère vers des hôpitaux de la région.</p>
+      </div>
+      <div class="essentiel">
+        <span class="lab">L'essentiel</span>
+        <ul>
+          <li>Le budget 2027 (déficit cible 5,0 % du PIB, croissance 1,0 %) entame son examen à l'Assemblée nationale dans un climat politique tendu.</li>
+          <li>Fusillade au collège Joseph-Lakanal à Aubagne : un chef d'établissement blessé, le parquet antiterroriste saisi, un adolescent mis en examen et écroué.</li>
+          <li>Dix-neuf blessés dans une collision entre un autocar et un train côté français du tunnel sous la Manche, à Coquelles.</li>
+        </ul>
+      </div>
+      <div class="signature">Par la rédaction du Diplomate</div>
+    </article>
+
+    <article class="section" data-rubrique="REGARD_DIPLOMATE">
+      <span class="eyebrow r-REGARD_DIPLOMATE">Le regard du Diplomate</span>
+      <h2 class="titre">Quand les sanctions deviennent une variable d'ajustement électorale</h2>
+      <p class="chapeau">Un regard éditorial sur ce que l'hypothèse d'un assouplissement américain des sanctions pétrolières, et la convergence inhabituelle des crises de sécurité et de marché cette semaine, disent de la fabrique contemporaine de la décision diplomatique.</p>
+      <span class="duree">4 min de lecture</span>
+      <div class="corps">
+        <p>Ce point de vue est celui de la rédaction, et non un constat établi. L'hypothèse d'un assouplissement américain sur les flottes fantômes russe et iranienne, si elle se confirmait, rappellerait une leçon ancienne mais régulièrement oubliée des études diplomatiques : un régime de sanctions n'est jamais seulement un instrument de politique étrangère figé par la doctrine stratégique qui l'a fait naître. Il reste, pour les démocraties qui le pratiquent, soumis aux cycles électoraux internes. Qu'un geste pensé pour faire baisser le prix du carburant avant un scrutin de mi-mandat puisse desserrer, même temporairement, la pression financière sur une économie de guerre, illustre combien la cohérence stratégique d'une politique de sanctions dépend de sa capacité à résister à la tentation du court terme intérieur — une tension que les diplomates en poste doivent apprendre à anticiper plutôt qu'à seulement commenter après coup.</p>
+        <p>La même semaine a vu se superposer, dans un même flux d'actualité, une escalade militaire classique au Yémen, une crise de confiance sur les marchés financiers liés à l'intelligence artificielle, et un bras de fer commercial autour de l'automobile électrique. Cette juxtaposition n'est sans doute pas un hasard : elle témoigne d'un paysage où la sécurité, la finance et l'industrie technologique s'entremêlent de plus en plus étroitement dans la prise de décision des États. Pour qui étudie la diplomatie contemporaine, c'est peut-être là l'invitation la plus utile du jour : apprendre à lire une crise de marché avec les mêmes réflexes d'analyse qu'une crise de sécurité, car les deux grammaires convergent désormais dans les salles de décision.</p>
+      </div>
+      <div class="essentiel">
+        <span class="lab">L'essentiel</span>
+        <ul>
+          <li>Point de vue : les régimes de sanctions restent soumis aux cycles électoraux intérieurs des démocraties qui les édictent.</li>
+          <li>Point de vue : la convergence, la même semaine, d'une crise sécuritaire, d'une crise de marché et d'un dossier commercial illustre l'entremêlement croissant de ces grammaires dans la décision diplomatique.</li>
+        </ul>
+      </div>
+      <div class="signature">L'éditorial du Diplomate</div>
+    </article>
+
+  </main>
+
+  <footer>Le Diplomate — revue de presse quotidienne à usage d'étude en diplomatie · générée automatiquement le 16 octobre 2026 à 08:40</footer>
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById('listen-btn');
+  var label = document.getElementById('listen-label');
+  var synth = window.speechSynthesis;
+
+  if (!synth) { btn.style.display = 'none'; return; }
+
+  function buildText(){
+    var parts = [];
+    document.querySelectorAll('#content article.section').forEach(function(sec){
+      var rub = sec.querySelector('.eyebrow');
+      var titre = sec.querySelector('.titre');
+      var chapeau = sec.querySelector('.chapeau');
+      if (rub) parts.push(rub.textContent + '.');
+      if (titre) parts.push(titre.textContent + '.');
+      if (chapeau) parts.push(chapeau.textContent);
+      sec.querySelectorAll('.corps p').forEach(function(p){ parts.push(p.textContent); });
+      var sig = sec.querySelector('.signature');
+      if (sig) parts.push(sig.textContent + '.');
+    });
+    return parts.join(' ');
+  }
+
+  var playing = false;
+
+  function stop(){
+    try { synth.cancel(); } catch(e){}
+    playing = false;
+    btn.dataset.playing = 'false';
+    btn.setAttribute('aria-pressed', 'false');
+    label.textContent = "Écouter l'édition";
+  }
+
+  function start(){
+    try { synth.cancel(); } catch(e){}
+    var text = buildText();
+    var utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'fr-FR';
+    utter.rate = 0.98;
+    utter.onend = stop;
+    utter.onerror = stop;
+    synth.speak(utter);
+    playing = true;
+    btn.dataset.playing = 'true';
+    btn.setAttribute('aria-pressed', 'true');
+    label.textContent = 'Couper la lecture';
+  }
+
+  btn.addEventListener('click', function(){
+    if (playing) { stop(); } else { start(); }
+  });
+
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden && playing) stop();
+  });
+})();
+</script>
