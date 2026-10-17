@@ -1,0 +1,354 @@
+<!-- Layout: single-column broadsheet front page — masthead, rule, stacked sections each with rubrique eyebrow, serif headline, lead, columns of body text and a boxed "L'essentiel" sidebar-style list -->
+<title>Le Diplomate — 17 octobre</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400..500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ---- tokens ---- */
+  :root{
+    --paper: #f3ecdc;
+    --paper-2: #ebe1cc;
+    --ink: #262019;
+    --ink-soft: #55493c;
+    --rule: #c8bba0;
+    --accent: #8a2f23;   /* masthead red, rubrique UNE / GEOPOLITIQUE */
+    --accent-2: #3d5440;  /* geoeconomie green */
+    --gold: #9c7a2e;      /* regard du diplomate */
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper: #211c16;
+      --paper-2: #2a241c;
+      --ink: #ece4d4;
+      --ink-soft: #c6b89f;
+      --rule: #4a4132;
+      --accent: #d98f7f;
+      --accent-2: #8fb79a;
+      --gold: #d4ae5c;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper: #211c16;
+    --paper-2: #2a241c;
+    --ink: #ece4d4;
+    --ink-soft: #c6b89f;
+    --rule: #4a4132;
+    --accent: #d98f7f;
+    --accent-2: #8fb79a;
+    --gold: #d4ae5c;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    line-height: 1.62;
+    padding-left: max(18px, env(safe-area-inset-left, 0px));
+    padding-right: max(18px, env(safe-area-inset-right, 0px));
+  }
+  .wrap{ max-width: 680px; margin: 0 auto; padding-block: 28px 64px; }
+
+  /* masthead */
+  .masthead{ text-align:center; padding-bottom: 18px; }
+  .masthead .kicker{
+    font-family:"Jost",sans-serif; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+    font-size: .68rem; color: var(--ink-soft);
+  }
+  .masthead h1{
+    font-family:"Fraunces", Georgia, serif; font-weight:600; font-size: clamp(2.4rem, 11vw, 3.4rem);
+    letter-spacing: .01em; margin: 6px 0 10px; text-wrap: balance;
+  }
+  .masthead .meta{
+    display:flex; justify-content:center; gap: 10px; flex-wrap:wrap;
+    font-family:"Jost",sans-serif; font-size:.78rem; color: var(--ink-soft);
+    letter-spacing:.03em; text-transform: uppercase;
+  }
+  .meta .sep{ opacity:.5 }
+
+  .rule{ border:none; border-top: 1px solid var(--rule); margin: 0; }
+  .rule-thick{ border:none; border-top: 3px double var(--ink); margin: 14px 0; }
+
+  /* controls bar */
+  .controls{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    margin: 18px 0 2px;
+  }
+  #listen-btn{
+    font-family:"Jost",sans-serif; font-weight:500; font-size:.82rem; letter-spacing:.02em;
+    background: var(--paper-2); color: var(--ink); border: 1px solid var(--rule);
+    border-radius: 999px; padding: 9px 18px; cursor:pointer;
+    display:inline-flex; align-items:center; gap:8px;
+    transition: background .15s ease, transform .1s ease;
+  }
+  #listen-btn:hover{ background: var(--rule); }
+  #listen-btn:active{ transform: scale(.97); }
+  #listen-btn[data-playing="true"]{ background: var(--accent); color: var(--paper); border-color: var(--accent); }
+  .controls .hint{ font-family:"Jost",sans-serif; font-size:.72rem; color: var(--ink-soft); }
+
+  /* sections */
+  article.section{ padding-block: 34px 10px; }
+  article.section + article.section{ border-top: 1px solid var(--rule); }
+
+  .eyebrow{
+    font-family:"Jost",sans-serif; font-weight:600; font-size:.74rem; letter-spacing:.16em;
+    text-transform:uppercase; display:inline-flex; align-items:center; gap:8px;
+    margin-bottom: 10px;
+  }
+  .eyebrow::before{ content:""; width:18px; height:2px; background: currentColor; display:inline-block; }
+  .r-UNE{ color: var(--accent); }
+  .r-GEOPOLITIQUE{ color: var(--accent); }
+  .r-GEOECONOMIE{ color: var(--accent-2); }
+  .r-FRANCE{ color: var(--ink-soft); }
+  .r-REGARD_DIPLOMATE{ color: var(--gold); }
+
+  h2.titre{
+    font-family:"Fraunces", Georgia, serif; font-weight:600; font-size: clamp(1.5rem, 5.4vw, 2.05rem);
+    line-height:1.18; margin: 0 0 12px; text-wrap: balance;
+  }
+  p.chapeau{
+    font-family:"Fraunces", Georgia, serif; font-style: italic; font-weight: 400;
+    font-size: 1.14rem; color: var(--ink-soft); margin: 0 0 18px; line-height:1.5;
+  }
+  .duree{
+    font-family:"Jost",sans-serif; font-size:.72rem; letter-spacing:.05em; color: var(--ink-soft);
+    text-transform: uppercase; margin-bottom: 14px; display:block;
+  }
+
+  .corps{ max-width: 42em; }
+  .corps p{ margin: 0 0 1.05em; font-size: 1.04rem; }
+  .corps p:first-of-type::first-letter{
+    font-family:"Fraunces", Georgia, serif; font-weight:600; font-size: 2.5em; float:left;
+    line-height:.85; padding: .03em .07em 0 0; color: var(--accent);
+  }
+
+  .essentiel{
+    background: var(--paper-2); border: 1px solid var(--rule); border-radius: 4px;
+    padding: 16px 18px; margin: 20px 0 10px;
+  }
+  .essentiel .lab{
+    font-family:"Jost",sans-serif; font-weight:600; font-size:.72rem; letter-spacing:.12em;
+    text-transform: uppercase; color: var(--ink-soft); margin-bottom:8px; display:block;
+  }
+  .essentiel ul{ margin:0; padding-left: 1.1em; }
+  .essentiel li{ font-family:"Jost",sans-serif; font-size:.92rem; margin-bottom:6px; line-height:1.45; }
+  .essentiel li::marker{ color: var(--accent); }
+
+  .signature{
+    text-align:right; font-family:"Jost",sans-serif; font-style: normal; font-size:.82rem;
+    color: var(--ink-soft); margin-top: 14px; letter-spacing:.02em;
+  }
+
+  footer{
+    text-align:center; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--rule);
+    font-family:"Jost",sans-serif; font-size:.72rem; color: var(--ink-soft); letter-spacing:.03em;
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    article.section{ animation: rise .5s ease both; }
+    @keyframes rise{ from{ opacity:0; transform: translateY(6px) } to{ opacity:1; transform:none } }
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="kicker">Revue de presse diplomatique</div>
+    <h1>Le Diplomate</h1>
+    <div class="meta">
+      <span>Samedi 17 octobre 2026</span><span class="sep">·</span>
+      <span>N° 10</span><span class="sep">·</span>
+      <span>Édition de 06:40</span>
+    </div>
+  </div>
+  <hr class="rule-thick">
+
+  <div class="controls">
+    <button id="listen-btn" data-playing="false" aria-pressed="false">
+      <span aria-hidden="true">🔊</span><span id="listen-label">Écouter l'édition</span>
+    </button>
+  </div>
+  <div class="controls"><span class="hint">Lecture vocale hors-ligne du navigateur — à activer manuellement</span></div>
+
+  <main id="content">
+
+    <article class="section" data-rubrique="UNE">
+      <span class="eyebrow r-UNE">Une</span>
+      <h2 class="titre">Washington lève ses propres sanctions pour importer du diesel russe</h2>
+      <p class="chapeau">Sous la pression de la hausse des prix du carburant et des élections de mi-mandat, Donald Trump autorise l'achat de diesel russe, fragilisant son propre dispositif de sanctions contre Moscou.</p>
+      <span class="duree">4 min de lecture</span>
+      <div class="corps">
+        <p>Le 9 octobre, Donald Trump a annoncé un accord avec Vladimir Poutine portant sur la fourniture de diesel russe aux marchés américain et mondial. Selon le président américain, plus de 300 000 tonnes devaient être livrées immédiatement, suivies de 500 000 tonnes supplémentaires en novembre puis d'un million de tonnes dans les semaines suivantes. Le Kremlin a confirmé sa disposition à fournir davantage de pétrole et de produits pétroliers, sans détailler de calendrier précis.</p>
+        <p>Pour permettre ces livraisons, le département du Trésor américain, via l'OFAC, a publié une licence générale temporaire autorisant l'achat, le transport et l'importation de diesel russe jusqu'au 7 avril 2027. Les autres volets du régime de sanctions demeurent formellement en vigueur : les transactions liées à la banque centrale russe, au fonds souverain et au ministère des Finances russes restent interdites.</p>
+        <p>Ce geste intervient alors que le prix moyen du diesel aux États-Unis a bondi d'environ 70 % depuis le déclenchement, le 28 février, du conflit entre les États-Unis, Israël et l'Iran. Les élections de mi-mandat, prévues le 3 novembre, ajoutent une pression politique immédiate sur la Maison Blanche.</p>
+        <p>La décision crée une tension avec la propre législation de Donald Trump : une loi bipartisane, promulguée par le président lui-même un mois plus tôt, impose pourtant à l'exécutif de sanctionner les principaux importateurs de pétrole et de gaz russes. Douze sénateurs américains, issus des deux partis, ont dénoncé cette incohérence et réclamé un durcissement de la pression économique sur Moscou et ses soutiens, dont la Chine.</p>
+        <p>À Kiev, Volodymyr Zelensky a jugé la mesure inéquitable, estimant que les concessions faites à Moscou n'apportent « ni la paix, ni aucun bénéfice au monde civilisé ». En Europe, le chancelier allemand Friedrich Merz a averti que la Russie ne négocierait sérieusement que sous la contrainte, tandis que plusieurs capitales européennes se sont rapprochées de Kiev et évoquent un soutien financier accru face à ce revirement américain.</p>
+        <p><strong>Position de la France :</strong> aucune réaction officielle du Quai d'Orsay ou de l'Élysée n'a pu être identifiée à ce stade sur cet assouplissement précis des sanctions américaines. Paris s'inscrit pour l'instant dans les discussions européennes plus larges sur un soutien financier accru à Kiev, sans déclaration bilatérale distincte recensée au moment de la rédaction.</p>
+      </div>
+      <div class="essentiel">
+        <span class="lab">L'essentiel</span>
+        <ul>
+          <li>Washington autorise, via une licence temporaire du Trésor, l'achat de diesel russe jusqu'en avril 2027.</li>
+          <li>La mesure répond à une hausse de 70 % des prix du diesel américain et à l'approche des élections de mi-mandat.</li>
+          <li>Elle entre en tension avec une loi de sanctions signée par Trump lui-même un mois plus tôt.</li>
+          <li>Kiev et des sénateurs américains des deux partis dénoncent un geste de faiblesse envers Moscou.</li>
+        </ul>
+      </div>
+      <div class="signature">Par la rédaction du Diplomate</div>
+    </article>
+
+    <article class="section" data-rubrique="GEOPOLITIQUE">
+      <span class="eyebrow r-GEOPOLITIQUE">Géopolitique</span>
+      <h2 class="titre">Yémen, Cisjordanie, péninsule coréenne : trois fronts sous tension</h2>
+      <p class="chapeau">Au Yémen, l'étau se resserre autour de Taëz ; en Cisjordanie, la violence s'intensifie autour des récoltes d'olives ; en Asie, Pyongyang resserre ses liens avec Pékin et Moscou.</p>
+      <span class="duree">5 min de lecture</span>
+      <div class="corps">
+        <p>Au Yémen, les rebelles houthis ont resserré depuis début octobre le siège de Taëz, troisième ville du pays, en coupant une partie des routes d'approvisionnement reliant la cité tenue par le gouvernement à Aden, la capitale provisoire. Le président Rashad al-Alimi a annoncé une offensive baptisée « Aube du Yémen » pour reprendre les zones tenues par les Houthis, avec des avancées revendiquées dans la région de Marib. Les combats ont tué des centaines de combattants depuis septembre et, selon l'ONU, poussé plus de 145 000 personnes à fuir leur domicile. Dans le même temps, la coalition soutenue par Riyad affirme avoir intercepté et détruit des missiles houthis visant des infrastructures énergétiques saoudiennes critiques, signe d'une escalade régionale qui dépasse désormais le seul théâtre yéménite.</p>
+        <p><strong>Position de la France :</strong> aucune réaction officielle française n'a pu être identifiée concernant spécifiquement cette séquence d'escalade autour de Taëz et des tirs houthis contre les infrastructures saoudiennes. Paris maintient par ailleurs sa posture navale défensive de longue date en mer Rouge et dans le détroit de Bab-el-Mandeb — protection du trafic commercial, interception de drones et de missiles en cas d'attaque directe — sans participer aux frappes offensives menées par d'autres partenaires occidentaux contre les positions houthies.</p>
+        <p>En Cisjordanie occupée, des colons israéliens ont attaqué des Palestiniens pendant la récolte des olives, blessant plusieurs personnes, dont un journaliste du Washington Post présent sur place. Cet épisode s'ajoute à une série d'incidents similaires recensés ces dernières semaines dans les territoires occupés, sur fond de tensions persistantes autour de l'expansion des colonies.</p>
+        <p><strong>Position de la France :</strong> aucune réaction officielle française identifiée à ce stade concernant cet épisode précis.</p>
+        <p>En Asie, la Corée du Nord a inauguré de nouvelles liaisons routières et ferroviaires avec la Chine et la Russie, renforçant ses échanges commerciaux avec ses deux principaux soutiens. Selon plusieurs analystes, ce resserrement réduit d'autant la nécessité pour Pyongyang de renouer le dialogue avec Washington et Séoul, qu'elle avait pourtant recherché par le passé.</p>
+        <p><strong>Position de la France :</strong> aucune réaction officielle française identifiée à ce stade.</p>
+      </div>
+      <div class="essentiel">
+        <span class="lab">L'essentiel</span>
+        <ul>
+          <li>Yémen : les Houthis resserrent le siège de Taëz, Riyad et ses alliés répliquent militairement.</li>
+          <li>Plus de 145 000 déplacés depuis septembre selon l'ONU.</li>
+          <li>Cisjordanie : des colons attaquent des récoltants palestiniens, un journaliste étranger blessé.</li>
+          <li>Corée du Nord : nouvelles infrastructures avec la Chine et la Russie, au détriment du dialogue avec Washington et Séoul.</li>
+        </ul>
+      </div>
+      <div class="signature">Par la rédaction du Diplomate</div>
+    </article>
+
+    <article class="section" data-rubrique="GEOECONOMIE">
+      <span class="eyebrow r-GEOECONOMIE">Géoéconomie</span>
+      <h2 class="titre">Pétrole, électricité et marchés : la géopolitique pèse sur l'économie mondiale</h2>
+      <p class="chapeau">Entre flambée pétrolière, répit énergétique italien et doutes sur la bulle de l'intelligence artificielle, les tensions géopolitiques se répercutent directement sur les marchés.</p>
+      <span class="duree">5 min de lecture</span>
+      <div class="corps">
+        <p>Le baril de Brent a atteint son plus haut niveau depuis cinq mois, autour de 110 dollars, après l'annonce par la coalition menée par l'Arabie saoudite de l'interception de missiles houthis visant des infrastructures énergétiques critiques du royaume. Cette flambée fait suite à plusieurs semaines de tensions croissantes en mer Rouge et dans le Golfe, où les flux pétroliers restent sous la menace d'attaques contre les tankers et les installations portuaires.</p>
+        <p>En Europe, l'Italie et la Commission européenne se disent proches d'un accord permettant à Rome de plafonner l'impact de la hausse des prix du gaz sur les factures d'électricité. Le dispositif prévoit une compensation des producteurs d'électricité au gaz lorsque les prix dépassent un certain seuil, financée par une charge répercutée sur les consommateurs mais d'un montant nettement inférieur aux économies attendues. L'accord, encore soumis à des vérifications techniques sur sa compatibilité avec les règles européennes des aides d'État, constitue un soutien politique bienvenu pour la présidente du Conseil Giorgia Meloni, confrontée à la grogne sociale liée au coût de l'énergie.</p>
+        <p>Sur les marchés financiers, les valeurs technologiques américaines ont subi leur plus forte baisse hebdomadaire depuis l'épisode des droits de douane du « jour de la libération » au printemps. Les inquiétudes sur la rentabilité des investissements massifs dans l'intelligence artificielle ont provoqué un mouvement de repli des investisseurs vers la dette publique américaine, interrompant plusieurs mois de vente continue des bons du Trésor.</p>
+        <p>Dans le secteur des services de sécurité, le conglomérat japonais SoftBank négocierait le rachat du groupe américain Allied Universal. L'opération, portée par son fondateur Masayoshi Son, s'inscrit dans une accélération des paris de SoftBank sur la robotique et l'intelligence artificielle, et illustre la montée en puissance des capitaux asiatiques dans des secteurs américains sensibles, à la frontière de la sécurité privée et des infrastructures critiques.</p>
+      </div>
+      <div class="essentiel">
+        <span class="lab">L'essentiel</span>
+        <ul>
+          <li>Le Brent grimpe à un plus haut de cinq mois (environ 110 dollars) après des tirs houthis sur des infrastructures énergétiques saoudiennes.</li>
+          <li>Rome et Bruxelles proches d'un accord pour plafonner les factures d'électricité italiennes.</li>
+          <li>Wall Street : pire semaine des valeurs technologiques depuis le choc tarifaire du printemps, sur fond de doutes sur la bulle de l'IA.</li>
+          <li>SoftBank négocierait le rachat du groupe de sécurité américain Allied Universal.</li>
+        </ul>
+      </div>
+      <div class="signature">Par la rédaction du Diplomate</div>
+    </article>
+
+    <article class="section" data-rubrique="FRANCE">
+      <span class="eyebrow r-FRANCE">France</span>
+      <h2 class="titre">Budget 2027 sous tension, la rue se mobilise le jour des vacances de la Toussaint</h2>
+      <p class="chapeau">Entre un projet de budget d'austérité sans majorité assurée et une journée de mobilisation hétéroclite, la rentrée politique et sociale française reste électrique.</p>
+      <span class="duree">4 min de lecture</span>
+      <div class="corps">
+        <p>Le gouvernement de Sébastien Lecornu poursuit la préparation du budget 2027 sans majorité stable à l'Assemblée nationale. Le projet, présenté début octobre, vise à ne pas dégrader le déficit au-delà du niveau de 2025 (5,1 % du PIB), dans un contexte de croissance atone — le PIB est resté stable au deuxième trimestre après un recul de 0,2 % au premier. Sébastien Lecornu a écarté toute hausse d'impôts par rapport à 2026 et fait porter l'effort budgétaire sur la dépense publique : gel des salaires des fonctionnaires, économies sur les retraites — avec une piste de désindexation partielle des pensions supérieures à 2 000 euros mensuels — et révision des règles d'indemnisation des arrêts maladie.</p>
+        <p>Le risque politique reste élevé : le Premier ministre a indiqué se préparer à une possible motion de censure dans une Assemblée sans majorité, à environ sept mois de l'élection présidentielle. Le ministère de l'Économie étudie par ailleurs une prolongation de la surtaxe sur les bénéfices des grandes entreprises pour desserrer la contrainte budgétaire.</p>
+        <p>Ce contexte budgétaire alimente la journée de mobilisation prévue ce samedi 17 octobre, premier jour des vacances scolaires de la Toussaint. Organisations lycéennes, « gilets jaunes », syndicats et professions comme les infirmiers ou les pompiers appellent à une « convergence des luttes » autour du coût de la vie et du prix des carburants. Les revendications lycéennes incluent la suppression de la plateforme Parcoursup et un plan d'investissement de 10 milliards d'euros pour les lycées. Le caractère décentralisé et peu structuré de cette journée — aucune déclaration de manifestation n'ayant été enregistrée à la préfecture de police de Paris au moment de la préparation de cette édition — rend son ampleur réelle difficile à anticiper.</p>
+      </div>
+      <div class="essentiel">
+        <span class="lab">L'essentiel</span>
+        <ul>
+          <li>Le budget 2027 de Sébastien Lecornu mise sur des économies de dépense (gel des salaires publics, retraites) plutôt que sur l'impôt.</li>
+          <li>Le Premier ministre se dit prêt à affronter une motion de censure, à sept mois de la présidentielle.</li>
+          <li>Une journée de mobilisation disparate (lycéens, gilets jaunes, syndicats) est organisée ce samedi contre la vie chère.</li>
+        </ul>
+      </div>
+      <div class="signature">Par la rédaction du Diplomate</div>
+    </article>
+
+    <article class="section" data-rubrique="REGARD_DIPLOMATE">
+      <span class="eyebrow r-REGARD_DIPLOMATE">Le regard du Diplomate</span>
+      <h2 class="titre">Lire la diplomatie dans ses exceptions</h2>
+      <p class="chapeau">Point de vue éditorial.</p>
+      <span class="duree">3 min de lecture</span>
+      <div class="corps">
+        <p>La levée temporaire des sanctions américaines sur le diesel russe illustre une règle de lecture utile en diplomatie : c'est souvent dans l'exception à une doctrine affichée, plus que dans la doctrine elle-même, que se révèle la hiérarchie réelle des priorités d'un gouvernement. Washington maintient officiellement un cap de pression maximale sur Moscou, codifié dans une loi votée il y a quelques semaines à peine ; mais une échéance électorale et une flambée des prix à la pompe suffisent à ouvrir une brèche. Le sanctionnisme, comme tout instrument de coercition économique, n'est jamais purement un principe : c'est aussi, et peut-être surtout, un calendrier politique intérieur habillé en politique étrangère.</p>
+        <p>Ce n'est pas propre aux États-Unis. Partout où des outils de pression — sanctions, embargos, gel d'avoirs — sont utilisés durablement, des mécanismes de dérogation technique (licences, exemptions, clauses humanitaires) finissent par apparaître, et c'est précisément leur ampleur, leur fréquence et leur discrétion qui permettent de mesurer la détermination réelle d'un État à tenir sa ligne. Pour une diplomatie de lecture, suivre les licences plutôt que les discours n'est pas un exercice technique mineur : c'est souvent le meilleur baromètre disponible de ce qu'un gouvernement est réellement prêt à sacrifier — et à qui. Ceci reste une lecture éditoriale parmi d'autres possibles, non une conclusion factuelle établie.</p>
+      </div>
+      <div class="essentiel">
+        <span class="lab">L'essentiel</span>
+        <ul>
+          <li>Point de vue : une sanction se juge autant par ses exceptions que par son principe affiché.</li>
+          <li>Point de vue : le calendrier intérieur (élections, prix de l'énergie) oriente souvent la politique étrangère plus qu'on ne le reconnaît.</li>
+        </ul>
+      </div>
+      <div class="signature">L'éditorial du Diplomate</div>
+    </article>
+
+  </main>
+
+  <footer>Le Diplomate — revue de presse quotidienne à usage d'étude en diplomatie · générée automatiquement le 17 octobre 2026 à 06:40</footer>
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById('listen-btn');
+  var label = document.getElementById('listen-label');
+  var synth = window.speechSynthesis;
+
+  if (!synth) { btn.style.display = 'none'; return; }
+
+  function buildText(){
+    var parts = [];
+    document.querySelectorAll('#content article.section').forEach(function(sec){
+      var rub = sec.querySelector('.eyebrow');
+      var titre = sec.querySelector('.titre');
+      var chapeau = sec.querySelector('.chapeau');
+      if (rub) parts.push(rub.textContent + '.');
+      if (titre) parts.push(titre.textContent + '.');
+      if (chapeau) parts.push(chapeau.textContent);
+      sec.querySelectorAll('.corps p').forEach(function(p){ parts.push(p.textContent); });
+      var sig = sec.querySelector('.signature');
+      if (sig) parts.push(sig.textContent + '.');
+    });
+    return parts.join(' ');
+  }
+
+  var playing = false;
+
+  function stop(){
+    try { synth.cancel(); } catch(e){}
+    playing = false;
+    btn.dataset.playing = 'false';
+    btn.setAttribute('aria-pressed', 'false');
+    label.textContent = "Écouter l'édition";
+  }
+
+  function start(){
+    try { synth.cancel(); } catch(e){}
+    var text = buildText();
+    var utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'fr-FR';
+    utter.rate = 0.98;
+    utter.onend = stop;
+    utter.onerror = stop;
+    synth.speak(utter);
+    playing = true;
+    btn.dataset.playing = 'true';
+    btn.setAttribute('aria-pressed', 'true');
+    label.textContent = 'Couper la lecture';
+  }
+
+  btn.addEventListener('click', function(){
+    if (playing) { stop(); } else { start(); }
+  });
+
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden && playing) stop();
+  });
+})();
+</script>
