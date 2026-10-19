@@ -1,0 +1,533 @@
+<title>Le Diplomate — 19 octobre</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: single broadsheet column on paper, masthead at top, rubriques as dated dispatches, a toggled read-aloud control fixed bottom-right */
+:root{
+  --paper:#f3ecdf;
+  --paper-deep:#ebe1cf;
+  --ink:#2a2420;
+  --ink-soft:#5b4f44;
+  --rule:#c9b99a;
+  --accent:#8a2b1f;
+  --accent-soft:#b5503f;
+  --byline:#746657;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1d1a16;
+    --paper-deep:#161310;
+    --ink:#e9e0d2;
+    --ink-soft:#bcae9a;
+    --rule:#4a4034;
+    --accent:#e2795f;
+    --accent-soft:#c45c42;
+    --byline:#9c8d78;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1d1a16;
+  --paper-deep:#161310;
+  --ink:#e9e0d2;
+  --ink-soft:#bcae9a;
+  --rule:#4a4034;
+  --accent:#e2795f;
+  --accent-soft:#c45c42;
+  --byline:#9c8d78;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box;}
+body{
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Source Serif 4", Georgia, serif;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 100px;
+  background-image:
+    radial-gradient(ellipse at 15% 0%, color-mix(in srgb, var(--ink) 4%, transparent) 0%, transparent 60%),
+    radial-gradient(ellipse at 85% 100%, color-mix(in srgb, var(--ink) 4%, transparent) 0%, transparent 60%);
+}
+
+.sheet{
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+/* Masthead */
+.masthead{
+  text-align:center;
+  padding-bottom: 18px;
+  border-bottom: 3px solid var(--ink);
+}
+.masthead .kicker{
+  font-family:"JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--byline);
+  margin: 0 0 10px;
+}
+.masthead h1{
+  font-family:"Fraunces", "Source Serif 4", serif;
+  font-weight: 700;
+  font-size: clamp(2.1rem, 9vw, 3.1rem);
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1;
+}
+.masthead h1 em{
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent);
+}
+.masthead .dateline{
+  display:flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 12px;
+  font-family:"JetBrains Mono", monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  flex-wrap: wrap;
+}
+
+/* TOC */
+.toc{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  justify-content:center;
+  padding: 16px 0 20px;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 26px;
+}
+.toc a{
+  font-family:"JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--rule);
+}
+.toc a:hover{ color: var(--accent); }
+
+/* Sections */
+.piece{
+  padding-top: 30px;
+  margin-top: 30px;
+  border-top: 1px solid var(--rule);
+  scroll-margin-top: 90px;
+}
+.piece:first-of-type{ border-top: none; margin-top: 0; padding-top: 0;}
+
+.rubrique{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.rubrique .tag{
+  font-family:"JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.rubrique .line{
+  flex: 1;
+  min-width: 0;
+  height: 1px;
+  background: var(--rule);
+}
+.rubrique .duree{
+  font-family:"JetBrains Mono", monospace;
+  font-size: 10.5px;
+  color: var(--byline);
+  white-space: nowrap;
+}
+
+h2.titre{
+  font-family:"Fraunces", serif;
+  font-weight: 600;
+  font-size: clamp(1.35rem, 5.4vw, 1.75rem);
+  line-height: 1.16;
+  margin: 0 0 10px;
+  text-wrap: balance;
+}
+.chapeau{
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  line-height: 1.5;
+  margin: 0 0 18px;
+  padding-left: 14px;
+  border-left: 2px solid var(--rule);
+}
+
+.corps p{
+  font-size: 1.04rem;
+  line-height: 1.68;
+  margin: 0 0 16px;
+  max-width: 38em;
+}
+.corps p:first-of-type::first-letter{
+  font-family:"Fraunces", serif;
+  font-weight: 700;
+  font-size: 3.1em;
+  float: left;
+  line-height: 0.85;
+  padding: 0.03em 0.08em 0 0;
+  color: var(--accent);
+}
+.position{
+  font-size: 0.98rem !important;
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+  border-left: 2px solid var(--accent-soft);
+  padding: 10px 14px !important;
+  border-radius: 0 3px 3px 0;
+}
+.position strong{ color: var(--accent); font-weight: 600; }
+
+.essentiel{
+  margin: 20px 0 10px;
+  padding: 16px 16px 14px;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+}
+.essentiel .label{
+  font-family:"JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--byline);
+  margin: 0 0 8px;
+}
+.essentiel ul{ margin:0; padding: 0 0 0 1.1em; }
+.essentiel li{
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin-bottom: 6px;
+  color: var(--ink);
+}
+.essentiel li::marker{ color: var(--accent); }
+
+.signature{
+  margin-top: 16px;
+  font-family:"JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--byline);
+}
+
+.piece.editorial .titre{ font-style: italic; }
+.piece.editorial{ position: relative; }
+.piece.editorial .corps p{
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+.piece.editorial .corps p::first-letter{ font-style: normal; }
+
+footer.colophon{
+  margin-top: 46px;
+  padding-top: 18px;
+  border-top: 3px solid var(--ink);
+  text-align:center;
+  font-family:"JetBrains Mono", monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: var(--byline);
+  text-transform: uppercase;
+}
+
+/* Listen control */
+.listen-btn{
+  position: fixed;
+  right: max(18px, calc(env(safe-area-inset-right, 0px) + 18px));
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 18px);
+  z-index: 20;
+  font-family:"JetBrains Mono", monospace;
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  border-radius: 999px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--ink) 35%, transparent);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.listen-btn:hover{ transform: translateY(-1px); }
+.listen-btn:active{ transform: translateY(0); }
+.listen-btn[data-playing="true"]{ background: var(--accent); }
+.listen-btn .ico{ font-size: 15px; line-height:1; }
+.listen-btn .lbl{ white-space: nowrap; }
+.listen-status{
+  position: fixed;
+  right: max(18px, calc(env(safe-area-inset-right, 0px) + 18px));
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 66px);
+  z-index: 20;
+  font-family:"JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--byline);
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  padding: 5px 9px;
+  border-radius: 4px;
+  max-width: 220px;
+  text-align: right;
+}
+.listen-status[hidden]{ display:none; }
+
+@media (max-width: 480px){
+  .masthead h1{ font-size: 2.2rem; }
+  .listen-btn .lbl{ display:none; }
+  .listen-btn{ padding: 13px; }
+}
+</style>
+
+<div class="sheet">
+
+  <div class="masthead">
+    <p class="kicker">Revue matinale de géopolitique &amp; diplomatie</p>
+    <h1>Le <em>Diplomate</em></h1>
+    <div class="dateline">
+      <span>Lundi 19 octobre 2026</span>
+      <span>N° 12 · 08:46</span>
+    </div>
+  </div>
+
+  <nav class="toc">
+    <a href="#une">Une</a>
+    <a href="#geopolitique">Géopolitique</a>
+    <a href="#geoeconomie">Géoéconomie</a>
+    <a href="#france">France</a>
+    <a href="#regard">Regard</a>
+  </nav>
+
+  <article class="piece" id="une" data-rubrique="UNE" data-titre="À la une">
+    <div class="rubrique"><span class="tag">Une</span><span class="line"></span><span class="duree">4 min</span></div>
+    <h2 class="titre">Macron face à la pire crise sociale de son second mandat</h2>
+    <p class="chapeau">Des émeutes qualifiées « sans précédent » par les autorités ont embrasé plusieurs villes françaises ce week-end, précipitant une crise politique à six mois de l'échéance présidentielle.</p>
+    <div class="corps">
+      <p>Des manifestations nationales samedi, qui réunissaient des lycéens protestant contre leurs conditions d'études et des citoyens en colère face au coût de la vie, ont dégénéré dans la soirée en scènes que les autorités ont qualifiées de « sans précédent ». Des commerces ont été pillés, des mairies attaquées, des bâtiments incendiés, et des individus encagoulés et vêtus de noir se sont affrontés aux forces de l'ordre dans plusieurs villes du pays.</p>
+      <p>Emmanuel Macron a appelé au calme dimanche soir dans une allocution télévisée rare, promettant que les auteurs des pillages et des violences seraient poursuivis. Le gouvernement minoritaire du Premier ministre Sébastien Lecornu affrontait déjà plusieurs crises simultanées : une bataille budgétaire pour 2027, des marchés financiers nerveux, et des semaines de mobilisation lycéenne qui avaient précédé l'embrasement de ce week-end.</p>
+      <p>Ces scènes surviennent six mois avant une élection présidentielle à haut risque, où Marine Le Pen apparaît comme favorite des sondages. « Il y aura un avant et un après cette explosion de colère publique », a estimé Bruno Cautrès, politologue à Sciences Po, cité par le Financial Times. Selon lui, ces scènes « apocalyptiques » ont donné l'impression que l'État n'était plus en contrôle du pays, ce qui pourrait peser sur le comportement électoral.</p>
+      <p>La crise a fait la une de plusieurs titres de presse internationale dès ce lundi matin, signe de la rapidité avec laquelle l'instabilité intérieure française se répercute sur les marchés et sur le poids diplomatique du pays, à un moment où les négociations budgétaires européennes et les tensions transatlantiques sur la souveraineté numérique restent en suspens.</p>
+    </div>
+    <div class="essentiel">
+      <p class="label">L'essentiel</p>
+      <ul>
+        <li>Émeutes qualifiées de « sans précédent » par les autorités, touchant plusieurs villes samedi soir.</li>
+        <li>Macron appelle au calme dans une adresse télévisée rare ; les auteurs de violences seront poursuivis.</li>
+        <li>La crise s'ajoute à la bataille budgétaire 2027 et aux mobilisations lycéennes des dernières semaines.</li>
+        <li>Marine Le Pen, favorite des sondages, à six mois de l'élection présidentielle.</li>
+      </ul>
+    </div>
+    <p class="signature">Par la rédaction du Diplomate</p>
+  </article>
+
+  <article class="piece" id="geopolitique" data-rubrique="Géopolitique" data-titre="Géopolitique">
+    <div class="rubrique"><span class="tag">Géopolitique</span><span class="line"></span><span class="duree">5 min</span></div>
+    <h2 class="titre">Ukraine, Alberta, Israël : quatre fronts sous tension diplomatique</h2>
+    <p class="chapeau">Entre trêve énergétique fragile en Ukraine, référendum sur l'indépendance de l'Alberta et incertitudes avant les élections israéliennes, tour d'horizon des dossiers internationaux du jour — et des positions françaises, quand elles existent.</p>
+    <div class="corps">
+      <p>Donald Trump avait annoncé une trêve énergétique entre la Russie et l'Ukraine, mais celle-ci n'a pas tenu sur le terrain : Moscou a poursuivi ses frappes sur les infrastructures énergétiques ukrainiennes, privant quelque 600 000 personnes d'électricité selon Kyiv, tandis que l'Ukraine a de son côté repris ses frappes sur les raffineries russes, une décision publiquement condamnée par Trump, qui l'a qualifiée de « honte ». Kyiv a par ailleurs mené sa plus importante attaque de drones jamais menée contre Saint-Pétersbourg, défiant les demandes américaines de cesser les frappes sur les sites énergétiques russes. La situation s'est encore compliquée lorsque SpaceX semble avoir imposé une limitation de vitesse aux terminaux Starlink utilisés par les drones ukrainiens ; un conseiller de Volodymyr Zelensky a évoqué une « opération planifiée » liée à la situation politique du moment, sans donner plus de détails. Ni SpaceX ni la Maison Blanche n'ont commenté. La Haute représentante de l'UE Kaja Kallas a salué l'idée d'une trêve énergétique tout en disant ne voir aucun signe que la Russie s'y conformerait ; le secrétaire général de l'OTAN Mark Rutte a appelé à l'appliquer.</p>
+      <p class="position"><strong>Position de la France :</strong> aucune réaction officielle française identifiée à ce stade concernant la trêve énergétique ukrainienne ou les restrictions imposées aux terminaux Starlink. Paris n'a pas publié de communiqué distinct de celui des instances européennes sur ce point précis.</p>
+      <p>Les Albertains votent ce lundi lors d'un référendum sur l'indépendance de leur province, un scrutin non contraignant quel qu'en soit le résultat. Les sondages préélectoraux suggéraient qu'environ 70% des habitants de l'Alberta souhaitaient rester au sein du Canada, contre 22 à 30% favorables à l'indépendance. Au niveau national, une part non négligeable des Canadiens hors Alberta disait elle-même envisager de voter pour une sécession si leur propre province organisait un référendum similaire, signe d'une fragmentation plus large de l'unité canadienne, sur fond de pression commerciale américaine qui complique les efforts du Premier ministre Mark Carney pour unir le pays face à Washington.</p>
+      <p class="position"><strong>Position de la France :</strong> aucune réaction officielle française identifiée à ce stade ; il s'agit d'une consultation provinciale interne au Canada, sans portée contraignante, sur laquelle Paris ne s'est pas exprimé publiquement.</p>
+      <p>Les Israéliens voteront le 27 octobre lors des premières élections législatives depuis l'attaque du Hamas d'octobre 2023. Donald Trump a éludé, à plusieurs reprises ces dernières semaines, les questions sur un éventuel soutien à la réélection de Benjamin Netanyahu, après avoir pourtant indiqué en juin qu'il le soutiendrait probablement. Plusieurs médias évoquent des tensions croissantes entre les deux hommes, notamment sur la manière de mettre fin à la guerre avec l'Iran, Netanyahu ayant souhaité poursuivre les opérations militaires là où Trump cherchait à y mettre un terme. L'opposition israélienne aurait, selon des médias israéliens, demandé à Trump de rester neutre durant la campagne.</p>
+      <p class="position"><strong>Position de la France :</strong> aucune réaction officielle française identifiée à ce stade sur l'approche de ces élections israéliennes ni sur les tensions entre Donald Trump et Benjamin Netanyahu.</p>
+      <p>Enfin, les forces américaines et japonaises ont entamé les manœuvres militaires biennales « Keen Sword » dans le sud-ouest du Japon. Le général Ronald Clark, commandant des forces terrestres américaines en Asie, a indiqué au Financial Times vouloir accroître de manière visible les capacités militaires américaines dans l'Indo-Pacifique, dans un contexte de préoccupations persistantes sur les ambitions chinoises dans la région.</p>
+      <p class="position"><strong>Position de la France :</strong> aucune réaction officielle française identifiée à ce stade, bien que la France dispose d'intérêts directs dans la région via ses territoires du Pacifique (Nouvelle-Calédonie, Polynésie française).</p>
+    </div>
+    <div class="essentiel">
+      <p class="label">L'essentiel</p>
+      <ul>
+        <li>Trêve énergétique russo-ukrainienne annoncée par Trump mais non respectée dans les faits sur le terrain.</li>
+        <li>Kyiv frappe Saint-Pétersbourg ; Starlink limiterait la vitesse des drones ukrainiens.</li>
+        <li>Référendum non contraignant sur l'indépendance de l'Alberta ce lundi au Canada.</li>
+        <li>Élections israéliennes le 27 octobre ; Trump élude la question d'un soutien à Netanyahu.</li>
+      </ul>
+    </div>
+    <p class="signature">Par la rédaction du Diplomate</p>
+  </article>
+
+  <article class="piece" id="geoeconomie" data-rubrique="Géoéconomie" data-titre="Géoéconomie">
+    <div class="rubrique"><span class="tag">Géoéconomie</span><span class="line"></span><span class="duree">4 min</span></div>
+    <h2 class="titre">Starlink, Chine, dollar : la géoéconomie sous tension</h2>
+    <p class="chapeau">Washington menace Bruxelles de représailles sur l'espace, la croissance chinoise s'appuie sur les exportations, et la guerre en Iran resserre l'accès au dollar sur les marchés internationaux.</p>
+    <div class="corps">
+      <p>L'ambassadeur des États-Unis auprès de l'UE a averti Bruxelles de représailles « dévastatrices » de Washington si l'Union européenne persistait dans des projets perçus comme restreignant l'accès de rivaux américains, au premier chef SpaceX et son réseau Starlink, au marché européen. En cause : la bande de fréquences satellite des 2 GHz, actuellement exploitée sous licences américaines (Viasat, EchoStar) qui expirent en 2027. Bruxelles propose de diviser cette bande en trois, réservant une part au programme européen IRIS² et une autre aux opérateurs commerciaux européens, ce qui favoriserait le consortium SpaceRISE, formé notamment par le français Eutelsat, l'espagnol Hispasat et le luxembourgeois SES. Parallèlement, plusieurs grands opérateurs télécoms européens (Orange, Deutsche Telekom, Vodafone, Telefónica) discuteraient d'une coentreprise destinée à proposer un service satellite-mobile concurrent de Starlink. Le président de la FCC américaine, Brendan Carr, a laissé entendre que Washington pourrait imposer de nouvelles contraintes réglementaires aux entreprises européennes si Bruxelles persistait dans cette voie.</p>
+      <p>Sur le plan macroéconomique, la croissance chinoise a accéléré au troisième trimestre, à 4,5% selon les chiffres rapportés par le Financial Times, les exportations dopées par l'essor de l'intelligence artificielle ayant compensé la faiblesse de la consommation et de l'investissement intérieurs. Selon des analystes cités par le même journal, ce chiffre place la deuxième économie mondiale sur la trajectoire de son objectif de croissance annuel.</p>
+      <p>Enfin, une analyse publiée par le Financial Times souligne que la guerre en Iran et certaines évolutions de la politique chinoise contribuent à resserrer l'offre de dollars sur les marchés internationaux, amplifiant ailleurs dans le monde les effets des mouvements de taux américains. Dans un registre connexe, la hausse des prix de l'énergie aux États-Unis est de plus en plus associée par les électeurs américains aux choix commerciaux et énergétiques de l'administration Trump — une pression intérieure qui n'est sans doute pas sans lien avec l'irritation manifestée par le président américain face à la reprise, par l'Ukraine, de ses frappes sur les raffineries russes : un rappel de la manière dont les contraintes économiques intérieures à Washington peuvent peser sur la position américaine dans la guerre en Ukraine.</p>
+    </div>
+    <div class="essentiel">
+      <p class="label">L'essentiel</p>
+      <ul>
+        <li>Washington menace l'UE de rétorsion si Bruxelles restreint l'accès de SpaceX/Starlink au marché européen.</li>
+        <li>Bataille autour de la bande des 2 GHz, enjeu de souveraineté spatiale pour l'Europe (Eutelsat, SES, Hispasat).</li>
+        <li>Croissance chinoise de 4,5% au troisième trimestre, tirée par les exportations liées à l'IA.</li>
+        <li>La guerre en Iran et les évolutions chinoises resserrent l'accès au dollar sur les marchés mondiaux.</li>
+      </ul>
+    </div>
+    <p class="signature">Par la rédaction du Diplomate</p>
+  </article>
+
+  <article class="piece" id="france" data-rubrique="France" data-titre="France">
+    <div class="rubrique"><span class="tag">France</span><span class="line"></span><span class="duree">3 min</span></div>
+    <h2 class="titre">Budget 2027 : Lecornu joue la carte de l'urgence face à l'Assemblée</h2>
+    <p class="chapeau">Présenté début octobre, le projet de loi de finances pour 2027 doit être examiné dans un calendrier contraint, sur fond de menaces de censure et de tensions sociales.</p>
+    <div class="corps">
+      <p>Le projet de loi de finances (PLF) et le projet de loi de financement de la sécurité sociale (PLFSS) pour 2027, présentés en Conseil des ministres début octobre, prévoient un effort d'économies d'environ 43 milliards d'euros pour la seule année 2027, portant l'effort cumulé depuis 2026 à près de 54 milliards d'euros selon le gouvernement, avec pour objectif de ramener le déficit public à environ 5% du PIB en 2027, après un dérapage attendu à 5,4% en 2026 selon Bercy. Le PLFSS prévoit notamment un gel des aides personnalisées au logement (APL) à leur niveau de 2026.</p>
+      <p>Déposés à l'Assemblée nationale le 6 octobre, les deux textes doivent être votés avant le 26 novembre pour le PLF et le 17 décembre pour le PLFSS, en vertu des délais constitutionnels d'examen budgétaire. Le Premier ministre Sébastien Lecornu, qui a réaffirmé ne pas être candidat à l'élection présidentielle, s'est engagé à ne pas recourir à l'article 49.3 ni aux ordonnances en l'absence de blocage parlementaire, présentant le vote comme inévitable : « attendre la présidentielle, c'est choisir le désordre. » La gauche et La France insoumise ont laissé entendre qu'elles pourraient déposer une motion de censure, et la CGT a exprimé son opposition au texte.</p>
+      <p>Cette bataille parlementaire se déroule en toile de fond des semaines de mobilisation lycéenne sur les conditions d'enseignement qui avaient précédé les troubles plus larges de ce week-end, ajoutant une pression supplémentaire sur un gouvernement déjà minoritaire à l'Assemblée.</p>
+    </div>
+    <div class="essentiel">
+      <p class="label">L'essentiel</p>
+      <ul>
+        <li>PLF 2027 : environ 43 milliards d'euros d'économies supplémentaires, 54 milliards cumulés depuis 2026.</li>
+        <li>Objectif : ramener le déficit public à environ 5% du PIB en 2027.</li>
+        <li>Vote attendu à l'Assemblée avant le 26 novembre (PLF) et le 17 décembre (PLFSS).</li>
+        <li>La France insoumise et la gauche évoquent une possible motion de censure ; opposition de la CGT.</li>
+      </ul>
+    </div>
+    <p class="signature">Par la rédaction du Diplomate</p>
+  </article>
+
+  <article class="piece editorial" id="regard" data-rubrique="Regard du Diplomate" data-titre="Regard du Diplomate">
+    <div class="rubrique"><span class="tag">Regard du Diplomate</span><span class="line"></span><span class="duree">3 min</span></div>
+    <h2 class="titre">Ce que les trêves non vérifiées et les émeutes nous rappellent</h2>
+    <p class="chapeau">Un point de vue éditorial sur les leçons de lecture diplomatique que suggère l'actualité du jour.</p>
+    <div class="corps">
+      <p>Une trêve annoncée n'est pas une trêve appliquée. L'écart entre le cessez-le-feu énergétique annoncé par Donald Trump entre la Russie et l'Ukraine et la poursuite des frappes des deux côtés illustre une leçon récurrente de la diplomatie : ce qui compte n'est pas la déclaration, mais le mécanisme de vérification et d'application qui l'accompagne. Sans dispositif de contrôle ni sanction crédible en cas de violation, une trêve reste une déclaration politique, non une réalité opérationnelle — l'histoire diplomatique, de la péninsule coréenne aux Balkans, l'a montré à de nombreuses reprises.</p>
+      <p>Seconde leçon, plus diffuse : la fragilité intérieure est aussi une politique étrangère. Les troubles qui secouent la France, à quelques jours de négociations budgétaires européennes sensibles et en pleine tension transatlantique sur la souveraineté numérique et spatiale, rappellent qu'un État construit sa crédibilité internationale autant sur sa capacité à maintenir l'ordre chez lui que sur sa posture diplomatique à l'extérieur. La même logique vaut pour l'unité canadienne mise à l'épreuve par le référendum albertain, ou pour Israël, dont les élections se tiennent sous l'ombre d'une guerre non résolue. Pour qui étudie la diplomatie, la leçon du jour tient moins à tel ou tel événement qu'à cette interaction constante entre l'ordre intérieur d'un pays et le crédit qu'il peut faire valoir à l'étranger — un point de vue, non un fait établi, mais qui mérite d'être confronté à l'actualité de chaque jour.</p>
+    </div>
+    <div class="essentiel">
+      <p class="label">L'essentiel</p>
+      <ul>
+        <li>Une trêve sans mécanisme de vérification reste une déclaration, pas une réalité opérationnelle.</li>
+        <li>La stabilité intérieure d'un État conditionne en partie sa crédibilité diplomatique à l'étranger.</li>
+        <li>Ce regard est un point de vue éditorial, non un fait établi.</li>
+      </ul>
+    </div>
+    <p class="signature">L'éditorial du Diplomate</p>
+  </article>
+
+  <footer class="colophon">
+    Le Diplomate · Édition n° 12 · Générée le 19 octobre 2026 à 08:46
+  </footer>
+
+</div>
+
+<button class="listen-btn" id="listenBtn" type="button" aria-pressed="false">
+  <span class="ico" id="listenIco">🔊</span>
+  <span class="lbl" id="listenLbl">Écouter</span>
+</button>
+<p class="listen-status" id="listenStatus" hidden></p>
+
+<script>
+(function(){
+  var btn = document.getElementById('listenBtn');
+  var ico = document.getElementById('listenIco');
+  var lbl = document.getElementById('listenLbl');
+  var status = document.getElementById('listenStatus');
+  var synth = window.speechSynthesis;
+  var speaking = false;
+  var pieces = Array.prototype.slice.call(document.querySelectorAll('.piece'));
+
+  if (!synth) {
+    btn.hidden = true;
+    return;
+  }
+
+  function textOfPiece(p){
+    var titre = p.querySelector('.titre');
+    var chapeau = p.querySelector('.chapeau');
+    var paras = Array.prototype.slice.call(p.querySelectorAll('.corps p')).map(function(x){ return x.textContent; });
+    var rubrique = p.getAttribute('data-rubrique') || '';
+    return [rubrique + '.', titre ? titre.textContent : '', chapeau ? chapeau.textContent : ''].concat(paras).join('  ');
+  }
+
+  function buildUtterances(){
+    return pieces.map(function(p){
+      var u = new SpeechSynthesisUtterance(textOfPiece(p));
+      u.lang = 'fr-FR';
+      u.rate = 0.98;
+      return u;
+    });
+  }
+
+  function setPlayingUI(on){
+    speaking = on;
+    btn.setAttribute('data-playing', on ? 'true' : 'false');
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    ico.textContent = on ? '⏸' : '🔊';
+    lbl.textContent = on ? 'Pause' : 'Écouter';
+  }
+
+  function stopReading(){
+    synth.cancel();
+    setPlayingUI(false);
+    status.hidden = true;
+  }
+
+  function startReading(){
+    try { synth.cancel(); } catch(e) {}
+    var utterances = buildUtterances();
+    var idx = 0;
+
+    function speakNext(){
+      if (idx >= utterances.length) {
+        setPlayingUI(false);
+        status.hidden = true;
+        return;
+      }
+      var piece = pieces[idx];
+      status.hidden = false;
+      status.textContent = 'Lecture : ' + (piece.getAttribute('data-titre') || '');
+      var u = utterances[idx];
+      u.onend = function(){ idx++; speakNext(); };
+      u.onerror = function(){ idx++; speakNext(); };
+      synth.speak(u);
+    }
+
+    setPlayingUI(true);
+    speakNext();
+  }
+
+  btn.addEventListener('click', function(){
+    if (speaking) {
+      stopReading();
+    } else {
+      startReading();
+    }
+  });
+
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden && speaking) {
+      stopReading();
+    }
+  });
+})();
+</script>
