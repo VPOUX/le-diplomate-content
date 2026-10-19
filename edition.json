@@ -1,133 +1,104 @@
 {
-  "date": "2026-10-18",
-  "numero": 11,
-  "heureGeneration": "08:47",
+  "date": "2026-10-19",
+  "numero": 12,
+  "heureGeneration": "08:46",
   "sections": [
     {
       "ordre": 1,
       "rubrique": "UNE",
-      "titre": "Washington met Paris et Berlin à contribution pour desserrer son marché du diesel",
-      "chapeau": "Après avoir levé une partie de ses sanctions pour importer du diesel russe, Washington demande à la France et à l'Allemagne de puiser dans leurs réserves stratégiques. Un test pour la solidarité énergétique européenne, à quelques semaines des élections de mi-mandat américaines.",
-      "dureeLectureMin": 5,
+      "titre": "Macron face à la pire crise sociale de son second mandat",
+      "chapeau": "Des émeutes qualifiées « sans précédent » par les autorités ont embrasé plusieurs villes françaises ce week-end, précipitant une crise politique à six mois de l'échéance présidentielle.",
+      "dureeLectureMin": 4,
       "corpsArticle": [
-        "Le 9 octobre, Donald Trump a annoncé un accord avec Vladimir Poutine portant sur la fourniture de diesel russe aux marchés américain et mondial, et le Trésor américain a délivré, via l'OFAC, une licence générale temporaire autorisant l'achat, le transport et l'importation de diesel russe jusqu'au 7 avril 2027. Le reste du dispositif de sanctions contre la Russie reste formellement en vigueur, notamment les interdictions visant la banque centrale russe, le fonds souverain et le ministère des Finances. Volodymyr Zelensky a qualifié cette décision de malhonnête, tandis que l'administration Trump assume l'avoir prise pour faire baisser les prix à la pompe avant les élections de mi-mandat du 3 novembre.",
-        "Cette levée partielle de sanctions ne suffit toutefois pas à résorber la pénurie de produits raffinés sur le marché américain : les marges de raffinage ont atteint 235 euros par tonne en septembre, contre environ 40 euros en février, en partie à cause de dommages subis par plusieurs raffineries du Golfe. Selon des sources diplomatiques citées par Politico, Washington a demandé à la France et à l'Allemagne de libérer une partie de leurs réserves stratégiques de diesel, en s'appuyant sur un engagement pris par les deux pays envers Donald Trump dès le mois de mars. Le G7 envisage par ailleurs une libération coordonnée pouvant atteindre 100 millions de barils de produits raffinés.",
-        "Côté français, le ministère de l'Énergie s'est refusé à tout commentaire sur la demande américaine portant sur les stocks. À l'Élysée, un responsable a précisé que ce sujet précis n'avait pas été abordé lors de la récente rencontre entre Emmanuel Macron et Donald Trump à New York. Le président français envisagerait toutefois d'organiser une visioconférence du G7 pour coordonner la disponibilité des produits raffinés entre pays membres.",
-        "L'épisode illustre la position inconfortable des alliés européens de Washington : sollicités pour atténuer les effets d'une décision américaine qui soulage indirectement Moscou, alors même que l'Union européenne maintient par ailleurs son propre régime de sanctions contre la Russie. Pour la France, premier importateur net de diesel en Europe avec environ la moitié de sa consommation couverte par des importations, la question des réserves stratégiques touche directement à la sécurité d'approvisionnement intérieure, en pleine saison de chauffe et de rentrée budgétaire."
+        "Des manifestations nationales samedi, qui réunissaient des lycéens protestant contre leurs conditions d'études et des citoyens en colère face au coût de la vie, ont dégénéré dans la soirée en scènes que les autorités ont qualifiées de « sans précédent ». Des commerces ont été pillés, des mairies attaquées, des bâtiments incendiés, et des individus encagoulés et vêtus de noir se sont affrontés aux forces de l'ordre dans plusieurs villes du pays.",
+        "Emmanuel Macron a appelé au calme dimanche soir dans une allocution télévisée rare, promettant que les auteurs des pillages et des violences seraient poursuivis. Le gouvernement minoritaire du Premier ministre Sébastien Lecornu affrontait déjà plusieurs crises simultanées : une bataille budgétaire pour 2027, des marchés financiers nerveux, et des semaines de mobilisation lycéenne qui avaient précédé l'embrasement de ce week-end.",
+        "Ces scènes surviennent six mois avant une élection présidentielle à haut risque, où Marine Le Pen apparaît comme favorite des sondages. « Il y aura un avant et un après cette explosion de colère publique », a estimé Bruno Cautrès, politologue à Sciences Po, cité par le Financial Times. Selon lui, ces scènes « apocalyptiques » ont donné l'impression que l'État n'était plus en contrôle du pays, ce qui pourrait peser sur le comportement électoral.",
+        "La crise a fait la une de plusieurs titres de presse internationale dès ce lundi matin, signe de la rapidité avec laquelle l'instabilité intérieure française se répercute sur les marchés et sur le poids diplomatique du pays, à un moment où les négociations budgétaires européennes et les tensions transatlantiques sur la souveraineté numérique restent en suspens."
       ],
       "essentiel": [
-        "Washington a délivré une licence temporaire (jusqu'au 7 avril 2027) autorisant l'importation de diesel russe, pour faire baisser les prix avant les midterms du 3 novembre.",
-        "Les États-Unis demandent à la France et à l'Allemagne de libérer leurs réserves stratégiques de diesel, au nom d'un engagement pris en mars.",
-        "Le ministère français de l'Énergie n'a pas commenté ; l'Élysée affirme que le sujet n'a pas été abordé lors du dernier échange Macron-Trump.",
-        "Macron envisagerait une visioconférence du G7 pour coordonner la libération de produits raffinés."
+        "Émeutes qualifiées de « sans précédent » par les autorités, touchant plusieurs villes samedi soir.",
+        "Macron appelle au calme dans une adresse télévisée rare ; les auteurs de violences seront poursuivis.",
+        "La crise s'ajoute à la bataille budgétaire 2027 et aux mobilisations lycéennes des dernières semaines.",
+        "Marine Le Pen, favorite des sondages, à six mois de l'élection présidentielle."
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 2,
       "rubrique": "GEOPOLITIQUE",
-      "titre": "Ukraine : la bride mise sur les terminaux Starlink fragilise la défense antiaérienne",
-      "chapeau": "Des restrictions de débit sur les terminaux Starshield utilisés par l'armée ukrainienne ont perturbé l'interception de drones russes. Kiev dit chercher des alternatives, dont une offre française, sans qu'aucune déclaration officielle de Paris n'ait été identifiée.",
-      "dureeLectureMin": 4,
+      "titre": "Ukraine, Alberta, Israël : quatre fronts sous tension diplomatique",
+      "chapeau": "Entre trêve énergétique fragile en Ukraine, référendum sur l'indépendance de l'Alberta et incertitudes avant les élections israéliennes, tour d'horizon des dossiers internationaux du jour — et des positions françaises, quand elles existent.",
+      "dureeLectureMin": 5,
       "corpsArticle": [
-        "Dans la nuit du 13 au 14 octobre, les terminaux Starshield, version militaire de Starlink utilisée par les forces ukrainiennes, ont vu leur débit plafonné dès que les équipements embarqués dépassaient une certaine vitesse, selon un conseiller militaire ukrainien, Serhii Beskrestnov. Cette limitation a touché en particulier les systèmes mobiles utilisés pour intercepter les drones Shahed à propulsion par réacteur, capables de dépasser 400 km/h, alors que la vitesse autorisée pour les terminaux aurait été ramenée à environ 70 km/h avant une restauration partielle.",
-        "Volodymyr Zelensky a qualifié la décision d'erreur grave aux conséquences humaines probables, estimant que la Russie chercherait à exploiter ces dysfonctionnements. Selon Elon Musk, ce sont les autorités militaires américaines, et non SpaceX, qui fixent ces limites de vitesse sur les terminaux Starshield ; SpaceX n'a pas confirmé publiquement ces restrictions. L'ancien ministre ukrainien du Numérique, Mykhailo Fedorov, a indiqué que les vitesses jusqu'à 160 km/h étaient en cours de restauration, tandis qu'un responsable gouvernemental évalue à 450 km/h le seuil nécessaire pour une interception efficace des drones les plus rapides.",
-        "Lors d'un sommet européen à Bruxelles, Zelensky a indiqué que l'Ukraine travaillait avec plusieurs pays, dont la France, pour développer des solutions satellitaires alternatives. L'opérateur français Eutelsat, qui a déjà évoqué le déploiement de dizaines de milliers de terminaux pour se substituer à Starlink, est régulièrement cité comme candidat naturel, mais ses capacités de déploiement rapide restent limitées par rapport à l'ampleur du besoin ukrainien.",
-        "Position de la France : aucune réaction officielle française n'a été identifiée à ce stade sur cet épisode précis de restriction des terminaux Starshield. Seule la mention par Volodymyr Zelensky d'un travail en cours avec Paris sur des solutions alternatives a pu être documentée, sans confirmation ni détail de la part de l'Élysée ou du Quai d'Orsay."
+        "Donald Trump avait annoncé une trêve énergétique entre la Russie et l'Ukraine, mais celle-ci n'a pas tenu sur le terrain : Moscou a poursuivi ses frappes sur les infrastructures énergétiques ukrainiennes, privant quelque 600 000 personnes d'électricité selon Kyiv, tandis que l'Ukraine a de son côté repris ses frappes sur les raffineries russes, une décision publiquement condamnée par Trump, qui l'a qualifiée de « honte ». Kyiv a par ailleurs mené sa plus importante attaque de drones jamais menée contre Saint-Pétersbourg, défiant les demandes américaines de cesser les frappes sur les sites énergétiques russes. La situation s'est encore compliquée lorsque SpaceX semble avoir imposé une limitation de vitesse aux terminaux Starlink utilisés par les drones ukrainiens ; un conseiller de Volodymyr Zelensky a évoqué une « opération planifiée » liée à la situation politique du moment, sans donner plus de détails. Ni SpaceX ni la Maison Blanche n'ont commenté. La Haute représentante de l'UE Kaja Kallas a salué l'idée d'une trêve énergétique tout en disant ne voir aucun signe que la Russie s'y conformerait ; le secrétaire général de l'OTAN Mark Rutte a appelé à l'appliquer.",
+        "Position de la France : aucune réaction officielle française identifiée à ce stade concernant la trêve énergétique ukrainienne ou les restrictions imposées aux terminaux Starlink. Paris n'a pas publié de communiqué distinct de celui des instances européennes sur ce point précis.",
+        "Les Albertains votent ce lundi lors d'un référendum sur l'indépendance de leur province, un scrutin non contraignant quel qu'en soit le résultat. Les sondages préélectoraux suggéraient qu'environ 70% des habitants de l'Alberta souhaitaient rester au sein du Canada, contre 22 à 30% favorables à l'indépendance. Au niveau national, une part non négligeable des Canadiens hors Alberta disait elle-même envisager de voter pour une sécession si leur propre province organisait un référendum similaire, signe d'une fragmentation plus large de l'unité canadienne, sur fond de pression commerciale américaine qui complique les efforts du Premier ministre Mark Carney pour unir le pays face à Washington.",
+        "Position de la France : aucune réaction officielle française identifiée à ce stade ; il s'agit d'une consultation provinciale interne au Canada, sans portée contraignante, sur laquelle Paris ne s'est pas exprimé publiquement.",
+        "Les Israéliens voteront le 27 octobre lors des premières élections législatives depuis l'attaque du Hamas d'octobre 2023. Donald Trump a éludé, à plusieurs reprises ces dernières semaines, les questions sur un éventuel soutien à la réélection de Benjamin Netanyahu, après avoir pourtant indiqué en juin qu'il le soutiendrait probablement. Plusieurs médias évoquent des tensions croissantes entre les deux hommes, notamment sur la manière de mettre fin à la guerre avec l'Iran, Netanyahu ayant souhaité poursuivre les opérations militaires là où Trump cherchait à y mettre un terme. L'opposition israélienne aurait, selon des médias israéliens, demandé à Trump de rester neutre durant la campagne.",
+        "Position de la France : aucune réaction officielle française identifiée à ce stade sur l'approche de ces élections israéliennes ni sur les tensions entre Donald Trump et Benjamin Netanyahu.",
+        "Enfin, les forces américaines et japonaises ont entamé les manœuvres militaires biennales « Keen Sword » dans le sud-ouest du Japon. Le général Ronald Clark, commandant des forces terrestres américaines en Asie, a indiqué au Financial Times vouloir accroître de manière visible les capacités militaires américaines dans l'Indo-Pacifique, dans un contexte de préoccupations persistantes sur les ambitions chinoises dans la région.",
+        "Position de la France : aucune réaction officielle française identifiée à ce stade, bien que la France dispose d'intérêts directs dans la région via ses territoires du Pacifique (Nouvelle-Calédonie, Polynésie française)."
       ],
       "essentiel": [
-        "Des limitations de débit sur les terminaux Starshield ont réduit la capacité ukrainienne à intercepter des drones russes rapides depuis la mi-octobre.",
-        "Zelensky dénonce une erreur grave ; Musk affirme que la décision revient aux autorités militaires américaines, pas à SpaceX.",
-        "Kiev dit chercher des alternatives avec plusieurs pays, dont la France, sans confirmation officielle de Paris."
+        "Trêve énergétique russo-ukrainienne annoncée par Trump mais non respectée dans les faits sur le terrain.",
+        "Kyiv frappe Saint-Pétersbourg ; Starlink limiterait la vitesse des drones ukrainiens.",
+        "Référendum non contraignant sur l'indépendance de l'Alberta ce lundi au Canada.",
+        "Élections israéliennes le 27 octobre ; Trump élude la question d'un soutien à Netanyahu."
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 3,
-      "rubrique": "GEOPOLITIQUE",
-      "titre": "Avoirs russes gelés : la Belgique résiste à l'idée d'un prêt de réparation adossé à Euroclear",
-      "chapeau": "Le projet européen de financer l'Ukraine à partir des actifs russes immobilisés chez Euroclear continue de buter sur les réticences belges et sur une procédure judiciaire lancée par Moscou.",
+      "rubrique": "GEOECONOMIE",
+      "titre": "Starlink, Chine, dollar : la géoéconomie sous tension",
+      "chapeau": "Washington menace Bruxelles de représailles sur l'espace, la croissance chinoise s'appuie sur les exportations, et la guerre en Iran resserre l'accès au dollar sur les marchés internationaux.",
       "dureeLectureMin": 4,
       "corpsArticle": [
-        "L'Union européenne a prolongé indéfiniment, en décembre dernier, le gel des avoirs russes immobilisés sur son territoire, afin d'empêcher qu'un seul État membre ne puisse y mettre fin par son veto. Le projet en discussion consiste en un prêt pouvant atteindre 165 milliards d'euros destiné à l'Ukraine, financé sans confiscation formelle des actifs, et que Kiev ne rembourserait qu'une fois la Russie amenée à payer des réparations de guerre. Environ 176 milliards d'euros des actifs russes détenus par le dépositaire belge Euroclear ont déjà été convertis en liquidités.",
-        "La Belgique, dont la majeure partie des avoirs concernés se trouve sur son sol via Euroclear, continue de demander des garanties supplémentaires : partage du risque juridique entre tous les États membres, et extension du dispositif aux quelque 25 milliards d'euros d'avoirs russes gelés ailleurs dans l'Union. Le Premier ministre belge Bart De Wever a explicitement mis en garde contre le risque d'une faillite d'Euroclear en cas de contentieux perdu. La banque centrale russe a par ailleurs saisi un tribunal d'arbitrage à Moscou contre Euroclear, que la Commission européenne juge dénuée de fondement.",
-        "Euroclear elle-même a averti, dans un courrier adressé à Ursula von der Leyen et António Costa, que le monde pourrait interpréter cette opération comme une confiscation déguisée, fragilisant la crédibilité de la place financière européenne. Les ambassadeurs des États membres se sont, selon les informations disponibles, majoritairement prononcés pour une immobilisation des actifs russes à durée indéterminée, étape jugée préalable à toute mise en place du prêt, sans qu'une décision définitive n'ait été arrêtée.",
-        "Position de la France : aucune réaction officielle française spécifique à ce dossier n'a pu être identifiée dans les sources consultées. La France siège parmi les États membres ayant soutenu l'immobilisation indéfinie des actifs russes en décembre, mais aucune déclaration française récente et ciblée sur le bras de fer belge ou sur la procédure russe contre Euroclear n'a été retrouvée à ce stade."
+        "L'ambassadeur des États-Unis auprès de l'UE a averti Bruxelles de représailles « dévastatrices » de Washington si l'Union européenne persistait dans des projets perçus comme restreignant l'accès de rivaux américains, au premier chef SpaceX et son réseau Starlink, au marché européen. En cause : la bande de fréquences satellite des 2 GHz, actuellement exploitée sous licences américaines (Viasat, EchoStar) qui expirent en 2027. Bruxelles propose de diviser cette bande en trois, réservant une part au programme européen IRIS² et une autre aux opérateurs commerciaux européens, ce qui favoriserait le consortium SpaceRISE, formé notamment par le français Eutelsat, l'espagnol Hispasat et le luxembourgeois SES. Parallèlement, plusieurs grands opérateurs télécoms européens (Orange, Deutsche Telekom, Vodafone, Telefónica) discuteraient d'une coentreprise destinée à proposer un service satellite-mobile concurrent de Starlink. Le président de la FCC américaine, Brendan Carr, a laissé entendre que Washington pourrait imposer de nouvelles contraintes réglementaires aux entreprises européennes si Bruxelles persistait dans cette voie.",
+        "Sur le plan macroéconomique, la croissance chinoise a accéléré au troisième trimestre, à 4,5% selon les chiffres rapportés par le Financial Times, les exportations dopées par l'essor de l'intelligence artificielle ayant compensé la faiblesse de la consommation et de l'investissement intérieurs. Selon des analystes cités par le même journal, ce chiffre place la deuxième économie mondiale sur la trajectoire de son objectif de croissance annuel.",
+        "Enfin, une analyse publiée par le Financial Times souligne que la guerre en Iran et certaines évolutions de la politique chinoise contribuent à resserrer l'offre de dollars sur les marchés internationaux, amplifiant ailleurs dans le monde les effets des mouvements de taux américains. Dans un registre connexe, la hausse des prix de l'énergie aux États-Unis est de plus en plus associée par les électeurs américains aux choix commerciaux et énergétiques de l'administration Trump — une pression intérieure qui n'est sans doute pas sans lien avec l'irritation manifestée par le président américain face à la reprise, par l'Ukraine, de ses frappes sur les raffineries russes : un rappel de la manière dont les contraintes économiques intérieures à Washington peuvent peser sur la position américaine dans la guerre en Ukraine."
       ],
       "essentiel": [
-        "Un prêt de réparation pouvant atteindre 165 milliards d'euros pour l'Ukraine reste bloqué par les réticences belges sur le risque juridique entourant Euroclear.",
-        "La banque centrale russe poursuit Euroclear devant un tribunal d'arbitrage moscovite ; l'UE juge la procédure sans fondement.",
-        "Aucune décision définitive n'a été prise sur l'immobilisation à durée indéterminée des actifs, préalable annoncé au prêt."
+        "Washington menace l'UE de rétorsion si Bruxelles restreint l'accès de SpaceX/Starlink au marché européen.",
+        "Bataille autour de la bande de fréquences des 2 GHz, enjeu de souveraineté spatiale pour l'Europe (Eutelsat, SES, Hispasat).",
+        "Croissance chinoise de 4,5% au troisième trimestre, tirée par les exportations liées à l'IA.",
+        "La guerre en Iran et les évolutions chinoises resserrent l'accès au dollar sur les marchés mondiaux."
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 4,
-      "rubrique": "GEOPOLITIQUE",
-      "titre": "En Allemagne, la percée de l'AfD inquiète à la veille du sommet des investisseurs de Berlin",
-      "chapeau": "À quelques jours du premier \"Invest in Germany Summit\" organisé par le gouvernement Merz, la progression électorale de l'extrême droite alimente les craintes d'un ralentissement des investissements étrangers.",
+      "rubrique": "FRANCE",
+      "titre": "Budget 2027 : Lecornu joue la carte de l'urgence face à l'Assemblée",
+      "chapeau": "Présenté début octobre, le projet de loi de finances pour 2027 doit être examiné dans un calendrier contraint, sur fond de menaces de censure et de tensions sociales.",
       "dureeLectureMin": 3,
       "corpsArticle": [
-        "Le gouvernement allemand organise les 19 et 20 octobre à Berlin le premier \"Invest in Germany Summit\", à l'école de commerce ESMT, avec l'ambition affichée d'attirer plusieurs milliers de milliards d'euros de capitaux privés d'ici 2040. Le chancelier Friedrich Merz, la ministre de l'Économie Katherina Reiche et le ministre des Finances Lars Klingbeil doivent y participer, aux côtés d'environ 550 invités, principalement des entreprises internationales et des investisseurs financiers.",
-        "Cette initiative intervient alors que la progression électorale de l'Alternative für Deutschland (AfD) nourrit l'inquiétude d'une partie du monde économique allemand. La ministre de l'Économie Katherina Reiche a elle-même averti que la montée de l'AfD risquait de susciter des réserves chez les investisseurs étrangers, rejoignant les craintes exprimées par des représentants du patronat industriel allemand sur l'image du pays comme site industriel fiable.",
-        "Position de la France : aucune réaction officielle française n'a été identifiée sur la progression de l'AfD ou sur le sommet de Berlin. Seule une prise de distance du Rassemblement national, par la voix de Jordan Bardella, à l'égard de l'AfD et de sa ligne jugée anti-européenne a pu être documentée dans la période récente, sans qu'il s'agisse d'une position gouvernementale française."
+        "Le projet de loi de finances (PLF) et le projet de loi de financement de la sécurité sociale (PLFSS) pour 2027, présentés en Conseil des ministres début octobre, prévoient un effort d'économies d'environ 43 milliards d'euros pour la seule année 2027, portant l'effort cumulé depuis 2026 à près de 54 milliards d'euros selon le gouvernement, avec pour objectif de ramener le déficit public à environ 5% du PIB en 2027, après un dérapage attendu à 5,4% en 2026 selon Bercy. Le PLFSS prévoit notamment un gel des aides personnalisées au logement (APL) à leur niveau de 2026.",
+        "Déposés à l'Assemblée nationale le 6 octobre, les deux textes doivent être votés avant le 26 novembre pour le PLF et le 17 décembre pour le PLFSS, en vertu des délais constitutionnels d'examen budgétaire. Le Premier ministre Sébastien Lecornu, qui a réaffirmé ne pas être candidat à l'élection présidentielle, s'est engagé à ne pas recourir à l'article 49.3 ni aux ordonnances en l'absence de blocage parlementaire, présentant le vote comme inévitable : « attendre la présidentielle, c'est choisir le désordre. » La gauche et La France insoumise ont laissé entendre qu'elles pourraient déposer une motion de censure, et la CGT a exprimé son opposition au texte.",
+        "Cette bataille parlementaire se déroule en toile de fond des semaines de mobilisation lycéenne sur les conditions d'enseignement qui avaient précédé les troubles plus larges de ce week-end, ajoutant une pression supplémentaire sur un gouvernement déjà minoritaire à l'Assemblée."
       ],
       "essentiel": [
-        "Berlin organise les 19-20 octobre son premier sommet des investisseurs, avec l'objectif de rassurer sur l'attractivité économique allemande.",
-        "La ministre de l'Économie Katherina Reiche reconnaît que la montée de l'AfD inquiète les investisseurs étrangers.",
-        "Aucune réaction gouvernementale française identifiée ; seule une prise de distance du RN à l'égard de l'AfD a été documentée."
+        "PLF 2027 : environ 43 milliards d'euros d'économies supplémentaires, 54 milliards cumulés depuis 2026.",
+        "Objectif : ramener le déficit public à environ 5% du PIB en 2027.",
+        "Vote attendu à l'Assemblée avant le 26 novembre (PLF) et le 17 décembre (PLFSS).",
+        "La France insoumise et la gauche évoquent une possible motion de censure ; opposition de la CGT."
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 5,
-      "rubrique": "GEOECONOMIE",
-      "titre": "Terres rares, semi-conducteurs, stabilité financière : la géoéconomie sous tension",
-      "chapeau": "Entre la suspension provisoire des contrôles chinois sur les terres rares, les secousses sur les valeurs des semi-conducteurs et les avertissements de la Banque d'Angleterre sur l'IA, les lignes de fracture de l'économie mondiale restent nombreuses.",
-      "dureeLectureMin": 4,
-      "corpsArticle": [
-        "Pékin a confirmé la suspension, pour un an, de son régime élargi de contrôle des exportations de terres rares et des technologies associées, mis en place en octobre 2025 et qui prévoyait notamment une portée extraterritoriale sur les produits étrangers fabriqués à partir de technologies chinoises. Décidée dans le cadre d'une trêve commerciale avec Washington, cette suspension doit en principe rester en vigueur jusqu'au 10 novembre 2026, date qui en fait un test à court terme pour la solidité de l'accalmie sino-américaine. Les contrôles plus anciens, mis en place en avril 2025, restent quant à eux en vigueur.",
-        "Sur les marchés financiers, le \"Chart of the Week\" de la Financial Times souligne une baisse inégale des valeurs des semi-conducteurs cette semaine, dans un contexte où le boom d'investissement de 10 000 milliards de dollars dans les infrastructures d'intelligence artificielle commence, selon la FT, à se heurter aux réalités économiques du monde physique : coûts énergétiques, disponibilité des composants et rentabilité des centres de données interrogent désormais les investisseurs.",
-        "Dans ce contexte, le gouverneur de la Banque d'Angleterre, Andrew Bailey, a averti le groupe des Trente (G30) que le développement rapide des agents d'intelligence artificielle dans la finance constituait un enjeu majeur pour la stabilité financière mondiale, appelant les régulateurs à s'en préoccuper sans attendre un choc pour agir."
-      ],
-      "essentiel": [
-        "La suspension chinoise des contrôles élargis sur les terres rares doit expirer le 10 novembre 2026, sous réserve d'une prolongation.",
-        "Les valeurs des semi-conducteurs ont reculé de façon inégale, dans un contexte de doutes sur la rentabilité du boom des infrastructures d'IA.",
-        "Le gouverneur de la Banque d'Angleterre alerte sur les risques que les agents d'IA font peser sur la stabilité financière."
-      ],
-      "signature": "Par la rédaction du Diplomate"
-    },
-    {
-      "ordre": 6,
-      "rubrique": "FRANCE",
-      "titre": "Budget 2027 : la bataille parlementaire se poursuit, grève dans le transport aérien en vue",
-      "chapeau": "Le projet de loi de finances 2027 franchit une première étape à l'Assemblée nationale sur fond de déficit public record, tandis qu'un préavis de grève intersyndical menace le trafic aérien du 17 au 21 octobre.",
-      "dureeLectureMin": 4,
-      "corpsArticle": [
-        "Déposé à l'Assemblée nationale le 1er octobre, le projet de loi de finances pour 2027 table sur une croissance de 1,0 % et vise un déficit public ramené à 5,0 % du PIB, contre une prévision révisée à 5,4 % pour 2026. Les débats en commission des finances, ouverts le 7 octobre sur la partie recettes, se sont poursuivis dans l'hémicycle à partir du 13 octobre. Le 14 octobre, les députés ont rejeté une motion de rejet préalable déposée par le groupe socialiste, par 236 voix contre 149, permettant la poursuite de l'examen du texte avant sa transmission prévue au Sénat.",
-        "Le gouvernement de Sébastien Lecornu évolue dans un paysage parlementaire fragmenté, sans majorité claire, ce qui rend l'issue finale du vote budgétaire incertaine. Les points de friction portent notamment sur la répartition de l'effort budgétaire entre ménages, entreprises et administrations publiques, ainsi que sur certaines mesures touchant les retraités et le pouvoir d'achat.",
-        "Sur le plan social, un préavis de grève national dans le transport aérien a été déposé par une intersyndicale regroupant notamment l'UNSA PNC, le SNPNC-FO, le SNGAF, le SNPL et l'UNAC, pour la période du 17 au 21 octobre, en opposition à une réforme du cumul emploi-retraite qui doit entrer en vigueur le 1er janvier 2027. Une mobilisation nationale plus large était par ailleurs annoncée pour le samedi 17 octobre, sans que son ampleur effective ait pu être confirmée avec certitude par les sources consultées."
-      ],
-      "essentiel": [
-        "Le PLF 2027 vise un déficit ramené à 5,0 % du PIB en 2027, contre 5,4 % attendu en 2026, pour une croissance prévue de 1,0 %.",
-        "Une motion de rejet préalable du groupe socialiste a été repoussée le 14 octobre (236 voix contre 149) ; le texte doit encore passer au Sénat.",
-        "Un préavis de grève intersyndical dans le transport aérien court du 17 au 21 octobre, motivé par la réforme du cumul emploi-retraite."
-      ],
-      "signature": "Par la rédaction du Diplomate"
-    },
-    {
-      "ordre": 7,
       "rubrique": "REGARD_DIPLOMATE",
-      "titre": "L'interdépendance comme levier : une leçon permanente de diplomatie",
-      "chapeau": "Diesel américain, terminaux Starlink ukrainiens, terres rares chinoises : trois dossiers du jour, un même ressort. Point de vue éditorial.",
+      "titre": "Ce que les trêves non vérifiées et les émeutes nous rappellent",
+      "chapeau": "Un point de vue éditorial sur les leçons de lecture diplomatique que suggère l'actualité du jour.",
       "dureeLectureMin": 3,
       "corpsArticle": [
-        "Trois dossiers de cette édition, en apparence sans rapport, racontent une même histoire : celle de nœuds d'interdépendance — un marché pétrolier, une constellation de satellites, une filière de minerais critiques — que l'on peut desserrer ou resserrer à volonté pour obtenir un résultat diplomatique ou politique. Washington assouplit ses propres sanctions pour faire baisser un prix à la pompe, quitte à demander ensuite à ses alliés de porter une partie du fardeau. Une armée alliée découvre que la vitesse de ses propres terminaux satellites dépend d'une décision prise à des milliers de kilomètres, par un acteur privé agissant sur instruction militaire. Pékin suspend, pour un an renouvelable, un contrôle à l'exportation qui aurait pu paralyser des pans entiers de l'industrie mondiale. Dans chacun de ces cas, ce n'est pas la force brute qui s'exerce, mais la maîtrise d'un point de passage.",
-        "Pour des États comme la France, dont la sécurité énergétique, numérique et industrielle repose en partie sur des infrastructures ou des décisions extérieures, la leçon n'est pas nouvelle mais elle reste d'actualité : la diplomatie économique consiste de plus en plus à repérer ces points de passage avant qu'ils ne deviennent des leviers entre les mains d'un tiers, qu'il soit allié ou rival. Ce n'est évidemment qu'une manière de lire les événements du jour parmi d'autres, et elle n'épuise pas la complexité de chaque dossier pris isolément — mais elle invite à regarder les diplomaties de l'énergie, du numérique et des matières premières comme un seul et même champ de bataille, plutôt que comme trois dossiers séparés."
+        "Une trêve annoncée n'est pas une trêve appliquée. L'écart entre le cessez-le-feu énergétique annoncé par Donald Trump entre la Russie et l'Ukraine et la poursuite des frappes des deux côtés illustre une leçon récurrente de la diplomatie : ce qui compte n'est pas la déclaration, mais le mécanisme de vérification et d'application qui l'accompagne. Sans dispositif de contrôle ni sanction crédible en cas de violation, une trêve reste une déclaration politique, non une réalité opérationnelle — l'histoire diplomatique, de la péninsule coréenne aux Balkans, l'a montré à de nombreuses reprises.",
+        "Seconde leçon, plus diffuse : la fragilité intérieure est aussi une politique étrangère. Les troubles qui secouent la France, à quelques jours de négociations budgétaires européennes sensibles et en pleine tension transatlantique sur la souveraineté numérique et spatiale, rappellent qu'un État construit sa crédibilité internationale autant sur sa capacité à maintenir l'ordre chez lui que sur sa posture diplomatique à l'extérieur. La même logique vaut pour l'unité canadienne mise à l'épreuve par le référendum albertain, ou pour Israël, dont les élections se tiennent sous l'ombre d'une guerre non résolue. Pour qui étudie la diplomatie, la leçon du jour tient moins à tel ou tel événement qu'à cette interaction constante entre l'ordre intérieur d'un pays et le crédit qu'il peut faire valoir à l'étranger — un point de vue, non un fait établi, mais qui mérite d'être confronté à l'actualité de chaque jour."
       ],
       "essentiel": [
-        "Trois dossiers du jour partagent un même ressort : la maîtrise d'un point de passage critique (énergie, satellites, minerais) comme levier diplomatique.",
-        "Point de vue éditorial : la diversification de ces dépendances devient un enjeu central de souveraineté pour les États exposés, dont la France."
+        "Une trêve sans mécanisme de vérification reste une déclaration, pas une réalité opérationnelle.",
+        "La stabilité intérieure d'un État conditionne en partie sa crédibilité diplomatique à l'étranger.",
+        "Ce regard est un point de vue éditorial, non un fait établi."
       ],
       "signature": "L'éditorial du Diplomate"
     }
