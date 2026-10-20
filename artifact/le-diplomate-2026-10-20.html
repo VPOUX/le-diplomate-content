@@ -1,0 +1,373 @@
+<title>Le Diplomate — 20 octobre 2026</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: single-column gazette, masthead + rule, article blocks with drop caps and a boxed "essentiel" sidebar per section */
+:root{
+  --paper:#E6E2D6; --ink:#1C2230; --ink-soft:#4A4E58;
+  --rule:#1C2230; --accent:#7A2E2E; --accent-soft:#9C7A3C;
+  --card:#DCD7C7; --card-border:#C9C2AC;
+  --font-display:'Fraunces',Georgia,'Times New Roman',serif;
+  --font-body:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#15181D; --ink:#E7E3D6; --ink-soft:#A9A598;
+    --rule:#E7E3D6; --accent:#D98C8C; --accent-soft:#D9B978;
+    --card:#1D2127; --card-border:#30353D;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15181D; --ink:#E7E3D6; --ink-soft:#A9A598;
+  --rule:#E7E3D6; --accent:#D98C8C; --accent-soft:#D9B978;
+  --card:#1D2127; --card-border:#30353D;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:var(--font-body);
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+body::before{
+  content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px);
+  z-index:10; background:var(--paper);
+}
+.wrap{max-width:720px; margin:0 auto; padding-bottom:64px;}
+
+/* Masthead */
+header.masthead{
+  padding-top:max(28px, calc(env(safe-area-inset-top,0px) + 14px));
+  text-align:center;
+}
+.kicker{
+  font-family:var(--font-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-soft);
+}
+h1.title{
+  font-family:var(--font-display); font-weight:900; font-size:clamp(40px,10vw,64px);
+  margin:6px 0 4px; letter-spacing:-0.01em; text-wrap:balance;
+}
+.meta-row{
+  display:flex; justify-content:center; gap:14px; flex-wrap:wrap;
+  font-family:var(--font-mono); font-size:12px; color:var(--ink-soft);
+  letter-spacing:.04em; margin-bottom:14px;
+}
+.rule{border:none; border-top:2px solid var(--rule); margin:0 0 18px;}
+.rule-thin{border:none; border-top:1px solid var(--card-border); margin:28px 0;}
+
+/* Listen toggle */
+.listen-bar{
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  margin-bottom:20px;
+}
+#listenBtn{
+  font-family:var(--font-mono); font-size:13px; letter-spacing:.03em;
+  background:var(--card); color:var(--ink); border:1px solid var(--card-border);
+  border-radius:999px; padding:9px 18px; cursor:pointer;
+  display:inline-flex; align-items:center; gap:8px;
+}
+#listenBtn:active{transform:translateY(1px);}
+#listenStatus{font-family:var(--font-mono); font-size:11px; color:var(--ink-soft);}
+
+/* Table of contents */
+nav.toc{
+  display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:center;
+  font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+  color:var(--ink-soft); margin-bottom:26px;
+}
+nav.toc a{color:inherit; text-decoration:none; border-bottom:1px solid transparent;}
+nav.toc a:hover{border-bottom-color:var(--ink-soft);}
+
+/* Article */
+article{margin-bottom:8px; scroll-margin-top:24px;}
+.rubrique{
+  font-family:var(--font-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent); font-weight:600; margin-bottom:8px; display:flex; align-items:center; gap:8px;
+}
+.rubrique::before{content:""; width:18px; height:2px; background:var(--accent); display:inline-block;}
+article.regard .rubrique{color:var(--accent-soft);}
+article.regard .rubrique::before{background:var(--accent-soft);}
+
+h2.headline{
+  font-family:var(--font-display); font-weight:800; font-size:clamp(26px,5.5vw,34px);
+  line-height:1.12; margin:0 0 10px; text-wrap:balance;
+}
+p.chapeau{
+  font-family:var(--font-display); font-style:italic; font-weight:400;
+  font-size:18px; line-height:1.5; color:var(--ink-soft); margin:0 0 16px;
+  border-left:2px solid var(--card-border); padding-left:14px;
+}
+.read-time{
+  font-family:var(--font-mono); font-size:11px; color:var(--ink-soft);
+  letter-spacing:.04em; margin-bottom:18px;
+}
+.body-text p{
+  font-size:17px; line-height:1.68; margin:0 0 16px; max-width:65ch;
+}
+.body-text p:first-of-type::first-letter{
+  font-family:var(--font-display); font-weight:800; font-size:48px; line-height:.8;
+  float:left; padding:4px 8px 0 0; color:var(--accent);
+}
+article.regard .body-text p:first-of-type::first-letter{color:var(--accent-soft);}
+
+.essentiel{
+  background:var(--card); border:1px solid var(--card-border); border-radius:4px;
+  padding:16px 18px; margin:20px 0 10px;
+}
+.essentiel .label{
+  font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-soft); margin-bottom:10px;
+}
+.essentiel ul{margin:0; padding:0; list-style:none;}
+.essentiel li{
+  font-size:14px; line-height:1.5; padding-left:16px; position:relative; margin-bottom:8px;
+}
+.essentiel li::before{content:"—"; position:absolute; left:0; color:var(--accent);}
+article.regard .essentiel li::before{color:var(--accent-soft);}
+.essentiel li:last-child{margin-bottom:0;}
+
+.signature{
+  font-family:var(--font-mono); font-size:12px; font-style:normal; color:var(--ink-soft);
+  text-align:right; margin-top:14px;
+}
+
+footer{
+  text-align:center; font-family:var(--font-mono); font-size:11px; color:var(--ink-soft);
+  letter-spacing:.06em; margin-top:40px; padding-top:18px; border-top:1px solid var(--card-border);
+}
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="kicker">Revue de presse diplomatique — édition du matin</div>
+    <h1 class="title">Le Diplomate</h1>
+    <div class="meta-row">
+      <span>N° 13</span><span>·</span><span>Mardi 20 octobre 2026</span><span>·</span><span>08:46</span>
+    </div>
+  </header>
+  <hr class="rule">
+
+  <div class="listen-bar">
+    <button id="listenBtn" type="button" aria-pressed="false">🔊 Écouter</button>
+    <span id="listenStatus"></span>
+  </div>
+
+  <nav class="toc" aria-label="Sommaire">
+    <a href="#une">Une</a>
+    <a href="#geopolitique">Géopolitique</a>
+    <a href="#geoeconomie">Géoéconomie</a>
+    <a href="#france">France</a>
+    <a href="#regard">Regard du Diplomate</a>
+  </nav>
+
+  <article id="une">
+    <div class="rubrique">Une</div>
+    <h2 class="headline">France : couvre-feux, marchés sous tension et une classe politique jugée « impuissante »</h2>
+    <p class="chapeau">Au lendemain d'émeutes et de pillages sans précédent, les autorités ont instauré des couvre-feux dans plusieurs villes, tandis que la vente d'obligations françaises s'intensifiait et que la presse internationale s'interrogeait sur la capacité de l'État à reprendre la main.</p>
+    <div class="read-time">5 min de lecture</div>
+    <div class="body-text">
+      <p>Des couvre-feux ont été instaurés dans plusieurs villes françaises après le week-end de violences qualifiées de « sans précédent » par les autorités, qui ont par ailleurs reconnu des défaillances dans l'encadrement policier des manifestations initiales. Cette admission intervient alors que les troubles se poursuivaient, dans une moindre intensité, dans la nuit de lundi à mardi.</p>
+      <p>Plusieurs enseignes de luxe ont été visées par les pillages, dont des magasins Louis Vuitton et Hermès, selon le Financial Times. Les autorités françaises ont engagé des discussions avec des plateformes de revente en ligne — Vinted, Amazon et eBay sont citées — afin de faire retirer les annonces suspectes et d'identifier les personnes qui chercheraient à revendre les produits volés.</p>
+      <p>Sur les marchés, la vente d'obligations souveraines françaises s'est encore intensifiée après ce nouvel épisode de troubles et de pillages, les investisseurs semblant de plus en plus préoccupés par la stabilité politique du pays à quelques semaines de l'ouverture du débat budgétaire 2027 et à six mois de l'élection présidentielle.</p>
+      <p>Dans un éditorial, le Financial Times a estimé que ces violences « choquantes » mettaient en lumière une division sociale croissante, des contraintes budgétaires fortes et une crise du leadership, allant jusqu'à évoquer l'« impuissance » de la classe politique française face à la situation.</p>
+      <p>Cette couverture, désormais récurrente dans la presse économique internationale, illustre la manière dont une crise intérieure française en vient à peser sur l'appréciation du risque souverain du pays et, par extension, sur son poids dans les négociations budgétaires et diplomatiques européennes en cours.</p>
+    </div>
+    <div class="essentiel">
+      <div class="label">L'essentiel</div>
+      <ul>
+        <li>Couvre-feux instaurés dans plusieurs villes ; la police reconnaît des défaillances dans l'encadrement des manifestations.</li>
+        <li>Magasins de luxe (Louis Vuitton, Hermès) pillés ; les autorités s'associent à Vinted, Amazon et eBay pour bloquer la revente des objets volés.</li>
+        <li>Nouvelle intensification de la vente d'obligations françaises sur les marchés.</li>
+        <li>Le Financial Times évoque, dans un éditorial, l'« impuissance » de la classe politique française.</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <hr class="rule-thin">
+
+  <article id="geopolitique">
+    <div class="rubrique">Géopolitique</div>
+    <h2 class="headline">Ukraine, Alberta, Roumanie, Londres : quatre dossiers diplomatiques à suivre</h2>
+    <p class="chapeau">De la relance des pourparlers américano-ukrainiens en Norvège au référendum albertain, en passant par la sortie de crise politique en Roumanie et un possible réchauffement entre Londres et Bruxelles, tour d'horizon des dossiers internationaux du jour — et des positions françaises, quand elles existent.</p>
+    <div class="read-time">5 min de lecture</div>
+    <div class="body-text">
+      <p>Steve Witkoff et Jared Kushner, émissaires de Donald Trump, devraient se rendre en Norvège pour y rencontrer Volodymyr Zelensky, selon le Financial Times, alors qu'une crise énergétique plane sur ces discussions à l'approche des élections de mi-mandat américaines. Ce nouveau round de pourparlers intervient après l'échec de la trêve énergétique russo-ukrainienne annoncée la semaine dernière, les frappes ayant repris des deux côtés sur les infrastructures énergétiques respectives.</p>
+      <p><em>Position de la France :</em> aucune réaction officielle française identifiée à ce stade sur ce nouveau format de pourparlers ni sur le choix de la Norvège comme lieu de rencontre.</p>
+      <p>Les résultats du référendum non contraignant sur l'indépendance de l'Alberta, organisé lundi, doivent être annoncés ce jour. Les sondages réalisés avant le scrutin suggéraient qu'une large majorité des Albertains — entre 60 et 70% selon les instituts — souhaitait rester au sein du Canada. Quel que soit le résultat, cette consultation provinciale n'a aucune valeur contraignante sur le plan constitutionnel canadien.</p>
+      <p><em>Position de la France :</em> aucune réaction officielle française identifiée à ce stade ; il s'agit d'une consultation interne à une province canadienne, sans portée contraignante.</p>
+      <p>Le Parlement roumain devait voter ce mardi la confiance à un gouvernement minoritaire dirigé par le diplomate Luca Niculescu, mettant fin à six mois de blocage politique qui avait aggravé les difficultés économiques du pays, selon le Financial Times.</p>
+      <p><em>Position de la France :</em> aucune réaction officielle française identifiée à ce stade sur cette sortie de crise politique en Roumanie, pays partenaire au sein de l'Union européenne.</p>
+      <p>Selon des informations du Financial Times, le Trésor britannique s'apprêterait à lancer une étude sur les bénéfices économiques d'un rapprochement du Royaume-Uni avec l'Union européenne, une initiative susceptible de raviver le débat sur le « Project Fear » qui avait marqué la campagne du Brexit.</p>
+      <p><em>Position de la France :</em> aucune réaction officielle française identifiée à ce stade sur cette étude britannique, alors que Paris reste directement concerné par toute évolution des relations commerciales entre Londres et Bruxelles.</p>
+    </div>
+    <div class="essentiel">
+      <div class="label">L'essentiel</div>
+      <ul>
+        <li>Steve Witkoff et Jared Kushner attendus en Norvège pour rencontrer Zelensky, après l'échec de la trêve énergétique russo-ukrainienne.</li>
+        <li>Résultats du référendum albertain sur l'indépendance attendus ce jour ; consultation non contraignante.</li>
+        <li>La Roumanie s'apprête à sortir de six mois de blocage politique avec un gouvernement minoritaire dirigé par Luca Niculescu.</li>
+        <li>Londres envisagerait une étude sur un rapprochement économique avec l'UE, ravivant le débat du « Project Fear ».</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <hr class="rule-thin">
+
+  <article id="geoeconomie">
+    <div class="rubrique">Géoéconomie</div>
+    <h2 class="headline">Dette de l'IA, pétrole iranien, terres rares : la géoéconomie sous pression</h2>
+    <p class="chapeau">Entre inquiétudes croissantes sur l'endettement lié à l'intelligence artificielle, recomposition de la carte pétrolière mondiale et bras de fer sino-japonais sur les terres rares, la journée confirme combien l'économie mondiale reste otage des tensions géopolitiques.</p>
+    <div class="read-time">4 min de lecture</div>
+    <div class="body-text">
+      <p>Les investisseurs se précipitent pour acheter des credit default swaps (CDS) afin de se protéger contre un possible éclatement de la bulle de l'intelligence artificielle, selon le Financial Times. Plus de 9 milliards de dollars de CDS liés à des obligations émises par Oracle, SpaceX, Alphabet, Amazon, Meta, Broadcom et Nvidia ont été échangés chaque semaine en moyenne en septembre, contre moins de 2 milliards en juillet, selon des données de Morgan Stanley Research. Le coût de cette couverture a atteint des records ce mois-ci pour plusieurs groupes liés à l'IA, signe d'une nervosité croissante face à l'ampleur de l'endettement destiné à financer les infrastructures d'intelligence artificielle.</p>
+      <p>La guerre menée par les États-Unis en Iran continue par ailleurs de redessiner la carte pétrolière mondiale. Selon le Financial Times, plusieurs pays des Amériques — du Canada à l'Argentine, en passant par le Brésil — enregistrent des records de production et d'investissement, les acheteurs internationaux cherchant à remplacer l'offre perdue en raison des perturbations survenues dans le détroit d'Ormuz.</p>
+      <p>Le Japon ne disposerait plus que de quelques mois de réserves de terres rares critiques, alors que la Chine resserre son contrôle sur les exportations, selon le Financial Times. Tokyo aurait demandé l'aide de Washington pour convaincre Pékin d'assouplir son emprise sur l'yttrium, un métal essentiel à plusieurs filières industrielles, afin d'éviter un arrêt de la production manufacturière japonaise.</p>
+      <p>Enfin, le président sud-africain Cyril Ramaphosa chercherait à accélérer le rapprochement commercial de Pretoria avec la Chine et l'Inde, à mesure que les relations avec Washington se détériorent, selon le Financial Times, l'Afrique du Sud souhaitant profiter d'un accès tarifaire préférentiel croissant au marché chinois.</p>
+    </div>
+    <div class="essentiel">
+      <div class="label">L'essentiel</div>
+      <ul>
+        <li>Flambée des volumes de CDS liés à la dette des géants de l'IA (Oracle, SpaceX, Alphabet, Amazon, Meta, Broadcom, Nvidia), signe d'inquiétudes sur une possible bulle.</li>
+        <li>La guerre en Iran déplace une partie de la production pétrolière mondiale vers les Amériques (Canada, Brésil, Argentine).</li>
+        <li>Le Japon se dit à quelques mois d'une pénurie de terres rares critiques face au resserrement chinois des exportations.</li>
+        <li>L'Afrique du Sud accélère son rapprochement commercial avec la Chine et l'Inde face à la dégradation de ses relations avec Washington.</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <hr class="rule-thin">
+
+  <article id="france">
+    <div class="rubrique">France</div>
+    <h2 class="headline">Budget 2027 : l'examen parlementaire s'ouvre sous très haute tension</h2>
+    <p class="chapeau">Alors que le pays sort à peine d'un week-end de violences inédites, le projet de loi de finances pour 2027 entre dans sa phase d'examen à l'Assemblée nationale, sur fond de défiance accrue envers l'exécutif.</p>
+    <div class="read-time">3 min de lecture</div>
+    <div class="body-text">
+      <p>Déposés le 6 octobre à l'Assemblée nationale, le projet de loi de finances (PLF) et le projet de loi de financement de la sécurité sociale (PLFSS) pour 2027 doivent être votés avant le 26 novembre et le 17 décembre respectivement. Le texte prévoit environ 43 milliards d'euros d'économies supplémentaires pour la seule année 2027, avec pour objectif de ramener le déficit public à environ 5% du PIB. Le Premier ministre Sébastien Lecornu a réaffirmé son intention de ne recourir ni à l'article 49.3 ni aux ordonnances, misant sur un vote parlementaire malgré l'absence de majorité.</p>
+      <p>Ce calendrier budgétaire se heurte désormais à un climat politique et social considérablement alourdi par les violences du week-end. Plusieurs responsables de gauche ont laissé entendre qu'une motion de censure pourrait être déposée dans les prochains jours, estimant que la rigueur budgétaire prévue par le texte nourrit elle-même les tensions sociales à l'origine des troubles.</p>
+      <p>En parallèle, les autorités ont engagé des discussions avec plusieurs plateformes de revente en ligne — Vinted, Amazon et eBay sont citées par le Financial Times — afin de faire retirer les annonces suspectes et d'identifier les vendeurs de produits de luxe volés lors des pillages du week-end, notamment dans les enseignes Louis Vuitton et Hermès.</p>
+    </div>
+    <div class="essentiel">
+      <div class="label">L'essentiel</div>
+      <ul>
+        <li>Le PLF et le PLFSS 2027 entament leur examen parlementaire, avec un vote attendu avant le 26 novembre et le 17 décembre.</li>
+        <li>Sébastien Lecornu écarte le recours au 49.3, misant sur un vote malgré l'absence de majorité.</li>
+        <li>La gauche évoque une possible motion de censure, dans un climat social dégradé par les violences du week-end.</li>
+        <li>Les autorités s'associent à Vinted, Amazon et eBay pour empêcher la revente en ligne des biens de luxe volés.</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <hr class="rule-thin">
+
+  <article id="regard" class="regard">
+    <div class="rubrique">Regard du Diplomate</div>
+    <h2 class="headline">Quand le désordre intérieur devient une donnée diplomatique</h2>
+    <p class="chapeau">Un point de vue éditorial sur les leçons de lecture diplomatique que suggère l'actualité du jour.</p>
+    <div class="read-time">3 min de lecture</div>
+    <div class="body-text">
+      <p>La vente d'obligations françaises qui s'intensifie à mesure que les scènes de pillage s'accumulent n'est pas seulement un fait de marché : elle illustre de façon concrète que la stabilité intérieure d'un État est elle-même évaluée, chiffrée, par les acteurs internationaux — investisseurs, agences de notation, partenaires diplomatiques. Qu'un grand quotidien économique international consacre plusieurs articles et un éditorial à l'« impuissance » de la classe politique française n'est pas un simple commentaire journalistique : c'est un indicateur de la façon dont la crédibilité d'un pays se construit, ou s'érode, dans le regard de ses partenaires et de ses créanciers.</p>
+      <p>Seconde observation, plus structurelle : plusieurs dossiers du jour — le bras de fer sino-japonais sur les terres rares, la recomposition pétrolière liée à la guerre en Iran, ou encore le pivot commercial sud-africain vers Pékin et New Delhi — rappellent qu'une large part de la diplomatie contemporaine se joue désormais dans le registre des dépendances matérielles plutôt que dans celui des seules déclarations officielles. Contrôler une chaîne d'approvisionnement, un flux pétrolier ou un accès tarifaire est devenu un levier de pouvoir au moins aussi efficace qu'un communiqué ou une rencontre au sommet — un point de vue qui mérite d'être nuancé au fil de l'actualité, mais qui invite à lire les tensions commerciales du jour comme des épisodes à part entière de la géopolitique, non comme son simple arrière-plan.</p>
+    </div>
+    <div class="essentiel">
+      <div class="label">L'essentiel</div>
+      <ul>
+        <li>La réaction des marchés à l'instabilité intérieure française illustre comment la crédibilité diplomatique se mesure aussi en termes financiers.</li>
+        <li>Les tensions sur les terres rares, le pétrole et les tarifs douaniers montrent une géopolitique de plus en plus façonnée par les dépendances matérielles.</li>
+        <li>Ce regard est un point de vue éditorial, non un fait établi.</li>
+      </ul>
+    </div>
+    <div class="signature">L'éditorial du Diplomate</div>
+  </article>
+
+  <footer>Le Diplomate — revue de presse diplomatique générée le 20 octobre 2026, 08:46</footer>
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById('listenBtn');
+  var status = document.getElementById('listenStatus');
+  var synth = window.speechSynthesis;
+  var speaking = false;
+
+  if(!synth){
+    btn.disabled = true;
+    status.textContent = "lecture vocale indisponible";
+    return;
+  }
+
+  function buildText(){
+    var articles = document.querySelectorAll('article');
+    var parts = [];
+    articles.forEach(function(a){
+      var rub = a.querySelector('.rubrique');
+      var h = a.querySelector('.headline');
+      var chap = a.querySelector('.chapeau');
+      var paras = a.querySelectorAll('.body-text p');
+      var ess = a.querySelectorAll('.essentiel li');
+      if(rub) parts.push(rub.textContent + ".");
+      if(h) parts.push(h.textContent + ".");
+      if(chap) parts.push(chap.textContent);
+      paras.forEach(function(p){ parts.push(p.textContent); });
+      if(ess.length){
+        parts.push("L'essentiel.");
+        ess.forEach(function(li){ parts.push(li.textContent); });
+      }
+    });
+    return parts.join(" ");
+  }
+
+  function pickFrenchVoice(){
+    var voices = synth.getVoices() || [];
+    for(var i=0;i<voices.length;i++){
+      if(voices[i].lang && voices[i].lang.toLowerCase().indexOf('fr') === 0) return voices[i];
+    }
+    return null;
+  }
+
+  function stop(){
+    try{ synth.cancel(); }catch(e){}
+    speaking = false;
+    btn.textContent = "🔊 Écouter";
+    btn.setAttribute('aria-pressed','false');
+    status.textContent = "";
+  }
+
+  btn.addEventListener('click', function(){
+    if(speaking){
+      stop();
+      return;
+    }
+    var text = buildText();
+    var utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'fr-FR';
+    var voice = pickFrenchVoice();
+    if(voice) utter.voice = voice;
+    utter.rate = 0.98;
+    utter.onend = stop;
+    utter.onerror = stop;
+    try{
+      synth.cancel();
+      synth.speak(utter);
+      speaking = true;
+      btn.textContent = "⏸ Arrêter";
+      btn.setAttribute('aria-pressed','true');
+      status.textContent = "lecture en cours…";
+    }catch(e){
+      stop();
+    }
+  });
+
+  if('onvoiceschanged' in synth){
+    synth.onvoiceschanged = function(){};
+  }
+})();
+</script>
