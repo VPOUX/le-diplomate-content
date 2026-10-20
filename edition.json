@@ -1,103 +1,105 @@
 {
-  "date": "2026-10-19",
-  "numero": 12,
+  "date": "2026-10-20",
+  "numero": 13,
   "heureGeneration": "08:46",
   "sections": [
     {
       "ordre": 1,
       "rubrique": "UNE",
-      "titre": "Macron face à la pire crise sociale de son second mandat",
-      "chapeau": "Des émeutes qualifiées « sans précédent » par les autorités ont embrasé plusieurs villes françaises ce week-end, précipitant une crise politique à six mois de l'échéance présidentielle.",
-      "dureeLectureMin": 4,
+      "titre": "France : couvre-feux, marchés sous tension et une classe politique jugée « impuissante »",
+      "chapeau": "Au lendemain d'émeutes et de pillages sans précédent, les autorités ont instauré des couvre-feux dans plusieurs villes, tandis que la vente d'obligations françaises s'intensifiait et que la presse internationale s'interrogeait sur la capacité de l'État à reprendre la main.",
+      "dureeLectureMin": 5,
       "corpsArticle": [
-        "Des manifestations nationales samedi, qui réunissaient des lycéens protestant contre leurs conditions d'études et des citoyens en colère face au coût de la vie, ont dégénéré dans la soirée en scènes que les autorités ont qualifiées de « sans précédent ». Des commerces ont été pillés, des mairies attaquées, des bâtiments incendiés, et des individus encagoulés et vêtus de noir se sont affrontés aux forces de l'ordre dans plusieurs villes du pays.",
-        "Emmanuel Macron a appelé au calme dimanche soir dans une allocution télévisée rare, promettant que les auteurs des pillages et des violences seraient poursuivis. Le gouvernement minoritaire du Premier ministre Sébastien Lecornu affrontait déjà plusieurs crises simultanées : une bataille budgétaire pour 2027, des marchés financiers nerveux, et des semaines de mobilisation lycéenne qui avaient précédé l'embrasement de ce week-end.",
-        "Ces scènes surviennent six mois avant une élection présidentielle à haut risque, où Marine Le Pen apparaît comme favorite des sondages. « Il y aura un avant et un après cette explosion de colère publique », a estimé Bruno Cautrès, politologue à Sciences Po, cité par le Financial Times. Selon lui, ces scènes « apocalyptiques » ont donné l'impression que l'État n'était plus en contrôle du pays, ce qui pourrait peser sur le comportement électoral.",
-        "La crise a fait la une de plusieurs titres de presse internationale dès ce lundi matin, signe de la rapidité avec laquelle l'instabilité intérieure française se répercute sur les marchés et sur le poids diplomatique du pays, à un moment où les négociations budgétaires européennes et les tensions transatlantiques sur la souveraineté numérique restent en suspens."
+        "Des couvre-feux ont été instaurés dans plusieurs villes françaises après le week-end de violences qualifiées de « sans précédent » par les autorités, qui ont par ailleurs reconnu des défaillances dans l'encadrement policier des manifestations initiales. Cette admission intervient alors que les troubles se poursuivaient, dans une moindre intensité, dans la nuit de lundi à mardi.",
+        "Plusieurs enseignes de luxe ont été visées par les pillages, dont des magasins Louis Vuitton et Hermès, selon le Financial Times. Les autorités françaises ont engagé des discussions avec des plateformes de revente en ligne - Vinted, Amazon et eBay sont citées - afin de faire retirer les annonces suspectes et d'identifier les personnes qui chercheraient à revendre les produits volés.",
+        "Sur les marchés, la vente d'obligations souveraines françaises s'est encore intensifiée après ce nouvel épisode de troubles et de pillages, les investisseurs semblant de plus en plus préoccupés par la stabilité politique du pays à quelques semaines de l'ouverture du débat budgétaire 2027 et à six mois de l'élection présidentielle.",
+        "Dans un éditorial, le Financial Times a estimé que ces violences « choquantes » mettaient en lumière une division sociale croissante, des contraintes budgétaires fortes et une crise du leadership, allant jusqu'à évoquer l'« impuissance » de la classe politique française face à la situation.",
+        "Cette couverture, désormais récurrente dans la presse économique internationale, illustre la manière dont une crise intérieure française en vient à peser sur l'appréciation du risque souverain du pays et, par extension, sur son poids dans les négociations budgétaires et diplomatiques européennes en cours."
       ],
       "essentiel": [
-        "Émeutes qualifiées de « sans précédent » par les autorités, touchant plusieurs villes samedi soir.",
-        "Macron appelle au calme dans une adresse télévisée rare ; les auteurs de violences seront poursuivis.",
-        "La crise s'ajoute à la bataille budgétaire 2027 et aux mobilisations lycéennes des dernières semaines.",
-        "Marine Le Pen, favorite des sondages, à six mois de l'élection présidentielle."
+        "Couvre-feux instaurés dans plusieurs villes ; la police reconnaît des défaillances dans l'encadrement des manifestations.",
+        "Magasins de luxe (Louis Vuitton, Hermès) pillés ; les autorités s'associent à Vinted, Amazon et eBay pour bloquer la revente des objets volés.",
+        "Nouvelle intensification de la vente d'obligations françaises sur les marchés.",
+        "Le Financial Times évoque, dans un éditorial, l'« impuissance » de la classe politique française."
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 2,
       "rubrique": "GEOPOLITIQUE",
-      "titre": "Ukraine, Alberta, Israël : quatre fronts sous tension diplomatique",
-      "chapeau": "Entre trêve énergétique fragile en Ukraine, référendum sur l'indépendance de l'Alberta et incertitudes avant les élections israéliennes, tour d'horizon des dossiers internationaux du jour — et des positions françaises, quand elles existent.",
+      "titre": "Ukraine, Alberta, Roumanie, Londres : quatre dossiers diplomatiques à suivre",
+      "chapeau": "De la relance des pourparlers américano-ukrainiens en Norvège au référendum albertain, en passant par la sortie de crise politique en Roumanie et un possible réchauffement entre Londres et Bruxelles, tour d'horizon des dossiers internationaux du jour - et des positions françaises, quand elles existent.",
       "dureeLectureMin": 5,
       "corpsArticle": [
-        "Donald Trump avait annoncé une trêve énergétique entre la Russie et l'Ukraine, mais celle-ci n'a pas tenu sur le terrain : Moscou a poursuivi ses frappes sur les infrastructures énergétiques ukrainiennes, privant quelque 600 000 personnes d'électricité selon Kyiv, tandis que l'Ukraine a de son côté repris ses frappes sur les raffineries russes, une décision publiquement condamnée par Trump, qui l'a qualifiée de « honte ». Kyiv a par ailleurs mené sa plus importante attaque de drones jamais menée contre Saint-Pétersbourg, défiant les demandes américaines de cesser les frappes sur les sites énergétiques russes. La situation s'est encore compliquée lorsque SpaceX semble avoir imposé une limitation de vitesse aux terminaux Starlink utilisés par les drones ukrainiens ; un conseiller de Volodymyr Zelensky a évoqué une « opération planifiée » liée à la situation politique du moment, sans donner plus de détails. Ni SpaceX ni la Maison Blanche n'ont commenté. La Haute représentante de l'UE Kaja Kallas a salué l'idée d'une trêve énergétique tout en disant ne voir aucun signe que la Russie s'y conformerait ; le secrétaire général de l'OTAN Mark Rutte a appelé à l'appliquer.",
-        "Position de la France : aucune réaction officielle française identifiée à ce stade concernant la trêve énergétique ukrainienne ou les restrictions imposées aux terminaux Starlink. Paris n'a pas publié de communiqué distinct de celui des instances européennes sur ce point précis.",
-        "Les Albertains votent ce lundi lors d'un référendum sur l'indépendance de leur province, un scrutin non contraignant quel qu'en soit le résultat. Les sondages préélectoraux suggéraient qu'environ 70% des habitants de l'Alberta souhaitaient rester au sein du Canada, contre 22 à 30% favorables à l'indépendance. Au niveau national, une part non négligeable des Canadiens hors Alberta disait elle-même envisager de voter pour une sécession si leur propre province organisait un référendum similaire, signe d'une fragmentation plus large de l'unité canadienne, sur fond de pression commerciale américaine qui complique les efforts du Premier ministre Mark Carney pour unir le pays face à Washington.",
-        "Position de la France : aucune réaction officielle française identifiée à ce stade ; il s'agit d'une consultation provinciale interne au Canada, sans portée contraignante, sur laquelle Paris ne s'est pas exprimé publiquement.",
-        "Les Israéliens voteront le 27 octobre lors des premières élections législatives depuis l'attaque du Hamas d'octobre 2023. Donald Trump a éludé, à plusieurs reprises ces dernières semaines, les questions sur un éventuel soutien à la réélection de Benjamin Netanyahu, après avoir pourtant indiqué en juin qu'il le soutiendrait probablement. Plusieurs médias évoquent des tensions croissantes entre les deux hommes, notamment sur la manière de mettre fin à la guerre avec l'Iran, Netanyahu ayant souhaité poursuivre les opérations militaires là où Trump cherchait à y mettre un terme. L'opposition israélienne aurait, selon des médias israéliens, demandé à Trump de rester neutre durant la campagne.",
-        "Position de la France : aucune réaction officielle française identifiée à ce stade sur l'approche de ces élections israéliennes ni sur les tensions entre Donald Trump et Benjamin Netanyahu.",
-        "Enfin, les forces américaines et japonaises ont entamé les manœuvres militaires biennales « Keen Sword » dans le sud-ouest du Japon. Le général Ronald Clark, commandant des forces terrestres américaines en Asie, a indiqué au Financial Times vouloir accroître de manière visible les capacités militaires américaines dans l'Indo-Pacifique, dans un contexte de préoccupations persistantes sur les ambitions chinoises dans la région.",
-        "Position de la France : aucune réaction officielle française identifiée à ce stade, bien que la France dispose d'intérêts directs dans la région via ses territoires du Pacifique (Nouvelle-Calédonie, Polynésie française)."
+        "Steve Witkoff et Jared Kushner, émissaires de Donald Trump, devraient se rendre en Norvège pour y rencontrer Volodymyr Zelensky, selon le Financial Times, alors qu'une crise énergétique plane sur ces discussions à l'approche des élections de mi-mandat américaines. Ce nouveau round de pourparlers intervient après l'échec de la trêve énergétique russo-ukrainienne annoncée la semaine dernière, les frappes ayant repris des deux côtés sur les infrastructures énergétiques respectives.",
+        "Position de la France : aucune réaction officielle française identifiée à ce stade sur ce nouveau format de pourparlers ni sur le choix de la Norvège comme lieu de rencontre.",
+        "Les résultats du référendum non contraignant sur l'indépendance de l'Alberta, organisé lundi, doivent être annoncés ce jour. Les sondages réalisés avant le scrutin suggéraient qu'une large majorité des Albertains - entre 60 et 70% selon les instituts - souhaitait rester au sein du Canada. Quel que soit le résultat, cette consultation provinciale n'a aucune valeur contraignante sur le plan constitutionnel canadien.",
+        "Position de la France : aucune réaction officielle française identifiée à ce stade ; il s'agit d'une consultation interne à une province canadienne, sans portée contraignante.",
+        "Le Parlement roumain devait voter ce mardi la confiance à un gouvernement minoritaire dirigé par le diplomate Luca Niculescu, mettant fin à six mois de blocage politique qui avait aggravé les difficultés économiques du pays, selon le Financial Times.",
+        "Position de la France : aucune réaction officielle française identifiée à ce stade sur cette sortie de crise politique en Roumanie, pays partenaire au sein de l'Union européenne.",
+        "Selon des informations du Financial Times, le Trésor britannique s'apprêterait à lancer une étude sur les bénéfices économiques d'un rapprochement du Royaume-Uni avec l'Union européenne, une initiative susceptible de raviver le débat sur le « Project Fear » qui avait marqué la campagne du Brexit.",
+        "Position de la France : aucune réaction officielle française identifiée à ce stade sur cette étude britannique, alors que Paris reste directement concerné par toute évolution des relations commerciales entre Londres et Bruxelles."
       ],
       "essentiel": [
-        "Trêve énergétique russo-ukrainienne annoncée par Trump mais non respectée dans les faits sur le terrain.",
-        "Kyiv frappe Saint-Pétersbourg ; Starlink limiterait la vitesse des drones ukrainiens.",
-        "Référendum non contraignant sur l'indépendance de l'Alberta ce lundi au Canada.",
-        "Élections israéliennes le 27 octobre ; Trump élude la question d'un soutien à Netanyahu."
+        "Steve Witkoff et Jared Kushner attendus en Norvège pour rencontrer Zelensky, après l'échec de la trêve énergétique russo-ukrainienne.",
+        "Résultats du référendum albertain sur l'indépendance attendus ce jour ; consultation non contraignante.",
+        "La Roumanie s'apprête à sortir de six mois de blocage politique avec un gouvernement minoritaire dirigé par Luca Niculescu.",
+        "Londres envisagerait une étude sur un rapprochement économique avec l'UE, ravivant le débat du « Project Fear »."
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 3,
       "rubrique": "GEOECONOMIE",
-      "titre": "Starlink, Chine, dollar : la géoéconomie sous tension",
-      "chapeau": "Washington menace Bruxelles de représailles sur l'espace, la croissance chinoise s'appuie sur les exportations, et la guerre en Iran resserre l'accès au dollar sur les marchés internationaux.",
+      "titre": "Dette de l'IA, pétrole iranien, terres rares : la géoéconomie sous pression",
+      "chapeau": "Entre inquiétudes croissantes sur l'endettement lié à l'intelligence artificielle, recomposition de la carte pétrolière mondiale et bras de fer sino-japonais sur les terres rares, la journée confirme combien l'économie mondiale reste otage des tensions géopolitiques.",
       "dureeLectureMin": 4,
       "corpsArticle": [
-        "L'ambassadeur des États-Unis auprès de l'UE a averti Bruxelles de représailles « dévastatrices » de Washington si l'Union européenne persistait dans des projets perçus comme restreignant l'accès de rivaux américains, au premier chef SpaceX et son réseau Starlink, au marché européen. En cause : la bande de fréquences satellite des 2 GHz, actuellement exploitée sous licences américaines (Viasat, EchoStar) qui expirent en 2027. Bruxelles propose de diviser cette bande en trois, réservant une part au programme européen IRIS² et une autre aux opérateurs commerciaux européens, ce qui favoriserait le consortium SpaceRISE, formé notamment par le français Eutelsat, l'espagnol Hispasat et le luxembourgeois SES. Parallèlement, plusieurs grands opérateurs télécoms européens (Orange, Deutsche Telekom, Vodafone, Telefónica) discuteraient d'une coentreprise destinée à proposer un service satellite-mobile concurrent de Starlink. Le président de la FCC américaine, Brendan Carr, a laissé entendre que Washington pourrait imposer de nouvelles contraintes réglementaires aux entreprises européennes si Bruxelles persistait dans cette voie.",
-        "Sur le plan macroéconomique, la croissance chinoise a accéléré au troisième trimestre, à 4,5% selon les chiffres rapportés par le Financial Times, les exportations dopées par l'essor de l'intelligence artificielle ayant compensé la faiblesse de la consommation et de l'investissement intérieurs. Selon des analystes cités par le même journal, ce chiffre place la deuxième économie mondiale sur la trajectoire de son objectif de croissance annuel.",
-        "Enfin, une analyse publiée par le Financial Times souligne que la guerre en Iran et certaines évolutions de la politique chinoise contribuent à resserrer l'offre de dollars sur les marchés internationaux, amplifiant ailleurs dans le monde les effets des mouvements de taux américains. Dans un registre connexe, la hausse des prix de l'énergie aux États-Unis est de plus en plus associée par les électeurs américains aux choix commerciaux et énergétiques de l'administration Trump — une pression intérieure qui n'est sans doute pas sans lien avec l'irritation manifestée par le président américain face à la reprise, par l'Ukraine, de ses frappes sur les raffineries russes : un rappel de la manière dont les contraintes économiques intérieures à Washington peuvent peser sur la position américaine dans la guerre en Ukraine."
+        "Les investisseurs se précipitent pour acheter des credit default swaps (CDS) afin de se protéger contre un possible éclatement de la bulle de l'intelligence artificielle, selon le Financial Times. Plus de 9 milliards de dollars de CDS liés à des obligations émises par Oracle, SpaceX, Alphabet, Amazon, Meta, Broadcom et Nvidia ont été échangés chaque semaine en moyenne en septembre, contre moins de 2 milliards en juillet, selon des données de Morgan Stanley Research. Le coût de cette couverture a atteint des records ce mois-ci pour plusieurs groupes liés à l'IA, signe d'une nervosité croissante face à l'ampleur de l'endettement destiné à financer les infrastructures d'intelligence artificielle.",
+        "La guerre menée par les États-Unis en Iran continue par ailleurs de redessiner la carte pétrolière mondiale. Selon le Financial Times, plusieurs pays des Amériques - du Canada à l'Argentine, en passant par le Brésil - enregistrent des records de production et d'investissement, les acheteurs internationaux cherchant à remplacer l'offre perdue en raison des perturbations survenues dans le détroit d'Ormuz.",
+        "Le Japon ne disposerait plus que de quelques mois de réserves de terres rares critiques, alors que la Chine resserre son contrôle sur les exportations, selon le Financial Times. Tokyo aurait demandé l'aide de Washington pour convaincre Pékin d'assouplir son emprise sur l'yttrium, un métal essentiel à plusieurs filières industrielles, afin d'éviter un arrêt de la production manufacturière japonaise.",
+        "Enfin, le président sud-africain Cyril Ramaphosa chercherait à accélérer le rapprochement commercial de Pretoria avec la Chine et l'Inde, à mesure que les relations avec Washington se détériorent, selon le Financial Times, l'Afrique du Sud souhaitant profiter d'un accès tarifaire préférentiel croissant au marché chinois."
       ],
       "essentiel": [
-        "Washington menace l'UE de rétorsion si Bruxelles restreint l'accès de SpaceX/Starlink au marché européen.",
-        "Bataille autour de la bande de fréquences des 2 GHz, enjeu de souveraineté spatiale pour l'Europe (Eutelsat, SES, Hispasat).",
-        "Croissance chinoise de 4,5% au troisième trimestre, tirée par les exportations liées à l'IA.",
-        "La guerre en Iran et les évolutions chinoises resserrent l'accès au dollar sur les marchés mondiaux."
+        "Flambée des volumes de CDS liés à la dette des géants de l'IA (Oracle, SpaceX, Alphabet, Amazon, Meta, Broadcom, Nvidia), signe d'inquiétudes sur une possible bulle.",
+        "La guerre en Iran déplace une partie de la production pétrolière mondiale vers les Amériques (Canada, Brésil, Argentine).",
+        "Le Japon se dit à quelques mois d'une pénurie de terres rares critiques face au resserrement chinois des exportations.",
+        "L'Afrique du Sud accélère son rapprochement commercial avec la Chine et l'Inde face à la dégradation de ses relations avec Washington."
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 4,
       "rubrique": "FRANCE",
-      "titre": "Budget 2027 : Lecornu joue la carte de l'urgence face à l'Assemblée",
-      "chapeau": "Présenté début octobre, le projet de loi de finances pour 2027 doit être examiné dans un calendrier contraint, sur fond de menaces de censure et de tensions sociales.",
+      "titre": "Budget 2027 : l'examen parlementaire s'ouvre sous très haute tension",
+      "chapeau": "Alors que le pays sort à peine d'un week-end de violences inédites, le projet de loi de finances pour 2027 entre dans sa phase d'examen à l'Assemblée nationale, sur fond de défiance accrue envers l'exécutif.",
       "dureeLectureMin": 3,
       "corpsArticle": [
-        "Le projet de loi de finances (PLF) et le projet de loi de financement de la sécurité sociale (PLFSS) pour 2027, présentés en Conseil des ministres début octobre, prévoient un effort d'économies d'environ 43 milliards d'euros pour la seule année 2027, portant l'effort cumulé depuis 2026 à près de 54 milliards d'euros selon le gouvernement, avec pour objectif de ramener le déficit public à environ 5% du PIB en 2027, après un dérapage attendu à 5,4% en 2026 selon Bercy. Le PLFSS prévoit notamment un gel des aides personnalisées au logement (APL) à leur niveau de 2026.",
-        "Déposés à l'Assemblée nationale le 6 octobre, les deux textes doivent être votés avant le 26 novembre pour le PLF et le 17 décembre pour le PLFSS, en vertu des délais constitutionnels d'examen budgétaire. Le Premier ministre Sébastien Lecornu, qui a réaffirmé ne pas être candidat à l'élection présidentielle, s'est engagé à ne pas recourir à l'article 49.3 ni aux ordonnances en l'absence de blocage parlementaire, présentant le vote comme inévitable : « attendre la présidentielle, c'est choisir le désordre. » La gauche et La France insoumise ont laissé entendre qu'elles pourraient déposer une motion de censure, et la CGT a exprimé son opposition au texte.",
-        "Cette bataille parlementaire se déroule en toile de fond des semaines de mobilisation lycéenne sur les conditions d'enseignement qui avaient précédé les troubles plus larges de ce week-end, ajoutant une pression supplémentaire sur un gouvernement déjà minoritaire à l'Assemblée."
+        "Déposés le 6 octobre à l'Assemblée nationale, le projet de loi de finances (PLF) et le projet de loi de financement de la sécurité sociale (PLFSS) pour 2027 doivent être votés avant le 26 novembre et le 17 décembre respectivement. Le texte prévoit environ 43 milliards d'euros d'économies supplémentaires pour la seule année 2027, avec pour objectif de ramener le déficit public à environ 5% du PIB. Le Premier ministre Sébastien Lecornu a réaffirmé son intention de ne recourir ni à l'article 49.3 ni aux ordonnances, misant sur un vote parlementaire malgré l'absence de majorité.",
+        "Ce calendrier budgétaire se heurte désormais à un climat politique et social considérablement alourdi par les violences du week-end. Plusieurs responsables de gauche ont laissé entendre qu'une motion de censure pourrait être déposée dans les prochains jours, estimant que la rigueur budgétaire prévue par le texte nourrit elle-même les tensions sociales à l'origine des troubles.",
+        "En parallèle, les autorités ont engagé des discussions avec plusieurs plateformes de revente en ligne - Vinted, Amazon et eBay sont citées par le Financial Times - afin de faire retirer les annonces suspectes et d'identifier les vendeurs de produits de luxe volés lors des pillages du week-end, notamment dans les enseignes Louis Vuitton et Hermès."
       ],
       "essentiel": [
-        "PLF 2027 : environ 43 milliards d'euros d'économies supplémentaires, 54 milliards cumulés depuis 2026.",
-        "Objectif : ramener le déficit public à environ 5% du PIB en 2027.",
-        "Vote attendu à l'Assemblée avant le 26 novembre (PLF) et le 17 décembre (PLFSS).",
-        "La France insoumise et la gauche évoquent une possible motion de censure ; opposition de la CGT."
+        "Le PLF et le PLFSS 2027 entament leur examen parlementaire, avec un vote attendu avant le 26 novembre et le 17 décembre.",
+        "Sébastien Lecornu écarte le recours au 49.3, misant sur un vote malgré l'absence de majorité.",
+        "La gauche évoque une possible motion de censure, dans un climat social dégradé par les violences du week-end.",
+        "Les autorités s'associent à Vinted, Amazon et eBay pour empêcher la revente en ligne des biens de luxe volés."
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 5,
       "rubrique": "REGARD_DIPLOMATE",
-      "titre": "Ce que les trêves non vérifiées et les émeutes nous rappellent",
+      "titre": "Quand le désordre intérieur devient une donnée diplomatique",
       "chapeau": "Un point de vue éditorial sur les leçons de lecture diplomatique que suggère l'actualité du jour.",
       "dureeLectureMin": 3,
       "corpsArticle": [
-        "Une trêve annoncée n'est pas une trêve appliquée. L'écart entre le cessez-le-feu énergétique annoncé par Donald Trump entre la Russie et l'Ukraine et la poursuite des frappes des deux côtés illustre une leçon récurrente de la diplomatie : ce qui compte n'est pas la déclaration, mais le mécanisme de vérification et d'application qui l'accompagne. Sans dispositif de contrôle ni sanction crédible en cas de violation, une trêve reste une déclaration politique, non une réalité opérationnelle — l'histoire diplomatique, de la péninsule coréenne aux Balkans, l'a montré à de nombreuses reprises.",
-        "Seconde leçon, plus diffuse : la fragilité intérieure est aussi une politique étrangère. Les troubles qui secouent la France, à quelques jours de négociations budgétaires européennes sensibles et en pleine tension transatlantique sur la souveraineté numérique et spatiale, rappellent qu'un État construit sa crédibilité internationale autant sur sa capacité à maintenir l'ordre chez lui que sur sa posture diplomatique à l'extérieur. La même logique vaut pour l'unité canadienne mise à l'épreuve par le référendum albertain, ou pour Israël, dont les élections se tiennent sous l'ombre d'une guerre non résolue. Pour qui étudie la diplomatie, la leçon du jour tient moins à tel ou tel événement qu'à cette interaction constante entre l'ordre intérieur d'un pays et le crédit qu'il peut faire valoir à l'étranger — un point de vue, non un fait établi, mais qui mérite d'être confronté à l'actualité de chaque jour."
+        "La vente d'obligations françaises qui s'intensifie à mesure que les scènes de pillage s'accumulent n'est pas seulement un fait de marché : elle illustre de façon concrète que la stabilité intérieure d'un État est elle-même évaluée, chiffrée, par les acteurs internationaux - investisseurs, agences de notation, partenaires diplomatiques. Qu'un grand quotidien économique international consacre plusieurs articles et un éditorial à l'« impuissance » de la classe politique française n'est pas un simple commentaire journalistique : c'est un indicateur de la façon dont la crédibilité d'un pays se construit, ou s'érode, dans le regard de ses partenaires et de ses créanciers.",
+        "Seconde observation, plus structurelle : plusieurs dossiers du jour - le bras de fer sino-japonais sur les terres rares, la recomposition pétrolière liée à la guerre en Iran, ou encore le pivot commercial sud-africain vers Pékin et New Delhi - rappellent qu'une large part de la diplomatie contemporaine se joue désormais dans le registre des dépendances matérielles plutôt que dans celui des seules déclarations officielles. Contrôler une chaîne d'approvisionnement, un flux pétrolier ou un accès tarifaire est devenu un levier de pouvoir au moins aussi efficace qu'un communiqué ou une rencontre au sommet - un point de vue qui mérite d'être nuancé au fil de l'actualité, mais qui invite à lire les tensions commerciales du jour comme des épisodes à part entière de la géopolitique, non comme son simple arrière-plan."
       ],
       "essentiel": [
-        "Une trêve sans mécanisme de vérification reste une déclaration, pas une réalité opérationnelle.",
-        "La stabilité intérieure d'un État conditionne en partie sa crédibilité diplomatique à l'étranger.",
+        "La réaction des marchés à l'instabilité intérieure française illustre comment la crédibilité diplomatique se mesure aussi en termes financiers.",
+        "Les tensions sur les terres rares, le pétrole et les tarifs douaniers montrent une géopolitique de plus en plus façonnée par les dépendances matérielles.",
         "Ce regard est un point de vue éditorial, non un fait établi."
       ],
       "signature": "L'éditorial du Diplomate"
