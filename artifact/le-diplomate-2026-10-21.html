@@ -1,0 +1,375 @@
+<title>Le Diplomate — 21 octobre 2026</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: single-column gazette, masthead + rule, article blocks with drop caps and a boxed "essentiel" sidebar per section */
+:root{
+  --paper:#E6E2D6; --ink:#1C2230; --ink-soft:#4A4E58;
+  --rule:#1C2230; --accent:#7A2E2E; --accent-soft:#9C7A3C;
+  --card:#DCD7C7; --card-border:#C9C2AC;
+  --font-display:'Fraunces',Georgia,'Times New Roman',serif;
+  --font-body:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#15181D; --ink:#E7E3D6; --ink-soft:#A9A598;
+    --rule:#E7E3D6; --accent:#D98C8C; --accent-soft:#D9B978;
+    --card:#1D2127; --card-border:#30353D;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15181D; --ink:#E7E3D6; --ink-soft:#A9A598;
+  --rule:#E7E3D6; --accent:#D98C8C; --accent-soft:#D9B978;
+  --card:#1D2127; --card-border:#30353D;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:var(--font-body);
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+body::before{
+  content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px);
+  z-index:10; background:var(--paper);
+}
+.wrap{max-width:720px; margin:0 auto; padding-bottom:64px;}
+
+/* Masthead */
+header.masthead{
+  padding-top:max(28px, calc(env(safe-area-inset-top,0px) + 14px));
+  text-align:center;
+}
+.kicker{
+  font-family:var(--font-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-soft);
+}
+h1.title{
+  font-family:var(--font-display); font-weight:900; font-size:clamp(40px,10vw,64px);
+  margin:6px 0 4px; letter-spacing:-0.01em; text-wrap:balance;
+}
+.meta-row{
+  display:flex; justify-content:center; gap:14px; flex-wrap:wrap;
+  font-family:var(--font-mono); font-size:12px; color:var(--ink-soft);
+  letter-spacing:.04em; margin-bottom:14px;
+}
+.rule{border:none; border-top:2px solid var(--rule); margin:0 0 18px;}
+.rule-thin{border:none; border-top:1px solid var(--card-border); margin:28px 0;}
+
+/* Listen toggle */
+.listen-bar{
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  margin-bottom:20px;
+}
+#listenBtn{
+  font-family:var(--font-mono); font-size:13px; letter-spacing:.03em;
+  background:var(--card); color:var(--ink); border:1px solid var(--card-border);
+  border-radius:999px; padding:9px 18px; cursor:pointer;
+  display:inline-flex; align-items:center; gap:8px;
+}
+#listenBtn:active{transform:translateY(1px);}
+#listenStatus{font-family:var(--font-mono); font-size:11px; color:var(--ink-soft);}
+
+/* Table of contents */
+nav.toc{
+  display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:center;
+  font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+  color:var(--ink-soft); margin-bottom:26px;
+}
+nav.toc a{color:inherit; text-decoration:none; border-bottom:1px solid transparent;}
+nav.toc a:hover{border-bottom-color:var(--ink-soft);}
+
+/* Article */
+article{margin-bottom:8px; scroll-margin-top:24px;}
+.rubrique{
+  font-family:var(--font-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent); font-weight:600; margin-bottom:8px; display:flex; align-items:center; gap:8px;
+}
+.rubrique::before{content:""; width:18px; height:2px; background:var(--accent); display:inline-block;}
+article.regard .rubrique{color:var(--accent-soft);}
+article.regard .rubrique::before{background:var(--accent-soft);}
+
+h2.headline{
+  font-family:var(--font-display); font-weight:800; font-size:clamp(26px,5.5vw,34px);
+  line-height:1.12; margin:0 0 10px; text-wrap:balance;
+}
+p.chapeau{
+  font-family:var(--font-display); font-style:italic; font-weight:400;
+  font-size:18px; line-height:1.5; color:var(--ink-soft); margin:0 0 16px;
+  border-left:2px solid var(--card-border); padding-left:14px;
+}
+.read-time{
+  font-family:var(--font-mono); font-size:11px; color:var(--ink-soft);
+  letter-spacing:.04em; margin-bottom:18px;
+}
+.body-text p{
+  font-size:17px; line-height:1.68; margin:0 0 16px; max-width:65ch;
+}
+.body-text p:first-of-type::first-letter{
+  font-family:var(--font-display); font-weight:800; font-size:48px; line-height:.8;
+  float:left; padding:4px 8px 0 0; color:var(--accent);
+}
+article.regard .body-text p:first-of-type::first-letter{color:var(--accent-soft);}
+
+.essentiel{
+  background:var(--card); border:1px solid var(--card-border); border-radius:4px;
+  padding:16px 18px; margin:20px 0 10px;
+}
+.essentiel .label{
+  font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-soft); margin-bottom:10px;
+}
+.essentiel ul{margin:0; padding:0; list-style:none;}
+.essentiel li{
+  font-size:14px; line-height:1.5; padding-left:16px; position:relative; margin-bottom:8px;
+}
+.essentiel li::before{content:"—"; position:absolute; left:0; color:var(--accent);}
+article.regard .essentiel li::before{color:var(--accent-soft);}
+.essentiel li:last-child{margin-bottom:0;}
+
+.signature{
+  font-family:var(--font-mono); font-size:12px; font-style:normal; color:var(--ink-soft);
+  text-align:right; margin-top:14px;
+}
+
+footer{
+  text-align:center; font-family:var(--font-mono); font-size:11px; color:var(--ink-soft);
+  letter-spacing:.06em; margin-top:40px; padding-top:18px; border-top:1px solid var(--card-border);
+}
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="kicker">Revue de presse diplomatique — édition du matin</div>
+    <h1 class="title">Le Diplomate</h1>
+    <div class="meta-row">
+      <span>N° 14</span><span>·</span><span>Mercredi 21 octobre 2026</span><span>·</span><span>08:35</span>
+    </div>
+  </header>
+  <hr class="rule">
+
+  <div class="listen-bar">
+    <button id="listenBtn" type="button" aria-pressed="false">🔊 Écouter</button>
+    <span id="listenStatus"></span>
+  </div>
+
+  <nav class="toc" aria-label="Sommaire">
+    <a href="#une">Une</a>
+    <a href="#geopolitique">Géopolitique</a>
+    <a href="#geoeconomie">Géoéconomie</a>
+    <a href="#france">France</a>
+    <a href="#regard">Regard du Diplomate</a>
+  </nav>
+
+  <article id="une">
+    <div class="rubrique">Une</div>
+    <h2 class="headline">Israël-Iran : Netanyahu pousse pour une reprise des frappes et revendique le droit d'agir seul</h2>
+    <p class="chapeau">Le Premier ministre israélien a demandé à son armée de préparer une nouvelle offensive contre l'Iran et affirme qu'Israël est prêt à frapper seul, sans soutien américain, si nécessaire — ravivant le risque d'un retour à la guerre ouverte dans la région, selon le Financial Times.</p>
+    <div class="read-time">5 min de lecture</div>
+    <div class="body-text">
+      <p>Benjamin Netanyahu pousse pour une reprise de frappes de grande ampleur contre l'Iran et a demandé à son armée, plus tôt ce mois-ci, de préparer une nouvelle offensive, selon des informations exclusives du Financial Times. Ces préparatifs font courir le risque de replonger la région dans une guerre ouverte, après la trêve fragile qui avait suivi le précédent épisode de frappes israélo-américaines sur le territoire iranien.</p>
+      <p>Cette relance intervient après une déclaration de doctrine prononcée le 18 octobre, dans laquelle M. Netanyahu a désigné l'Iran nucléarisé comme la principale menace pesant sur Israël et affirmé que son pays était prêt à mener une frappe préventive sans l'appui de Washington si la situation l'exigeait. « Si nous devons agir seuls, nous agirons seuls », a-t-il déclaré en présentant sa doctrine de sécurité nationale actualisée pour 2026.</p>
+      <p>Selon des informations rapportées par la presse américaine, Donald Trump et Benjamin Netanyahu auraient évoqué une nouvelle opération d'ampleur contre l'Iran avant les élections de mi-mandat américaines et le scrutin israélien à venir. Un responsable américain cité par ces mêmes sources indique que le président Trump aurait dit à M. Netanyahu de « se préparer », sans toutefois prendre d'engagement ferme sur une reprise des opérations militaires. La Maison Blanche a pour sa part démenti toute discussion portant sur une reprise de la guerre et réaffirmé que les États-Unis n'attaqueraient pas l'Iran avant les élections de mi-mandat.</p>
+      <p>Sur les marchés, cette tension renaissante se lit déjà dans les prix de l'énergie : le baril de Brent progressait ce matin de près de 1,5%, à environ 110 dollars, tandis que le WTI américain gagnait un peu plus de 1,4%, à environ 99 dollars, les investisseurs intégrant de nouveau une prime de risque géopolitique liée à la région du détroit d'Ormuz.</p>
+      <p>Cette séquence rappelle que la trêve en vigueur depuis le printemps dernier n'a jamais eu le statut d'un règlement définitif : M. Netanyahu avait lui-même indiqué, lors de la cérémonie commémorant les attaques du 7 octobre, que le cessez-le-feu ne marquait pas la fin de la campagne militaire israélienne contre l'Iran, qu'il juge aujourd'hui « plus faible qu'elle ne l'a jamais été depuis sa fondation ».</p>
+    </div>
+    <div class="essentiel">
+      <div class="label">L'essentiel</div>
+      <ul>
+        <li>Netanyahu a demandé à l'armée israélienne de préparer une nouvelle offensive contre l'Iran, selon le Financial Times.</li>
+        <li>Le 18 octobre, il a affirmé qu'Israël était prêt à frapper seul l'Iran, sans soutien américain, si nécessaire.</li>
+        <li>Trump et Netanyahu auraient évoqué une nouvelle opération avant les élections de mi-mandat américaines ; la Maison Blanche dément tout projet de reprise de la guerre avant le scrutin.</li>
+        <li>Le pétrole (Brent, WTI) intègre une nouvelle prime de risque liée à ces tensions renaissantes.</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <hr class="rule-thin">
+
+  <article id="geopolitique">
+    <div class="rubrique">Géopolitique</div>
+    <h2 class="headline">Oslo, Milan, Brasilia, New York : quatre foyers de tension à suivre</h2>
+    <p class="chapeau">De la relance des pourparlers sur l'Ukraine à Oslo aux violences urbaines qui secouent le nord de l'Italie, en passant par le second tour présidentiel brésilien et la bataille de succession à la tête de l'ONU, tour d'horizon des dossiers internationaux du jour — et des positions françaises, quand elles existent.</p>
+    <div class="read-time">5 min de lecture</div>
+    <div class="body-text">
+      <p>Volodymyr Zelensky a participé à de nouvelles discussions à Oslo impliquant un émissaire de Donald Trump, le président finlandais ayant salué des progrès dans les pourparlers visant à mettre fin à la guerre menée par la Russie en Ukraine, selon le Financial Times. Les détails de cette avancée restent toutefois limités à ce stade.</p>
+      <p><em>Position de la France :</em> aucune réaction officielle française identifiée à ce stade sur ce nouveau round de discussions à Oslo.</p>
+      <p>En Italie, le gouvernement de Giorgia Meloni a dépêché 500 soldats à Milan après plusieurs jours de violences urbaines marquées par des pillages et des affrontements avec la police, survenus en marge de manifestations contre la vie chère. Des incidents similaires ont également touché Bologne, Brescia, Bergame et Turin ces derniers jours, mettant à l'épreuve la crédibilité de Mme Meloni sur les questions d'ordre public.</p>
+      <p><em>Position de la France :</em> aucune réaction officielle française identifiée à ce stade sur ces violences italiennes, qui font écho, par leur ampleur et leurs causes invoquées, aux troubles connus récemment par la France elle-même.</p>
+      <p>Au Brésil, le second tour de l'élection présidentielle, prévu le 25 octobre, oppose le président sortant Lula à Flávio Bolsonaro, fils de l'ancien président Jair Bolsonaro — condamné à 27 ans de prison pour tentative de coup d'État. Lula, qui a accéléré le versement d'aides sociales à l'approche du scrutin, cherche à combler l'écart avec son adversaire après un premier débat tenu le 18 octobre, dominé par la question de la sécurité publique.</p>
+      <p><em>Position de la France :</em> aucune réaction officielle française identifiée à ce stade sur ce second tour, Paris s'abstenant traditionnellement de commenter un scrutin étranger en cours.</p>
+      <p>À New York, la bataille de succession à la tête des Nations unies s'intensifie avec l'émergence de Lana Nusseibeh, haute responsable émiratie, comme nouvelle candidate potentielle au poste de secrétaire général, selon le Financial Times, dans un contexte de vives rivalités géopolitiques autour de cette nomination.</p>
+      <p><em>Position de la France :</em> aucune réaction officielle française identifiée à ce stade sur cette candidature, alors que la France, membre permanent du Conseil de sécurité, disposera d'un droit de regard direct sur le choix du prochain secrétaire général.</p>
+    </div>
+    <div class="essentiel">
+      <div class="label">L'essentiel</div>
+      <ul>
+        <li>Zelensky participe à de nouvelles discussions à Oslo ; le président finlandais évoque des progrès dans les pourparlers sur l'Ukraine.</li>
+        <li>Rome déploie 500 soldats à Milan après plusieurs jours de violences urbaines touchant aussi Bologne, Brescia, Bergame et Turin.</li>
+        <li>Second tour présidentiel brésilien le 25 octobre : Lula contre Flávio Bolsonaro, sur fond d'aides sociales accélérées et de débat sur la sécurité.</li>
+        <li>Lana Nusseibeh (Émirats arabes unis) émerge comme candidate au poste de secrétaire général de l'ONU.</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <hr class="rule-thin">
+
+  <article id="geoeconomie">
+    <div class="rubrique">Géoéconomie</div>
+    <h2 class="headline">Budget britannique, prime de risque pétrolière et « piège japonais » chinois</h2>
+    <p class="chapeau">Entre un budget britannique calibré pour ne pas inquiéter les marchés obligataires, une prime de risque pétrolière ravivée par les tensions israélo-iraniennes et un parallèle de plus en plus assumé entre l'économie chinoise et le Japon des décennies perdues, la géoéconomie du jour se joue sur plusieurs tableaux.</p>
+    <div class="read-time">4 min de lecture</div>
+    <div class="body-text">
+      <p>Le chancelier britannique — via son ministre John Healey, selon le Financial Times — prépare un budget volontairement « ennuyeux », dont la priorité affichée est de ne pas inquiéter le marché obligataire. Le projet renonce notamment à la création d'un nouveau visa pour les personnes fortunées étrangères, pourtant envisagé sous l'administration précédente. Le marché des gilts britanniques, d'abord durement touché au début de la guerre en Iran, a depuis surperformé ses pairs, les inquiétudes des investisseurs se déplaçant désormais davantage vers la France.</p>
+      <p>Les prix du pétrole intègrent une prime de risque renouvelée après les informations sur une possible reprise des frappes israéliennes contre l'Iran : le Brent gagnait ce matin près de 1,5%, à environ 110 dollars le baril. Dans ce contexte de tensions sur l'approvisionnement énergétique européen, le Royaume-Uni doit par ailleurs donner mercredi son feu vert au développement du gisement gazier Jackdaw, en mer du Nord, à environ 240 kilomètres à l'est d'Aberdeen.</p>
+      <p>Sur le front chinois, plusieurs analyses relayées par le Financial Times soulignent que l'économie chinoise ressemble de plus en plus à celle du Japon au début des années 1990 : démographie dégradée, déflation persistante, consommation atone et marchés immobilier et boursier moribonds. Pékin dit avoir étudié l'expérience japonaise pour éviter de reproduire ses erreurs, mais les signes de ce mal structurel se multiplient.</p>
+      <p>Dans le même temps, les groupes chinois accélèrent la construction d'une chaîne d'approvisionnement mondiale dans les batteries, à mesure que les barrières protectionnistes occidentales se renforcent — un exemple supplémentaire de la manière dont Pékin transforme une contrainte commerciale en levier d'influence industrielle à l'échelle mondiale.</p>
+      <p>Enfin, sur le registre climatique, un rapport des Nations unies évoque une trajectoire de réchauffement de 2,8°C, les émissions de gaz à effet de serre liées à l'énergie restant à des niveaux record et les émissions américaines étant en hausse. Une étude de l'ITPN relayée par le Financial Times montre par ailleurs que les entreprises publiant des plans de transition climatique complets bénéficient de taux d'intérêt sur leur dette inférieurs de 0,8 point de pourcentage à ceux qui n'en publient pas — signe que la crédibilité climatique devient, elle aussi, un paramètre économique à part entière.</p>
+    </div>
+    <div class="essentiel">
+      <div class="label">L'essentiel</div>
+      <ul>
+        <li>Londres prépare un budget « ennuyeux » pour ne pas inquiéter les marchés obligataires ; abandon d'un visa pour les grandes fortunes étrangères.</li>
+        <li>Le pétrole (Brent à environ 110 dollars) intègre une nouvelle prime de risque liée aux tensions israélo-iraniennes.</li>
+        <li>L'économie chinoise est de plus en plus comparée au Japon des décennies perdues (déflation, démographie, immobilier).</li>
+        <li>Les entreprises aux plans climatiques complets emprunteraient à des taux inférieurs de 0,8 point, selon une étude relayée par le Financial Times.</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <hr class="rule-thin">
+
+  <article id="france">
+    <div class="rubrique">France</div>
+    <h2 class="headline">Après les violences : couvre-feux localisés, polémique policière et suspicion d'ingérence étrangère</h2>
+    <p class="chapeau">Une semaine après le pic des violences et des pillages, la France vit sous un régime de couvre-feux localisés, tandis que la polémique sur la gestion de l'ordre public se poursuit et que des régulateurs européens examinent une possible ingérence étrangère en ligne.</p>
+    <div class="read-time">4 min de lecture</div>
+    <div class="body-text">
+      <p>Le Premier ministre Sébastien Lecornu a annoncé le 19 octobre des couvre-feux qu'il présente comme « partiels » et « localisés », destinés à protéger les commerces. Dans le Nord, des couvre-feux de 20h à 6h sont en vigueur jusqu'au 25 octobre à Lille, Douai, Wattignies et Denain. À Paris, un couvre-feu accompagné d'une interdiction de manifester a été instauré le soir dans le secteur de l'Esplanade de la République et des accès au quartier des Halles. Nice applique un couvre-feu à 21h dans le centre-ville et le Vieux-Nice, et Lyon un couvre-feu de 21h à 6h entre l'Hôtel de Ville et la place Carnot.</p>
+      <p>Sur le plan politique, le ministre de l'Intérieur Laurent Nuñez avait proposé sa démission après les critiques sur la gestion policière des violences ; le président Emmanuel Macron l'a refusée, invoquant la nécessité de maintenir la continuité du commandement des forces de l'ordre dans le contexte actuel. M. Lecornu attribue les violences à des « groupes d'ultragauche » mêlés à des délinquants de droit commun ; Jean-Luc Mélenchon dénonce des accusations infondées visées contre La France insoumise, tandis que Marine Le Pen accuse des députés insoumis d'avoir contribué à légitimer les violences.</p>
+      <p>Au plus fort des troubles, plus de 1 200 personnes avaient été interpellées en une seule journée et environ 150 policiers et gendarmes blessés, selon le gouvernement. Les mairies de Marseille et de Lille ont été dégradées, la résidence officielle de la préfète de Gironde saccagée, et un bureau de l'office de tourisme incendié à Lyon.</p>
+      <p>Des régulateurs européens examinent par ailleurs une possible ingérence en ligne étrangère et des campagnes de désinformation autour des émeutes françaises et de violences similaires survenues ces derniers jours dans d'autres pays européens, selon le Financial Times — une piste qui, si elle se confirmait, viendrait complexifier encore la lecture de ces événements.</p>
+    </div>
+    <div class="essentiel">
+      <div class="label">L'essentiel</div>
+      <ul>
+        <li>Des couvre-feux localisés restent en vigueur à Lille, Douai, Wattignies, Denain, Paris, Nice et Lyon.</li>
+        <li>Le ministre de l'Intérieur Laurent Nuñez avait proposé sa démission ; Emmanuel Macron l'a refusée.</li>
+        <li>Plus de 1 200 interpellations en une journée au plus fort des violences ; mairies et bâtiments publics dégradés dans plusieurs villes.</li>
+        <li>Des régulateurs européens examinent une possible ingérence étrangère en ligne autour des émeutes françaises.</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <hr class="rule-thin">
+
+  <article id="regard" class="regard">
+    <div class="rubrique">Regard du Diplomate</div>
+    <h2 class="headline">Des trêves et des colères qui ne demandent qu'à se rouvrir</h2>
+    <p class="chapeau">Un point de vue éditorial sur les leçons de lecture diplomatique que suggère l'actualité du jour.</p>
+    <div class="read-time">3 min de lecture</div>
+    <div class="body-text">
+      <p>Que la France et l'Italie connaissent, presque simultanément, des épisodes de violence urbaine nourris par la colère sociale face au coût de la vie invite à se demander si l'on observe deux crises nationales distinctes ou les symptômes d'une fragilité plus large, commune à plusieurs démocraties européennes. Le fait que les marchés obligataires traitent déjà ce risque par contagion — les gilts britanniques surperformant leurs pairs à mesure que l'attention des investisseurs se déplace vers la dette française — suggère que cette lecture comparative s'impose déjà, au moins partiellement, chez les acteurs financiers eux-mêmes.</p>
+      <p>La relance, par Israël, de la perspective d'une reprise des frappes contre l'Iran illustre par ailleurs une leçon plus ancienne de la diplomatie : une trêve qui repose sur la seule volonté d'une des parties, sans mécanisme de vérification mutuelle ni architecture de garanties partagées, demeure une pause et non un règlement. Le même constat, avec des termes bien différents, pourrait s'appliquer aux pourparlers en cours sur l'Ukraine : tant qu'un accord ne s'accompagne pas de garanties vérifiables pour toutes les parties, chaque avancée reste réversible au gré des calculs intérieurs de ses signataires. Ce regard reste, par construction, un point de vue éditorial — non un fait établi.</p>
+    </div>
+    <div class="essentiel">
+      <div class="label">L'essentiel</div>
+      <ul>
+        <li>La simultanéité des violences urbaines en France et en Italie interroge sur une fragilité sociale partagée par plusieurs démocraties européennes.</li>
+        <li>Une trêve sans mécanisme de vérification mutuelle reste une pause, non un règlement — qu'il s'agisse de l'Iran ou de l'Ukraine.</li>
+        <li>Ce regard est un point de vue éditorial, non un fait établi.</li>
+      </ul>
+    </div>
+    <div class="signature">L'éditorial du Diplomate</div>
+  </article>
+
+  <footer>Le Diplomate — revue de presse diplomatique générée le 21 octobre 2026, 08:35</footer>
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById('listenBtn');
+  var status = document.getElementById('listenStatus');
+  var synth = window.speechSynthesis;
+  var speaking = false;
+
+  if(!synth){
+    btn.disabled = true;
+    status.textContent = "lecture vocale indisponible";
+    return;
+  }
+
+  function buildText(){
+    var articles = document.querySelectorAll('article');
+    var parts = [];
+    articles.forEach(function(a){
+      var rub = a.querySelector('.rubrique');
+      var h = a.querySelector('.headline');
+      var chap = a.querySelector('.chapeau');
+      var paras = a.querySelectorAll('.body-text p');
+      var ess = a.querySelectorAll('.essentiel li');
+      if(rub) parts.push(rub.textContent + ".");
+      if(h) parts.push(h.textContent + ".");
+      if(chap) parts.push(chap.textContent);
+      paras.forEach(function(p){ parts.push(p.textContent); });
+      if(ess.length){
+        parts.push("L'essentiel.");
+        ess.forEach(function(li){ parts.push(li.textContent); });
+      }
+    });
+    return parts.join(" ");
+  }
+
+  function pickFrenchVoice(){
+    var voices = synth.getVoices() || [];
+    for(var i=0;i<voices.length;i++){
+      if(voices[i].lang && voices[i].lang.toLowerCase().indexOf('fr') === 0) return voices[i];
+    }
+    return null;
+  }
+
+  function stop(){
+    try{ synth.cancel(); }catch(e){}
+    speaking = false;
+    btn.textContent = "🔊 Écouter";
+    btn.setAttribute('aria-pressed','false');
+    status.textContent = "";
+  }
+
+  btn.addEventListener('click', function(){
+    if(speaking){
+      stop();
+      return;
+    }
+    var text = buildText();
+    var utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'fr-FR';
+    var voice = pickFrenchVoice();
+    if(voice) utter.voice = voice;
+    utter.rate = 0.98;
+    utter.onend = stop;
+    utter.onerror = stop;
+    try{
+      synth.cancel();
+      synth.speak(utter);
+      speaking = true;
+      btn.textContent = "⏸ Arrêter";
+      btn.setAttribute('aria-pressed','true');
+      status.textContent = "lecture en cours…";
+    }catch(e){
+      stop();
+    }
+  });
+
+  if('onvoiceschanged' in synth){
+    synth.onvoiceschanged = function(){};
+  }
+})();
+</script>
