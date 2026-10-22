@@ -1,0 +1,367 @@
+<title>Le Diplomate — 22 octobre 2026</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: single-column gazette, masthead + rule, article blocks with drop caps and a boxed "essentiel" sidebar per section */
+:root{
+  --paper:#E6E2D6; --ink:#1C2230; --ink-soft:#4A4E58;
+  --rule:#1C2230; --accent:#7A2E2E; --accent-soft:#9C7A3C;
+  --card:#DCD7C7; --card-border:#C9C2AC;
+  --font-display:'Fraunces',Georgia,'Times New Roman',serif;
+  --font-body:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#15181D; --ink:#E7E3D6; --ink-soft:#A9A598;
+    --rule:#E7E3D6; --accent:#D98C8C; --accent-soft:#D9B978;
+    --card:#1D2127; --card-border:#30353D;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15181D; --ink:#E7E3D6; --ink-soft:#A9A598;
+  --rule:#E7E3D6; --accent:#D98C8C; --accent-soft:#D9B978;
+  --card:#1D2127; --card-border:#30353D;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:var(--font-body);
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+body::before{
+  content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px);
+  z-index:10; background:var(--paper);
+}
+.wrap{max-width:720px; margin:0 auto; padding-bottom:64px;}
+
+/* Masthead */
+header.masthead{
+  padding-top:max(28px, calc(env(safe-area-inset-top,0px) + 14px));
+  text-align:center;
+}
+.kicker{
+  font-family:var(--font-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-soft);
+}
+h1.title{
+  font-family:var(--font-display); font-weight:900; font-size:clamp(40px,10vw,64px);
+  margin:6px 0 4px; letter-spacing:-0.01em; text-wrap:balance;
+}
+.meta-row{
+  display:flex; justify-content:center; gap:14px; flex-wrap:wrap;
+  font-family:var(--font-mono); font-size:12px; color:var(--ink-soft);
+  letter-spacing:.04em; margin-bottom:14px;
+}
+.rule{border:none; border-top:2px solid var(--rule); margin:0 0 18px;}
+.rule-thin{border:none; border-top:1px solid var(--card-border); margin:28px 0;}
+
+/* Listen toggle */
+.listen-bar{
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  margin-bottom:20px;
+}
+#listenBtn{
+  font-family:var(--font-mono); font-size:13px; letter-spacing:.03em;
+  background:var(--card); color:var(--ink); border:1px solid var(--card-border);
+  border-radius:999px; padding:9px 18px; cursor:pointer;
+  display:inline-flex; align-items:center; gap:8px;
+}
+#listenBtn:active{transform:translateY(1px);}
+#listenStatus{font-family:var(--font-mono); font-size:11px; color:var(--ink-soft);}
+
+/* Table of contents */
+nav.toc{
+  display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:center;
+  font-family:var(--font-mono); font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+  color:var(--ink-soft); margin-bottom:26px;
+}
+nav.toc a{color:inherit; text-decoration:none; border-bottom:1px solid transparent;}
+nav.toc a:hover{border-bottom-color:var(--ink-soft);}
+
+/* Article */
+article{margin-bottom:8px; scroll-margin-top:24px;}
+.rubrique{
+  font-family:var(--font-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent); font-weight:600; margin-bottom:8px; display:flex; align-items:center; gap:8px;
+}
+.rubrique::before{content:""; width:18px; height:2px; background:var(--accent); display:inline-block;}
+article.regard .rubrique{color:var(--accent-soft);}
+article.regard .rubrique::before{background:var(--accent-soft);}
+
+h2.headline{
+  font-family:var(--font-display); font-weight:800; font-size:clamp(26px,5.5vw,34px);
+  line-height:1.12; margin:0 0 10px; text-wrap:balance;
+}
+p.chapeau{
+  font-family:var(--font-display); font-style:italic; font-weight:400;
+  font-size:18px; line-height:1.5; color:var(--ink-soft); margin:0 0 16px;
+  border-left:2px solid var(--card-border); padding-left:14px;
+}
+.read-time{
+  font-family:var(--font-mono); font-size:11px; color:var(--ink-soft);
+  letter-spacing:.04em; margin-bottom:18px;
+}
+.body-text p{
+  font-size:17px; line-height:1.68; margin:0 0 16px; max-width:65ch;
+}
+.body-text p:first-of-type::first-letter{
+  font-family:var(--font-display); font-weight:800; font-size:48px; line-height:.8;
+  float:left; padding:4px 8px 0 0; color:var(--accent);
+}
+article.regard .body-text p:first-of-type::first-letter{color:var(--accent-soft);}
+
+.essentiel{
+  background:var(--card); border:1px solid var(--card-border); border-radius:4px;
+  padding:16px 18px; margin:20px 0 10px;
+}
+.essentiel .label{
+  font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-soft); margin-bottom:10px;
+}
+.essentiel ul{margin:0; padding:0; list-style:none;}
+.essentiel li{
+  font-size:14px; line-height:1.5; padding-left:16px; position:relative; margin-bottom:8px;
+}
+.essentiel li::before{content:"—"; position:absolute; left:0; color:var(--accent);}
+article.regard .essentiel li::before{color:var(--accent-soft);}
+.essentiel li:last-child{margin-bottom:0;}
+
+.signature{
+  font-family:var(--font-mono); font-size:12px; font-style:normal; color:var(--ink-soft);
+  text-align:right; margin-top:14px;
+}
+
+footer{
+  text-align:center; font-family:var(--font-mono); font-size:11px; color:var(--ink-soft);
+  letter-spacing:.06em; margin-top:40px; padding-top:18px; border-top:1px solid var(--card-border);
+}
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="kicker">Revue de presse diplomatique — édition du matin</div>
+    <h1 class="title">Le Diplomate</h1>
+    <div class="meta-row">
+      <span>N° 15</span><span>·</span><span>Jeudi 22 octobre 2026</span><span>·</span><span>06:46</span>
+    </div>
+  </header>
+  <hr class="rule">
+
+  <div class="listen-bar">
+    <button id="listenBtn" type="button" aria-pressed="false">🔊 Écouter</button>
+    <span id="listenStatus"></span>
+  </div>
+
+  <nav class="toc" aria-label="Sommaire">
+    <a href="#une">Une</a>
+    <a href="#geopolitique">Géopolitique</a>
+    <a href="#geoeconomie">Géoéconomie</a>
+    <a href="#france">France</a>
+    <a href="#regard">Regard du Diplomate</a>
+  </nav>
+
+  <article id="une">
+    <div class="rubrique">Une</div>
+    <h2 class="headline">Ukraine : Vladimir Poutine relance l'idée d'un sommet à trois avec Donald Trump et Xi Jinping</h2>
+    <p class="chapeau">L'émissaire américain Steve Witkoff a évoqué avec Vladimir Poutine une reprise du dialogue sur l'Ukraine, qui pourrait déboucher sur une rencontre entre Washington, Pékin et Moscou le mois prochain. Une semaine plus tôt, le président russe avait lui-même suggéré un format de sommet associant Donald Trump et Xi Jinping pour tenter de dénouer le conflit.</p>
+    <div class="read-time">5 min de lecture</div>
+    <div class="body-text">
+      <p>Le dossier ukrainien a connu un début de relance diplomatique ce mercredi. Selon le Financial Times, l'émissaire spécial de Donald Trump, Steve Witkoff, s'est entretenu avec le président russe Vladimir Poutine d'une reprise du dialogue de paix sur l'Ukraine. Cet échange pourrait être suivi, le mois prochain, d'une réunion associant les États-Unis, la Chine et la Russie — une configuration inédite qui ferait de Pékin un acteur explicite des discussions sur l'issue du conflit, et non plus seulement un partenaire économique de Moscou observant la guerre à distance.</p>
+      <p>Cette séquence fait suite à une proposition formulée début octobre par Vladimir Poutine lui-même : lors d'un entretien téléphonique avec Donald Trump le 9 octobre, le président russe avait suggéré la tenue d'un sommet trilatéral réunissant Washington, Moscou et Pékin pour tenter de dénouer le conflit ukrainien. La convergence de ces deux initiatives, côté russe puis côté américain, laisse penser que l'hypothèse d'un format élargi à la Chine, longtemps écartée par les Occidentaux qui privilégiaient un cadre bilatéral americano-russe ou une implication directe des Européens et de Kyiv, gagne du terrain à Washington.</p>
+      <p>Pour Kyiv et les capitales européennes, ce scénario soulève une question sensible : la participation chinoise à des pourparlers sur l'Ukraine, pays que Pékin n'a jamais officiellement reconnu comme agressé par la Russie, pourrait rééquilibrer le rapport de force diplomatique en faveur de Moscou. Les précédentes prises de position françaises sur ce dossier — notamment l'insistance de Paris pour qu'aucune discussion sur le territoire ukrainien ne se tienne sans la participation de Kyiv, et pour qu'un éventuel sommet se déroule dans un pays neutre accepté par toutes les parties — avaient jusqu'ici été formulées dans un cadre strictement américano-russo-ukrainien, sans anticiper une implication directe de la Chine comme partie aux discussions plutôt que comme simple partenaire économique de Moscou.</p>
+      <p>Aucune réaction officielle française n'a pour l'instant été identifiée face à cette perspective précise d'une réunion à trois entre Washington, Pékin et Moscou sur le dossier ukrainien. Le sujet sera à surveiller dans les prochains jours, notamment si l'Élysée ou le Quai d'Orsay sont amenés à réagir à une annonce plus formelle de calendrier.</p>
+    </div>
+    <div class="essentiel">
+      <div class="label">L'essentiel</div>
+      <ul>
+        <li>Steve Witkoff, émissaire de Donald Trump, a évoqué avec Vladimir Poutine une reprise du dialogue de paix sur l'Ukraine.</li>
+        <li>Une réunion entre les États-Unis, la Chine et la Russie pourrait suivre dès le mois prochain, selon le Financial Times.</li>
+        <li>Cette initiative américaine fait écho à une proposition de sommet trilatéral formulée par Poutine lui-même le 9 octobre.</li>
+        <li>Aucune réaction officielle française n'est à ce stade identifiée sur l'hypothèse d'une implication directe de la Chine dans les pourparlers.</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <hr class="rule-thin">
+
+  <article id="geopolitique">
+    <div class="rubrique">Géopolitique</div>
+    <h2 class="headline">Israël à l'approche des élections, mer Rouge sous tension : deux foyers à surveiller</h2>
+    <p class="chapeau">À une semaine des élections législatives israéliennes, le débat sur une reprise des frappes contre l'Iran s'intensifie à Jérusalem. Dans le Golfe, les Houthis continuent de viser les infrastructures pétrolières saoudiennes, poussant Washington à faire partir une partie de son personnel du royaume.</p>
+    <div class="read-time">6 min de lecture</div>
+    <div class="body-text">
+      <p>La question d'une reprise des frappes contre l'Iran continue de diviser les dirigeants israéliens et américains à l'approche d'un rendez-vous électoral majeur : les élections législatives en Israël sont prévues le 27 octobre. Le Financial Times a rapporté que Benjamin Netanyahu a demandé à son armée de préparer une nouvelle offensive de grande ampleur contre l'Iran, affirmant qu'Israël était prêt à agir seul si nécessaire. Mais cette posture se heurte à des signaux plus prudents : le Premier ministre israélien a lui-même indiqué, à la mi-octobre, qu'une nouvelle offensive israélienne ou américaine ne serait pas souhaitable dans l'immédiat, tout en affirmant disposer d'indications sur des attaques iraniennes imminentes. La Maison Blanche, de son côté, a démenti toute discussion sur une reprise de la guerre et réaffirmé que les États-Unis n'attaqueraient pas l'Iran avant les élections de mi-mandat américaines. Cette séquence illustre combien, à quelques jours du scrutin israélien, la rhétorique sécuritaire et le calendrier électoral s'entremêlent sans qu'il soit aisé de distinguer la préparation militaire réelle de la posture de campagne.</p>
+      <p><em>Position de la France :</em> aucune réaction officielle française spécifique à cette séquence des 14-22 octobre n'a pu être identifiée à ce stade. Le Quai d'Orsay avait par le passé appelé à la désescalade régionale et au respect des cessez-le-feu successifs ; aucune déclaration nouvelle rattachée précisément aux derniers développements n'a été recensée dans les sources consultées.</p>
+      <p>Dans le Golfe, la campagne de frappes houthies contre les infrastructures énergétiques saoudiennes s'est poursuivie avec une attaque de drone contre le champ pétrolier d'Aramco à Shaybah, qui a fait deux morts selon le Financial Times. Washington a réagi en ordonnant à une partie de son personnel de quitter l'Arabie saoudite. Cette escalade s'inscrit dans une séquence plus longue : depuis septembre, les rebelles houthis, soutenus par l'Iran, ont multiplié les attaques de drones et de missiles contre des sites pétroliers et, plus récemment, contre Ryad elle-même et le corridor reliant Abqaïq à Yanbu sur la mer Rouge — un axe stratégique construit à l'origine pour offrir une alternative au détroit d'Ormuz.</p>
+      <p><em>Position de la France :</em> le Quai d'Orsay a indiqué, le 15 octobre, que la France avait décidé de soutenir la protection des infrastructures énergétiques saoudiennes, notamment le corridor est-ouest vers Yanbu, et que cette mesure était en cours de mise en œuvre. Emmanuel Macron a par ailleurs effectué, du 19 au 21 octobre, une tournée dans le Golfe (Koweït, Émirats arabes unis, Bahreïn, Qatar) consacrée à la sécurisation des approvisionnements pétroliers et gaziers de la région, le Quai d'Orsay évoquant à cette occasion la liberté de navigation dans le détroit d'Ormuz et le respect de la souveraineté des États du Golfe.</p>
+    </div>
+    <div class="essentiel">
+      <div class="label">L'essentiel</div>
+      <ul>
+        <li>Netanyahu a demandé à l'armée de préparer une offensive contre l'Iran, mais a aussi jugé, le 14 octobre, qu'une reprise des frappes n'était « pas souhaitable » à une semaine des élections législatives du 27 octobre.</li>
+        <li>La Maison Blanche dément toute reprise de la guerre contre l'Iran avant les élections de mi-mandat américaines.</li>
+        <li>Une attaque de drone houthie contre le champ pétrolier saoudien de Shaybah a fait deux morts ; Washington fait partir une partie de son personnel du royaume.</li>
+        <li>La France soutient depuis le 15 octobre la protection des infrastructures énergétiques saoudiennes et Macron a effectué une tournée dans le Golfe du 19 au 21 octobre sur ce même enjeu.</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <hr class="rule-thin">
+
+  <article id="geoeconomie">
+    <div class="rubrique">Géoéconomie</div>
+    <h2 class="headline">Pétrole du Golfe, armement ukrainien et dette française : trois lignes de tension économique</h2>
+    <p class="chapeau">Les exportations pétrolières du Moyen-Orient ont retrouvé leur niveau d'avant-guerre malgré les attaques houthies, l'Ukraine va acheter son matériel militaire via une agence de l'Otan, et le coût de la dette française atteint un sommet inédit depuis 2002.</p>
+    <div class="read-time">5 min de lecture</div>
+    <div class="body-text">
+      <p>Malgré les tensions sur la mer Rouge et le Golfe, les exportations pétrolières du Moyen-Orient ont retrouvé, voire dépassé, leur niveau d'avant-conflit : selon le Financial Times, les expéditions quotidiennes en provenance des producteurs du Golfe atteignent désormais environ 24,6 millions de barils par jour, contre 23,3 millions avant le début des hostilités, les compagnies pétrolières ayant recours à des itinéraires maritimes alternatifs pour contourner les zones à risque. Ce chiffre illustre la capacité du marché pétrolier mondial à absorber les chocs géopolitiques localisés, sans empêcher pour autant des pics de prix ponctuels comme celui observé cette semaine sur le Brent et le WTI à la faveur des tensions israélo-iraniennes.</p>
+      <p>Sur le front ukrainien, Kyiv a annoncé son intention d'acheter une partie de son matériel militaire par l'intermédiaire d'une agence de l'Otan plutôt que par des achats bilatéraux directs. Selon le Financial Times, cet accord pourrait permettre d'accélérer la livraison de munitions et d'armements tout en réduisant leur coût, l'agence de l'Otan bénéficiant d'effets d'échelle et d'une expertise logistique mutualisée entre alliés. Cette évolution s'inscrit dans la tendance plus large de normalisation du soutien militaire occidental à l'Ukraine, désormais organisé autour de mécanismes multilatéraux pérennes plutôt que d'accords ponctuels.</p>
+      <p>En France, le coût de l'emprunt public continue de grimper : le taux des obligations souveraines à dix ans a atteint, début octobre, un sommet proche de 4,9 %, inédit depuis 2002, dans un contexte de déficit public élevé et de doutes persistants sur la trajectoire budgétaire. Le Financial Times souligne que, parmi les pays du G7, la France et les États-Unis apparaissent comme les économies les plus exposées à ce risque de dérive des finances publiques, un constat qui pèse sur la crédibilité budgétaire française à l'international au moment même où le Parlement examine le projet de loi de finances pour 2027.</p>
+    </div>
+    <div class="essentiel">
+      <div class="label">L'essentiel</div>
+      <ul>
+        <li>Les exportations pétrolières du Golfe dépassent désormais leur niveau d'avant-conflit, à environ 24,6 millions de barils par jour.</li>
+        <li>L'Ukraine va acheter une partie de son armement via une agence de l'Otan pour accélérer les livraisons et réduire les coûts.</li>
+        <li>Le taux d'emprunt à dix ans de la France a atteint un sommet inédit depuis 2002, autour de 4,9 %.</li>
+        <li>Le Financial Times classe la France parmi les économies du G7 les plus exposées au risque de dérive budgétaire, avec les États-Unis.</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <hr class="rule-thin">
+
+  <article id="france">
+    <div class="rubrique">France</div>
+    <h2 class="headline">Budget 2027 : l'Assemblée nationale engage une bataille sans majorité claire</h2>
+    <p class="chapeau">Le projet de loi de finances pour 2027 est entré en discussion à l'Assemblée nationale dans un climat économique et social tendu, le gouvernement de Sébastien Lecornu devant composer, faute de majorité, avec des oppositions hétérogènes pour éviter la censure.</p>
+    <div class="read-time">4 min de lecture</div>
+    <div class="body-text">
+      <p>Le débat budgétaire occupe le devant de la scène politique française. Présenté début octobre par le gouvernement de Sébastien Lecornu, le projet de loi de finances pour 2027 vise un déficit ramené à 5 % du PIB, contre environ 5,4 % attendus pour 2026, avec un effort d'économies revu à la baisse en cours de discussion, d'environ 54 à 43 milliards d'euros. Parmi les mesures les plus débattues figure une désindexation partielle des pensions de retraite au-delà de 1 260 euros mensuels, qui suscite de vives critiques dans l'opposition de gauche.</p>
+      <p>Une motion de rejet préalable déposée par le groupe socialiste, qui aurait pu arrêter l'examen du texte avant son passage au Sénat, a été repoussée à l'Assemblée. Le gouvernement, dépourvu de majorité absolue, doit désormais composer avec certains groupes d'opposition — qu'ils soient socialistes ou issus du Rassemblement national — pour espérer faire adopter le texte sans déclencher une motion de censure. Le président du Sénat, Gérard Larcher, a pour sa part réclamé la poursuite de la réduction du déficit public sans hausse d'impôts, ainsi qu'un effort supplémentaire de 12 milliards d'euros sur les comptes de la Sécurité sociale.</p>
+      <p>Plusieurs analystes évoquent la possibilité que les discussions entre le gouvernement, l'Assemblée nationale et le Sénat se prolongent au-delà du premier semestre 2027, tant les lignes de fracture budgétaires et politiques restent nombreuses. Cette incertitude parlementaire se double d'une pression sur les marchés financiers, le coût de l'emprunt public français ayant atteint un plus haut depuis 2002, comme détaillé dans la rubrique géoéconomie de cette édition.</p>
+    </div>
+    <div class="essentiel">
+      <div class="label">L'essentiel</div>
+      <ul>
+        <li>Le projet de loi de finances 2027 vise un déficit ramené à 5 % du PIB, avec un effort d'économies revu de 54 à 43 milliards d'euros.</li>
+        <li>Une motion de rejet préalable du groupe socialiste a été repoussée à l'Assemblée nationale.</li>
+        <li>Sans majorité absolue, le gouvernement Lecornu doit négocier avec des oppositions hétérogènes pour éviter la censure.</li>
+        <li>Le président du Sénat Gérard Larcher réclame un effort supplémentaire de 12 milliards d'euros sur la Sécurité sociale, sans hausse d'impôts.</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <hr class="rule-thin">
+
+  <article id="regard" class="regard">
+    <div class="rubrique">Regard du Diplomate</div>
+    <h2 class="headline">Les sommets qui se font sans vous</h2>
+    <p class="chapeau">Un point de vue éditorial sur les leçons de lecture diplomatique que suggère l'actualité du jour.</p>
+    <div class="read-time">3 min de lecture</div>
+    <div class="body-text">
+      <p>Il y a une leçon de lecture diplomatique dans la juxtaposition des sujets du jour : un format de sommet Washington-Pékin-Moscou qui se dessine sur l'Ukraine sans que la France ni même l'Union européenne y apparaissent comme parties prenantes directes, et une crise énergétique dans le Golfe où Paris, à l'inverse, choisit d'exister concrètement par un engagement opérationnel — la protection d'un corridor pétrolier — plutôt que par la seule déclaration d'intention. Ce contraste rappelle une règle ancienne des relations internationales : la place d'une puissance moyenne dans un dossier ne se mesure pas à la fréquence de ses communiqués, mais à sa capacité à transformer un intérêt stratégique en engagement vérifiable sur le terrain. Yanbu, en ce sens, en dit davantage sur la politique étrangère française actuelle que n'importe quelle déclaration sur l'Ukraine à laquelle elle n'aurait pas été conviée.</p>
+      <p>Cette asymétrie invite aussi à une forme de prudence dans la lecture de l'actualité internationale elle-même. Lorsqu'aucune réaction officielle française n'est identifiable sur un sujet — comme c'est le cas aujourd'hui pour l'hypothèse d'un format trilatéral incluant la Chine sur l'Ukraine — le silence ne doit pas être interprété comme une indifférence, ni comme un accord tacite : il peut tout aussi bien signifier qu'une position est en cours d'élaboration, ou qu'elle se murmure plutôt qu'elle ne se proclame, dans les canaux feutrés de la diplomatie plutôt que dans les colonnes de la presse. C'est précisément dans cet écart entre ce qui est dit et ce qui est fait que se loge, le plus souvent, le travail réel des diplomates — et le point sur lequel une lecture attentive de l'actualité doit rester la plus humble.</p>
+    </div>
+    <div class="essentiel">
+      <div class="label">L'essentiel</div>
+      <ul>
+        <li>La diplomatie se lit autant dans les engagements concrets (comme Yanbu) que dans les absences aux tables de négociation (comme l'Ukraine).</li>
+        <li>L'absence de réaction officielle identifiable ne doit pas être confondue avec l'indifférence ou l'accord tacite.</li>
+        <li>Ce texte relève d'un point de vue éditorial, non d'un constat factuel établi.</li>
+      </ul>
+    </div>
+    <div class="signature">L'éditorial du Diplomate</div>
+  </article>
+
+  <footer>Le Diplomate — revue de presse diplomatique générée le 22 octobre 2026, 06:46</footer>
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById('listenBtn');
+  var status = document.getElementById('listenStatus');
+  var synth = window.speechSynthesis;
+  var speaking = false;
+
+  if(!synth){
+    btn.disabled = true;
+    status.textContent = "lecture vocale indisponible";
+    return;
+  }
+
+  function buildText(){
+    var articles = document.querySelectorAll('article');
+    var parts = [];
+    articles.forEach(function(a){
+      var rub = a.querySelector('.rubrique');
+      var h = a.querySelector('.headline');
+      var chap = a.querySelector('.chapeau');
+      var paras = a.querySelectorAll('.body-text p');
+      var ess = a.querySelectorAll('.essentiel li');
+      if(rub) parts.push(rub.textContent + ".");
+      if(h) parts.push(h.textContent + ".");
+      if(chap) parts.push(chap.textContent);
+      paras.forEach(function(p){ parts.push(p.textContent); });
+      if(ess.length){
+        parts.push("L'essentiel.");
+        ess.forEach(function(li){ parts.push(li.textContent); });
+      }
+    });
+    return parts.join(" ");
+  }
+
+  function pickFrenchVoice(){
+    var voices = synth.getVoices() || [];
+    for(var i=0;i<voices.length;i++){
+      if(voices[i].lang && voices[i].lang.toLowerCase().indexOf('fr') === 0) return voices[i];
+    }
+    return null;
+  }
+
+  function stop(){
+    try{ synth.cancel(); }catch(e){}
+    speaking = false;
+    btn.textContent = "🔊 Écouter";
+    btn.setAttribute('aria-pressed','false');
+    status.textContent = "";
+  }
+
+  btn.addEventListener('click', function(){
+    if(speaking){
+      stop();
+      return;
+    }
+    var text = buildText();
+    var utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'fr-FR';
+    var voice = pickFrenchVoice();
+    if(voice) utter.voice = voice;
+    utter.rate = 0.98;
+    utter.onend = stop;
+    utter.onerror = stop;
+    try{
+      synth.cancel();
+      synth.speak(utter);
+      speaking = true;
+      btn.textContent = "⏸ Arrêter";
+      btn.setAttribute('aria-pressed','true');
+      status.textContent = "lecture en cours…";
+    }catch(e){
+      stop();
+    }
+  });
+
+  if('onvoiceschanged' in synth){
+    synth.onvoiceschanged = function(){};
+  }
+})();
+</script>
