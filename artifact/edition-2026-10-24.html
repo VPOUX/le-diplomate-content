@@ -1,0 +1,484 @@
+<title>Le Diplomate</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: single-column broadsheet, masthead + ruled sections, columns loosen on wide screens */
+:root{
+  --paper:#ece6d6;
+  --ink:#231f18;
+  --muted:#6e6450;
+  --rule:#c7bd9f;
+  --accent:#8a2420;
+  --accent-ink:#ffffff;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#17150f;
+    --ink:#e9e2cf;
+    --muted:#a69a79;
+    --rule:#433d2d;
+    --accent:#d2665f;
+    --accent-ink:#17150f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#17150f;
+  --ink:#e9e2cf;
+  --muted:#a69a79;
+  --rule:#433d2d;
+  --accent:#d2665f;
+  --accent-ink:#17150f;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"PT Serif", Georgia, "Times New Roman", serif;
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+.sheet{
+  max-width:720px;
+  margin:0 auto;
+  padding-block: 28px 64px;
+}
+h1,h2,h3{text-wrap:balance;}
+
+.masthead{
+  text-align:center;
+  border-bottom:3px solid var(--ink);
+  padding-bottom:14px;
+  margin-bottom:6px;
+}
+.masthead .kicker{
+  font-family:"IBM Plex Mono", ui-monospace, monospace;
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:0 0 10px;
+}
+.masthead h1{
+  font-family:"Fraunces", Georgia, serif;
+  font-weight:900;
+  font-optical-sizing:auto;
+  font-size:clamp(2.6rem, 9vw, 4.4rem);
+  letter-spacing:-.01em;
+  margin:0;
+  line-height:.95;
+}
+.masthead .tagline{
+  font-style:italic;
+  color:var(--muted);
+  font-size:.95rem;
+  margin:8px 0 0;
+}
+.meta-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:12px;
+  font-family:"IBM Plex Mono", ui-monospace, monospace;
+  font-size:.72rem;
+  letter-spacing:.06em;
+  color:var(--muted);
+  text-transform:uppercase;
+  padding:10px 0 20px;
+  border-bottom:1px solid var(--rule);
+  margin-bottom: 28px;
+  flex-wrap:wrap;
+}
+
+.listen-row{
+  display:flex;
+  justify-content:center;
+  margin: 2px 0 30px;
+}
+#listenBtn{
+  font-family:"IBM Plex Mono", ui-monospace, monospace;
+  font-size:.78rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  background:var(--ink);
+  color:var(--paper);
+  border:1px solid var(--ink);
+  border-radius:999px;
+  padding:10px 20px;
+  cursor:pointer;
+  transition:opacity .15s ease;
+}
+#listenBtn:hover{opacity:.85;}
+#listenBtn[data-playing="true"]{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:var(--accent-ink);
+}
+#listenBtn:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+#speechNote{
+  text-align:center;
+  font-family:"IBM Plex Mono", ui-monospace, monospace;
+  font-size:.68rem;
+  color:var(--muted);
+  margin:-22px 0 30px;
+}
+
+article.section{
+  margin-bottom:46px;
+}
+article.section + article.section{
+  padding-top:38px;
+  border-top:1px solid var(--rule);
+}
+.rubrique{
+  font-family:"IBM Plex Mono", ui-monospace, monospace;
+  font-size:.74rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin:0 0 10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.rubrique::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:var(--rule);
+}
+.une .rubrique{font-size:.82rem;}
+
+h2.titre{
+  font-family:"Fraunces", Georgia, serif;
+  font-weight:800;
+  font-size:clamp(1.5rem, 5vw, 2.15rem);
+  line-height:1.12;
+  margin:0 0 14px;
+}
+.une h2.titre{font-size:clamp(1.9rem, 6.4vw, 2.7rem);}
+
+p.chapeau{
+  font-style:italic;
+  font-size:1.08rem;
+  line-height:1.5;
+  color:var(--ink);
+  margin:0 0 16px;
+  border-left:3px solid var(--accent);
+  padding-left:14px;
+}
+
+.readtime{
+  font-family:"IBM Plex Mono", ui-monospace, monospace;
+  font-size:.7rem;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:0 0 18px;
+}
+
+.corps p{
+  font-size:1.03rem;
+  line-height:1.62;
+  margin:0 0 16px;
+  max-width:65ch;
+}
+.corps p:first-of-type::first-letter{
+  font-family:"Fraunces", Georgia, serif;
+  font-weight:800;
+  font-size:3.1em;
+  line-height:.82;
+  float:left;
+  padding:.02em .07em 0 0;
+  color:var(--accent);
+}
+
+.essentiel{
+  background:color-mix(in srgb, var(--rule) 30%, transparent);
+  border:1px solid var(--rule);
+  border-radius:4px;
+  padding:16px 18px;
+  margin:18px 0 10px;
+}
+.essentiel p.label{
+  font-family:"IBM Plex Mono", ui-monospace, monospace;
+  font-size:.68rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:0 0 10px;
+}
+.essentiel ul{
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.essentiel li{
+  font-size:.95rem;
+  line-height:1.45;
+  padding-left:1.2em;
+  position:relative;
+}
+.essentiel li::before{
+  content:"—";
+  position:absolute;
+  left:0;
+  color:var(--accent);
+}
+
+.signature{
+  font-family:"IBM Plex Mono", ui-monospace, monospace;
+  font-size:.74rem;
+  letter-spacing:.04em;
+  color:var(--muted);
+  text-align:right;
+  margin-top:16px;
+  font-style:italic;
+}
+
+.editorial .corps p{font-style:italic;}
+.editorial{
+  background:color-mix(in srgb, var(--ink) 4%, transparent);
+}
+
+footer.colophon{
+  text-align:center;
+  padding-top:28px;
+  border-top:3px solid var(--ink);
+  font-family:"IBM Plex Mono", ui-monospace, monospace;
+  font-size:.68rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+@media (max-width:480px){
+  .meta-row{font-size:.66rem;}
+  p.chapeau{font-size:1rem;}
+  .corps p{font-size:1rem;}
+}
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<div class="sheet">
+
+  <div class="masthead">
+    <p class="kicker">Études de diplomatie &middot; revue de presse</p>
+    <h1>Le Diplomate</h1>
+    <p class="tagline">« Lire le monde avant d'en débattre »</p>
+  </div>
+
+  <div class="meta-row">
+    <span id="metaDate">Samedi 24 octobre 2026</span>
+    <span>N°<span id="metaNumero">17</span></span>
+    <span>Édition <span id="metaHeure">06:50</span></span>
+  </div>
+
+  <div class="listen-row">
+    <button id="listenBtn" type="button" aria-pressed="false">🔊 Écouter la revue</button>
+  </div>
+  <p id="speechNote" hidden>La lecture audio utilise la voix de votre navigateur.</p>
+
+  <main id="sections">
+
+    <article class="section une">
+      <p class="rubrique">Une</p>
+      <h2 class="titre">Iran&nbsp;: le baril franchit les 117&nbsp;dollars, Washington et Israël évoquent une offensive après les midterms américains</h2>
+      <p class="chapeau">Le prix du Brent a atteint samedi son plus haut niveau depuis le mois de mai, porté par la crainte d'une relance du conflit entre Israël, les États-Unis et l'Iran. L'ambassadeur américain à l'ONU confirme que Washington se prépare à un bras de fer prolongé, tandis que Donald Trump et Benjamin Netanyahu évoqueraient une offensive une fois passées les élections de mi-mandat américaines, le 3 novembre.</p>
+      <p class="readtime">6 min de lecture</p>
+      <div class="corps">
+        <p>Le baril de Brent a dépassé samedi 117 dollars, un plus haut depuis le mois de mai, les marchés intégrant un risque accru d'escalade dans le conflit qui oppose depuis fin février les États-Unis et Israël à l'Iran. Dans un entretien accordé au Financial Times, l'ambassadeur américain auprès des Nations unies, Mike Waltz, a confirmé que Washington se prépare à un conflit « prolongé », misant sur l'effet cumulé des campagnes de bombardement et des sanctions économiques pour obtenir des concessions de Téhéran plutôt que sur une résolution rapide.</p>
+        <p>Selon les informations relayées par le Financial Times, le président américain et le Premier ministre israélien Benjamin Netanyahu auraient renouvelé la menace de lancer une nouvelle offensive contre l'Iran une fois passées les élections de mi-mandat américaines du 3 novembre — une séquence qui illustre le poids du calendrier électoral intérieur américain sur le tempo d'une crise régionale. Le conflit, qui approche de son huitième mois, a déjà provoqué des pénuries d'engrais et de matières premières acheminées depuis les pays du Golfe via le détroit d'Ormuz, dont le trafic reste perturbé.</p>
+        <p>La hausse du prix de l'essence constitue un enjeu de politique intérieure majeur pour Donald Trump, qui avait promis de ramener le prix du gallon sous les deux dollars&nbsp;: il dépasse aujourd'hui quatre dollars, en hausse de 40&nbsp;% depuis son retour au pouvoir, tandis que le gazole, crucial pour l'industrie et l'agriculture, a grimpé de plus de 70&nbsp;%. Pour contenir ces prix, Washington a autorisé ce mois-ci l'achat de certaines quantités de diesel russe et étudierait un assouplissement des restrictions visant les flottes « fantômes » russe et iranienne, au grand dam des alliés européens et de l'Ukraine.</p>
+        <p>Position de la France&nbsp;: le 22 septembre, en marge de l'Assemblée générale des Nations unies, le ministre de l'Europe et des Affaires étrangères Jean-Noël Barrot avait appelé Téhéran à revenir à la voie diplomatique et fait de la réouverture du détroit d'Ormuz une priorité. Plus récemment, le 7 octobre, le Quai d'Orsay a convoqué l'ambassadeur iranien à Paris en réaction à une campagne de désinformation visant la France, signe d'une relation bilatérale toujours tendue. Aucune déclaration officielle française plus récente, réagissant spécifiquement à l'hypothèse d'une offensive américano-israélienne différée après les midterms, n'a pu être identifiée à ce stade.</p>
+      </div>
+      <div class="essentiel">
+        <p class="label">L'essentiel</p>
+        <ul>
+          <li>Le Brent dépasse 117 dollars, plus haut niveau depuis mai, sur fond de crainte d'escalade avec l'Iran</li>
+          <li>Washington et Netanyahu évoqueraient une offensive après les élections de mi-mandat américaines du 3 novembre</li>
+          <li>L'essence reste un enjeu de politique intérieure majeur aux États-Unis, en hausse de 40&nbsp;% depuis le retour de Trump</li>
+          <li>France&nbsp;: dernière position connue début octobre (convocation de l'ambassadeur iranien), rien de plus récent identifié sur l'hypothèse d'une offensive</li>
+        </ul>
+      </div>
+      <p class="signature">Par la rédaction du Diplomate</p>
+    </article>
+
+    <article class="section">
+      <p class="rubrique">Géopolitique</p>
+      <h2 class="titre">Israël, Serbie, Brésil&nbsp;: une semaine chargée d'échéances électorales à haute tension</h2>
+      <p class="chapeau">A trois jours des élections législatives israéliennes du 27 octobre, Benjamin Netanyahu menace de « vastes opérations militaires » en Cisjordanie après une attaque meurtrière. Serbes et Brésiliens votent de leur côté dimanche, dans deux scrutins eux aussi scrutés depuis l'étranger.</p>
+      <p class="readtime">7 min de lecture</p>
+      <div class="corps">
+        <p>En Israël, le Premier ministre Benjamin Netanyahu a menacé de lancer de « vastes opérations militaires » en Cisjordanie occupée, en réponse à une attaque meurtrière menée par des hommes armés palestiniens, alors que les tensions montent à l'approche des élections législatives du 27 octobre. Le scrutin est présenté comme un référendum sur le bilan du Premier ministre le plus durable de l'histoire d'Israël, trois ans après l'attaque du 7 octobre 2023. L'ancien chef d'état-major Gadi Eisenkot, désormais à la tête du parti centriste Yashar, s'est imposé comme son principal rival, les sondages le donnant au coude-à-coude, voire légèrement devant le Likoud selon certaines enquêtes récentes.</p>
+        <p>Position de la France&nbsp;: le 22 septembre, à la tribune des Nations unies, Emmanuel Macron avait appelé Benjamin Netanyahu à cesser ce qu'il a qualifié de « recolonisation injustifiable » de la Cisjordanie, des propos vivement rejetés par le bureau du Premier ministre israélien, qui les a qualifiés de « déconnectés de la réalité ». Aucune déclaration officielle française plus récente, réagissant spécifiquement à la menace d'opérations militaires formulée cette semaine, n'a pu être identifiée à ce stade.</p>
+        <p>En Serbie, les électeurs sont appelés aux urnes dimanche pour des élections législatives anticipées, convoquées par le président Aleksandar Vučić plus d'un an avant l'échéance normale, dans le sillage d'un vaste mouvement de contestation né de l'effondrement meurtrier d'un auvent à la gare de Novi Sad en novembre 2024, qui avait fait seize morts. Vučić, qui conduit la liste « Serbie unie », a indiqué vouloir devenir Premier ministre en cas de victoire&nbsp;; une liste portée par le mouvement étudiant à l'origine de la contestation pourrait constituer le défi le plus sérieux pour son parti depuis des années. Aucune réaction officielle française à ce scrutin n'a été identifiée à ce stade, Paris observant sa réserve traditionnelle à l'égard d'une élection étrangère avant sa tenue.</p>
+        <p>Au Brésil, le second tour de la présidentielle se tient également dimanche, opposant le président sortant Luiz Inácio Lula da Silva à Flávio Bolsonaro, sénateur et fils de l'ancien président Jair Bolsonaro, actuellement incarcéré. La campagne s'est concentrée sur le coût de la vie, la sécurité et la corruption. Aucune réaction officielle française n'a été identifiée à ce stade, Paris observant la même réserve qu'à l'égard du scrutin serbe.</p>
+      </div>
+      <div class="essentiel">
+        <p class="label">L'essentiel</p>
+        <ul>
+          <li>Netanyahu menace de « vastes opérations » en Cisjordanie, à trois jours des législatives israéliennes du 27 octobre</li>
+          <li>Gadi Eisenkot, ex-chef d'état-major, s'impose comme principal rival de Netanyahu dans un scrutin au coude-à-coude</li>
+          <li>Serbie et Brésil votent dimanche, deux scrutins à forte charge politique</li>
+          <li>France&nbsp;: dernière position connue (discours de Macron à l'ONU sur la Cisjordanie), rien de plus récent sur les trois scrutins</li>
+        </ul>
+      </div>
+      <p class="signature">Par la rédaction du Diplomate</p>
+    </article>
+
+    <article class="section">
+      <p class="rubrique">Géoéconomie</p>
+      <h2 class="titre">Moody's épargne la France, un géant gazier américain lâché sur fond de soupçons de contrôle russe, Wall Street doute de la bulle IA</h2>
+      <p class="chapeau">Moody's a maintenu vendredi soir la note souveraine française à Aa3, un répit inattendu pour le gouvernement Lecornu. Aux États-Unis, la direction d'un projet gazier de 25&nbsp;milliards de dollars en Alaska a démissionné en bloc après des accusations de contrôle russe secret, tandis que les marchés technologiques restent sous tension.</p>
+      <p class="readtime">6 min de lecture</p>
+      <div class="corps">
+        <p>Contrairement aux anticipations d'une majorité d'économistes, l'agence Moody's a maintenu vendredi soir la note souveraine de la France à Aa3, assortie d'une perspective négative inchangée. L'agence justifie sa décision par l'hypothèse qu'un « budget réduisant le déficit » sera adopté pour 2027, écartant pour l'instant un alignement sur Fitch et Standard & Poor's, qui ont toutes deux abaissé la France à A+ au cours des derniers mois. Cette décision constitue un répit pour le gouvernement de Sébastien Lecornu, dont le projet de budget 2027 reste en discussion tendue à l'Assemblée nationale, sur fond de déficit public attendu à 5,4&nbsp;% du PIB en 2026 et de taux d'emprunt à dix ans resté proche de 5&nbsp;%, un niveau inédit depuis 2002.</p>
+        <p>Aux États-Unis, l'ancien directeur général d'un projet d'exportation de gaz naturel liquéfié de 25&nbsp;milliards de dollars en Alaska a accusé le géant gazier russe Novatek d'avoir secrètement financé et contrôlé le projet, provoquant la démission en bloc de la direction de l'entreprise, Polar Train LNG, par crainte d'une violation des sanctions américaines visant la Russie. Novatek, sous sanctions américaines depuis plusieurs années pour son implication dans le projet Arctic LNG&nbsp;2, avait affiché ces derniers mois sa volonté de céder des équipements à des partenaires américains&nbsp;; les nouvelles accusations suggèrent que l'implication russe dans ce dossier dépassait largement ce qui avait été rendu public, posant une nouvelle fois la question de l'efficacité du régime de sanctions occidental face à des montages financiers complexes.</p>
+        <p>Sur les marchés, l'inquiétude autour de la soutenabilité des investissements dans l'intelligence artificielle continue d'alimenter la volatilité&nbsp;: l'indice Nasdaq 100 a reculé de près de 3&nbsp;% vendredi après un avertissement de Meta sur ses dépenses d'investissement, entraînant un repli des places asiatiques. OpenAI a revu à la baisse l'objectif de valorisation de son prochain tour de financement, autour de 1&nbsp;250&nbsp;milliards de dollars, face à des investisseurs plus réticents, tandis que le patron du fonds Citadel, Ken Griffin, a jugé que les marchés se trouvaient « presque certainement » en pleine bulle spéculative — un avis que conteste le président de Blackstone, John Gray. Ce débat illustre la dimension désormais géoéconomique de la rivalité entre grandes puissances technologiques, Washington et Pékin continuant par ailleurs de se livrer une bataille d'influence sur les technologies sensibles, dont l'intelligence artificielle.</p>
+      </div>
+      <div class="essentiel">
+        <p class="label">L'essentiel</p>
+        <ul>
+          <li>Moody's maintient la France à Aa3, un répit inattendu pour le gouvernement avant l'adoption du budget 2027</li>
+          <li>Démission en bloc de la direction d'un projet gazier américain de 25&nbsp;milliards de dollars en Alaska, visé par des accusations de contrôle russe secret</li>
+          <li>Nouvelle correction sur les valeurs technologiques, OpenAI revoit sa valorisation à la baisse à 1&nbsp;250&nbsp;milliards de dollars</li>
+          <li>Le débat sur la bulle de l'IA illustre la dimension géoéconomique de la rivalité technologique mondiale</li>
+        </ul>
+      </div>
+      <p class="signature">Par la rédaction du Diplomate</p>
+    </article>
+
+    <article class="section">
+      <p class="rubrique">France</p>
+      <h2 class="titre">Dispositif de sécurité renforcé, congrès du RN à Orléans et budget sous tension&nbsp;: une fin de semaine politique sous haute surveillance</h2>
+      <p class="chapeau">Le gouvernement a mobilisé 20&nbsp;% d'officiers supplémentaires samedi pour sécuriser le pays, après les violences du week-end dernier, tandis que le Rassemblement national ouvre son congrès à Orléans dans un climat de forte contestation, et que le budget 2027 poursuit son parcours heurté à l'Assemblée.</p>
+      <p class="readtime">6 min de lecture</p>
+      <div class="corps">
+        <p>Les autorités françaises ont déployé samedi un dispositif policier renforcé, avec environ 20&nbsp;% d'officiers supplémentaires, pour faire face à de nouvelles manifestations liées au coût de la vie, après les débordements observés le week-end du 17 octobre. Le ministre de l'Intérieur Laurent Nuñez évoque la possibilité de plusieurs dizaines de milliers de contre-manifestants à l'occasion du congrès du Rassemblement national, qui se tient ce week-end à Orléans.</p>
+        <p>Ce congrès, qui doit officiellement lancer la campagne du parti pour l'élection présidentielle de 2027, réunit samedi plusieurs milliers de militants dans une session réservée aux adhérents au Zénith, avant un grand meeting d'ouverture de campagne dimanche après-midi à l'arène Co'Met, où l'affluence pourrait doubler. Une cinquantaine d'organisations syndicales, associatives et de gauche ont appelé à une contre-mobilisation nationale, avec un cortège prévu samedi matin depuis le parvis de la cathédrale d'Orléans&nbsp;; les sources policières évoquent entre 10&nbsp;000 et 15&nbsp;000 contre-manifestants. Le maire d'Orléans et les commerçants locaux ont fait part de leurs inquiétudes après les violences survenues la semaine précédente.</p>
+        <p>A l'Assemblée nationale, l'examen du projet de loi de finances pour 2027 reste heurté. Le texte, déposé début octobre par le gouvernement de Sébastien Lecornu, vise un déficit ramené à 5,0&nbsp;% du PIB en 2027, contre une prévision révisée à 5,4&nbsp;% pour 2026, pour un effort budgétaire chiffré selon les sources entre 43 et 54&nbsp;milliards d'euros. Les débats restent vifs sur la désindexation partielle des pensions au-delà de 1&nbsp;260&nbsp;euros mensuels, la baisse du plafond de l'abattement fiscal des retraités et la réforme de la prise en charge des arrêts maladie, dans un Parlement toujours fragmenté où le gouvernement doit construire au cas par cas des majorités de circonstance.</p>
+      </div>
+      <div class="essentiel">
+        <p class="label">L'essentiel</p>
+        <ul>
+          <li>Dispositif policier renforcé samedi (+20&nbsp;% d'effectifs) après les violences du 17 octobre</li>
+          <li>Congrès du RN à Orléans ce week-end pour lancer la campagne présidentielle de 2027, forte contre-mobilisation attendue</li>
+          <li>Budget 2027&nbsp;: déficit visé à 5,0&nbsp;% du PIB, débats tendus sur les pensions et la fiscalité des retraités</li>
+          <li>Parlement toujours fragmenté, le gouvernement Lecornu doit composer des majorités de circonstance</li>
+        </ul>
+      </div>
+      <p class="signature">Par la rédaction du Diplomate</p>
+    </article>
+
+    <article class="section editorial">
+      <p class="rubrique">Regard du diplomate</p>
+      <h2 class="titre">Le calendrier électoral, nouvelle grammaire cachée de la diplomatie</h2>
+      <p class="readtime">3 min de lecture</p>
+      <div class="corps">
+        <p>Ce samedi offre un curieux alignement de calendriers. Washington et Israël évoqueraient une offensive contre l'Iran après le 3 novembre, date des élections de mi-mandat américaines. Les Israéliens eux-mêmes voteront le 27 octobre, dans un climat où Benjamin Netanyahu agite la menace d'une opération en Cisjordanie. Serbes et Brésiliens se rendent aux urnes dimanche. Le Rassemblement national choisit ce week-end pour lancer sa campagne présidentielle de 2027, tandis que Moody's, dont les décisions tombent toujours un vendredi après la clôture des marchés européens, vient de desserrer, au moins provisoirement, la contrainte budgétaire qui pesait sur Paris. Rien de tout cela n'est tout à fait le fruit du hasard&nbsp;: le calendrier électoral et institutionnel façonne de plus en plus explicitement le tempo des crises internationales elles-mêmes.</p>
+        <p>Cette synchronisation invite à une lecture diplomatique simple, mais souvent sous-estimée&nbsp;: une décision de guerre, une décision de sanction, ou même une décision de notation financière, n'est jamais purement technique ou stratégique — elle est aussi politique dans le moment où elle s'inscrit. Observer quand une capitale choisit d'agir, ou à l'inverse d'attendre, en dit parfois autant sur ses intentions que le contenu même de sa décision. Ce n'est ici qu'une grille de lecture parmi d'autres, et non un fait établi, mais elle invite à regarder, dans les prochaines semaines, moins ce que les dirigeants annoncent que le moment précis qu'ils choisissent pour le faire.</p>
+      </div>
+      <div class="essentiel">
+        <p class="label">L'essentiel</p>
+        <ul>
+          <li>Plusieurs décisions majeures du jour semblent calées sur des calendriers électoraux ou institutionnels précis</li>
+          <li>Le moment choisi pour agir peut en dire autant sur une intention que la décision elle-même</li>
+          <li>Point de vue éditorial, à prendre comme une grille de lecture et non comme un fait établi</li>
+        </ul>
+      </div>
+      <p class="signature">L'éditorial du Diplomate</p>
+    </article>
+
+  </main>
+
+  <footer class="colophon">
+    Le Diplomate — revue de presse générée automatiquement à usage d'études de diplomatie
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById('listenBtn');
+  var note = document.getElementById('speechNote');
+  if (!('speechSynthesis' in window)) {
+    btn.disabled = true;
+    btn.textContent = '🔇 Lecture audio indisponible';
+    return;
+  }
+
+  var sections = Array.prototype.slice.call(document.querySelectorAll('article.section'));
+
+  function sectionText(el){
+    var parts = [];
+    var titre = el.querySelector('.titre');
+    var chapeau = el.querySelector('.chapeau');
+    var paras = el.querySelectorAll('.corps p');
+    var items = el.querySelectorAll('.essentiel li');
+    if (titre) parts.push(titre.textContent.trim());
+    if (chapeau) parts.push(chapeau.textContent.trim());
+    paras.forEach(function(p){ parts.push(p.textContent.trim()); });
+    if (items.length) {
+      parts.push("L'essentiel.");
+      items.forEach(function(li){ parts.push(li.textContent.trim()); });
+    }
+    return parts.join('. ');
+  }
+
+  var speaking = false;
+
+  function stop(){
+    window.speechSynthesis.cancel();
+    speaking = false;
+    btn.textContent = '🔊 Écouter la revue';
+    btn.dataset.playing = 'false';
+    btn.setAttribute('aria-pressed', 'false');
+  }
+
+  function speakAll(){
+    window.speechSynthesis.cancel();
+    var queue = sections.map(sectionText);
+    var i = 0;
+    function next(){
+      if (i >= queue.length) { stop(); return; }
+      var utter = new SpeechSynthesisUtterance(queue[i]);
+      utter.lang = 'fr-FR';
+      utter.rate = 1;
+      i++;
+      utter.onend = next;
+      utter.onerror = stop;
+      window.speechSynthesis.speak(utter);
+    }
+    next();
+    speaking = true;
+    btn.textContent = '⏸ Arrêter la lecture';
+    btn.dataset.playing = 'true';
+    btn.setAttribute('aria-pressed', 'true');
+  }
+
+  btn.addEventListener('click', function(){
+    try {
+      if (speaking) {
+        stop();
+      } else {
+        note.hidden = false;
+        speakAll();
+      }
+    } catch (e) {
+      stop();
+    }
+  });
+
+  document.addEventListener('visibilitychange', function(){
+    if (document.hidden && speaking) stop();
+  });
+})();
+</script>
