@@ -1,0 +1,464 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Le Diplomate — 26 octobre 2026</title>
+<style>
+/* Layout: broadsheet front page — masthead rule, two-column byline strip, single-column stacked articles with drop-cap opener, rubrique rails as small-caps eyebrows */
+:root{
+  --paper:#f3ecdc;
+  --paper-2:#eae0c9;
+  --ink:#201a12;
+  --ink-soft:#4a4032;
+  --rule:#cdbf9c;
+  --accent:#8a2b1f;
+  --accent-soft:#8a2b1f1a;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1b1812;
+    --paper-2:#23201a;
+    --ink:#ece3cf;
+    --ink-soft:#bdb29a;
+    --rule:#4a4432;
+    --accent:#d98a73;
+    --accent-soft:#d98a7322;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1b1812;
+  --paper-2:#23201a;
+  --ink:#ece3cf;
+  --ink-soft:#bdb29a;
+  --rule:#4a4432;
+  --accent:#d98a73;
+  --accent-soft:#d98a7322;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper)}
+body{
+  font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
+  color:var(--ink);
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+  background-image:
+    radial-gradient(ellipse 120% 60% at 50% 0%, var(--paper-2), transparent 60%);
+}
+.page{max-width:720px;margin:0 auto;padding-bottom:64px}
+
+.masthead{
+  padding-top:28px;
+  text-align:center;
+  border-bottom:3px solid var(--ink);
+  padding-bottom:14px;
+  margin-bottom:10px;
+}
+.masthead h1{
+  font-family:"Fraunces", Georgia, serif;
+  font-weight:900;
+  font-size:clamp(2.4rem, 9vw, 3.6rem);
+  letter-spacing:0.01em;
+  margin:0;
+  text-wrap:balance;
+}
+.masthead .tagline{
+  font-family:"Inter", sans-serif;
+  text-transform:uppercase;
+  letter-spacing:0.14em;
+  font-size:0.68rem;
+  color:var(--ink-soft);
+  margin-top:6px;
+}
+.strip{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  font-family:"Inter", sans-serif;
+  font-size:0.72rem;
+  letter-spacing:0.04em;
+  color:var(--ink-soft);
+  padding:8px 0 10px;
+  border-bottom:1px solid var(--rule);
+  margin-bottom:6px;
+  flex-wrap:wrap;
+}
+.strip b{color:var(--ink); font-weight:700}
+
+.controls{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 0;
+  margin-bottom:8px;
+  border-bottom:1px solid var(--rule);
+}
+#speakBtn{
+  font-family:"Inter", sans-serif;
+  font-size:0.82rem;
+  font-weight:600;
+  letter-spacing:0.02em;
+  background:var(--accent-soft);
+  color:var(--accent);
+  border:1px solid var(--accent);
+  border-radius:999px;
+  padding:9px 18px;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  transition:background .15s ease;
+}
+#speakBtn:hover{background:var(--accent);color:var(--paper)}
+#speakBtn:active{transform:scale(0.98)}
+.speak-status{
+  font-family:"Inter", sans-serif;
+  font-size:0.72rem;
+  color:var(--ink-soft);
+}
+
+nav.toc{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 14px;
+  font-family:"Inter", sans-serif;
+  font-size:0.72rem;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  padding:10px 0 18px;
+  border-bottom:1px solid var(--rule);
+  margin-bottom:22px;
+}
+nav.toc a{color:var(--ink-soft); text-decoration:none; border-bottom:1px dotted var(--rule)}
+nav.toc a:hover{color:var(--accent); border-color:var(--accent)}
+
+article{
+  margin-bottom:40px;
+  scroll-margin-top:20px;
+}
+article + article{
+  border-top:1px solid var(--rule);
+  padding-top:30px;
+}
+.eyebrow{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family:"Inter", sans-serif;
+  font-size:0.72rem;
+  font-weight:700;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:10px;
+}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
+.eyebrow .duree{
+  margin-left:auto;
+  color:var(--ink-soft);
+  font-weight:500;
+  letter-spacing:0.04em;
+  text-transform:none;
+}
+h2.headline{
+  font-family:"Fraunces", Georgia, serif;
+  font-weight:800;
+  font-size:clamp(1.5rem, 5.4vw, 2.1rem);
+  line-height:1.12;
+  margin:0 0 10px;
+  text-wrap:balance;
+}
+p.chapeau{
+  font-family:"Source Serif 4", serif;
+  font-style:italic;
+  font-size:1.04rem;
+  color:var(--ink-soft);
+  line-height:1.5;
+  margin:0 0 18px;
+  padding-left:14px;
+  border-left:3px solid var(--rule);
+}
+.body-text p{
+  font-size:1.04rem;
+  line-height:1.62;
+  max-width:65ch;
+  margin:0 0 16px;
+}
+.body-text p:first-of-type::first-letter{
+  font-family:"Fraunces", Georgia, serif;
+  font-weight:800;
+  font-size:3.1rem;
+  line-height:0.78;
+  float:left;
+  padding:4px 6px 0 0;
+  color:var(--accent);
+}
+.pos-france{
+  font-weight:600;
+  font-style:italic;
+  color:var(--ink-soft);
+}
+
+.essentiel{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:4px;
+  padding:16px 18px;
+  margin-top:20px;
+}
+.essentiel h3{
+  font-family:"Inter", sans-serif;
+  font-size:0.7rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin:0 0 10px;
+}
+.essentiel ul{margin:0; padding-left:1.1em}
+.essentiel li{
+  font-family:"Inter", sans-serif;
+  font-size:0.86rem;
+  line-height:1.5;
+  color:var(--ink);
+  margin-bottom:6px;
+}
+.essentiel li::marker{color:var(--accent)}
+
+.signature{
+  margin-top:16px;
+  font-family:"Inter", sans-serif;
+  font-size:0.76rem;
+  letter-spacing:0.04em;
+  color:var(--ink-soft);
+  font-style:italic;
+}
+
+footer{
+  text-align:center;
+  padding-top:30px;
+  border-top:3px solid var(--ink);
+  font-family:"Inter", sans-serif;
+  font-size:0.72rem;
+  color:var(--ink-soft);
+  letter-spacing:0.03em;
+}
+
+.sr-utterance{position:absolute; width:1px; height:1px; overflow:hidden; opacity:0}
+
+@media (max-width:420px){
+  .masthead h1{font-size:2.1rem}
+  .eyebrow .duree{display:none}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap">
+
+<div class="page">
+
+  <div class="masthead">
+    <h1>Le Diplomate</h1>
+    <div class="tagline">Revue de presse diplomatique &middot; édition du matin</div>
+  </div>
+
+  <div class="strip">
+    <span><b>Lundi 26 octobre 2026</b> &middot; Édition n&deg;19</span>
+    <span>Généré à 07:46</span>
+  </div>
+
+  <div class="controls">
+    <button id="speakBtn" aria-pressed="false">
+      <span id="speakIcon">🔊</span>
+      <span id="speakLabel">Écouter l'édition</span>
+    </button>
+    <span class="speak-status" id="speakStatus"></span>
+  </div>
+
+  <nav class="toc" aria-label="Sommaire">
+    <a href="#s1">Une</a>
+    <a href="#s2">Géopolitique</a>
+    <a href="#s3">Géoéconomie</a>
+    <a href="#s4">France</a>
+    <a href="#s5">Regard du Diplomate</a>
+  </nav>
+
+  <article id="s1">
+    <div class="eyebrow"><span class="dot"></span>Une<span class="duree">4 min de lecture</span></div>
+    <h2 class="headline">Lula réélu de justesse au Brésil : la victoire qui déjoue les pronostics</h2>
+    <p class="chapeau">Le président brésilien obtient un quatrième mandat au terme d'une élection resserrée et contestée, qui prive Washington d'un allié espéré en Amérique latine.</p>
+    <div class="body-text">
+      <p>Luiz Inácio Lula da Silva a été réélu dimanche à la présidence du Brésil, avec 51,79&nbsp;% des voix contre 48,21&nbsp;% pour son adversaire de droite Flávio Bolsonaro, fils de l'ex-président emprisonné Jair Bolsonaro. À 80 ans, le dirigeant de gauche entame ainsi un quatrième mandat non consécutif, après avoir déjà gouverné le pays de 2003 à 2010 puis depuis 2023.</p>
+      <p>Ce résultat déjoue une partie des pronostics&nbsp;: les sondages donnaient un léger avantage à Flávio Bolsonaro après son score au premier tour, où le sénateur de 45 ans avait devancé Lula de près de deux points. Aucun candidat arrivé second au premier tour n'avait remporté la présidentielle depuis le rétablissement des élections au Brésil en 1989.</p>
+      <p>Le scrutin a toutefois été marqué par une controverse&nbsp;: un juge de la Cour suprême a ordonné une prolongation de deux heures du vote, au moment où les bureaux devaient fermer, alimentant les critiques de l'opposition sur la régularité du processus.</p>
+      <p>Sur le plan international, cette victoire est interprétée comme un revers pour l'administration Trump, qui espérait un basculement politique favorable à ses intérêts dans la plus grande démocratie d'Amérique latine. Elle intervient alors que les relations entre Brasília et Washington restent tendues depuis l'imposition de droits de douane américains sur les produits brésiliens.</p>
+      <p>Le nouveau mandat s'annonce cependant difficile&nbsp;: Lula devra composer avec un Congrès où le centre de gravité politique s'est déplacé vers la droite, un niveau d'endettement public élevé et une opposition galvanisée par un score serré. Les commentateurs évoquent déjà un « lendemain difficile » pour un président dont la marge de manœuvre reste étroite.</p>
+      <p class="pos-france">Aucune réaction officielle française n'a pu être identifiée à ce stade concernant cette réélection.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Lula réélu avec 51,79&nbsp;% des voix face à Flávio Bolsonaro (48,21&nbsp;%).</li>
+        <li>Un scrutin contesté après une prolongation du vote ordonnée par la Cour suprême.</li>
+        <li>Un revers pour l'influence recherchée par Washington en Amérique latine.</li>
+        <li>Aucune réaction officielle française identifiée à ce stade.</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <article id="s2">
+    <div class="eyebrow"><span class="dot"></span>Géopolitique<span class="duree">6 min de lecture</span></div>
+    <h2 class="headline">Serbie, Israël, Venezuela, Ukraine&nbsp;: les autres fronts de la semaine</h2>
+    <p class="chapeau">Entre la chute d'un homme fort à Belgrade, un scrutin test à Jérusalem, le retour annoncé d'une opposante vénézuélienne et un rapprochement militaire germano-ukrainien, la semaine diplomatique s'annonce dense.</p>
+    <div class="body-text">
+      <p>En Serbie, l'ex-président Aleksandar Vučić a concédé dimanche la défaite de son parti, le SNS, lors des élections législatives anticipées du 25 octobre, face à la liste citoyenne « Student List » issue du mouvement de contestation étudiant. Vučić avait démissionné de la présidence en septembre pour conduire lui-même la campagne de son parti en vue du poste de premier ministre&nbsp;; sa défaite, dans un scrutin marqué par une participation proche des records, constitue une chute spectaculaire pour un dirigeant nationaliste au pouvoir depuis plus d'une décennie. La présidente de l'Assemblée nationale, Ana Brnabić, assure l'intérim à la présidence depuis la démission de Vučić.</p>
+      <p class="pos-france">Position de la France&nbsp;: aucune réaction officielle française n'a pu être identifiée à ce stade.</p>
+      <p>En Israël, des élections législatives sont prévues le 27 octobre, lendemain de cette édition. Ce scrutin est largement présenté comme un test du leadership de Benjamin Netanyahu depuis le début de la guerre à Gaza&nbsp;; un sondage de juillet plaçait l'ancien chef d'état-major Gadi Eisenkot en tête des préférences pour le poste de premier ministre, un signe de l'incertitude politique entourant ce vote.</p>
+      <p class="pos-france">Position de la France&nbsp;: aucune réaction officielle française n'a pu être identifiée à ce stade, le scrutin n'ayant pas encore eu lieu.</p>
+      <p>Au Venezuela, l'opposante Maria Corina Machado, prix Nobel de la paix, serait rentrée d'exil ce lundi selon la presse économique internationale, un retour qui représente un défi direct pour le gouvernement intérimaire de Delcy Rodríguez, en place depuis la capture de Nicolás Maduro par les forces américaines en janvier dernier et soutenu par Washington. Mme Machado avait annoncé dès mars son intention de revenir « dans les prochaines semaines », tandis que les autorités de Caracas avaient averti qu'elle « devra répondre » de ses actes à son retour.</p>
+      <p class="pos-france">Position de la France&nbsp;: aucune réaction officielle française n'a pu être identifiée à ce stade.</p>
+      <p>Enfin, l'Allemagne serait en discussion pour acheter des missiles de croisière à bas coût développés en Ukraine, afin d'équiper ses propres forces armées. Cette démarche illustrerait un basculement dans la relation entre Kyiv et ses alliés européens, désormais plus enclins à s'appuyer sur la technologie militaire ukrainienne développée pendant la guerre, plutôt que l'inverse. Ce rapprochement intervient alors que le Bundestag avait rejeté, en juillet, une motion réclamant la livraison à l'Ukraine de missiles Taurus allemands.</p>
+      <p class="pos-france">Position de la France&nbsp;: aucune réaction officielle française n'a pu être identifiée à ce stade.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Serbie&nbsp;: Vučić concède la défaite de son parti face à la liste citoyenne « Student List ».</li>
+        <li>Israël&nbsp;: législatives le 27 octobre, scrutin-test pour Netanyahu.</li>
+        <li>Venezuela&nbsp;: retour annoncé de l'opposante Maria Corina Machado, défi pour le pouvoir intérimaire soutenu par Washington.</li>
+        <li>Allemagne-Ukraine&nbsp;: Berlin négocierait l'achat de missiles de croisière ukrainiens.</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <article id="s3">
+    <div class="eyebrow"><span class="dot"></span>Géoéconomie<span class="duree">4 min de lecture</span></div>
+    <h2 class="headline">Terres rares, énergie, robotique&nbsp;: la bataille des chaînes d'approvisionnement continue</h2>
+    <p class="chapeau">Bruxelles envisage de s'inspirer de Washington pour sécuriser les matières premières critiques, tandis que les marchés de l'énergie et la course à la robotique industrielle illustrent la poursuite de la rivalité économique mondiale.</p>
+    <div class="body-text">
+      <p>Des eurodéputés souhaitent que la Commission européenne s'inspire de la méthode de l'administration Trump en matière de sécurisation des matières premières critiques, en prenant directement des participations dans des projets miniers et de transformation, comme elle a commencé à l'envisager pour des projets australiens de terres rares. Cette orientation répond au durcissement, depuis 2025, des contrôles chinois à l'exportation de terres rares, qui imposent désormais une licence gouvernementale quelle que soit la nationalité de l'acheteur.</p>
+      <p>Sur les marchés, le pétrole a reculé lundi matin, le Brent perdant environ 1,9&nbsp;% et le WTI plus de 2&nbsp;%, tandis que le gaz naturel chutait de plus de 4,5&nbsp;%, dans un contexte de disponibilité accrue des stocks mondiaux. Ce mouvement s'inscrit dans la continuité de l'accord conclu par le G7 début octobre pour mobiliser jusqu'à 100 millions de barils de produits pétroliers issus des réserves stratégiques des grandes économies, afin de desserrer la pression sur les prix à l'approche de l'hiver.</p>
+      <p>Dans l'industrie, le groupe japonais Toyota met en avant vingt ans de recherche pour accélérer la commercialisation de robots humanoïdes intelligents, afin de peser dans une course technologique où Tesla et plusieurs groupes chinois sont déjà engagés. Cette compétition industrielle, à forte dimension stratégique, s'ajoute aux tensions commerciales plus classiques entre grandes puissances économiques.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Des eurodéputés veulent que l'UE prenne des participations dans des projets de matières premières critiques, à l'image des États-Unis.</li>
+        <li>Repli du pétrole et du gaz, dans le sillage du déblocage de réserves stratégiques décidé par le G7.</li>
+        <li>Toyota accélère sur les robots humanoïdes face à Tesla et aux groupes chinois.</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <article id="s4">
+    <div class="eyebrow"><span class="dot"></span>France<span class="duree">5 min de lecture</span></div>
+    <h2 class="headline">Budget contesté, mobilisation sociale et relance de campagne&nbsp;: une rentrée politique tendue</h2>
+    <p class="chapeau">Entre l'examen houleux du budget 2027, les suites de la mobilisation contre le coût de la vie et la relance de la campagne de Marine Le Pen, l'agenda intérieur reste sous tension à l'approche de l'hiver.</p>
+    <div class="body-text">
+      <p>Le projet de loi de finances pour 2027 poursuit son parcours mouvementé à l'Assemblée nationale. Présenté début octobre par le premier ministre Sébastien Lecornu, il prévoit un effort budgétaire d'environ 54 milliards d'euros destiné à ramener le déficit public vers 5&nbsp;% du PIB, contre une trajectoire qui le verrait dépasser 6,5&nbsp;% en 2027 sans ces économies. La commission des finances a rejeté le volet recettes du texte, et plusieurs groupes, dont La France insoumise, continuent de brandir la menace d'une motion de censure. M.&nbsp;Lecornu a pour sa part écarté le recours à l'article 49.3 tant qu'aucune obstruction ne bloquera le vote final.</p>
+      <p>Le week-end du 24 et 25 octobre, le Rassemblement national a tenu son congrès à Orléans, où Marine Le Pen a relancé sa campagne pour l'élection présidentielle de 2027. Elle s'y est présentée comme la seule candidate capable, selon elle, de restaurer l'ordre et l'unité dans un pays qu'elle décrit comme marqué par les troubles et le déclin — une formule qui relève du positionnement de campagne et non d'un constat établi.</p>
+      <p>Sur le front social, les manifestations contre le coût de la vie des 17 et 18 octobre ont donné lieu à un bilan lourd selon le ministre de l'Intérieur Laurent Nuñez&nbsp;: plus de 1&nbsp;800 interpellations à l'échelle nationale et plus de 500 blessés parmi les policiers, gendarmes et sapeurs-pompiers, un bilan qualifié de provisoire. Des mairies et préfectures ont été prises pour cible à Marseille, Lille, Angers et Bordeaux, et un manifestant est décédé à Paris d'un arrêt cardio-respiratoire. Une partie des organisateurs appelle désormais à une grève interprofessionnelle le 5 novembre.</p>
+      <p>Sur le plan du pouvoir d'achat, le gouvernement a confirmé la mise sur le marché de 10 millions de barils de gazole puisés dans les réserves stratégiques gérées par la Sagess, dans le cadre de l'accord conclu par le G7 début octobre. Les premières ventes aux distributeurs doivent démarrer le 28 octobre, pour une baisse à la pompe attendue dès le 1er novembre, estimée par Matignon entre 12 et 18 centimes par litre, et plutôt entre 8 et 12 centimes selon TotalEnergies. La mesure, prévue pour durer trois mois, couvre aussi le gazole non routier et le fioul domestique.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Budget 2027&nbsp;: volet recettes rejeté en commission, menace de censure, 49.3 écarté par Lecornu.</li>
+        <li>Marine Le Pen relance sa campagne présidentielle lors du congrès du RN à Orléans.</li>
+        <li>Plus de 1&nbsp;800 interpellations lors des manifestations du 17-18 octobre contre le coût de la vie&nbsp;; appel à une grève le 5 novembre.</li>
+        <li>Baisse du prix du gazole attendue dès le 1er novembre, via un déblocage des réserves stratégiques françaises.</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <article id="s5">
+    <div class="eyebrow"><span class="dot"></span>Regard du Diplomate<span class="duree">2 min de lecture</span></div>
+    <h2 class="headline">Ce que les urnes disent, et ce que les silences diplomatiques taisent</h2>
+    <p class="chapeau">Un regard éditorial sur les leçons de lecture diplomatique que suggère l'actualité du jour.</p>
+    <div class="body-text">
+      <p>Trois scrutins, trois continents, un même motif&nbsp;: des pouvoirs en place qui comptaient sur la lassitude ou la division de leurs opposants, et qui se heurtent à des électorats moins malléables que prévu. La réélection serrée de Lula, la chute de Vučić à Belgrade et le test qu'affrontera Netanyahu dès demain n'ont rien en commun sur le plan idéologique, mais ils rappellent, chacun à sa façon, une règle simple de lecture diplomatique&nbsp;: la stabilité apparente d'un pouvoir se mesure moins à sa durée passée qu'à sa capacité à survivre à une élection véritablement incertaine. C'est un point de vue, non un pronostic, mais il invite à se méfier des lectures qui confondent la solidité d'un régime avec la simple absence, jusque-là, d'alternative crédible.</p>
+      <p>L'autre enseignement, plus discret, tient aux silences. Qu'aucune réaction officielle française n'ait, à ce stade, été rendue publique sur la réélection de Lula, la défaite de Vučić ou le retour annoncé de Maria Corina Machado n'est pas nécessairement un signe d'indifférence&nbsp;: la diplomatie économise souvent ses mots pour les moments où une position doit réellement produire un effet. Mais ce silence, à l'heure où les lignes se redessinent en Amérique latine comme dans les Balkans, est lui-même une donnée que l'observateur attentif doit noter, en gardant à l'esprit qu'il s'agit ici d'une grille de lecture parmi d'autres, et non d'un verdict sur l'action de la France.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Les scrutins du jour rappellent que la stabilité d'un pouvoir ne se mesure qu'à l'épreuve d'une élection incertaine.</li>
+        <li>Le silence diplomatique français sur ces dossiers est, à ce stade, une donnée à noter autant qu'une réaction à attendre.</li>
+      </ul>
+    </div>
+    <div class="signature">L'éditorial du Diplomate</div>
+  </article>
+
+  <footer>
+    Le Diplomate &middot; édition n&deg;19 &middot; généré automatiquement le 26 octobre 2026 à 07:46 &middot; usage pédagogique, études de diplomatie
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById('speakBtn');
+  var icon = document.getElementById('speakIcon');
+  var label = document.getElementById('speakLabel');
+  var status = document.getElementById('speakStatus');
+  var synth = window.speechSynthesis;
+  var speaking = false;
+
+  function collectText(){
+    var parts = [];
+    document.querySelectorAll('article').forEach(function(art){
+      var eyebrow = art.querySelector('.eyebrow');
+      var rubrique = eyebrow ? eyebrow.textContent.replace(/\d+ min de lecture/,'').trim() : '';
+      var h = art.querySelector('.headline');
+      var chapeau = art.querySelector('.chapeau');
+      parts.push(rubrique + '. ' + (h ? h.textContent : ''));
+      if (chapeau) parts.push(chapeau.textContent);
+      art.querySelectorAll('.body-text p').forEach(function(p){
+        parts.push(p.textContent);
+      });
+    });
+    return parts.join(' ... ');
+  }
+
+  function setIdle(){
+    speaking = false;
+    btn.setAttribute('aria-pressed','false');
+    icon.textContent = '🔊';
+    label.textContent = "Écouter l'édition";
+    status.textContent = '';
+  }
+
+  function setSpeaking(){
+    speaking = true;
+    btn.setAttribute('aria-pressed','true');
+    icon.textContent = '⏸';
+    label.textContent = 'Arrêter la lecture';
+    status.textContent = 'Lecture en cours…';
+  }
+
+  if (!synth){
+    btn.disabled = true;
+    label.textContent = 'Lecture audio indisponible';
+    status.textContent = 'Ce navigateur ne prend pas en charge la synthèse vocale.';
+  } else {
+    btn.addEventListener('click', function(){
+      if (speaking){
+        synth.cancel();
+        setIdle();
+        return;
+      }
+      var text = collectText();
+      var utter = new SpeechSynthesisUtterance(text);
+      utter.lang = 'fr-FR';
+      utter.rate = 0.98;
+      utter.onend = setIdle;
+      utter.onerror = setIdle;
+      setSpeaking();
+      synth.cancel();
+      synth.speak(utter);
+    });
+  }
+})();
+</script>
