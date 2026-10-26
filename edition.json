@@ -1,99 +1,105 @@
 {
-  "date": "2026-10-25",
-  "numero": 18,
+  "date": "2026-10-26",
+  "numero": 19,
   "heureGeneration": "07:46",
   "sections": [
     {
       "ordre": 1,
       "rubrique": "UNE",
-      "titre": "Brésil : Lula et Flávio Bolsonaro au coude-à-coude pour un second tour sous très haute tension",
-      "chapeau": "Les Brésiliens votent ce dimanche pour désigner leur président, dans un climat d'incertitude presque totale entre le chef de l'État sortant, le social-démocrate Luiz Inácio Lula da Silva, et le sénateur d'extrême droite Flávio Bolsonaro, fils de l'ex-président incarcéré Jair Bolsonaro. Le résultat de ce scrutin, l'un des plus serrés de l'histoire récente du pays, pourrait redessiner les équilibres diplomatiques et commerciaux de l'Amérique latine.",
-      "dureeLectureMin": 6,
+      "titre": "Lula réélu de justesse au Brésil : la victoire qui déjoue les pronostics",
+      "chapeau": "Le président brésilien obtient un quatrième mandat au terme d'une élection resserrée et contestée, qui prive Washington d'un allié espéré en Amérique latine.",
+      "dureeLectureMin": 4,
       "corpsArticle": [
-        "A l'issue du premier tour, Flávio Bolsonaro était arrivé en tête avec environ 47 % des voix, devant Lula crédité d'environ 45 %, sans qu'aucun des deux candidats n'obtienne la majorité nécessaire pour l'emporter dès ce tour. La campagne du second tour s'est concentrée sur le coût de la vie, la sécurité et la lutte contre la corruption, dans un pays où le bilan du gouvernement sortant reste très contesté.",
-        "Les derniers sondages publiés avant le scrutin ne permettent pas de trancher : l'institut Quaest donnait Flávio Bolsonaro à 51 % des suffrages valables contre 49 % pour Lula, tandis qu'une enquête BTG/Nexus publiée samedi accordait au candidat d'extrême droite une avance plus modeste encore, de 50,5 % à 49,5 %. Une moyenne des enquêtes d'opinion de ces dernières semaines plaçait Flávio Bolsonaro en tête dans la plupart des cas, mais toujours dans la marge d'erreur. Les bureaux de vote doivent fermer en fin d'après-midi, heure locale, et les premiers résultats officiels ne sont pas encore connus au moment de la publication de cette édition.",
-        "L'issue du scrutin aura des répercussions bien au-delà du Brésil. Une victoire de Flávio Bolsonaro rapprocherait probablement la plus grande économie d'Amérique latine de l'administration de Donald Trump, avec qui le camp Bolsonaro entretient des liens étroits, tandis qu'une réélection de Lula prolongerait une diplomatie plus attachée au multilatéralisme, au dialogue avec la Chine et aux engagements climatiques pris lors de la présidence brésilienne de la COP30. Le dossier de l'accord de libre-échange entre l'Union européenne et le Mercosur, conclu politiquement sous l'impulsion du gouvernement Lula mais toujours en cours de ratification, est lui aussi directement concerné par le résultat.",
-        "Position de la France : aucune réaction officielle française n'a pu être identifiée concernant ce scrutin à ce stade, Paris observant sa réserve traditionnelle à l'égard d'une élection étrangère en cours. Le résultat sera néanmoins suivi avec attention par le gouvernement français, qui reste, au sein de l'Union européenne, l'un des opposants les plus affirmés à l'accord UE-Mercosur, dont l'avenir pourrait être influencé par l'issue du vote brésilien."
+        "Luiz Inácio Lula da Silva a été réélu dimanche à la présidence du Brésil, avec 51,79 % des voix contre 48,21 % pour son adversaire de droite Flávio Bolsonaro, fils de l'ex-président emprisonné Jair Bolsonaro. À 80 ans, le dirigeant de gauche entame ainsi un quatrième mandat non consécutif, après avoir déjà gouverné le pays de 2003 à 2010 puis depuis 2023.",
+        "Ce résultat déjoue une partie des pronostics : les sondages donnaient un léger avantage à Flávio Bolsonaro après son score au premier tour, où le sénateur de 45 ans avait devancé Lula de près de deux points. Aucun candidat arrivé second au premier tour n'avait remporté la présidentielle depuis le rétablissement des élections au Brésil en 1989.",
+        "Le scrutin a toutefois été marqué par une controverse : un juge de la Cour suprême a ordonné une prolongation de deux heures du vote, au moment où les bureaux devaient fermer, alimentant les critiques de l'opposition sur la régularité du processus.",
+        "Sur le plan international, cette victoire est interprétée comme un revers pour l'administration Trump, qui espérait un basculement politique favorable à ses intérêts dans la plus grande démocratie d'Amérique latine. Elle intervient alors que les relations entre Brasília et Washington restent tendues depuis l'imposition de droits de douane américains sur les produits brésiliens.",
+        "Le nouveau mandat s'annonce cependant difficile : Lula devra composer avec un Congrès où le centre de gravité politique s'est déplacé vers la droite, un niveau d'endettement public élevé et une opposition galvanisée par un score serré. Les commentateurs évoquent déjà une « lendemain difficile » pour un président dont la marge de manœuvre reste étroite.",
+        "Aucune réaction officielle française n'a pu être identifiée à ce stade concernant cette réélection."
       ],
       "essentiel": [
-        "Second tour ce dimanche entre Lula et Flávio Bolsonaro, deux candidats dans la marge d'erreur des derniers sondages",
-        "Premier tour : Flávio Bolsonaro environ 47 %, Lula environ 45 %, aucune majorité acquise",
-        "Résultats attendus en soirée ; enjeux pour l'alignement du Brésil avec Washington et pour l'accord UE-Mercosur",
-        "Aucune réaction officielle française identifiée à ce stade"
+        "Lula réélu avec 51,79 % des voix face à Flávio Bolsonaro (48,21 %).",
+        "Un scrutin contesté après une prolongation du vote ordonnée par la Cour suprême.",
+        "Un revers pour l'influence recherchée par Washington en Amérique latine.",
+        "Aucune réaction officielle française identifiée à ce stade."
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 2,
       "rubrique": "GEOPOLITIQUE",
-      "titre": "Serbie, Israël, Ukraine : trois scrutins et un répit technique sous surveillance",
-      "chapeau": "En Serbie, une liste portée par le mouvement étudiant défie ce dimanche le pouvoir d'Aleksandar Vučić lors de législatives anticipées. En Israël, la campagne s'intensifie avant le vote du 27 octobre, qui s'annonce comme un référendum sur le bilan de Benjamin Netanyahu. En Ukraine, la levée de restrictions sur le réseau Starlink redonne de l'air à la défense antidrone de Kyiv.",
-      "dureeLectureMin": 7,
+      "titre": "Serbie, Israël, Venezuela, Ukraine : les autres fronts de la semaine",
+      "chapeau": "Entre la chute d'un homme fort à Belgrade, un scrutin test à Jérusalem, le retour annoncé d'une opposante vénézuélienne et un rapprochement militaire germano-ukrainien, la semaine diplomatique s'annonce dense.",
+      "dureeLectureMin": 6,
       "corpsArticle": [
-        "En Serbie, les électeurs sont appelés aux urnes ce dimanche pour des législatives anticipées convoquées par le président Aleksandar Vučić, au pouvoir depuis plus de quatorze ans. Ce scrutin constitue l'aboutissement du mouvement de contestation né en novembre 2024 après l'effondrement meurtrier d'un auvent à la gare de Novi Sad, qui avait fait seize morts. Le principal défi à l'autorité de M. Vučić vient d'une liste inédite, « Les étudiants gagnent », conduite par le cardiologue Ilija Srdanović et regroupant étudiants, universitaires, enseignants et anciens sportifs autour d'un programme centré sur la lutte contre la corruption et le crime organisé, l'éducation, le logement et la santé. Le mouvement a par ailleurs demandé aux partis d'opposition traditionnels de ne pas présenter de candidats concurrents, et plusieurs incidents visant des manifestants, attribués par certaines sources à des membres du parti au pouvoir, n'ont pu être confirmés de manière indépendante. Position de la France : aucune réaction officielle française n'a été identifiée à ce stade, Paris conservant sa réserve traditionnelle à l'égard d'un scrutin étranger en cours.",
-        "En Israël, la campagne s'intensifie à l'approche des élections législatives du 27 octobre, présentées comme un référendum sur le bilan du Premier ministre le plus durable de l'histoire du pays, trois ans après l'attaque du 7 octobre 2023. L'ancien chef d'état-major Gadi Eisenkot, à la tête du parti centriste Yashar, demeure le principal rival de Benjamin Netanyahu : les sondages les plus récents le donnent au coude-à-coude avec le Likoud, voire légèrement devant selon certaines enquêtes. Les forces israéliennes restent par ailleurs déployées dans la région de Tulkarem, en Cisjordanie, malgré des décisions de justice réclamant leur retrait, dans un climat de tension accrue sur le terrain. Position de la France : le 22 septembre, à la tribune des Nations unies, Emmanuel Macron avait appelé Benjamin Netanyahu à cesser ce qu'il a qualifié de « recolonisation injustifiable » de la Cisjordanie, des propos rejetés par le bureau du Premier ministre israélien comme « déconnectés de la réalité ». Aucune déclaration officielle française plus récente n'a pu être identifiée à ce stade.",
-        "En Ukraine, l'armée a annoncé la levée de restrictions qui pesaient sur le service Starlink, dont le ralentissement avait compliqué la capacité de Kyiv à coordonner sa défense antidrone face aux frappes russes. Cette annonce constitue un répit technique notable pour les forces ukrainiennes, dans un conflit où la supériorité dans la guerre électronique et les communications joue un rôle croissant. Position de la France : aucune réaction officielle française spécifique à cette annonce n'a pu être identifiée à ce stade.",
-        "Enfin, le dirigeant nord-coréen Kim Jong Un a franchi un nouveau pont-frontière reliant son pays à la Chine, dans un geste présenté comme une réaffirmation des liens entre Pyongyang et Pékin. Des analystes cités par la presse internationale estiment que la Chine observerait toutefois avec une certaine inquiétude le resserrement parallèle des relations entre la Corée du Nord et la Russie. Position de la France : aucune réaction officielle française n'a été identifiée à ce stade."
+        "En Serbie, l'ex-président Aleksandar Vučić a concédé dimanche la défaite de son parti, le SNS, lors des élections législatives anticipées du 25 octobre, face à la liste citoyenne « Student List » issue du mouvement de contestation étudiant. Vučić avait démissionné de la présidence en septembre pour conduire lui-même la campagne de son parti en vue du poste de premier ministre ; sa défaite, dans un scrutin marqué par une participation proche des records, constitue une chute spectaculaire pour un dirigeant nationaliste au pouvoir depuis plus d'une décennie. La présidente de l'Assemblée nationale, Ana Brnabić, assure l'intérim à la présidence depuis la démission de Vučić.",
+        "Position de la France : aucune réaction officielle française n'a pu être identifiée à ce stade.",
+        "En Israël, des élections législatives sont prévues le 27 octobre, lendemain de cette édition. Ce scrutin est largement présenté comme un test du leadership de Benjamin Netanyahu depuis le début de la guerre à Gaza ; un sondage de juillet plaçait l'ancien chef d'état-major Gadi Eisenkot en tête des préférences pour le poste de premier ministre, un signe de l'incertitude politique entourant ce vote.",
+        "Position de la France : aucune réaction officielle française n'a pu être identifiée à ce stade, le scrutin n'ayant pas encore eu lieu.",
+        "Au Venezuela, l'opposante Maria Corina Machado, prix Nobel de la paix, serait rentrée d'exil ce lundi selon la presse économique internationale, un retour qui représente un défi direct pour le gouvernement intérimaire de Delcy Rodríguez, en place depuis la capture de Nicolás Maduro par les forces américaines en janvier dernier et soutenu par Washington. Mme Machado avait annoncé dès mars son intention de revenir « dans les prochaines semaines », tandis que les autorités de Caracas avaient averti qu'elle « devra répondre » de ses actes à son retour.",
+        "Position de la France : aucune réaction officielle française n'a pu être identifiée à ce stade.",
+        "Enfin, l'Allemagne serait en discussion pour acheter des missiles de croisière à bas coût développés en Ukraine, afin d'équiper ses propres forces armées. Cette démarche illustrerait un basculement dans la relation entre Kyiv et ses alliés européens, désormais plus enclins à s'appuyer sur la technologie militaire ukrainienne développée pendant la guerre, plutôt que l'inverse. Ce rapprochement intervient alors que le Bundestag avait rejeté, en juillet, une motion réclamant la livraison à l'Ukraine de missiles Taurus allemands.",
+        "Position de la France : aucune réaction officielle française n'a pu être identifiée à ce stade."
       ],
       "essentiel": [
-        "Serbie : législatives anticipées opposant le pouvoir de Vučić à une liste étudiante inédite, « Les étudiants gagnent »",
-        "Israël : campagne tendue avant le vote du 27 octobre, Gadi Eisenkot en position de rival sérieux de Netanyahu",
-        "Ukraine : levée des restrictions sur Starlink, un soulagement pour la défense antidrone de Kyiv",
-        "France : aucune réaction officielle nouvelle identifiée, hormis le rappel de la position de Macron sur la Cisjordanie (22 septembre)"
+        "Serbie : Vučić concède la défaite de son parti face à la liste citoyenne « Student List ».",
+        "Israël : législatives le 27 octobre, scrutin-test pour Netanyahu.",
+        "Venezuela : retour annoncé de l'opposante Maria Corina Machado, défi pour le pouvoir intérimaire soutenu par Washington.",
+        "Allemagne-Ukraine : Berlin négocierait l'achat de missiles de croisière ukrainiens."
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 3,
       "rubrique": "GEOECONOMIE",
-      "titre": "Alaska, mer Noire, marchés : la géoéconomie de la guerre et de la méfiance",
-      "chapeau": "Aux États-Unis, la direction d'un projet gazier de plusieurs milliards de dollars en Alaska a démissionné en bloc après des accusations de contrôle russe secret. En mer Noire, devenue la route maritime la plus meurtrière au monde, le négociant Mercuria attaque en justice l'organisme qui fixe les prix du fret pétrolier. Sur les marchés, le débat sur la soutenabilité des investissements dans l'intelligence artificielle se poursuit.",
-      "dureeLectureMin": 6,
+      "titre": "Terres rares, énergie, robotique : la bataille des chaînes d'approvisionnement continue",
+      "chapeau": "Bruxelles envisage de s'inspirer de Washington pour sécuriser les matières premières critiques, tandis que les marchés de l'énergie et la course à la robotique industrielle illustrent la poursuite de la rivalité économique mondiale.",
+      "dureeLectureMin": 4,
       "corpsArticle": [
-        "L'ancien directeur général de Polar Train LNG, société américaine qui développe un projet d'exportation de gaz naturel liquéfié en Alaska, a accusé le géant gazier russe Novatek d'avoir secrètement financé et contrôlé ce projet stratégique sans l'aval de Washington, provoquant la démission en bloc de la direction de l'entreprise par crainte d'une violation des sanctions américaines visant la Russie. Le projet, dont la décision finale d'investissement était attendue pour la mi-2027 avec une mise en production visée en 2029-2030, avait précédemment cherché à obtenir l'autorisation du Trésor américain pour racheter à prix réduit des équipements du projet russe sanctionné Arctic LNG 2, dont Novatek détient environ 60 %. Cette affaire relance les interrogations sur l'efficacité du régime de sanctions occidental face à des montages financiers complexes impliquant des acteurs russes sous sanctions.",
-        "En mer Noire, les pertes humaines parmi les marins de la marine marchande pris dans l'affrontement entre la Russie et l'Ukraine dépassent désormais celles enregistrées dans le Golfe pendant les épisodes de tension les plus aigus, faisant de cette zone la route maritime la plus meurtrière au monde selon la presse économique. Le négociant en matières premières Mercuria a par ailleurs engagé une action en justice contre le Baltic Exchange, référence historique des prix du fret maritime parfois comparée au « Dow Jones du transport maritime », après des pertes liées au trafic pétrolier dans le détroit d'Ormuz. L'affaire doit permettre de trancher si l'organisme a eu raison de continuer à publier des estimations de prix pour les cargaisons pétrolières transitant par le détroit pendant la période de conflit.",
-        "Sur les marchés financiers, l'inquiétude entourant la soutenabilité des investissements massifs dans l'intelligence artificielle continue d'alimenter la volatilité, après le repli de près de 3 % du Nasdaq 100 vendredi, consécutif à un avertissement de Meta sur ses dépenses d'investissement, et la révision à la baisse par OpenAI de l'objectif de valorisation de son prochain tour de financement. En France, où l'agence Moody's a maintenu vendredi soir la note souveraine à Aa3, les marchés obligataires enregistrent un mouvement notable de convergence entre les rendements de la dette publique et ceux de certaines obligations d'entreprises, dont plusieurs offrent désormais des rendements inférieurs à ceux de l'État, signe de la défiance persistante à l'égard des finances publiques françaises malgré le répit accordé par l'agence de notation."
+        "Des eurodéputés souhaitent que la Commission européenne s'inspire de la méthode de l'administration Trump en matière de sécurisation des matières premières critiques, en prenant directement des participations dans des projets miniers et de transformation, comme elle a commencé à l'envisager pour des projets australiens de terres rares. Cette orientation répond au durcissement, depuis 2025, des contrôles chinois à l'exportation de terres rares, qui imposent désormais une licence gouvernementale quelle que soit la nationalité de l'acheteur.",
+        "Sur les marchés, le pétrole a reculé lundi matin, le Brent perdant environ 1,9 % et le WTI plus de 2 %, tandis que le gaz naturel chutait de plus de 4,5 %, dans un contexte de disponibilité accrue des stocks mondiaux. Ce mouvement s'inscrit dans la continuité de l'accord conclu par le G7 début octobre pour mobiliser jusqu'à 100 millions de barils de produits pétroliers issus des réserves stratégiques des grandes économies, afin de desserrer la pression sur les prix à l'approche de l'hiver.",
+        "Dans l'industrie, le groupe japonais Toyota met en avant vingt ans de recherche pour accélérer la commercialisation de robots humanoïdes intelligents, afin de peser dans une course technologique où Tesla et plusieurs groupes chinois sont déjà engagés. Cette compétition industrielle, à forte dimension stratégique, s'ajoute aux tensions commerciales plus classiques entre grandes puissances économiques."
       ],
       "essentiel": [
-        "Démission en bloc des dirigeants du projet gazier Polar LNG en Alaska, visé par des accusations de contrôle russe secret via Novatek",
-        "La mer Noire devient la route maritime la plus meurtrière au monde ; Mercuria attaque le Baltic Exchange en justice après des pertes liées à Ormuz",
-        "Nouvelle tension sur les valeurs technologiques, le débat sur la « bulle » de l'intelligence artificielle se poursuit",
-        "En France, les rendements obligataires souverains et d'entreprise continuent de converger après le maintien de la note par Moody's"
+        "Des eurodéputés veulent que l'UE prenne des participations dans des projets de matières premières critiques, à l'image des États-Unis.",
+        "Repli du pétrole et du gaz, dans le sillage du déblocage de réserves stratégiques décidé par le G7.",
+        "Toyota accélère sur les robots humanoïdes face à Tesla et aux groupes chinois."
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 4,
       "rubrique": "FRANCE",
-      "titre": "Congrès du RN à Orléans : Bardella réélu, la contestation dans la rue, le budget 2027 toujours en suspens",
-      "chapeau": "Le Rassemblement national a tenu ce week-end à Orléans un congrès destiné à lancer la campagne présidentielle de 2027 de Marine Le Pen, sous la protection d'un important dispositif policier et face à une contre-mobilisation massive. A l'Assemblée nationale, l'examen du budget 2027 reste, lui, dans l'impasse.",
-      "dureeLectureMin": 6,
+      "titre": "Budget contesté, mobilisation sociale et relance de campagne : une rentrée politique tendue",
+      "chapeau": "Entre l'examen houleux du budget 2027, les suites de la mobilisation contre le coût de la vie et la relance de la campagne de Marine Le Pen, l'agenda intérieur reste sous tension à l'approche de l'hiver.",
+      "dureeLectureMin": 5,
       "corpsArticle": [
-        "Réuni ce week-end à Orléans, le Rassemblement national a réélu Jordan Bardella à la tête du parti, à l'occasion d'un congrès conçu comme le point de départ officiel de la campagne de Marine Le Pen pour l'élection présidentielle de 2027. L'événement s'est tenu dans un climat de forte tension, après les violences survenues le week-end précédent, le parti ayant lui-même demandé à l'État de renforcer la sécurité du rassemblement.",
-        "Une contre-manifestation d'ampleur s'est tenue samedi à Orléans contre le Rassemblement national, réunissant selon les chiffres entre 11 000 personnes, selon la préfecture, et 26 000, selon les organisateurs. Environ 3 000 membres des forces de l'ordre ont été déployés, accompagnés de blindés, tandis que deux ponts de la ville ont été fermés à la circulation. Les comptes rendus de la journée divergent sensiblement selon les sources : certains évoquent une mobilisation qui se serait globalement déroulée sans heurts majeurs, tandis que d'autres font état d'environ un millier d'interpellations en marge des cortèges, un bilan que cette édition n'a pas été en mesure de recouper de façon indépendante.",
-        "A l'Assemblée nationale, l'examen du projet de loi de finances pour 2027 reste quant à lui heurté. Le texte du gouvernement de Sébastien Lecornu vise un déficit ramené à 5,0 % du PIB en 2027, contre une prévision révisée à 5,4 % pour 2026. Les débats restent vifs sur la désindexation partielle des pensions, la baisse du plafond de l'abattement fiscal des retraités et la réforme de la prise en charge des arrêts maladie, dans un Parlement toujours fragmenté où le gouvernement doit construire au cas par cas des majorités de circonstance, sur fond de tensions politiques et sociales ravivées par le week-end électoral du Rassemblement national."
+        "Le projet de loi de finances pour 2027 poursuit son parcours mouvementé à l'Assemblée nationale. Présenté début octobre par le premier ministre Sébastien Lecornu, il prévoit un effort budgétaire d'environ 54 milliards d'euros destiné à ramener le déficit public vers 5 % du PIB, contre une trajectoire qui le verrait dépasser 6,5 % en 2027 sans ces économies. La commission des finances a rejeté le volet recettes du texte, et plusieurs groupes, dont La France insoumise, continuent de brandir la menace d'une motion de censure. M. Lecornu a pour sa part écarté le recours à l'article 49.3 tant qu'aucune obstruction ne bloquera le vote final.",
+        "Le week-end du 24 et 25 octobre, le Rassemblement national a tenu son congrès à Orléans, où Marine Le Pen a relancé sa campagne pour l'élection présidentielle de 2027. Elle s'y est présentée comme la seule candidate capable, selon elle, de restaurer l'ordre et l'unité dans un pays qu'elle décrit comme marqué par les troubles et le déclin — une formule qui relève du positionnement de campagne et non d'un constat établi.",
+        "Sur le front social, les manifestations contre le coût de la vie des 17 et 18 octobre ont donné lieu à un bilan lourd selon le ministre de l'Intérieur Laurent Nuñez : plus de 1 800 interpellations à l'échelle nationale et plus de 500 blessés parmi les policiers, gendarmes et sapeurs-pompiers, un bilan qualifié de provisoire. Des mairies et préfectures ont été prises pour cible à Marseille, Lille, Angers et Bordeaux, et un manifestant est décédé à Paris d'un arrêt cardio-respiratoire. Une partie des organisateurs appelle désormais à une grève interprofessionnelle le 5 novembre.",
+        "Sur le plan du pouvoir d'achat, le gouvernement a confirmé la mise sur le marché de 10 millions de barils de gazole puisés dans les réserves stratégiques gérées par la Sagess, dans le cadre de l'accord conclu par le G7 début octobre. Les premières ventes aux distributeurs doivent démarrer le 28 octobre, pour une baisse à la pompe attendue dès le 1er novembre, estimée par Matignon entre 12 et 18 centimes par litre, et plutôt entre 8 et 12 centimes selon TotalEnergies. La mesure, prévue pour durer trois mois, couvre aussi le gazole non routier et le fioul domestique."
       ],
       "essentiel": [
-        "Jordan Bardella réélu à la tête du RN lors du congrès d'Orléans, point de départ de la campagne présidentielle 2027 de Marine Le Pen",
-        "Contre-manifestation samedi : entre 11 000 (préfecture) et 26 000 (organisateurs) participants, environ 3 000 policiers déployés",
-        "Les bilans de la journée divergent selon les sources, certaines évoquant des interpellations, d'autres une mobilisation sans heurts majeurs",
-        "Le budget 2027 reste en discussion tendue à l'Assemblée, sur fond de déficit visé à 5,0 % du PIB"
+        "Budget 2027 : volet recettes rejeté en commission, menace de censure, 49.3 écarté par Lecornu.",
+        "Marine Le Pen relance sa campagne présidentielle lors du congrès du RN à Orléans.",
+        "Plus de 1 800 interpellations lors des manifestations du 17-18 octobre contre le coût de la vie ; appel à une grève le 5 novembre.",
+        "Baisse du prix du gazole attendue dès le 1er novembre, via un déblocage des réserves stratégiques françaises."
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 5,
       "rubrique": "REGARD_DIPLOMATE",
-      "titre": "Quand les outsiders font trembler les pouvoirs en place",
-      "dureeLectureMin": 3,
+      "titre": "Ce que les urnes disent, et ce que les silences diplomatiques taisent",
+      "chapeau": "Un regard éditorial sur les leçons de lecture diplomatique que suggère l'actualité du jour.",
+      "dureeLectureMin": 2,
       "corpsArticle": [
-        "Ce dimanche aligne, de façon frappante, plusieurs scrutins construits sur le même ressort narratif : celui du défi lancé à un pouvoir installé par un challenger présenté comme extérieur au système. Au Brésil, c'est un sénateur de 42 ans qui tente de l'emporter face à un président rompu à l'exercice du pouvoir depuis des décennies. En Serbie, c'est une liste née dans la rue étudiante qui affronte un parti au pouvoir depuis quatorze ans. En Israël, c'est un ancien chef d'état-major sans parti établi qui bouscule le Premier ministre le plus durable de l'histoire du pays. Même en France, le Rassemblement national, pourtant en tête de nombreux sondages depuis des années, continue de se présenter en rupture avec un « système » qu'il dit combattre, alors même qu'il structure désormais sa propre campagne présidentielle avec les codes d'un parti de gouvernement.",
-        "Cette récurrence n'est sans doute pas un hasard de calendrier : elle témoigne d'une époque où la légitimité du pouvoir en place se discute de plus en plus systématiquement, quel que soit le régime ou le contexte national, et où la posture de l'outsider est devenue un langage politique universel, y compris pour des forces qui ne sont plus, dans les faits, extérieures au jeu institutionnel. Ce n'est ici qu'une grille de lecture parmi d'autres, et non un fait établi : elle invite simplement à interroger, au-delà des programmes, la manière dont chaque camp construit son propre récit de rupture, et à se demander qui, dans chacun de ces scrutins, est réellement en train de défier le pouvoir, et qui est déjà en train de l'exercer."
+        "Trois scrutins, trois continents, un même motif : des pouvoirs en place qui comptaient sur la lassitude ou la division de leurs opposants, et qui se heurtent à des électorats moins malléables que prévu. La réélection serrée de Lula, la chute de Vučić à Belgrade et le test qu'affrontera Netanyahu dès demain n'ont rien en commun sur le plan idéologique, mais ils rappellent, chacun à sa façon, une règle simple de lecture diplomatique : la stabilité apparente d'un pouvoir se mesure moins à sa durée passée qu'à sa capacité à survivre à une élection véritablement incertaine. C'est un point de vue, non un pronostic, mais il invite à se méfier des lectures qui confondent la solidité d'un régime avec la simple absence, jusque-là, d'alternative crédible.",
+        "L'autre enseignement, plus discret, tient aux silences. Qu'aucune réaction officielle française n'ait, à ce stade, été rendue publique sur la réélection de Lula, la défaite de Vučić ou le retour annoncé de Maria Corina Machado n'est pas nécessairement un signe d'indifférence : la diplomatie économise souvent ses mots pour les moments où une position doit réellement produire un effet. Mais ce silence, à l'heure où les lignes se redessinent en Amérique latine comme dans les Balkans, est lui-même une donnée que l'observateur attentif doit noter, en gardant à l'esprit qu'il s'agit ici d'une grille de lecture parmi d'autres, et non d'un verdict sur l'action de la France."
       ],
       "essentiel": [
-        "Brésil, Serbie, Israël, France : plusieurs scrutins ou dynamiques politiques du jour opposent un pouvoir installé à un « outsider » revendiqué",
-        "La posture de challenger est devenue un langage politique quasi universel, parfois utilisé par des forces déjà dominantes",
-        "Point de vue éditorial, à prendre comme une grille de lecture et non comme un fait établi"
+        "Les scrutins du jour rappellent que la stabilité d'un pouvoir ne se mesure qu'à l'épreuve d'une élection incertaine.",
+        "Le silence diplomatique français sur ces dossiers est, à ce stade, une donnée à noter autant qu'une réaction à attendre."
       ],
       "signature": "L'éditorial du Diplomate"
     }
