@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le Diplomate</title>
+<style>
+:root{
+  --paper:#f4ecdd;
+  --paper-dark:#efe4ce;
+  --ink:#1c1a16;
+  --ink-soft:#4a443a;
+  --rule:#1c1a16;
+  --accent:#7a1f1f;
+  --card:#fbf6ea;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#16140f;
+    --paper-dark:#1c1a14;
+    --ink:#ece4d2;
+    --ink-soft:#bfb6a2;
+    --rule:#ece4d2;
+    --accent:#d98b6b;
+    --card:#1e1b15;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#16140f;
+  --paper-dark:#1c1a14;
+  --ink:#ece4d2;
+  --ink-soft:#bfb6a2;
+  --rule:#ece4d2;
+  --accent:#d98b6b;
+  --card:#1e1b15;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Georgia','Iowan Old Style',serif;
+  padding:0 16px 64px;
+}
+.wrap{max-width:760px;margin:0 auto;}
+.masthead{
+  text-align:center;
+  padding:36px 0 18px;
+  border-bottom:4px double var(--rule);
+}
+.masthead h1{
+  font-family:'Playfair Display','Georgia',serif;
+  font-size:clamp(2.2rem,8vw,3.4rem);
+  letter-spacing:0.03em;
+  margin:0 0 6px;
+  text-transform:uppercase;
+}
+.masthead .meta{
+  display:flex;
+  justify-content:space-between;
+  font-size:0.78rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  border-top:1px solid var(--rule);
+  margin-top:10px;
+  padding-top:8px;
+}
+.toolbar{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin:18px 0 8px;
+  flex-wrap:wrap;
+}
+button.listen{
+  font-family:inherit;
+  font-size:0.85rem;
+  letter-spacing:0.03em;
+  background:var(--card);
+  color:var(--ink);
+  border:1px solid var(--rule);
+  border-radius:999px;
+  padding:8px 18px;
+  cursor:pointer;
+}
+button.listen:hover{background:var(--accent);color:var(--paper);border-color:var(--accent);}
+button.listen[aria-pressed="true"]{background:var(--accent);color:var(--paper);border-color:var(--accent);}
+section.rubrique{
+  margin-top:40px;
+  padding-top:18px;
+  border-top:1px solid var(--rule);
+}
+.tag{
+  display:inline-block;
+  font-size:0.72rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--accent);
+  font-weight:bold;
+  margin-bottom:6px;
+}
+h2.titre{
+  font-family:'Playfair Display','Georgia',serif;
+  font-size:clamp(1.5rem,5vw,2.1rem);
+  line-height:1.15;
+  margin:4px 0 10px;
+}
+p.chapeau{
+  font-style:italic;
+  color:var(--ink-soft);
+  font-size:1.05rem;
+  margin:0 0 14px;
+  line-height:1.5;
+}
+.infoline{
+  font-size:0.78rem;
+  color:var(--ink-soft);
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  margin-bottom:16px;
+}
+.corps p{
+  font-size:1.08rem;
+  line-height:1.72;
+  margin:0 0 16px;
+  text-align:justify;
+  hyphens:auto;
+}
+.corps p:first-of-type::first-letter{
+  font-family:'Playfair Display',serif;
+  font-size:3.1rem;
+  float:left;
+  line-height:0.8;
+  padding:4px 8px 0 0;
+  color:var(--accent);
+}
+.essentiel{
+  background:var(--card);
+  border:1px solid var(--rule);
+  border-left:4px solid var(--accent);
+  padding:14px 18px;
+  margin:18px 0;
+}
+.essentiel .label{
+  font-size:0.72rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--accent);
+  font-weight:bold;
+  margin-bottom:6px;
+  display:block;
+}
+.essentiel ul{margin:0;padding-left:18px;}
+.essentiel li{font-size:0.96rem;line-height:1.5;margin-bottom:4px;}
+.signature{
+  text-align:right;
+  font-size:0.85rem;
+  font-style:italic;
+  color:var(--ink-soft);
+  margin-top:10px;
+}
+footer{
+  text-align:center;
+  margin-top:48px;
+  padding-top:16px;
+  border-top:4px double var(--rule);
+  font-size:0.78rem;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="masthead">
+    <h1>Le Diplomate</h1>
+    <div class="meta">
+      <span id="meta-date">Mercredi 28 octobre 2026</span>
+      <span>Édition n° 21</span>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <button class="listen" id="listenBtn" aria-pressed="false">🔊 Écouter</button>
+  </div>
+
+  <section class="rubrique">
+    <span class="tag">Une</span>
+    <h2 class="titre">Israël au bord de l'impasse politique après des législatives historiques</h2>
+    <p class="chapeau">Le scrutin du 27 octobre, premier depuis l'attaque du 7 octobre 2023, débouche sur une participation record et l'absence de majorité claire, ouvrant une période d'incertitude pour Benjamin Netanyahu comme pour ses adversaires.</p>
+    <div class="infoline">5 min de lecture</div>
+    <div class="corps">
+      <p>Les Israéliens ont voté en masse le 27 octobre pour des élections législatives marquées par la participation la plus élevée depuis des décennies, un scrutin présenté par de nombreux observateurs comme l'un des plus importants de l'histoire récente du pays. C'était le premier vote depuis l'attaque du Hamas du 7 octobre 2023, qui a durablement bouleversé la vie politique et sécuritaire israélienne.</p>
+      <p>Selon les sondages sortie des urnes, la coalition religieuse-nationaliste emmenée par le Premier ministre Benjamin Netanyahu et le bloc d'opposition, structuré autour de l'ancien chef d'état-major Gadi Eisenkot et de son parti Yashar, terminent au coude-à-coude, sans qu'aucun des deux camps dispose d'une voie claire vers une majorité de gouvernement au sein de la Knesset, qui compte 120 sièges. Le Likoud de M. Netanyahu devancerait néanmoins les autres partis en nombre de voix, alors même que la majorité des électeurs ont soutenu ses rivaux.</p>
+      <p>Fait notable de ce scrutin : une poussée inattendue des partis arabes, dont le parti islamiste Ra'am, portée par une mobilisation électorale exceptionnelle. M. Netanyahu a d'ores et déjà appelé ses rivaux à rejoindre une coalition rassemblant les partis juifs et à écarter les partis arabes de toute alliance de gouvernement, signe que la polarisation qui traverse la société israélienne depuis plusieurs années ne s'est pas atténuée. Les résultats définitifs pourraient prendre plusieurs jours à être confirmés, les précédents scrutins israéliens ayant montré que les sondages sortie des urnes ne sont pas toujours fiables.</p>
+      <p>Quel que soit le vainqueur final, la formation d'un gouvernement s'annonce longue et complexe, dans un pays toujours marqué par la guerre à Gaza, les tensions persistantes avec l'Iran et ses alliés régionaux, et une société profondément divisée entre un bloc religieux-nationaliste et une opposition laïque et hétéroclite, elle-même renforcée par la percée des partis arabes.</p>
+    </div>
+    <div class="essentiel">
+      <span class="label">L'essentiel</span>
+      <ul>
+        <li>Participation record lors du scrutin du 27 octobre, premier vote depuis l'attaque du 7 octobre 2023.</li>
+        <li>Ni la coalition de Benjamin Netanyahu ni le bloc d'opposition mené par Gadi Eisenkot ne disposent d'une majorité claire selon les sondages sortie des urnes.</li>
+        <li>Percée inattendue des partis arabes, dont Ra'am, dans un contexte de forte mobilisation.</li>
+        <li>Les résultats définitifs, et donc les tractations pour former une coalition, pourraient prendre plusieurs jours.</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </section>
+
+  <section class="rubrique">
+    <span class="tag">Géopolitique</span>
+    <h2 class="titre">Ukraine, Brésil, Égypte : quatre foyers de tension à surveiller</h2>
+    <p class="chapeau">Des discussions américano-russes sur l'énergie aux turbulences politiques brésiliennes, en passant par la liberté de la presse en Égypte, tour d'horizon des autres dossiers internationaux du jour.</p>
+    <div class="infoline">6 min de lecture</div>
+    <div class="corps">
+      <p>Washington et Moscou explorent, selon le Financial Times, un retour des grandes compagnies pétrolières américaines sur le marché russe, dans le cadre de discussions plus larges visant à mettre fin à la guerre en Ukraine. Une piste évoquée serait la reprise d'une coentreprise pétrolière américano-russe au large de l'île de Sakhaline, en Extrême-Orient russe : un geste économique qui jouerait le rôle d'incitation pour amener Moscou à accepter un cessez-le-feu. Le président russe Vladimir Poutine a par ailleurs eu, cette semaine, son premier contact à ce niveau depuis plus d'un an avec les dirigeants norvégien et finlandais, dans le cadre d'un effort renouvelé pour relancer les négociations entre Russes et Ukrainiens, désormais impulsé par Washington. Autre signal préoccupant pour Kyiv : selon des prévisions de la Commission européenne, les partenaires non membres de l'Union européenne n'auraient promis que 4 milliards d'euros d'aide à l'Ukraine pour l'année prochaine, contre 19 milliards d'euros en 2026, une chute qui fait craindre un désengagement progressif de certains soutiens occidentaux au moment même où s'ouvre une fenêtre diplomatique.</p>
+      <p><strong>Position de la France :</strong> aucune réaction officielle française n'a pu être identifiée à ce stade sur les discussions américano-russes concernant un éventuel retour des compagnies pétrolières américaines en Russie, ni sur l'appel entre Vladimir Poutine et les dirigeants nordiques. Paris maintient toutefois de longue date une ligne constante de soutien à Kyiv et de plaidoyer pour la mobilisation des avoirs russes gelés en faveur de l'effort de guerre ukrainien.</p>
+      <p>Au Brésil, Flávio Bolsonaro, fils de l'ancien président d'extrême droite Jair Bolsonaro actuellement incarcéré, a atterri en Floride mardi soir après avoir quitté le pays à la suite de sa défaite à l'élection présidentielle. Il affirme avoir reçu l'ordre de remettre son passeport et fait l'objet d'une enquête de la police brésilienne pour blanchiment d'argent présumé ; Washington aurait accepté de lui délivrer un visa américain après sa défaite. Cette fuite intervient alors que le président réélu Lula doit affronter ce que le Financial Times qualifie de « révision fiscale » : les inquiétudes des marchés sur la gestion de l'économie brésilienne ont provoqué la pire journée pour le real depuis plus de vingt-cinq ans.</p>
+      <p><strong>Position de la France :</strong> aucune réaction officielle française n'a été identifiée à ce stade concernant le départ de Flávio Bolsonaro vers les États-Unis, ni sur la situation politique et financière brésilienne.</p>
+      <p>En Égypte, les autorités ont fermé Mada Masr, l'un des derniers médias indépendants du pays, provoquant la condamnation de plusieurs organisations de la société civile. La rédactrice en chef Lina Atallah est directement visée par cette mesure, dans un pays où Reporters sans frontières recense plusieurs dizaines de journalistes détenus.</p>
+      <p><strong>Position de la France :</strong> aucune réaction officielle française n'a été identifiée à ce stade sur la fermeture de Mada Masr. Le Quai d'Orsay avait toutefois, lors de précédentes procédures visant ce média en 2022, indiqué suivre « de près » la situation de ses journalistes et affirmé que la défense de la liberté de la presse figurait parmi ses priorités dans son dialogue avec Le Caire sur les droits humains.</p>
+      <p>Dans le Golfe, l'Iran a par ailleurs menacé l'armateur sud-coréen Sinokor, l'accusant de violations répétées lors de ses transits dans le détroit d'Ormuz, une zone stratégique où Téhéran n'a, par le passé, fait respecter ses règles que par la force. Cette tension intervient alors que le rapprochement de Séoul avec Moscou, sur fond de relations tendues avec Kyiv, inquiète déjà les alliés européens de la Corée du Sud.</p>
+      <p><strong>Position de la France :</strong> aucune réaction officielle française n'a été identifiée à ce stade sur les menaces iraniennes contre l'armateur sud-coréen Sinokor, ni sur le rapprochement entre Séoul et Moscou.</p>
+    </div>
+    <div class="essentiel">
+      <span class="label">L'essentiel</span>
+      <ul>
+        <li>Washington et Moscou évoquent un retour des compagnies pétrolières américaines en Russie, via Sakhaline, pour inciter Moscou à un cessez-le-feu en Ukraine.</li>
+        <li>L'aide non-UE promise à l'Ukraine pour 2027 chuterait à 4 milliards d'euros, contre 19 milliards en 2026.</li>
+        <li>Fuite de Flávio Bolsonaro aux États-Unis et déroute du real brésilien après la défaite électorale du camp Bolsonaro.</li>
+        <li>Fermeture du média indépendant égyptien Mada Masr, dénoncée par plusieurs organisations de défense de la presse.</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </section>
+
+  <section class="rubrique">
+    <span class="tag">Géoéconomie</span>
+    <h2 class="titre">Budget britannique, IPO d'Anthropic et tensions commerciales post-Brexit</h2>
+    <p class="chapeau">Entre réforme de l'énergie à Londres, emballement boursier autour de l'intelligence artificielle et friction réglementaire avec Bruxelles, la géoéconomie du jour se joue autant dans les capitales que sur les marchés.</p>
+    <div class="infoline">4 min de lecture</div>
+    <div class="corps">
+      <p>Au Royaume-Uni, le chancelier John Healey a présenté mercredi son premier budget, qualifié de budget du « ne pas nuire », avec pour objectif de donner aux ménages et aux entreprises un peu de répit avant un hiver qui s'annonce difficile. Le texte met l'accent sur une réforme de long terme du marché de l'énergie britannique, jugée nécessaire pour contenir les factures des consommateurs. Les économistes avertissent toutefois que Londres devra aussi faire preuve de restriction budgétaire pour réduire un déficit public qui demeure élevé, dans un contexte de pressions concurrentes sur la défense et les retraites.</p>
+      <p>Les marchés financiers mondiaux suivaient par ailleurs de près les répercussions du dépôt du dossier d'introduction en bourse d'Anthropic, la société d'intelligence artificielle, qui a entraîné mercredi une hausse des valeurs technologiques en Asie dans la foulée de Wall Street, illustrant le poids désormais systémique de l'intelligence artificielle générative sur les marchés mondiaux.</p>
+      <p>Sur le front commercial européen, le secrétaire d'État britannique au Commerce, Jonathan Reynolds, a reconnu que le Royaume-Uni « ne pouvait plus continuer à subir » les changements réglementaires décidés par l'Union européenne sans y être davantage associé, à la veille de nouvelles discussions sur la relation de long terme entre Londres et Bruxelles, un dossier directement lié aux grands équilibres économiques de l'après-Brexit.</p>
+      <p>En Chine, les autorités ont par ailleurs mobilisé leur « équipe nationale » de fonds et de courtiers publics pour soutenir des marchés actions fragilisés par le reflux des valeurs liées à l'intelligence artificielle, signe de la nervosité persistante des investisseurs sur la soutenabilité de cette thématique boursière.</p>
+    </div>
+    <div class="essentiel">
+      <span class="label">L'essentiel</span>
+      <ul>
+        <li>Le chancelier britannique John Healey présente un budget axé sur la réforme du marché de l'énergie, entre restriction budgétaire et recherche de répit pour les ménages.</li>
+        <li>Le dépôt du dossier d'introduction en bourse d'Anthropic dynamise les marchés technologiques asiatiques dans le sillage de Wall Street.</li>
+        <li>Londres durcit le ton face à Bruxelles sur l'alignement réglementaire post-Brexit.</li>
+        <li>Pékin mobilise ses fonds publics pour soutenir des marchés chinois fragilisés par le reflux du secteur de l'intelligence artificielle.</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </section>
+
+  <section class="rubrique">
+    <span class="tag">France</span>
+    <h2 class="titre">Budget 2027 : calendrier parlementaire sous tension, croissance en berne</h2>
+    <p class="chapeau">Entre discussions budgétaires, mobilisation sociale et chiffres de croissance décevants, l'actualité intérieure française reste dominée par les arbitrages économiques.</p>
+    <div class="infoline">4 min de lecture</div>
+    <div class="corps">
+      <p>Le débat budgétaire continue d'occuper le devant de la scène politique française. Le projet de loi de finances pour 2027, présenté début octobre par le gouvernement de Sébastien Lecornu, vise un déficit public ramené à 5 % du produit intérieur brut l'an prochain, contre une prévision révisée à 5,4 % pour 2026, pour un effort budgétaire total estimé à 54 milliards d'euros. Parmi les mesures les plus commentées figurent le gel des aides personnelles au logement, des économies sur les retraites et un gel des salaires dans la fonction publique.</p>
+      <p>Le Parlement, très fragmenté, dispose de 70 jours pour examiner et adopter ce texte, soit jusqu'au 26 novembre, et de 50 jours pour le volet social, jusqu'au 17 décembre, un calendrier que plusieurs économistes jugent déjà serré, certains évoquant des négociations susceptibles de se prolonger jusqu'au premier semestre 2027. Le recours à l'article 49.3 de la Constitution n'est pas exclu par l'exécutif.</p>
+      <p>Sur le terrain social, la mobilisation contre le coût de la vie, qui avait réuni environ 550 000 manifestants le 17 octobre selon le ministère de l'Intérieur, pourrait se poursuivre lors de nouveaux rassemblements programmés fin octobre, dans un climat de tension sociale entretenu par les arbitrages budgétaires à venir.</p>
+      <p>Sur le plan économique, l'Insee doit publier vendredi sa première estimation de la croissance du troisième trimestre, attendue à seulement 0,1 %, un chiffre qui confirmerait, selon plusieurs économistes, l'absence de moteur de croissance clairement identifié dans l'économie française, entre ralentissement industriel et consommation atone. Dans le secteur de la défense, le ministère des Armées a par ailleurs indiqué être en discussion avec quatre candidats industriels pour la reprise du savoir-faire des Forges de Tarbes, un dossier suivi de près dans le contexte de remontée en puissance de l'industrie de défense française.</p>
+    </div>
+    <div class="essentiel">
+      <span class="label">L'essentiel</span>
+      <ul>
+        <li>Le PLF 2027 du gouvernement Lecornu vise un déficit ramené à 5 % du PIB, avec 54 milliards d'euros d'efforts, dont le gel des APL et des mesures sur les retraites.</li>
+        <li>Calendrier parlementaire tendu (jusqu'au 26 novembre pour le budget, 17 décembre pour le volet social), recours possible à l'article 49.3.</li>
+        <li>Nouvelle mobilisation sociale attendue fin octobre après les 550 000 manifestants du 17 octobre contre le coût de la vie.</li>
+        <li>Croissance du troisième trimestre attendue à seulement 0,1 % selon l'Insee, publiée vendredi.</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </section>
+
+  <section class="rubrique">
+    <span class="tag">Regard du Diplomate</span>
+    <h2 class="titre">Ce que les urnes ne referment jamais tout à fait</h2>
+    <div class="infoline">3 min de lecture · Éditorial</div>
+    <div class="corps">
+      <p>Ce qui frappe, dans l'actualité de ce mercredi, c'est la convergence de plusieurs scrutins et crises qui rappellent qu'aucune élection, aussi disputée soit-elle, ne clôt jamais vraiment une situation politique : en Israël comme au Brésil, les urnes livrent des résultats contestés ou fragiles, qui ouvrent moins une nouvelle ère qu'une période prolongée d'incertitude et de négociation. Pour l'observateur diplomatique, c'est une invitation permanente à la prudence : un sondage sortie des urnes, une « victoire » annoncée ou une fuite précipitée ne disent jamais tout du rapport de force réel, qui se joue ensuite dans les coalitions, les tribunaux ou les marchés.</p>
+      <p>L'autre fil de la journée, plus discret, est celui de la diplomatie par l'économie : l'hypothèse d'un retour des grandes compagnies pétrolières américaines en Russie comme monnaie d'échange dans les pourparlers sur l'Ukraine illustre une leçon ancienne, trop souvent reléguée au second plan dans les commentaires strictement sécuritaires — à savoir que les guerres se terminent aussi, et parfois surtout, par des arbitrages d'intérêts matériels. Lire la diplomatie sans lire les flux de capitaux, les contrats et les marchés de matières premières, c'est se priver d'une bonne part de la grammaire du pouvoir. Ce n'est ici qu'un point de vue éditorial, non un constat établi, mais il mérite d'être gardé en tête à mesure que les lignes bougent, à Kyiv comme ailleurs.</p>
+    </div>
+    <div class="essentiel">
+      <span class="label">L'essentiel</span>
+      <ul>
+        <li>Les scrutins contestés en Israël et au Brésil rappellent qu'une élection ouvre souvent une période d'incertitude plutôt qu'elle ne la referme.</li>
+        <li>Les pourparlers Ukraine-Russie, articulés autour d'incitations économiques, illustrent le poids des intérêts matériels dans la résolution des conflits.</li>
+        <li>Un point de vue éditorial, à prendre comme une grille de lecture et non comme un constat factuel établi.</li>
+      </ul>
+    </div>
+    <div class="signature">L'éditorial du Diplomate</div>
+  </section>
+
+  <footer>Le Diplomate — édition du 28 octobre 2026 — revue de presse à usage d'études diplomatiques</footer>
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById('listenBtn');
+  var synth = window.speechSynthesis;
+  var utterance = null;
+  var speaking = false;
+
+  function getFullText(){
+    var parts = [];
+    document.querySelectorAll('section.rubrique').forEach(function(sec){
+      var titre = sec.querySelector('h2.titre');
+      if(titre) parts.push(titre.textContent);
+      var chapeau = sec.querySelector('p.chapeau');
+      if(chapeau) parts.push(chapeau.textContent);
+      sec.querySelectorAll('.corps p').forEach(function(p){
+        parts.push(p.textContent);
+      });
+    });
+    return parts.join('. ');
+  }
+
+  function stop(){
+    if(synth){ synth.cancel(); }
+    speaking = false;
+    btn.setAttribute('aria-pressed','false');
+    btn.textContent = '🔊 Écouter';
+  }
+
+  btn.addEventListener('click', function(){
+    if(!synth){
+      alert('La synthèse vocale n\'est pas disponible sur ce navigateur.');
+      return;
+    }
+    if(speaking){
+      stop();
+      return;
+    }
+    try{
+      utterance = new SpeechSynthesisUtterance(getFullText());
+      utterance.lang = 'fr-FR';
+      utterance.rate = 0.98;
+      utterance.onend = stop;
+      utterance.onerror = stop;
+      synth.cancel();
+      synth.speak(utterance);
+      speaking = true;
+      btn.setAttribute('aria-pressed','true');
+      btn.textContent = '⏸ Arrêter';
+    }catch(e){
+      stop();
+    }
+  });
+})();
+</script>
+</body>
+</html>
