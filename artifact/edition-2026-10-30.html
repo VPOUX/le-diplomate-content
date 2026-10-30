@@ -1,0 +1,442 @@
+<title>Le Diplomate</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: single-column broadsheet column (max 680px) on a paper ground, masthead + rule, rubrique labels as small-caps dividers, sidebar "essentiel" as an indented boxed list, listen button fixed bottom-right */
+:root{
+  --paper:#f3ecd9;
+  --paper-2:#eae0c6;
+  --ink:#2a2420;
+  --ink-soft:#5a5048;
+  --rule:#cdbf98;
+  --accent:#7a1f1f;
+  --accent-soft:#9a3b2e;
+  --chip-bg:#e6dcc0;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1d1812;
+    --paper-2:#241d16;
+    --ink:#e9e0cd;
+    --ink-soft:#b7ab94;
+    --rule:#4a3f30;
+    --accent:#d98a6b;
+    --accent-soft:#e3a98d;
+    --chip-bg:#2a2319;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1d1812;
+  --paper-2:#241d16;
+  --ink:#e9e0cd;
+  --ink-soft:#b7ab94;
+  --rule:#4a3f30;
+  --accent:#d98a6b;
+  --accent-soft:#e3a98d;
+  --chip-bg:#2a2319;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Source Serif 4","Lora",Georgia,"Times New Roman",serif;
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0 0 auto;
+  height:env(safe-area-inset-top,0px);
+  background:var(--paper);
+  z-index:10;
+}
+.wrap{
+  max-width:680px;
+  margin:0 auto;
+  padding-bottom:96px;
+}
+.masthead{
+  padding-top:28px;
+  text-align:center;
+}
+.masthead h1{
+  font-family:"Playfair Display",Georgia,serif;
+  font-weight:900;
+  font-size:clamp(2.4rem,9vw,3.6rem);
+  letter-spacing:0.5px;
+  margin:0;
+  text-wrap:balance;
+}
+.masthead .tagline{
+  font-family:"Source Serif 4",Georgia,serif;
+  font-style:italic;
+  color:var(--ink-soft);
+  font-size:0.85rem;
+  margin:4px 0 14px;
+  letter-spacing:0.3px;
+}
+.meta-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:12px;
+  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+  font-size:0.68rem;
+  text-transform:uppercase;
+  letter-spacing:1.1px;
+  color:var(--ink-soft);
+  border-top:3px solid var(--ink);
+  border-bottom:1px solid var(--rule);
+  padding:6px 2px;
+  font-variant-numeric: tabular-nums;
+  flex-wrap:wrap;
+}
+article{
+  padding-top:30px;
+}
+.rubrique{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:10px;
+}
+.rubrique .label{
+  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+  font-weight:700;
+  font-size:0.72rem;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--accent);
+  white-space:nowrap;
+}
+.rubrique .line{
+  flex:1;
+  height:1px;
+  background:var(--rule);
+  min-width:0;
+}
+.rubrique .duree{
+  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+  font-size:0.65rem;
+  color:var(--ink-soft);
+  white-space:nowrap;
+}
+h2.titre{
+  font-family:"Playfair Display",Georgia,serif;
+  font-weight:800;
+  font-size:clamp(1.5rem,6vw,2rem);
+  line-height:1.15;
+  margin:0 0 10px;
+  text-wrap:balance;
+}
+p.chapeau{
+  font-style:italic;
+  color:var(--ink-soft);
+  font-size:1.02rem;
+  line-height:1.5;
+  margin:0 0 18px;
+  border-left:3px solid var(--rule);
+  padding-left:14px;
+}
+.corps p{
+  font-size:1.03rem;
+  line-height:1.62;
+  max-width:65ch;
+  margin:0 0 1.1em;
+}
+.corps p:first-of-type::first-letter{
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:3.1em;
+  font-weight:800;
+  float:left;
+  line-height:0.8;
+  padding:0.04em 0.08em 0 0;
+  color:var(--accent);
+}
+.essentiel{
+  background:var(--chip-bg);
+  border:1px solid var(--rule);
+  border-radius:2px;
+  padding:14px 16px 14px 14px;
+  margin:20px 0 4px;
+}
+.essentiel .cap{
+  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+  font-weight:700;
+  font-size:0.66rem;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+  color:var(--accent-soft);
+  margin:0 0 8px;
+}
+.essentiel ul{
+  margin:0;
+  padding-left:1.1em;
+}
+.essentiel li{
+  font-size:0.92rem;
+  line-height:1.45;
+  margin-bottom:5px;
+}
+.essentiel li:last-child{margin-bottom:0}
+.signature{
+  text-align:right;
+  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+  font-size:0.72rem;
+  font-style:italic;
+  color:var(--ink-soft);
+  margin-top:10px;
+}
+hr.sep{
+  border:none;
+  border-top:1px solid var(--rule);
+  margin:34px 0 0;
+}
+footer{
+  text-align:center;
+  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+  font-size:0.68rem;
+  letter-spacing:0.6px;
+  color:var(--ink-soft);
+  padding-top:30px;
+}
+
+.listen-btn{
+  position:fixed;
+  right:max(16px, env(safe-area-inset-right,0px));
+  bottom:max(16px, env(safe-area-inset-bottom,0px));
+  z-index:20;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:var(--ink);
+  color:var(--paper);
+  border:none;
+  border-radius:999px;
+  padding:11px 18px;
+  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+  font-size:0.82rem;
+  font-weight:600;
+  letter-spacing:0.3px;
+  cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,0.25);
+}
+.listen-btn:active{transform:scale(0.97)}
+.listen-btn.playing{background:var(--accent);color:#fff}
+.listen-btn .ico{font-size:1rem}
+
+@media (max-width:420px){
+  .meta-row{font-size:0.62rem}
+}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800;900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;600;700&display=swap">
+
+<div class="wrap">
+  <div class="masthead">
+    <h1>Le Diplomate</h1>
+    <div class="tagline">Revue de presse matinale &mdash; lecture diplomatique de l'actualit&eacute;</div>
+    <div class="meta-row">
+      <span>Vendredi 30 octobre 2026</span>
+      <span>&Eacute;dition n&deg;23</span>
+      <span>G&eacute;n&eacute;r&eacute;e &agrave; 07:40</span>
+    </div>
+  </div>
+
+  <article data-rubrique="UNE">
+    <div class="rubrique"><span class="label">Une</span><span class="line"></span><span class="duree">5 min de lecture</span></div>
+    <h2 class="titre">Washington-Moscou&nbsp;: l'accord sur le diesel russe fissure le front des sanctions</h2>
+    <p class="chapeau">Trois semaines apr&egrave;s l'annonce surprise d'un accord entre Donald Trump et Vladimir Poutine sur les livraisons de diesel russe, la contestation s'&eacute;tend&nbsp;: &agrave; Washington, les critiques d&eacute;noncent une faveur faite au Kremlin&nbsp;; sur le terrain, une gouverneure d&eacute;mocrate menace d&eacute;sormais de bloquer elle-m&ecirc;me une cargaison.</p>
+    <div class="corps">
+      <p>Le 9 octobre, &agrave; l'issue d'un appel t&eacute;l&eacute;phonique avec Vladimir Poutine initialement consacr&eacute; &agrave; une &eacute;pid&eacute;mie suspect&eacute;e en Russie, Donald Trump a annonc&eacute; un accord sur des livraisons massives de diesel russe&nbsp;: plus de 300&nbsp;000 tonnes imm&eacute;diatement, 500&nbsp;000 tonnes en novembre, puis un million de tonnes par la suite. Le Tr&eacute;sor am&eacute;ricain a dans la foul&eacute;e d&eacute;livr&eacute; une licence temporaire suspendant les sanctions sur les exportations de diesel russe jusqu'au 7&nbsp;avril 2027, pour les cargaisons d&eacute;j&agrave; charg&eacute;es sur des p&eacute;troliers. Il s'agit du premier assouplissement de cette ampleur depuis le d&eacute;but de la guerre en Ukraine, en f&eacute;vrier 2022.</p>
+      <p>La d&eacute;cision a immédiatement suscit&eacute; une vague de critiques. Le pr&eacute;sident ukrainien Volodymyr Zelensky a d&eacute;nonc&eacute; &laquo;&nbsp;des cadeaux &agrave; Poutine&nbsp;&raquo; qui &laquo;&nbsp;n'apporteront ni la paix ni aucun b&eacute;n&eacute;fice au monde civilis&eacute;&nbsp;&raquo;. Le chancelier allemand Friedrich Merz a averti que &laquo;&nbsp;la Russie ne n&eacute;gociera s&eacute;rieusement que sous pression&nbsp;&raquo;, tandis que Londres et Berlin appelaient &agrave; un durcissement des sanctions. La Finlande a qualifi&eacute; l'accord d'&laquo;&nbsp;&eacute;norme d&eacute;ception&nbsp;&raquo;.</p>
+      <p>La contestation a depuis gagn&eacute; le territoire am&eacute;ricain lui-m&ecirc;me. Selon les informations rapport&eacute;es ce vendredi, la gouverneure d&eacute;mocrate du New Jersey, Mikie Sherrill, a qualifi&eacute; l'accord de Donald Trump avec Vladimir Poutine de &laquo;&nbsp;corrompu et ill&eacute;gal&nbsp;&raquo; et &eacute;tudie les moyens d'emp&ecirc;cher, &agrave; l'&eacute;chelle de son &Eacute;tat, le d&eacute;chargement d'une cargaison de diesel russe dans un port de la c&ocirc;te est.</p>
+      <p>Sur le plan &eacute;conomique, l'effet sur les prix reste incertain&nbsp;: le gallon de diesel se n&eacute;gociait encore autour de 6,23&nbsp;dollars aux &Eacute;tats-Unis, loin sous le record de 6,52&nbsp;dollars atteint le 22&nbsp;septembre, mais sans v&eacute;ritable d&eacute;tente depuis l'accord. Plus largement, la licence du Tr&eacute;sor interroge sur la volont&eacute; de l'ex&eacute;cutif am&eacute;ricain d'appliquer la loi vot&eacute;e &agrave; une large majorit&eacute; par le Congr&egrave;s, qui lui enjoint de sanctionner les pays achetant des hydrocarbures russes.</p>
+      <p>Position de la France&nbsp;: interrog&eacute; sur France Inter &agrave; la mi-octobre, le ministre des Affaires &eacute;trang&egrave;res Jean-No&euml;l Barrot a minimis&eacute; la port&eacute;e pratique de l'accord, estimant que quelques dizaines de milliers de barils suppl&eacute;mentaires ne changeraient pas la donne. Il a qualifi&eacute; de &laquo;&nbsp;propagande russe&nbsp;&raquo; l'id&eacute;e que Washington abandonnerait l'Ukraine, rappelant que les deux tiers du soutien en mati&egrave;re de renseignement fourni &agrave; Kiev proviennent d'Europe, dont la France. Aucune d&eacute;claration plus r&eacute;cente du Quai d'Orsay n'a pu &ecirc;tre identifi&eacute;e sur les d&eacute;veloppements de ce vendredi.</p>
+    </div>
+    <div class="essentiel">
+      <p class="cap">L'essentiel</p>
+      <ul>
+        <li>Licence du Tr&eacute;sor am&eacute;ricain valable jusqu'au 7&nbsp;avril 2027 pour le diesel russe d&eacute;j&agrave; charg&eacute;</li>
+        <li>Zelensky, Berlin et Londres d&eacute;noncent un geste d'apaisement envers Moscou</li>
+        <li>La gouverneure du New Jersey, Mikie Sherrill, menace de bloquer une cargaison</li>
+        <li>Paris minimise l'impact et d&eacute;ment tout abandon de l'Ukraine par les Europ&eacute;ens</li>
+      </ul>
+    </div>
+    <p class="signature">Par la r&eacute;daction du Diplomate</p>
+  </article>
+
+  <hr class="sep">
+
+  <article data-rubrique="GEOPOLITIQUE">
+    <div class="rubrique"><span class="label">G&eacute;opolitique</span><span class="line"></span><span class="duree">8 min de lecture</span></div>
+    <h2 class="titre">Sept foyers de tension &agrave; surveiller</h2>
+    <p class="chapeau">&Eacute;lection contest&eacute;e, purges militaires, excuses officielles&nbsp;: tour d'horizon des dossiers diplomatiques qui agitent la plan&egrave;te, avec la r&eacute;action fran&ccedil;aise quand elle existe &mdash; et sa franche absence quand ce n'est pas le cas.</p>
+    <div class="corps">
+      <p>En Isra&euml;l, les premi&egrave;res &eacute;lections l&eacute;gislatives depuis les attentats du 7&nbsp;octobre 2023, tenues le 27&nbsp;octobre, tournent &agrave; la crise de l&eacute;gitimit&eacute; politique. Le Likoud de Benjamin Netanyahu accuse ses adversaires d'avoir &laquo;&nbsp;vol&eacute;&nbsp;&raquo; le scrutin et d&eacute;nonce une ing&eacute;rence d'&laquo;&nbsp;entit&eacute;s &eacute;trang&egrave;res&nbsp;&raquo;, sans preuve publique &agrave; ce stade. Le Shin Bet, qui avait averti avant le vote de tentatives d'ing&eacute;rence &eacute;trang&egrave;re et supprim&eacute; des comptes en ligne li&eacute;s &agrave; des op&eacute;rations d'influence, examine d&eacute;sormais ces all&eacute;gations. Une participation inhabituellement forte des citoyens arabes d'Isra&euml;l a emp&ecirc;ch&eacute; le Premier ministre sortant de d&eacute;crocher la majorit&eacute; absolue qu'il esp&eacute;rait.</p>
+      <p>Position de la France&nbsp;: aucune r&eacute;action officielle fran&ccedil;aise n'a &eacute;t&eacute; identifi&eacute;e &agrave; ce stade sur l'issue contest&eacute;e du scrutin isra&eacute;lien ou sur les accusations d'ing&eacute;rence formul&eacute;es apr&egrave;s le 27&nbsp;octobre. Paris s'&eacute;tait exprim&eacute; plus t&ocirc;t dans le mois sur un autre volet du dossier, en d&eacute;plorant le report &agrave; 2027 des &eacute;lections l&eacute;gislatives palestiniennes annonc&eacute; par Mahmoud Abbas.</p>
+      <p>&Agrave; P&eacute;kin, le V<sup>e</sup>&nbsp;pl&eacute;num du Comit&eacute; central du Parti communiste chinois, tenu du 26 au 29&nbsp;octobre &agrave; l'approche du XXI<sup>e</sup>&nbsp;Congr&egrave;s pr&eacute;vu en 2027, referme une s&eacute;quence de purges militaires sans pr&eacute;c&eacute;dent depuis des d&eacute;cennies. Xi Jinping a fait &eacute;lever au Politburo le g&eacute;n&eacute;ral Zhang Shengmin, chef de la discipline de l'arm&eacute;e, qui demeure l'un des deux seuls membres actifs de la Commission militaire centrale &agrave; ses c&ocirc;t&eacute;s, apr&egrave;s l'&eacute;viction de plusieurs g&eacute;n&eacute;raux de haut rang. Les observateurs y lisent &agrave; la fois une volont&eacute; d'assainissement et un signe de fragilit&eacute; du commandement militaire chinois.</p>
+      <p>Position de la France&nbsp;: aucune r&eacute;action officielle fran&ccedil;aise n'a &eacute;t&eacute; identifi&eacute;e sur ces recompositions internes de l'appareil militaire et politique chinois, qui rel&egrave;vent des affaires int&eacute;rieures du Parti communiste chinois.</p>
+      <p>&Agrave; Hong Kong, le chef de l'ex&eacute;cutif John Lee a pr&eacute;sent&eacute; ses excuses apr&egrave;s la publication du rapport final sur l'incendie de la tour r&eacute;sidentielle de Tai Po, dont le bilan a &eacute;t&eacute; port&eacute; &agrave; 168&nbsp;morts, l'un des plus lourds de l'histoire du territoire. Le gouvernement s'engage &agrave; des r&eacute;formes de s&eacute;curit&eacute; incendie et &agrave; des mesures de responsabilisation, apr&egrave;s des mois de critiques sur la n&eacute;gligence des autorit&eacute;s et des entreprises de r&eacute;novation mises en cause.</p>
+      <p>Position de la France&nbsp;: aucune r&eacute;action officielle fran&ccedil;aise n'a &eacute;t&eacute; identifi&eacute;e sur ce drame, de nature essentiellement administrative et locale.</p>
+      <p>Au Br&eacute;sil, Fl&aacute;vio Bolsonaro, candidat battu &agrave; la derni&egrave;re &eacute;lection pr&eacute;sidentielle et vis&eacute; par une enqu&ecirc;te pour blanchiment d'argent, a quitt&eacute; le pays au lendemain du jour o&ugrave; il affirmait publiquement n'avoir jamais envisag&eacute; de partir. Son d&eacute;part relance les interrogations sur l'&eacute;tat des contre-pouvoirs institutionnels br&eacute;siliens.</p>
+      <p>Position de la France&nbsp;: aucune r&eacute;action officielle fran&ccedil;aise n'a &eacute;t&eacute; identifi&eacute;e sur ce dossier judiciaire interne br&eacute;silien.</p>
+      <p>Au Royaume-Uni, le ministre Healey a affirm&eacute; que le pays ne rejoindrait pas l'Union europ&eacute;enne &laquo;&nbsp;de son vivant&nbsp;&raquo;, une d&eacute;claration qui contredit directement le maire de Manchester Andy Burnham, partisan d'un rapprochement renforc&eacute; avec Bruxelles. Le m&ecirc;me responsable a par ailleurs d&ucirc; clarifier des propos sur une possible r&eacute;duction des d&eacute;penses sociales avant les prochaines &eacute;lections.</p>
+      <p>Position de la France&nbsp;: aucune r&eacute;action officielle fran&ccedil;aise n'a &eacute;t&eacute; identifi&eacute;e sur ce d&eacute;bat int&eacute;rieur britannique relatif au rapprochement avec l'Union europ&eacute;enne.</p>
+      <p>&Agrave; Montr&eacute;al, un sommet Canada-Union europ&eacute;enne consacr&eacute; au rapprochement entre Ottawa et Bruxelles s'est tenu sur fond de d&eacute;saccord persistant&nbsp;: la pr&eacute;sidente de la Commission europ&eacute;enne Ursula von der Leyen continue de d&eacute;fendre l'id&eacute;e d'un statut de &laquo;&nbsp;membre associ&eacute;&nbsp;&raquo; pour le Canada, que Berlin et d'autres capitales souhaitent voir &eacute;cart&eacute; de la d&eacute;claration commune. Ce projet, d&eacute;j&agrave; qualifi&eacute; de &laquo;&nbsp;ridicule&nbsp;&raquo; et &laquo;&nbsp;hostile&nbsp;&raquo; par Donald Trump, qui a menac&eacute; l'Europe de repr&eacute;sailles commerciales, reste juridiquement non d&eacute;fini par les trait&eacute;s europ&eacute;ens.</p>
+      <p>Position de la France&nbsp;: Emmanuel Macron avait apport&eacute; son soutien &agrave; l'id&eacute;e d'un Canada premier &laquo;&nbsp;membre associ&eacute;&nbsp;&raquo; de l'Union europ&eacute;enne lors d'une rencontre avec le premier ministre canadien Mark Carney en septembre, annon&ccedil;ant un renforcement de la coop&eacute;ration dans l'&eacute;nergie, la d&eacute;fense et l'espace. Le Quai d'Orsay a toutefois nuanc&eacute; cette position, jugeant que la proposition devait encore faire l'objet de discussions et d'un examen approfondi avant que la France ne prenne position sur son contenu juridique d&eacute;finitif.</p>
+      <p>En Afrique du Sud, un tribunal de Durban a interdit &agrave; titre provisoire les manifestations anti-immigr&eacute;s organis&eacute;es par le mouvement &laquo;&nbsp;March and March&nbsp;&raquo;, connu pour des d&eacute;rives violentes, &agrave; l'approche d'&eacute;ch&eacute;ances &eacute;lectorales locales. La d&eacute;cision illustre les tensions croissantes autour des questions migratoires dans le pays.</p>
+      <p>Position de la France&nbsp;: aucune r&eacute;action officielle fran&ccedil;aise n'a &eacute;t&eacute; identifi&eacute;e sur cette d&eacute;cision de justice interne sud-africaine.</p>
+    </div>
+    <div class="essentiel">
+      <p class="cap">L'essentiel</p>
+      <ul>
+        <li>Isra&euml;l&nbsp;: &eacute;lection contest&eacute;e, le Shin Bet enqu&ecirc;te sur des accusations d'ing&eacute;rence</li>
+        <li>Chine&nbsp;: purges militaires et promotion de Zhang Shengmin &agrave; l'approche du XXI<sup>e</sup>&nbsp;Congr&egrave;s</li>
+        <li>Hong Kong&nbsp;: excuses officielles apr&egrave;s l'incendie de Tai Po (168&nbsp;morts)</li>
+        <li>Canada-UE&nbsp;: sommet de Montr&eacute;al toujours bloqu&eacute; sur le statut de &laquo;&nbsp;membre associ&eacute;&nbsp;&raquo;</li>
+      </ul>
+    </div>
+    <p class="signature">Par la r&eacute;daction du Diplomate</p>
+  </article>
+
+  <hr class="sep">
+
+  <article data-rubrique="GEOECONOMIE">
+    <div class="rubrique"><span class="label">G&eacute;o&eacute;conomie</span><span class="line"></span><span class="duree">4 min de lecture</span></div>
+    <h2 class="titre">Croissance am&eacute;ricaine, d&eacute;troit d'Ormuz et choc Binance</h2>
+    <p class="chapeau">Entre une &eacute;conomie am&eacute;ricaine toujours port&eacute;e par l'intelligence artificielle, une Banque du Japon prudente et de nouvelles tensions p&eacute;troli&egrave;res dans le Golfe, la semaine confirme que l'&eacute;nergie et la finance restent des leviers de puissance &agrave; part enti&egrave;re.</p>
+    <div class="corps">
+      <p>L'&eacute;conomie am&eacute;ricaine a progress&eacute; &agrave; un rythme annualis&eacute; de 3,4&nbsp;% au troisi&egrave;me trimestre, d&eacute;passant les pr&eacute;visions, port&eacute;e par le boom des investissements dans l'intelligence artificielle et une consommation des m&eacute;nages qui r&eacute;siste. Ces chiffres confirment le statut des &Eacute;tats-Unis comme premi&egrave;re &eacute;conomie mondiale et principal aimant &agrave; capitaux, malgr&eacute; les tensions commerciales et tarifaires en cours.</p>
+      <p>La Banque du Japon a annonc&eacute; avoir atteint sa cible d'inflation de 2&nbsp;%, apr&egrave;s des d&eacute;cennies de d&eacute;flation. L'institution a n&eacute;anmoins maintenu ses taux inchang&eacute;s cette fois-ci, tandis que les march&eacute;s anticipent d&eacute;sormais une hausse en d&eacute;cembre. Ce tournant mon&eacute;taire, encore prudent, a des r&eacute;percussions potentielles sur les flux de capitaux mondiaux, le Japon restant l'un des principaux cr&eacute;anciers de la plan&egrave;te.</p>
+      <p>Dans le Golfe, des nappes de p&eacute;trole provenant d'attaques iraniennes contre des p&eacute;troliers se sont &eacute;chou&eacute;es sur les plages des &Eacute;mirats arabes unis. T&eacute;h&eacute;ran a intensifi&eacute; ces derni&egrave;res semaines ses frappes contre des navires transitant par le d&eacute;troit d'Ormuz, laissant derri&egrave;re elles une tra&icirc;n&eacute;e de pollution et ravivant les inqui&eacute;tudes sur la libert&eacute; de navigation dans l'un des corridors &eacute;nerg&eacute;tiques les plus critiques au monde, par lequel transite environ un cinqui&egrave;me du commerce p&eacute;trolier mondial.</p>
+      <p>Enfin, Binance, la plus grande plateforme d'&eacute;change de cryptomonnaies au monde, a suspendu les retraits apr&egrave;s un piratage &eacute;valu&eacute; &agrave; 6,3&nbsp;milliards de dollars, l'une des plus importantes failles de s&eacute;curit&eacute; jamais recens&eacute;es dans le secteur. L'ordinateur portable d'un ing&eacute;nieur aurait &eacute;t&eacute; compromis, un rappel de la fragilit&eacute; syst&eacute;mique d'une infrastructure crypto d&eacute;sormais imbriqu&eacute;e avec la finance traditionnelle.</p>
+    </div>
+    <div class="essentiel">
+      <p class="cap">L'essentiel</p>
+      <ul>
+        <li>Croissance am&eacute;ricaine de 3,4&nbsp;% au T3, port&eacute;e par l'IA et la consommation</li>
+        <li>La BoJ confirme l'atteinte de sa cible d'inflation de 2&nbsp;%, hausse de taux attendue en d&eacute;cembre</li>
+        <li>Nouvelles pollutions p&eacute;troli&egrave;res dans le d&eacute;troit d'Ormuz apr&egrave;s des attaques iraniennes</li>
+        <li>Binance stoppe les retraits apr&egrave;s un piratage de 6,3&nbsp;milliards de dollars</li>
+      </ul>
+    </div>
+    <p class="signature">Par la r&eacute;daction du Diplomate</p>
+  </article>
+
+  <hr class="sep">
+
+  <article data-rubrique="FRANCE">
+    <div class="rubrique"><span class="label">France</span><span class="line"></span><span class="duree">3 min de lecture</span></div>
+    <h2 class="titre">Trappes&nbsp;: la piste raciste se confirme&nbsp;; le budget 2027 sous tension</h2>
+    <p class="chapeau">&Agrave; quelques jours d'intervalle, la France fait face &agrave; l'instruction de la fusillade de Trappes et &agrave; l'examen parlementaire d'un budget 2027 d&eacute;j&agrave; fragile.</p>
+    <div class="corps">
+      <p>Dans l'enqu&ecirc;te sur la fusillade du 23&nbsp;octobre &agrave; Trappes et La Verri&egrave;re (Yvelines), qui a fait un mort et cinq bless&eacute;s, dont une fillette de 12&nbsp;ans, le parquet national antiterroriste (PNAT) a pr&eacute;cis&eacute; que le suspect, un homme de 39&nbsp;ans domicili&eacute; &agrave; Plaisir, ne conteste pas la mat&eacute;rialit&eacute; des faits mais r&eacute;cuse leur caract&egrave;re raciste. Le procureur Olivier Christen a toutefois indiqu&eacute; que l'homme avait reconnu n'avoir pas choisi ses cibles au hasard, visant des personnes d'origine africaine ou maghr&eacute;bine. Un proche a &eacute;t&eacute; plac&eacute; en garde &agrave; vue. Emmanuel Macron a qualifi&eacute; les faits d'&laquo;&nbsp;attentat terroriste raciste&nbsp;&raquo;, tandis que le maire de Trappes, Ali Rabeh, les a d&eacute;crits comme &laquo;&nbsp;objectivement un attentat, &agrave; connotation raciste, probablement islamophobe&nbsp;&raquo;.</p>
+      <p>Sur le plan budg&eacute;taire, le projet de loi de finances pour 2027, pr&eacute;sent&eacute; en Conseil des ministres et d&eacute;pos&eacute; &agrave; l'Assembl&eacute;e nationale le 1<sup>er</sup>&nbsp;octobre, vise un d&eacute;ficit public ramen&eacute; &agrave; 5,0&nbsp;% du PIB, contre une pr&eacute;vision r&eacute;vis&eacute;e &agrave; 5,4&nbsp;% pour 2026. Le Parlement dispose de soixante-dix jours, jusqu'au 26&nbsp;novembre, pour l'examiner. Le gouverneur de la Banque de France, Emmanuel Moulin, a appel&eacute; le gouvernement et les parlementaires &agrave; trouver rapidement une issue, dans un contexte de dette et de taux d'int&eacute;r&ecirc;t en hausse.</p>
+    </div>
+    <div class="essentiel">
+      <p class="cap">L'essentiel</p>
+      <ul>
+        <li>Fusillade de Trappes&nbsp;: le PNAT retient la circonstance aggravante raciste</li>
+        <li>Macron qualifie l'attaque d'&laquo;&nbsp;attentat terroriste raciste&nbsp;&raquo;</li>
+        <li>Le budget 2027 vise un d&eacute;ficit ramen&eacute; &agrave; 5,0&nbsp;% du PIB</li>
+        <li>La Banque de France appelle les parlementaires &agrave; trouver une issue rapide</li>
+      </ul>
+    </div>
+    <p class="signature">Par la r&eacute;daction du Diplomate</p>
+  </article>
+
+  <hr class="sep">
+
+  <article data-rubrique="REGARD_DIPLOMATE">
+    <div class="rubrique"><span class="label">Le regard du diplomate</span><span class="line"></span><span class="duree">2 min de lecture</span></div>
+    <h2 class="titre">Ce que les crises de l&eacute;gitimit&eacute; nous apprennent</h2>
+    <p class="chapeau">Un point de vue &eacute;ditorial sur le fil qui relie les dossiers du jour.</p>
+    <div class="corps">
+      <p>Trois dossiers du jour n'ont, en apparence, rien en commun&nbsp;: une &eacute;lection isra&eacute;lienne dont le r&eacute;sultat est contest&eacute; par le pouvoir sortant lui-m&ecirc;me, une purge militaire chinoise dont l'opacit&eacute; nourrit les sp&eacute;culations sur la solidit&eacute; du commandement, et une gouverneure am&eacute;ricaine qui promet de bloquer, &agrave; l'&eacute;chelle de son seul &Eacute;tat, un accord diplomatique n&eacute;goci&eacute; &agrave; l'&eacute;chelon f&eacute;d&eacute;ral. Dans les trois cas, c'est moins la puissance brute qui est en jeu que sa l&eacute;gitimit&eacute; per&ccedil;ue par ceux qui sont cens&eacute;s l'exercer ou la subir. C'est, &agrave; notre sens, une le&ccedil;on que les chancelleries red&eacute;couvrent &agrave; chaque cycle &eacute;lectoral ou chaque passation de pouvoir&nbsp;: un accord sign&eacute; au sommet ne vaut que ce que ses relais interm&eacute;diaires &mdash; un parti, une administration r&eacute;gionale, une faction militaire &mdash; acceptent d'en faire.</p>
+      <p>Pour qui &eacute;tudie la diplomatie, l'exercice utile consiste donc &agrave; lire syst&eacute;matiquement, derri&egrave;re chaque gros titre international, les lignes de fracture internes qui le rendent possible ou le fragilisent. L'accord sur le diesel russe est au moins autant une affaire de politique int&eacute;rieure am&eacute;ricaine &mdash; calendrier des &eacute;lections de mi-mandat, f&eacute;d&eacute;ralisme, rapport de force entre la Maison Blanche et les &Eacute;tats &mdash; qu'un geste envers Moscou. Les accusations isra&eacute;liennes d'&eacute;lection &laquo;&nbsp;vol&eacute;e&nbsp;&raquo; rel&egrave;vent au moins autant de l'arithm&eacute;tique des coalitions que d'une authentique ing&eacute;rence &eacute;trang&egrave;re. Ce n'est l&agrave; qu'une grille de lecture parmi d'autres, propos&eacute;e comme telle, et non comme un constat &eacute;tabli.</p>
+    </div>
+    <div class="essentiel">
+      <p class="cap">L'essentiel</p>
+      <ul>
+        <li>La l&eacute;gitimit&eacute; per&ccedil;ue compte autant que la puissance affich&eacute;e</li>
+        <li>Les fractures int&eacute;rieures expliquent souvent plus que les relations bilat&eacute;rales</li>
+        <li>Un point de vue &eacute;ditorial, &agrave; d&eacute;battre</li>
+      </ul>
+    </div>
+    <p class="signature">L'&eacute;ditorial du Diplomate</p>
+  </article>
+
+  <footer>Le Diplomate &mdash; revue de presse automatis&eacute;e &agrave; usage d'&eacute;tudes diplomatiques</footer>
+</div>
+
+<button class="listen-btn" id="listenBtn" type="button"><span class="ico">&#128266;</span><span id="listenLabel">&Eacute;couter</span></button>
+
+<script>
+(function(){
+  var btn = document.getElementById('listenBtn');
+  var label = document.getElementById('listenLabel');
+  var synth = window.speechSynthesis;
+  var speaking = false;
+
+  function buildText(){
+    var parts = [];
+    document.querySelectorAll('article').forEach(function(art){
+      var rub = art.getAttribute('data-rubrique');
+      var titre = art.querySelector('.titre');
+      var chapeau = art.querySelector('.chapeau');
+      parts.push(rub.replace('_',' ') + '.');
+      if (titre) parts.push(titre.textContent + '.');
+      if (chapeau) parts.push(chapeau.textContent);
+      art.querySelectorAll('.corps p').forEach(function(p){ parts.push(p.textContent); });
+    });
+    return parts.join(' ');
+  }
+
+  function pickVoice(){
+    if (!synth) return null;
+    var voices = synth.getVoices();
+    for (var i=0;i<voices.length;i++){
+      if (voices[i].lang && voices[i].lang.toLowerCase().indexOf('fr') === 0) return voices[i];
+    }
+    return voices[0] || null;
+  }
+
+  function stop(){
+    if (synth) synth.cancel();
+    speaking = false;
+    btn.classList.remove('playing');
+    label.textContent = 'Écouter';
+  }
+
+  function start(){
+    if (!synth){ return; }
+    synth.cancel();
+    var utter = new SpeechSynthesisUtterance(buildText());
+    var v = pickVoice();
+    if (v) utter.voice = v;
+    utter.lang = (v && v.lang) || 'fr-FR';
+    utter.rate = 0.98;
+    utter.onend = stop;
+    utter.onerror = stop;
+    synth.speak(utter);
+    speaking = true;
+    btn.classList.add('playing');
+    label.textContent = 'Arrêter';
+  }
+
+  btn.addEventListener('click', function(){
+    if (!synth){
+      label.textContent = 'Indisponible';
+      return;
+    }
+    if (speaking) stop(); else start();
+  });
+
+  if (synth) synth.addEventListener('voiceschanged', function(){});
+})();
+</script>
