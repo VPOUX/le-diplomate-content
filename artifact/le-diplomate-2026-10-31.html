@@ -1,0 +1,367 @@
+<title>Le Diplomate — Édition du 31 octobre</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* Layout: single-column broadsheet, generous paper margins, masthead + rule, sections separated by hairlines, reading toggle floats top-right of masthead */
+  :root{
+    --paper:#f4efe2;
+    --paper-2:#eae2d0;
+    --ink:#201c14;
+    --ink-soft:#4a4336;
+    --rule:#201c14;
+    --accent:#8a1f11;
+    --accent-soft:#8a1f1122;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#171310;
+      --paper-2:#211b15;
+      --ink:#ece4d3;
+      --ink-soft:#bdb2a0;
+      --rule:#ece4d3;
+      --accent:#e2735a;
+      --accent-soft:#e2735a26;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#171310;
+    --paper-2:#211b15;
+    --ink:#ece4d3;
+    --ink-soft:#bdb2a0;
+    --rule:#ece4d3;
+    --accent:#e2735a;
+    --accent-soft:#e2735a26;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
+    padding-left:max(16px, env(safe-area-inset-left, 0px));
+    padding-right:max(16px, env(safe-area-inset-right, 0px));
+  }
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0 0 auto;
+    height:env(safe-area-inset-top, 0px);
+    z-index:10;
+    background:var(--paper);
+  }
+
+  .sheet{
+    max-width:720px;
+    margin:0 auto;
+    padding-block:28px 64px;
+  }
+
+  .masthead{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:16px;
+    flex-wrap:wrap;
+    border-bottom:3px solid var(--rule);
+    padding-bottom:10px;
+    margin-bottom:6px;
+  }
+  .masthead h1{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:900;
+    font-size:clamp(2.1rem, 8vw, 3.2rem);
+    letter-spacing:-0.01em;
+    margin:0;
+    line-height:0.95;
+  }
+  .masthead .sub{
+    font-family:"JetBrains Mono", monospace;
+    font-size:0.68rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-top:6px;
+  }
+  .meta-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:"JetBrains Mono", monospace;
+    font-size:0.68rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--ink-soft);
+    padding-bottom:10px;
+    margin-bottom:28px;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+
+  .listen-btn{
+    font-family:"JetBrains Mono", monospace;
+    font-size:0.72rem;
+    letter-spacing:0.04em;
+    background:var(--accent-soft);
+    color:var(--accent);
+    border:1px solid var(--accent);
+    border-radius:999px;
+    padding:8px 16px;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .listen-btn:active{ transform: translateY(1px); }
+  .listen-btn[data-playing="true"]{ background:var(--accent); color:var(--paper); }
+
+  .toc{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 18px;
+    font-family:"JetBrains Mono", monospace;
+    font-size:0.7rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:32px;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--ink-soft);
+  }
+  .toc a{ color:var(--ink-soft); text-decoration:none; border-bottom:1px dotted var(--ink-soft); }
+  .toc a:hover{ color:var(--accent); border-color:var(--accent); }
+
+  article{ margin-bottom:46px; scroll-margin-top:16px; }
+  article + article{ border-top:1px solid var(--ink-soft); padding-top:34px; }
+
+  .rubrique{
+    font-family:"JetBrains Mono", monospace;
+    font-size:0.72rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:8px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .rubrique::before{ content:"—"; }
+
+  h2.titre{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:700;
+    font-size:clamp(1.4rem, 4.6vw, 1.95rem);
+    line-height:1.15;
+    text-wrap:balance;
+    margin:0 0 10px;
+  }
+  .une h2.titre{ font-size:clamp(1.8rem, 6.5vw, 2.5rem); font-weight:900; }
+
+  .chapeau{
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    font-style:italic;
+    line-height:1.5;
+    margin:0 0 14px;
+    max-width:65ch;
+  }
+
+  .duree{
+    font-family:"JetBrains Mono", monospace;
+    font-size:0.68rem;
+    color:var(--ink-soft);
+    letter-spacing:0.05em;
+    margin-bottom:18px;
+  }
+
+  .corps p{
+    font-size:1.04rem;
+    line-height:1.65;
+    max-width:65ch;
+    margin:0 0 16px;
+  }
+  .corps p:first-of-type::first-letter{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:800;
+    font-size:3.1em;
+    float:left;
+    line-height:0.85;
+    padding-right:8px;
+    color:var(--accent);
+  }
+
+  .essentiel{
+    margin-top:20px;
+    padding:16px 18px;
+    background:var(--paper-2);
+    border-left:3px solid var(--accent);
+    border-radius:2px;
+  }
+  .essentiel-label{
+    font-family:"JetBrains Mono", monospace;
+    font-size:0.65rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:8px;
+  }
+  .essentiel ul{ margin:0; padding-left:1.1em; }
+  .essentiel li{ font-size:0.92rem; line-height:1.5; margin-bottom:5px; }
+  .essentiel li::marker{ color:var(--accent); }
+
+  .signature{
+    margin-top:16px;
+    font-family:"JetBrains Mono", monospace;
+    font-size:0.68rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  .regard .titre{ font-style:italic; }
+
+  footer{
+    margin-top:20px;
+    padding-top:20px;
+    border-top:3px solid var(--rule);
+    font-family:"JetBrains Mono", monospace;
+    font-size:0.68rem;
+    color:var(--ink-soft);
+    letter-spacing:0.03em;
+    text-align:center;
+  }
+
+  @media (max-width:480px){
+    .corps p{ font-size:1rem; }
+  }
+</style>
+
+<div class="sheet">
+  <div class="masthead">
+    <div>
+      <h1>Le Diplomate</h1>
+      <div class="sub">Revue de presse diplomatique du matin</div>
+    </div>
+    <button class="listen-btn" id="listenBtn" data-playing="false" onclick="toggleListen()">🔊 Écouter</button>
+  </div>
+  <div class="meta-row">
+    <span id="metaLeft">Samedi 31 octobre 2026 — N°24</span>
+    <span id="metaRight">Générée à 07:10</span>
+  </div>
+
+  <nav class="toc" id="toc"></nav>
+
+  <main id="articles"></main>
+
+  <footer>
+    Le Diplomate — revue de presse automatisée à usage d'études diplomatiques.<br>
+    Sources : dépêches et presse publique (FT, Reuters, AFP et autres), communiqués officiels français cités lorsqu'identifiés.
+  </footer>
+</div>
+
+<script>
+const EDITION = {
+  "date": "2026-10-31",
+  "numero": 24,
+  "heureGeneration": "07:10",
+  "sections": [
+    {"ordre":1,"rubrique":"UNE","titre":"Israël : des législatives historiques débouchent sur une impasse, l'avenir de Netanyahou suspendu","chapeau":"Premier scrutin depuis le 7-Octobre, les législatives israéliennes du 27 octobre n'ont donné de majorité à aucun camp. Gadi Eisenkot et Benjamin Netanyahou revendiquent chacun la victoire, dans l'attente de résultats définitifs attendus au plus tard le 4 novembre.","dureeLectureMin":5,"corpsArticle":["Les Israéliens se sont rendus aux urnes le 27 octobre pour la première élection législative depuis l'attaque du 7 octobre 2023, un scrutin présenté par une large partie de la presse comme un référendum sur le bilan de Benjamin Netanyahou. La participation a dépassé 74 %, selon la commission électorale centrale, un niveau élevé qui traduit l'intensité de l'enjeu pour une société toujours marquée par la guerre à Gaza et ses suites.","Les résultats, encore partiels trois jours après le vote, ne donnent de majorité à aucun des deux blocs. Selon les derniers décomptes, la coalition d'opposition rassemblée derrière l'ancien chef d'état-major Gadi Eisenkot obtiendrait environ 51 à 53 sièges sur les 120 que compte la Knesset, contre 50 à 52 pour le bloc gouvernemental mené par Benjamin Netanyahou. Les partis arabes, qui ne s'inscrivent dans aucun des deux blocs, en récolteraient environ 17, ce qui fait d'eux un pivot potentiel de toute majorité future.","Les deux principaux protagonistes ont revendiqué la victoire dès le lendemain du vote. Gadi Eisenkot affirme avoir la première main pour former un gouvernement, tandis que le ministre Gideon Saar, proche de Benjamin Netanyahou, juge cette revendication prématurée ; le Premier ministre sortant continue de se présenter comme le chef du plus grand parti du pays, un point que son adversaire ne conteste pas frontalement. Les résultats officiels définitifs ne seront proclamés qu'au plus tard le 4 novembre, une fois dépouillés les bulletins sous double enveloppe, notamment ceux des militaires, qui pourraient faire basculer plusieurs sièges.","Au-delà du suspense arithmétique, les analystes soulignent que l'érosion du Likoud, le parti de Benjamin Netanyahou, reste marginale au regard de l'ampleur de la crise traversée par le pays depuis 2023. L'Institut Montaigne note qu'Israël demeure trop fragmenté pour véritablement tourner la page de l'après-7-Octobre : aucune des deux coalitions envisageables, qu'elle s'appuie sur l'abstention de certains partis arabes ou sur une alliance resserrée à droite, ne dispose d'une marge suffisante pour gouverner sereinement. Naftali Bennett et Yair Lapid ont par ailleurs exclu toute coalition incluant des partis dirigés par des élus arabes, ce qui complique encore les arithmétiques possibles pour Gadi Eisenkot.","Ce blocage intervient alors que la trêve à Gaza reste fragile et que la question du « jour d'après » dans l'enclave, de la reconstruction et du statut de l'Autorité palestinienne demeure entièrement ouverte. Une nouvelle période d'incertitude politique à Jérusalem, voire un nouveau scrutin si aucune coalition ne se forme, retarderait d'autant la définition d'une ligne israélienne stable sur ces dossiers, avec des conséquences directes sur les efforts de médiation régionale et sur l'agenda diplomatique de l'ensemble des acteurs engagés dans le dossier.","Position de la France : aucune réaction officielle française au résultat du scrutin n'est à ce stade identifiable, celui-ci restant indécis. En amont du vote, le ministre de l'Europe et des Affaires étrangères Jean-Noël Barrot avait toutefois indiqué que la diplomatie française garderait son « cap » quel que soit le résultat des élections, en continuant de défendre la perspective d'une solution à deux États."],"essentiel":["Premières législatives depuis le 7-Octobre, participation record de plus de 74 %","Aucun bloc n'obtient de majorité : environ 51-53 sièges pour Eisenkot, 50-52 pour Netanyahou","Résultats définitifs attendus au plus tard le 4 novembre, bulletins militaires décisifs","La France dit vouloir garder son cap diplomatique quel que soit le résultat"],"signature":"Par la rédaction du Diplomate"},
+    {"ordre":2,"rubrique":"GEOPOLITIQUE","titre":"Brésil : la réélection surprise de Lula rebat les cartes en Amérique latine","chapeau":"Donné perdant après le premier tour, Luiz Inácio Lula da Silva a été réélu le 25 octobre avec 51,8 % des voix face à Flávio Bolsonaro, qui conteste le résultat.","dureeLectureMin":4,"corpsArticle":["Luiz Inácio Lula da Silva a été réélu président du Brésil pour un quatrième mandat à l'issue du second tour du 25 octobre, avec environ 51,8 % des suffrages exprimés contre 48,2 % pour Flávio Bolsonaro, fils de l'ancien président Jair Bolsonaro. Le résultat a surpris une large partie des observateurs : au premier tour, le 4 octobre, Flávio Bolsonaro devançait Lula de deux points, et aucun candidat battu au premier tour n'avait remporté un second tour au Brésil depuis 1989.","Le scrutin a été particulièrement serré, avec une prolongation exceptionnelle des opérations de vote dans certaines régions. Le Tribunal supérieur électoral a confirmé la victoire de Lula, mais Flávio Bolsonaro a refusé de reconnaître sa défaite et a annoncé son intention de contester le résultat, sans pour l'instant apporter d'éléments probants susceptibles de remettre en cause le scrutin.","Cette réélection confirme le Brésil comme l'un des rares grands pays d'Amérique latine encore dirigé par la gauche, dans une région où plusieurs scrutins récents ont plutôt tourné en faveur de forces conservatrices. Lula devra néanmoins composer avec un Congrès nettement plus à droite que lors de ses précédents mandats, ce qui devrait contraindre sa marge de manœuvre budgétaire et limiter ses ambitions sur les dossiers environnementaux et sociaux pour les quatre années à venir.","Sur le plan international, la victoire de Lula a été saluée par de nombreux chefs d'État, dont une partie significative des gouvernements d'Amérique latine, même si plusieurs d'entre eux n'ont pas réagi publiquement dans les heures qui ont suivi l'annonce des résultats. Le scrutin a également eu un effet immédiat sur les marchés financiers, la Bourse de São Paulo reculant à l'annonce de la réélection d'un président dont les investisseurs redoutent les orientations en matière de dépenses publiques.","Position de la France : Emmanuel Macron a félicité Luiz Inácio Lula da Silva pour sa réélection quelques heures après l'annonce des résultats, par un message publié sur le réseau social X. Aucune déclaration distincte du Quai d'Orsay n'a pu être identifiée à ce stade."],"essentiel":["Lula réélu avec 51,8 % des voix, retournement complet par rapport au premier tour","Bolsonaro conteste le résultat sans apporter d'éléments probants","Un Congrès plus à droite limitera la marge de manœuvre du nouveau mandat","Emmanuel Macron a félicité Lula sur X"],"signature":"Par la rédaction du Diplomate"},
+    {"ordre":3,"rubrique":"GEOPOLITIQUE","titre":"Détroit d'Ormuz : la marée noire sur les plages émiriennes illustre l'escalade pétrolière avec l'Iran","chapeau":"Une nappe d'hydrocarbures a atteint les plages d'Umm Al Qaïwaïn, aux Émirats arabes unis, après plusieurs semaines d'attaques répétées contre des pétroliers dans le détroit d'Ormuz.","dureeLectureMin":4,"corpsArticle":["Les autorités émiriennes ont confirmé le confinement d'une marée noire ayant atteint les plages d'Umm Al Qaïwaïn, quelques jours après qu'un pétrolier a été touché par un projectile au large des côtes des Émirats arabes unis et a pris feu. Selon une société de sécurité maritime citée par la presse spécialisée, le navire concerné serait le Gem No. 2, un très grand transporteur de brut battant pavillon panaméen, frappé le 9 octobre.","Cet incident s'inscrit dans une séquence de plusieurs semaines d'attaques répétées contre des navires marchands dans le détroit d'Ormuz, point de passage par lequel transite une part décisive des exportations pétrolières et gazières du Golfe. L'organisme britannique UKMTO a recensé cinq incidents en une semaine dans la zone. L'origine exacte de la marée noire n'a pas été formellement établie par les autorités émiriennes, mais la multiplication des attaques dans le secteur, que plusieurs capitales du Golfe attribuent à l'Iran, fait craindre une dégradation durable de la sécurité maritime régionale.","Le trafic pétrolier par le détroit d'Ormuz s'est effondré depuis le début de l'année, passant d'environ 21,6 millions de barils par jour fin 2025 à 4,9 millions de barils par jour au deuxième trimestre 2026, selon les données de l'Agence américaine d'information sur l'énergie, signe de la prudence croissante des armateurs face au risque d'attaque. Cette contraction du trafic pèse directement sur les recettes pétrolières des pays du Golfe et alimente une volatilité persistante des prix de l'énergie à l'échelle mondiale, avec des répercussions concrètes sur les économies importatrices, dont la France.","Position de la France : selon plusieurs informations de presse, la France figure parmi les signataires d'une déclaration conjointe, aux côtés notamment du Royaume-Uni, du Canada et du Japon, condamnant les attaques iraniennes visant des navires ainsi que des infrastructures pétrolières et gazières dans la région. Les autorités émiriennes ont pour leur part qualifié ces attaques de menace directe pour la stabilité régionale et pour la sécurité énergétique mondiale."],"essentiel":["Marée noire confirmée sur les plages d'Umm Al Qaïwaïn, aux Émirats arabes unis","Cinq attaques recensées en une semaine dans le détroit d'Ormuz par l'UKMTO","Le trafic pétrolier par Ormuz a été divisé par plus de quatre en un an","La France co-signataire d'une déclaration internationale condamnant les attaques iraniennes"],"signature":"Par la rédaction du Diplomate"},
+    {"ordre":4,"rubrique":"GEOECONOMIE","titre":"À une semaine des midterms américains, les marchés mondiaux sur les nerfs","chapeau":"Les élections de mi-mandat du 3 novembre, qui pourraient faire basculer le contrôle du Congrès, s'ajoutent à une liste déjà longue d'incertitudes géopolitiques pour les investisseurs.","dureeLectureMin":3,"corpsArticle":["À quelques jours des élections de mi-mandat américaines, prévues le 3 novembre, le climat sur les marchés s'est nettement détérioré. Une enquête de Morgan Stanley Wealth Management menée auprès de 953 investisseurs américains entre le 1er et le 23 octobre fait apparaître un sentiment baissier atteignant 42 %, en hausse de quatre points par rapport au trimestre précédent, les investisseurs citant l'inflation persistante, la perspective de nouvelles hausses de taux et l'incertitude électorale.","L'enjeu central pour les marchés est le contrôle du Congrès : un basculement vers un gouvernement divisé pourrait geler une partie de l'agenda législatif et budgétaire de l'administration en place, avec des conséquences sur la fiscalité, la régulation technologique et la politique commerciale. Les analystes rappellent toutefois que les marchés ne réagissent pas tant au résultat électoral lui-même qu'à ce qu'il implique pour la croissance, les résultats des entreprises et les politiques à venir.","Cette échéance électorale s'ajoute à une accumulation de chocs géopolitiques et économiques déjà présents à l'esprit des investisseurs, qu'il s'agisse des tensions commerciales, de l'escalade dans le Golfe ou de la correction boursière qui a frappé les valeurs technologiques ces derniers jours, Wall Street ayant ouvert en forte baisse après des résultats jugés décevants d'Amazon et un recul de plus de 500 milliards de dollars de la capitalisation d'Alphabet, dont les dirigeants ont reconnu que les nouveaux modes de recherche fondés sur l'intelligence artificielle pesaient sur l'activité publicitaire historique du groupe."],"essentiel":["Sentiment baissier des investisseurs américains en hausse à 42 %","Le contrôle du Congrès, principal enjeu pour les marchés le 3 novembre","Rout technologique : Amazon déçoit, Alphabet perd plus de 500 Md$ de capitalisation"],"signature":"Par la rédaction du Diplomate"},
+    {"ordre":5,"rubrique":"GEOECONOMIE","titre":"Cybercriminalité nord-coréenne : Binance visée par un vol de grande ampleur","chapeau":"Le Financial Times rapporte que la plus grande plateforme mondiale d'échange de cryptomonnaies a été frappée par un vol massif attribué à des pirates nord-coréens, après la compromission de l'ordinateur d'un ingénieur.","dureeLectureMin":3,"corpsArticle":["Selon des informations publiées ce jour par le Financial Times, Binance, la plus grande plateforme mondiale d'échange de cryptomonnaies, a été la cible d'un vol de plusieurs milliards de dollars en l'espace d'une trentaine de minutes, après la compromission de l'ordinateur portable d'un de ses ingénieurs. L'épisode est présenté par le quotidien britannique comme l'un des plus importants vols de cryptomonnaies jamais enregistrés, et serait attribué à des pirates informatiques nord-coréens.","Ce type d'opération s'inscrit dans une stratégie bien documentée de la Corée du Nord, qui a massivement recouru depuis plusieurs années au piratage de plateformes de cryptomonnaies pour financer ses programmes militaires et contourner les sanctions internationales qui pèsent sur son économie. Selon les estimations cumulées de plusieurs sociétés spécialisées dans l'analyse de la blockchain, les groupes de pirates liés à Pyongyang auraient détourné plusieurs milliards de dollars d'actifs numériques depuis 2017, les plateformes d'échange étant régulièrement visées en raison des volumes qu'elles traitent.","Au-delà du préjudice direct pour Binance et ses utilisateurs, cet épisode illustre un enjeu géoéconomique plus large : la capacité d'un État sous sanctions à utiliser la cybercriminalité comme un outil de financement alternatif, échappant largement aux circuits financiers traditionnels sous surveillance. Il relance également le débat, récurrent chez les régulateurs occidentaux, sur le niveau de sécurité et de traçabilité exigible des grandes plateformes d'échange de cryptoactifs."],"essentiel":["Vol massif chez Binance en une trentaine de minutes, selon le Financial Times","Compromission de l'ordinateur d'un ingénieur à l'origine de l'intrusion","La Corée du Nord utilise la cybercriminalité pour contourner les sanctions internationales"],"signature":"Par la rédaction du Diplomate"},
+    {"ordre":6,"rubrique":"GEOECONOMIE","titre":"Minerais critiques en RDC : Washington presse le pas face à la domination chinoise","chapeau":"La société américaine KoBold Metals, soutenue par Bill Gates et Jeff Bezos, accélère son exploration en République démocratique du Congo, dans un secteur encore très largement dominé par des groupes chinois.","dureeLectureMin":3,"corpsArticle":["La société américaine KoBold Metals, soutenue par des investisseurs comme Bill Gates et Jeff Bezos, poursuit son exploration intensive du gisement de Manono, en République démocratique du Congo, où elle a recueilli environ 2 000 échantillons de sol par semaine depuis avril sur un portefeuille de quatorze permis d'exploration couvrant plus de 3 000 km². L'entreprise a fait état de résultats qu'elle qualifie de « très encourageants », sans en détailler la teneur à ce stade.","Cette présence s'inscrit dans un accord de principe conclu avec Kinshasa, prévoyant notamment la numérisation des données géologiques congolaises, et plus largement dans une stratégie américaine visant à réduire le poids de la Chine dans la chaîne d'approvisionnement des minerais critiques. Selon des estimations reprises par plusieurs médias spécialisés, des groupes chinois contrôlent aujourd'hui 70 à 80 % du marché congolais du cuivre et du cobalt, deux métaux essentiels aux batteries électriques et à de nombreuses technologies de défense.","Le succès de cette initiative américaine reste toutefois conditionné à la résolution de différends locaux autour du site de Manono et à la stabilisation des relations avec les parties prenantes congolaises, dans un pays où l'instabilité politique et sécuritaire, notamment dans l'est du territoire, continue de peser sur l'ensemble du secteur minier. Cette compétition entre puissances pour l'accès aux minerais critiques congolais illustre une dimension de plus en plus centrale de la rivalité sino-américaine, dans laquelle l'Europe, dépendante des deux filières, cherche également à se positionner."],"essentiel":["KoBold Metals intensifie son exploration du gisement de Manono, en RDC","La Chine contrôlerait 70 à 80 % du marché congolais du cuivre et du cobalt","La bataille des minerais critiques, nouveau front de la rivalité sino-américaine"],"signature":"Par la rédaction du Diplomate"},
+    {"ordre":7,"rubrique":"FRANCE","titre":"L'économie française s'est contractée de 0,1 % au troisième trimestre","chapeau":"La deuxième économie de la zone euro recule légèrement entre juillet et septembre, pénalisée par des prix de l'énergie élevés et une hausse des coûts d'emprunt.","dureeLectureMin":3,"corpsArticle":["Le produit intérieur brut français s'est contracté de 0,1 % au troisième trimestre 2026, selon les premières estimations publiées cette semaine. Ce recul, même limité, confirme la fragilité persistante de la deuxième économie de la zone euro, confrontée à la combinaison de prix de l'énergie restés élevés et d'une remontée des coûts d'emprunt qui pèse sur l'investissement des entreprises comme sur la consommation des ménages.","Ce ralentissement intervient dans un contexte budgétaire particulièrement tendu, à quelques semaines d'échéances parlementaires décisives sur les finances publiques pour 2027. Il illustre la difficulté de l'exécutif à conjuguer redressement des comptes publics et soutien à une activité économique qui montre des signes d'essoufflement, alors même que plusieurs grands partenaires européens de la France affichent une dynamique plus favorable."],"essentiel":["PIB français en recul de 0,1 % au troisième trimestre 2026","Prix de l'énergie et coûts d'emprunt élevés en cause","Un contexte budgétaire tendu qui complique la réponse de l'exécutif"],"signature":"Par la rédaction du Diplomate"},
+    {"ordre":8,"rubrique":"FRANCE","titre":"Budget 2027 : l'Assemblée nationale toujours dans l'impasse, le recours à l'article 49.3 se profile","chapeau":"L'examen du projet de loi de finances, enlisé depuis la rentrée, pourrait contraindre le gouvernement de Sébastien Lecornu à recourir à l'article 49.3 ou aux ordonnances budgétaires prévues par la Constitution.","dureeLectureMin":3,"corpsArticle":["Présenté en Conseil des ministres le 1er octobre par le Premier ministre Sébastien Lecornu, le projet de loi de finances pour 2027 vise un déficit public ramené à 5,0 % du produit intérieur brut, contre une prévision révisée de 5,4 % pour 2026, notamment via le gel des aides personnalisées au logement à leur niveau de 2026. Mais son parcours parlementaire s'est rapidement enlisé : la commission des finances de l'Assemblée nationale a rejeté dès le 9 octobre la partie recettes du texte, par 31 voix contre, 3 pour et 2 abstentions.","Les débats en séance publique, entamés le 13 octobre, ont été repoussés à plusieurs reprises, le vote solennel initialement prévu le 20 octobre n'ayant pas eu lieu. Une motion de rejet préalable déposée par les députés socialistes a encore allongé les discussions. Faute de majorité à l'Assemblée nationale, le gouvernement a évoqué le recours possible à l'article 49.3 de la Constitution, voire, si le Parlement ne se prononce pas dans les délais impartis, aux ordonnances budgétaires prévues par l'article 47, qui permettraient de reprendre le texte initial du projet de loi.","Cette situation illustre la difficulté structurelle d'un exécutif sans majorité absolue à faire adopter des textes budgétaires dans les délais constitutionnels, un schéma déjà observé lors des précédents exercices budgétaires. Les droits de regard du Parlement sur la trajectoire des finances publiques françaises, déjà sous la surveillance de la Commission européenne, restent ainsi l'otage d'un rapport de forces politique qui ne s'est pas clarifié depuis la dissolution de 2024."],"essentiel":["Partie recettes du PLF 2027 rejetée en commission des finances dès le 9 octobre","Vote solennel repoussé, débats enlisés depuis le 13 octobre","Recours à l'article 49.3 ou aux ordonnances budgétaires de l'article 47 envisagé"],"signature":"Par la rédaction du Diplomate"},
+    {"ordre":9,"rubrique":"REGARD_DIPLOMATE","titre":"Ce que les impasses électorales nous apprennent sur le temps diplomatique","dureeLectureMin":3,"corpsArticle":["Deux scrutins, deux lectures opposées, un même enseignement. En Israël, une élection censée trancher l'après-7-Octobre ne tranche rien et ouvre une période d'incertitude qui pourrait durer des semaines. Au Brésil, un second tour renverse un premier tour qui semblait pourtant annoncer l'issue du scrutin. Dans les deux cas, la tentation du commentaire immédiat est de chercher un verdict clair, alors que la réalité politique, elle, s'installe précisément dans le flou. Pour qui observe les relations internationales, c'est un rappel utile : une élection n'est pas un instantané qui fige une situation, mais une étape dans un processus de rapports de force qui continue de se négocier bien après la fermeture des bureaux de vote.","Cette leçon vaut aussi pour la lecture des rapports de puissance plus larges. La marée noire d'Ormuz, la course aux minerais congolais ou le piratage attribué à la Corée du Nord racontent, chacun à leur échelle, la même histoire : celle d'acteurs qui, faute de pouvoir l'emporter frontalement, déplacent l'affrontement vers des terrains moins visibles — le flux maritime, la chaîne d'approvisionnement, la cybercriminalité. C'est un point de vue éditorial, non un constat définitif, mais il invite à une discipline de lecture : résister à l'instantanéité du commentaire et accepter que la diplomatie, comme la géoéconomie, se juge sur la durée plutôt que sur l'instant du résultat annoncé."],"essentiel":["Une élection est une étape, pas un verdict définitif","Les rapports de force se déplacent souvent vers des terrains moins visibles"],"signature":"L'éditorial du Diplomate"}
+  ]
+};
+
+const RUBRIQUE_LABEL = {
+  UNE: "À la une",
+  GEOPOLITIQUE: "Géopolitique",
+  GEOECONOMIE: "Géoéconomie",
+  FRANCE: "France",
+  REGARD_DIPLOMATE: "Le regard du Diplomate"
+};
+
+function render(){
+  document.getElementById('metaLeft').textContent =
+    "Samedi 31 octobre 2026 — N°" + EDITION.numero;
+  document.getElementById('metaRight').textContent =
+    "Générée à " + EDITION.heureGeneration;
+
+  const toc = document.getElementById('toc');
+  const main = document.getElementById('articles');
+  EDITION.sections.forEach(function(s){
+    const id = "art-" + s.ordre;
+    const a = document.createElement('a');
+    a.href = "#" + id;
+    a.textContent = RUBRIQUE_LABEL[s.rubrique] || s.rubrique;
+    toc.appendChild(a);
+
+    const art = document.createElement('article');
+    art.id = id;
+    if(s.rubrique === "UNE") art.classList.add('une');
+    if(s.rubrique === "REGARD_DIPLOMATE") art.classList.add('regard');
+
+    let html = '<div class="rubrique">' + (RUBRIQUE_LABEL[s.rubrique] || s.rubrique) + '</div>';
+    html += '<h2 class="titre">' + s.titre + '</h2>';
+    if(s.chapeau) html += '<p class="chapeau">' + s.chapeau + '</p>';
+    html += '<div class="duree">' + s.dureeLectureMin + ' min de lecture</div>';
+    html += '<div class="corps">' + s.corpsArticle.map(function(p){ return '<p>' + p + '</p>'; }).join('') + '</div>';
+    html += '<div class="essentiel"><div class="essentiel-label">L\'essentiel</div><ul>' +
+      s.essentiel.map(function(e){ return '<li>' + e + '</li>'; }).join('') + '</ul></div>';
+    html += '<div class="signature">' + s.signature + '</div>';
+    art.innerHTML = html;
+    main.appendChild(art);
+  });
+}
+render();
+
+let utterances = [];
+let speaking = false;
+function buildFullText(){
+  return EDITION.sections.map(function(s){
+    let parts = [(RUBRIQUE_LABEL[s.rubrique] || s.rubrique) + ". " + s.titre + "."];
+    if(s.chapeau) parts.push(s.chapeau);
+    parts = parts.concat(s.corpsArticle);
+    return parts.join(" ");
+  }).join(" ");
+}
+function toggleListen(){
+  const btn = document.getElementById('listenBtn');
+  try{
+    if(speaking){
+      window.speechSynthesis.cancel();
+      speaking = false;
+      btn.dataset.playing = "false";
+      btn.textContent = "🔊 Écouter";
+      return;
+    }
+    const text = buildFullText();
+    const chunks = text.match(/[^.!?]+[.!?]+/g) || [text];
+    window.speechSynthesis.cancel();
+    chunks.forEach(function(chunk){
+      const u = new SpeechSynthesisUtterance(chunk.trim());
+      u.lang = "fr-FR";
+      u.rate = 0.98;
+      utterances.push(u);
+    });
+    utterances[utterances.length - 1].onend = function(){
+      speaking = false;
+      btn.dataset.playing = "false";
+      btn.textContent = "🔊 Écouter";
+    };
+    utterances.forEach(function(u){ window.speechSynthesis.speak(u); });
+    speaking = true;
+    btn.dataset.playing = "true";
+    btn.textContent = "⏸ Arrêter";
+  }catch(e){
+    btn.textContent = "Lecture vocale indisponible";
+  }
+}
+</script>
