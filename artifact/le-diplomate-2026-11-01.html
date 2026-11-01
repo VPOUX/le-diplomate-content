@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le Diplomate — 1 novembre 2026</title>
+<style>
+  :root {
+    --paper: #f4ecd8;
+    --paper-dark: #e8ddc0;
+    --ink: #1c1a16;
+    --ink-soft: #4a443a;
+    --rule: #1c1a16;
+    --accent: #7a1f1f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #211d16;
+      --paper-dark: #2a251c;
+      --ink: #ecE3cf;
+      --ink-soft: #c9bfa6;
+      --rule: #ecE3cf;
+      --accent: #d98f6e;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #211d16;
+    --paper-dark: #2a251c;
+    --ink: #ecE3cf;
+    --ink-soft: #c9bfa6;
+    --rule: #ecE3cf;
+    --accent: #d98f6e;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+  body {
+    background-image:
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.03), transparent 60%),
+      radial-gradient(ellipse at bottom right, rgba(0,0,0,0.03), transparent 60%);
+  }
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 28px 16px 80px;
+  }
+  header.masthead {
+    text-align: center;
+    border-bottom: 4px double var(--rule);
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+  }
+  .masthead .kicker {
+    font-family: Georgia, serif;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+  .masthead h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(36px, 9vw, 58px);
+    letter-spacing: 0.01em;
+    margin: 0;
+    line-height: 1;
+  }
+  .masthead .meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid var(--rule);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  nav.toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    justify-content: center;
+    margin: 18px 0 28px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  nav.toc a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  nav.toc a:hover { border-bottom-color: var(--accent); }
+
+  .listen-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+    margin-bottom: 10px;
+  }
+  #listenBtn {
+    font-family: Georgia, serif;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    background: var(--paper-dark);
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    padding: 8px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  #listenBtn[aria-pressed="true"] {
+    background: var(--accent);
+    color: var(--paper);
+    border-color: var(--accent);
+  }
+
+  article.section {
+    padding: 26px 0;
+    border-bottom: 1px solid var(--rule);
+    scroll-margin-top: 60px;
+  }
+  article.section:last-of-type { border-bottom: none; }
+
+  .rubrique {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+  .une .rubrique { color: var(--accent); }
+  h2.titre {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(22px, 5vw, 32px);
+    line-height: 1.15;
+    margin: 0 0 10px;
+  }
+  .une h2.titre { font-size: clamp(28px, 6.5vw, 42px); }
+  p.chapeau {
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 16px;
+    border-left: 3px solid var(--accent);
+    padding-left: 12px;
+    margin: 0 0 14px;
+  }
+  .duree {
+    font-size: 11px;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 14px;
+  }
+  .corps p {
+    font-size: 17px;
+    line-height: 1.6;
+    margin: 0 0 14px;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .corps p:first-of-type:first-letter {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 48px;
+    float: left;
+    line-height: 0.8;
+    padding: 4px 6px 0 0;
+    color: var(--accent);
+  }
+  .essentiel {
+    background: var(--paper-dark);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 16px 0;
+  }
+  .essentiel h3 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 8px;
+    color: var(--ink-soft);
+  }
+  .essentiel ul { margin: 0; padding-left: 18px; }
+  .essentiel li { font-size: 14px; margin-bottom: 4px; }
+  .signature {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    text-align: right;
+    margin-top: 10px;
+  }
+  footer {
+    text-align: center;
+    font-size: 11px;
+    color: var(--ink-soft);
+    padding-top: 20px;
+    letter-spacing: 0.05em;
+  }
+  mark.reading {
+    background: rgba(122,31,31,0.18);
+    border-radius: 2px;
+  }
+  :root[data-theme="dark"] mark.reading,
+  :root:not([data-theme="light"]) mark.reading {
+    background: rgba(217,143,110,0.25);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="masthead">
+    <div class="kicker">Revue matinale de géopolitique &amp; de diplomatie</div>
+    <h1>Le Diplomate</h1>
+    <div class="meta">
+      <span>Dimanche 1<sup>er</sup> novembre 2026</span>
+      <span>N° 25</span>
+      <span>Édition 07h30</span>
+    </div>
+  </header>
+
+  <div class="listen-bar">
+    <button id="listenBtn" aria-pressed="false">🔊 Écouter</button>
+  </div>
+
+  <nav class="toc">
+    <a href="#une">Une</a>
+    <a href="#geopolitique">Géopolitique</a>
+    <a href="#geoeconomie">Géoéconomie</a>
+    <a href="#france">France</a>
+    <a href="#regard">Regard du Diplomate</a>
+  </nav>
+
+  <article class="section une" id="une">
+    <div class="rubrique">Une</div>
+    <h2 class="titre">Entre Téhéran et Washington, la dissuasion vacille&nbsp;: Doha tente d'éviter l'embrasement</h2>
+    <p class="chapeau">À quelques jours des élections de mi-mandat américaines, l'Iran durcit le ton face à Israël et aux États-Unis, tandis que des médiateurs qataris multiplient les navettes diplomatiques pour empêcher une reprise des frappes.</p>
+    <div class="duree">6 min de lecture</div>
+    <div class="corps">
+      <p>Le guide suprême iranien, l'ayatollah Ali Khamenei, a averti que toute nouvelle attaque contre l'Iran entraînerait une riposte « sans limites géographiques », dans un message adressé à ses commandants militaires où il promet une réponse « immédiate ». Cette déclaration intervient alors que Mohammad Baqer Zolghadr, secrétaire du Conseil suprême de sécurité nationale iranien, a prévenu que « toute attaque contre les infrastructures provoquera inévitablement une riposte ».</p>
+      <p>Face à ce regain de tension, des médiateurs qataris se sont rendus à Téhéran pour une tentative de dernière minute visant à négocier un accord intérimaire entre l'Iran et l'administration de Donald Trump, avant les élections de mi-mandat américaines prévues la semaine prochaine. L'objectif affiché est d'éviter une reprise des frappes américano-israéliennes contre le territoire iranien, dans la continuité d'une escalade déjà marquée par des bombardements américains en Iran plus tôt cette année.</p>
+      <p>Le détroit d'Ormuz reste un point de friction majeur&nbsp;: l'Iran revendique depuis la mi-octobre plusieurs incidents impliquant des mines navales contre des pétroliers, tandis que le commandement américain pour le Moyen-Orient (CENTCOM) conteste systématiquement cette version et affirme que Téhéran recourt en réalité à des missiles et des drones. Cette zone de passage stratégique pour le transport pétrolier mondial demeure sous tension constante depuis plusieurs semaines.</p>
+      <p>Ces incertitudes pèsent sur les marchés de l'énergie&nbsp;: les grandes compagnies pétrolières résistent aux appels à investir dans de nouvelles capacités de raffinage, malgré des marges en forte hausse, les conflits au Moyen-Orient et en Ukraine ayant réduit la capacité mondiale de production de carburants.</p>
+      <p><strong>Position de la France&nbsp;:</strong> le Quai d'Orsay avait convoqué l'ambassadeur d'Iran en France le 7 octobre, à la demande du ministre de l'Europe et des Affaires étrangères Jean-Noël Barrot, en réaction à une campagne de désinformation iranienne visant le mouvement lycéen français — signe de relations bilatérales déjà dégradées. Mais à ce stade, aucune réaction officielle française n'a pu être identifiée concernant spécifiquement l'avertissement du guide suprême iranien ou la médiation qatarie en cours.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Khamenei menace d'une riposte « sans limites géographiques » en cas d'attaque contre l'Iran</li>
+        <li>Le Qatar multiplie les navettes diplomatiques à Téhéran avant les élections de mi-mandat américaines</li>
+        <li>Le détroit d'Ormuz reste un point chaud, avec des versions contradictoires entre Téhéran et Washington</li>
+        <li>Aucune réaction officielle française identifiée à ce stade sur ce dossier précis</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <article class="section" id="geopolitique">
+    <div class="rubrique">Géopolitique</div>
+    <h2 class="titre">Ukraine, Pologne, Atlantique Sud&nbsp;: trois fronts diplomatiques sous tension</h2>
+    <p class="chapeau">Une trêve humanitaire fragile en Ukraine, une crise institutionnelle qui s'enlise en Pologne, et un regain de tensions autour des Malouines&nbsp;: tour d'horizon des autres dossiers qui comptent ce dimanche.</p>
+    <div class="duree">7 min de lecture</div>
+    <div class="corps">
+      <p>En Ukraine, une trêve humanitaire locale a permis l'évacuation de centaines d'habitants de la ville d'Oleshky, occupée par les forces russes dans la région de Kherson. Les civils, privés de nourriture, d'électricité et de soins depuis des semaines, ont pu quitter la zone grâce à un cessez-le-feu entré en vigueur le 27 octobre et prolongé jusqu'au 1<sup>er</sup> ou 2 novembre selon les sources. La Maison Blanche a indiqué que la première dame américaine Melania Trump avait contribué à obtenir cet accord localisé, tandis que le Kremlin a assuré que l'opération humanitaire se déroulait « comme prévu ». Des négociateurs ukrainiens, russes et américains doivent se retrouver à un niveau technique à Abou Dabi dans la première quinzaine de novembre.</p>
+      <p><strong>Position de la France&nbsp;:</strong> aucune réaction officielle française n'a pu être identifiée concernant spécifiquement cette trêve d'Oleshky ou son prolongement. Les dernières prises de position publiques connues du Quai d'Orsay sur le dossier ukrainien remontent à des échanges antérieurs sur les lignes rouges européennes dans la perspective de négociations plus larges.</p>
+      <p>En Pologne, le Premier ministre Donald Tusk a affirmé qu'il poursuivrait la refonte du système judiciaire, en défendant la suspension contestée de la présidente du Tribunal constitutionnel, Julia Przyłębska. L'opposition, portée par le camp du président Karol Nawrocki et par le président du Tribunal constitutionnel Bogdan Święczkowski, accuse le gouvernement de mener un véritable « coup d'État institutionnel », une bataille juridique et politique qui s'enlise depuis le début de l'année, avec des procureurs et des responsables convoqués de part et d'autre.</p>
+      <p><strong>Position de la France&nbsp;:</strong> aucune réaction officielle française n'a pu être identifiée sur ce bras de fer polonais, qui reste pour l'instant traité comme une affaire intérieure par les partenaires européens de la Pologne, malgré ses implications pour l'État de droit au sein de l'Union.</p>
+      <p>Enfin, dans l'Atlantique Sud, les tensions autour des Malouines alimentent une véritable ruée vers les ressources halieutiques&nbsp;: des navires venus de Chine, d'Espagne et d'autres pays intensifient leur activité près des eaux contestées, faisant craindre un épuisement des stocks de poissons dans une zone déjà disputée entre le Royaume-Uni et l'Argentine.</p>
+      <p><strong>Position de la France&nbsp;:</strong> aucune réaction officielle française n'a pu être identifiée sur ce dossier, qui touche toutefois indirectement les intérêts européens en matière de politique commune de la pêche.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Trêve humanitaire à Oleshky&nbsp;: évacuation de civils piégés dans la ville occupée</li>
+        <li>Pourparlers techniques Ukraine-Russie-États-Unis prévus à Abou Dabi en novembre</li>
+        <li>Pologne&nbsp;: Tusk défend la suspension de la présidente du Tribunal constitutionnel, l'opposition dénonce un « coup d'État »</li>
+        <li>Atlantique Sud&nbsp;: une pêche intensive près des Malouines fait craindre un épuisement des stocks</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <article class="section" id="geoeconomie">
+    <div class="rubrique">Géoéconomie</div>
+    <h2 class="titre">Krach partiel sur la tech, record des cyberattaques, tensions énergétiques</h2>
+    <p class="chapeau">Entre l'anxiété des marchés face aux dépenses en intelligence artificielle, le plus grand vol de cryptomonnaies de l'histoire attribué à la Corée du Nord, et les difficultés énergétiques de l'Allemagne, plusieurs fronts économiques à portée géopolitique s'ouvrent simultanément.</p>
+    <div class="duree">6 min de lecture</div>
+    <div class="corps">
+      <p>Les grandes valeurs technologiques américaines ont connu une semaine difficile&nbsp;: Amazon, Meta, Microsoft et Alphabet (Google) ont perdu ensemble près de 900 milliards de dollars de capitalisation boursière en quelques jours, les investisseurs s'inquiétant de la soutenabilité des dépenses massives consacrées à l'intelligence artificielle. Alphabet a lui seul vu sa valeur reculer de 500 milliards de dollars après avoir annoncé une forte consommation de liquidités, tandis qu'Intel a subi sa plus forte chute depuis 1974.</p>
+      <p>Dans ce contexte, Anthropic a déposé un dossier pour ce qui pourrait devenir la plus grande introduction en bourse de l'histoire, avec des estimations de valorisation très divergentes selon les sources, allant de plusieurs centaines de milliards à environ deux mille milliards de dollars. La société reconnaît dans son prospectus que l'intelligence artificielle avancée pourrait présenter des risques « catastrophiques, voire existentiels », tout en affichant une croissance rapide de ses revenus. Blackstone a averti que l'entreprise pourrait ne pas obtenir de notation de catégorie investissement à l'issue de l'opération.</p>
+      <p>Sur le plan de la cybersécurité, le FBI a attribué à un groupe de pirates nord-coréens le vol record de 6,3 milliards de dollars de cryptomonnaies subi par la plateforme Binance, qui a dû suspendre temporairement tous les retraits. Cet épisode illustre la dimension géoéconomique de la cybercriminalité d'État, souvent utilisée par Pyongyang pour contourner les sanctions internationales et financer ses programmes militaires&nbsp;; les plateformes d'échange renforcent désormais leurs dispositifs de sécurité.</p>
+      <p>Sur le front énergétique, l'Allemagne n'a pas atteint son objectif de remplissage des réserves de gaz avant l'hiver, ce qui pourrait l'obliger à recourir davantage aux achats sur le marché spot et faire remonter les prix pour l'ensemble de l'Union européenne, dont l'Allemagne reste la première économie. Ce constat s'ajoute à la réticence des grandes compagnies pétrolières à investir dans de nouvelles capacités de raffinage, malgré des marges élevées, les conflits au Moyen-Orient et en Ukraine ayant restreint l'offre mondiale de carburants raffinés.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Près de 900 milliards de dollars effacés en une semaine chez les géants américains de la tech</li>
+        <li>Anthropic vise potentiellement la plus grande introduction en bourse jamais réalisée</li>
+        <li>Le FBI attribue le vol record de 6,3 milliards de dollars sur Binance à des pirates nord-coréens</li>
+        <li>L'Allemagne rate son objectif de stockage de gaz avant l'hiver, un risque pour les prix européens</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <article class="section" id="france">
+    <div class="rubrique">France</div>
+    <h2 class="titre">Budget 2027&nbsp;: Lecornu avance sans majorité, sous la menace d'une censure</h2>
+    <p class="chapeau">Alors que la France entame un week-end de Toussaint sous un calme relatif, le projet de budget 2027 du Premier ministre Sébastien Lecornu continue de structurer le débat politique et économique.</p>
+    <div class="duree">5 min de lecture</div>
+    <div class="corps">
+      <p>Le Premier ministre Sébastien Lecornu défend son projet de budget 2027, qui prévoit un effort d'économies de 54 milliards d'euros sans hausse d'impôts par rapport à 2026. Il a affirmé qu'« attendre la présidentielle, c'est choisir le désordre », présentant ce texte comme une protection de la stabilité financière du pays plutôt que comme un choix partisan. Le gouvernement, qui ne dispose d'aucune majorité à l'Assemblée nationale, dit vouloir faire adopter ce budget sans recourir à l'article 49.3 ni aux ordonnances, une méthode risquée à l'approche de l'élection présidentielle de 2027.</p>
+      <p>La cheffe des députés La France insoumise, Mathilde Panot, a d'ores et déjà brandi la menace d'une motion de censure contre ce qu'elle qualifie de budget d'austérité. Cette fragilité politique s'ajoute à un contexte économique tendu&nbsp;: selon la newsletter Newswrap du Financial Times du 30 octobre, l'agence de notation Fitch aurait procédé à un abaissement non programmé de la perspective de la note souveraine française, peu après la publication de données faisant état d'une contraction inattendue du produit intérieur brut au troisième trimestre. Cette information n'a pu être recoupée de façon indépendante au moment de la rédaction et doit être prise avec la prudence qui s'impose.</p>
+      <p>Sur le plan social, le pays aborde ce week-end les vacances scolaires de la Toussaint, une période traditionnellement plus calme sur le plan de l'actualité politique, entre fête d'Halloween et jour férié du 1<sup>er</sup> novembre.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Lecornu propose 54 milliards d'euros d'économies pour 2027, sans hausse d'impôts</li>
+        <li>Budget présenté sans majorité, sans 49.3 ni ordonnances&nbsp;: LFI menace déjà de censurer</li>
+        <li>Selon le Financial Times, Fitch aurait abaissé sans préavis la perspective de la note française (information à confirmer)</li>
+        <li>Week-end de Toussaint&nbsp;: vacances scolaires et accalmie relative dans l'actualité intérieure</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <article class="section" id="regard">
+    <div class="rubrique">Regard du Diplomate</div>
+    <h2 class="titre">Sous le fracas des postures, la diplomatie discrète continue son travail</h2>
+    <p class="chapeau">Un regard éditorial sur ce que les dossiers du jour révèlent des mécanismes profonds de la négociation internationale.</p>
+    <div class="duree">3 min de lecture</div>
+    <div class="corps">
+      <p>À nos yeux, la journée illustre un phénomène que les étudiants en relations internationales devraient apprendre à repérer systématiquement&nbsp;: la coexistence, presque simultanée, d'une rhétorique maximaliste et d'une diplomatie de couloir bien réelle. D'un côté, Téhéran promet une riposte « sans limites géographiques »&nbsp;; de l'autre, des médiateurs qataris sont physiquement sur place pour désamorcer la crise. De même, en Ukraine, l'annonce d'une trêve localisée à Oleshky, obtenue par un canal informel associant la Maison Blanche, ne doit pas être lue comme un signe de dégel général, mais comme un mécanisme technique de gestion de crise, circonscrit et réversible. Ce n'est pas une contradiction&nbsp;: c'est la structure même de la diplomatie de crise contemporaine, où l'escalade verbale sert souvent de monnaie d'échange dans des canaux de négociation qui, eux, restent discrets.</p>
+      <p>Cette lecture à double niveau vaut aussi, selon nous, pour l'économie&nbsp;: l'engouement pour l'intelligence artificielle, qui pousse Anthropic vers ce qui pourrait devenir la plus grande introduction en bourse de l'histoire, avance de front avec des avertissements, assumés par l'entreprise elle-même, sur des risques qualifiés de potentiellement existentiels. La diplomatie économique de demain devra composer avec cette tension entre emballement des marchés et gouvernance des risques technologiques, un terrain encore largement à inventer pour les chancelleries. C'est, à notre sens, un principe de lecture à retenir au-delà de l'actualité du jour&nbsp;: ne jamais confondre le volume d'une déclaration avec la direction réelle d'une négociation.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Rhétorique maximaliste et médiation discrète coexistent souvent dans une même crise</li>
+        <li>Les trêves localisées sont des outils techniques, pas des signaux de résolution globale</li>
+        <li>La gouvernance des risques technologiques devient un enjeu diplomatique à part entière</li>
+      </ul>
+    </div>
+    <div class="signature">L'éditorial du Diplomate</div>
+  </article>
+
+  <footer>
+    Le Diplomate — édition générée automatiquement le 1<sup>er</sup> novembre 2026 à 07h30.<br>
+    Les positions officielles françaises non identifiées sont signalées comme telles plutôt que supposées.
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('listenBtn');
+  var synth = window.speechSynthesis;
+  var utter = null;
+  var speaking = false;
+
+  function buildText() {
+    var parts = [];
+    document.querySelectorAll('article.section').forEach(function (sec) {
+      var titre = sec.querySelector('h2.titre');
+      var chapeau = sec.querySelector('p.chapeau');
+      var paras = sec.querySelectorAll('.corps p');
+      if (titre) parts.push(titre.textContent);
+      if (chapeau) parts.push(chapeau.textContent);
+      paras.forEach(function (p) { parts.push(p.textContent); });
+    });
+    return parts.join('. ');
+  }
+
+  function stop() {
+    try { synth.cancel(); } catch (e) {}
+    speaking = false;
+    btn.setAttribute('aria-pressed', 'false');
+    btn.textContent = '🔊 Écouter';
+  }
+
+  btn.addEventListener('click', function () {
+    if (!synth) {
+      btn.textContent = 'Lecture vocale indisponible';
+      return;
+    }
+    if (speaking) {
+      stop();
+      return;
+    }
+    try {
+      var text = buildText();
+      utter = new SpeechSynthesisUtterance(text);
+      utter.lang = 'fr-FR';
+      utter.rate = 0.98;
+      utter.onend = stop;
+      utter.onerror = stop;
+      synth.cancel();
+      synth.speak(utter);
+      speaking = true;
+      btn.setAttribute('aria-pressed', 'true');
+      btn.textContent = '⏸ Arrêter la lecture';
+    } catch (e) {
+      stop();
+    }
+  });
+
+  window.addEventListener('beforeunload', function () {
+    try { synth.cancel(); } catch (e) {}
+  });
+})();
+</script>
+
+</body>
+</html>
