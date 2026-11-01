@@ -1,172 +1,104 @@
 {
-  "date": "2026-10-31",
-  "numero": 24,
-  "heureGeneration": "07:10",
+  "date": "2026-11-01",
+  "numero": 25,
+  "heureGeneration": "07:30",
   "sections": [
     {
       "ordre": 1,
       "rubrique": "UNE",
-      "titre": "Israël : des législatives historiques débouchent sur une impasse, l'avenir de Netanyahou suspendu",
-      "chapeau": "Premier scrutin depuis le 7-Octobre, les législatives israéliennes du 27 octobre n'ont donné de majorité à aucun camp. Gadi Eisenkot et Benjamin Netanyahou revendiquent chacun la victoire, dans l'attente de résultats définitifs attendus au plus tard le 4 novembre.",
-      "dureeLectureMin": 5,
+      "titre": "Entre Téhéran et Washington, la dissuasion vacille : Doha tente d'éviter l'embrasement",
+      "chapeau": "À quelques jours des élections de mi-mandat américaines, l'Iran durcit le ton face à Israël et aux États-Unis, tandis que des médiateurs qataris multiplient les navettes diplomatiques pour empêcher une reprise des frappes.",
+      "dureeLectureMin": 6,
       "corpsArticle": [
-        "Les Israéliens se sont rendus aux urnes le 27 octobre pour la première élection législative depuis l'attaque du 7 octobre 2023, un scrutin présenté par une large partie de la presse comme un référendum sur le bilan de Benjamin Netanyahou. La participation a dépassé 74 %, selon la commission électorale centrale, un niveau élevé qui traduit l'intensité de l'enjeu pour une société toujours marquée par la guerre à Gaza et ses suites.",
-        "Les résultats, encore partiels trois jours après le vote, ne donnent de majorité à aucun des deux blocs. Selon les derniers décomptes, la coalition d'opposition rassemblée derrière l'ancien chef d'état-major Gadi Eisenkot obtiendrait environ 51 à 53 sièges sur les 120 que compte la Knesset, contre 50 à 52 pour le bloc gouvernemental mené par Benjamin Netanyahou. Les partis arabes, qui ne s'inscrivent dans aucun des deux blocs, en récolteraient environ 17, ce qui fait d'eux un pivot potentiel de toute majorité future.",
-        "Les deux principaux protagonistes ont revendiqué la victoire dès le lendemain du vote. Gadi Eisenkot affirme avoir la première main pour former un gouvernement, tandis que le ministre Gideon Saar, proche de Benjamin Netanyahou, juge cette revendication prématurée ; le Premier ministre sortant continue de se présenter comme le chef du plus grand parti du pays, un point que son adversaire ne conteste pas frontalement. Les résultats officiels définitifs ne seront proclamés qu'au plus tard le 4 novembre, une fois dépouillés les bulletins sous double enveloppe, notamment ceux des militaires, qui pourraient faire basculer plusieurs sièges.",
-        "Au-delà du suspense arithmétique, les analystes soulignent que l'érosion du Likoud, le parti de Benjamin Netanyahou, reste marginale au regard de l'ampleur de la crise traversée par le pays depuis 2023. L'Institut Montaigne note qu'Israël demeure trop fragmenté pour véritablement tourner la page de l'après-7-Octobre : aucune des deux coalitions envisageables, qu'elle s'appuie sur l'abstention de certains partis arabes ou sur une alliance resserrée à droite, ne dispose d'une marge suffisante pour gouverner sereinement. Naftali Bennett et Yair Lapid ont par ailleurs exclu toute coalition incluant des partis dirigés par des élus arabes, ce qui complique encore les arithmétiques possibles pour Gadi Eisenkot.",
-        "Ce blocage intervient alors que la trêve à Gaza reste fragile et que la question du « jour d'après » dans l'enclave, de la reconstruction et du statut de l'Autorité palestinienne demeure entièrement ouverte. Une nouvelle période d'incertitude politique à Jérusalem, voire un nouveau scrutin si aucune coalition ne se forme, retarderait d'autant la définition d'une ligne israélienne stable sur ces dossiers, avec des conséquences directes sur les efforts de médiation régionale et sur l'agenda diplomatique de l'ensemble des acteurs engagés dans le dossier.",
-        "Position de la France : aucune réaction officielle française au résultat du scrutin n'est à ce stade identifiable, celui-ci restant indécis. En amont du vote, le ministre de l'Europe et des Affaires étrangères Jean-Noël Barrot avait toutefois indiqué que la diplomatie française garderait son « cap » quel que soit le résultat des élections, en continuant de défendre la perspective d'une solution à deux États."
+        "Le guide suprême iranien, l'ayatollah Ali Khamenei, a averti que toute nouvelle attaque contre l'Iran entraînerait une riposte « sans limites géographiques », dans un message adressé à ses commandants militaires où il promet une réponse « immédiate ». Cette déclaration intervient alors que Mohammad Baqer Zolghadr, secrétaire du Conseil suprême de sécurité nationale iranien, a prévenu que « toute attaque contre les infrastructures provoquera inévitablement une riposte ».",
+        "Face à ce regain de tension, des médiateurs qataris se sont rendus à Téhéran pour une tentative de dernière minute visant à négocier un accord intérimaire entre l'Iran et l'administration de Donald Trump, avant les élections de mi-mandat américaines prévues la semaine prochaine. L'objectif affiché est d'éviter une reprise des frappes américano-israéliennes contre le territoire iranien, dans la continuité d'une escalade déjà marquée par des bombardements américains en Iran plus tôt cette année.",
+        "Le détroit d'Ormuz reste un point de friction majeur : l'Iran revendique depuis la mi-octobre plusieurs incidents impliquant des mines navales contre des pétroliers, tandis que le commandement américain pour le Moyen-Orient (CENTCOM) conteste systématiquement cette version et affirme que Téhéran recourt en réalité à des missiles et des drones. Cette zone de passage stratégique pour le transport pétrolier mondial demeure sous tension constante depuis plusieurs semaines.",
+        "Ces incertitudes pèsent sur les marchés de l'énergie : les grandes compagnies pétrolières résistent aux appels à investir dans de nouvelles capacités de raffinage, malgré des marges en forte hausse, les conflits au Moyen-Orient et en Ukraine ayant réduit la capacité mondiale de production de carburants.",
+        "Position de la France : le Quai d'Orsay avait convoqué l'ambassadeur d'Iran en France le 7 octobre, à la demande du ministre de l'Europe et des Affaires étrangères Jean-Noël Barrot, en réaction à une campagne de désinformation iranienne visant le mouvement lycéen français — signe de relations bilatérales déjà dégradées. Mais à ce stade, aucune réaction officielle française n'a pu être identifiée concernant spécifiquement l'avertissement du guide suprême iranien ou la médiation qatarie en cours."
       ],
       "essentiel": [
-        "Premières législatives depuis le 7-Octobre, participation record de plus de 74 %",
-        "Aucun bloc n'obtient de majorité : environ 51-53 sièges pour Eisenkot, 50-52 pour Netanyahou",
-        "Résultats définitifs attendus au plus tard le 4 novembre, bulletins militaires décisifs",
-        "La France dit vouloir garder son cap diplomatique quel que soit le résultat"
+        "Khamenei menace d'une riposte « sans limites géographiques » en cas d'attaque contre l'Iran",
+        "Le Qatar multiplie les navettes diplomatiques à Téhéran avant les élections de mi-mandat américaines",
+        "Le détroit d'Ormuz reste un point chaud, avec des versions contradictoires entre Téhéran et Washington",
+        "Aucune réaction officielle française identifiée à ce stade sur ce dossier précis"
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 2,
       "rubrique": "GEOPOLITIQUE",
-      "titre": "Brésil : la réélection surprise de Lula rebat les cartes en Amérique latine",
-      "chapeau": "Donné perdant après le premier tour, Luiz Inácio Lula da Silva a été réélu le 25 octobre avec 51,8 % des voix face à Flávio Bolsonaro, qui conteste le résultat.",
-      "dureeLectureMin": 4,
+      "titre": "Ukraine, Pologne, Atlantique Sud : trois fronts diplomatiques sous tension",
+      "chapeau": "Une trêve humanitaire fragile en Ukraine, une crise institutionnelle qui s'enlise en Pologne, et un regain de tensions autour des Malouines : tour d'horizon des autres dossiers qui comptent ce dimanche.",
+      "dureeLectureMin": 7,
       "corpsArticle": [
-        "Luiz Inácio Lula da Silva a été réélu président du Brésil pour un quatrième mandat à l'issue du second tour du 25 octobre, avec environ 51,8 % des suffrages exprimés contre 48,2 % pour Flávio Bolsonaro, fils de l'ancien président Jair Bolsonaro. Le résultat a surpris une large partie des observateurs : au premier tour, le 4 octobre, Flávio Bolsonaro devançait Lula de deux points, et aucun candidat battu au premier tour n'avait remporté un second tour au Brésil depuis 1989.",
-        "Le scrutin a été particulièrement serré, avec une prolongation exceptionnelle des opérations de vote dans certaines régions. Le Tribunal supérieur électoral a confirmé la victoire de Lula, mais Flávio Bolsonaro a refusé de reconnaître sa défaite et a annoncé son intention de contester le résultat, sans pour l'instant apporter d'éléments probants susceptibles de remettre en cause le scrutin.",
-        "Cette réélection confirme le Brésil comme l'un des rares grands pays d'Amérique latine encore dirigé par la gauche, dans une région où plusieurs scrutins récents ont plutôt tourné en faveur de forces conservatrices. Lula devra néanmoins composer avec un Congrès nettement plus à droite que lors de ses précédents mandats, ce qui devrait contraindre sa marge de manœuvre budgétaire et limiter ses ambitions sur les dossiers environnementaux et sociaux pour les quatre années à venir.",
-        "Sur le plan international, la victoire de Lula a été saluée par de nombreux chefs d'État, dont une partie significative des gouvernements d'Amérique latine, même si plusieurs d'entre eux n'ont pas réagi publiquement dans les heures qui ont suivi l'annonce des résultats. Le scrutin a également eu un effet immédiat sur les marchés financiers, la Bourse de São Paulo reculant à l'annonce de la réélection d'un président dont les investisseurs redoutent les orientations en matière de dépenses publiques.",
-        "Position de la France : Emmanuel Macron a félicité Luiz Inácio Lula da Silva pour sa réélection quelques heures après l'annonce des résultats, par un message publié sur le réseau social X. Aucune déclaration distincte du Quai d'Orsay n'a pu être identifiée à ce stade."
+        "En Ukraine, une trêve humanitaire locale a permis l'évacuation de centaines d'habitants de la ville d'Oleshky, occupée par les forces russes dans la région de Kherson. Les civils, privés de nourriture, d'électricité et de soins depuis des semaines, ont pu quitter la zone grâce à un cessez-le-feu entré en vigueur le 27 octobre et prolongé jusqu'au 1er ou 2 novembre selon les sources. La Maison Blanche a indiqué que la première dame américaine Melania Trump avait contribué à obtenir cet accord localisé, tandis que le Kremlin a assuré que l'opération humanitaire se déroulait « comme prévu ». Des négociateurs ukrainiens, russes et américains doivent se retrouver à un niveau technique à Abou Dabi dans la première quinzaine de novembre.",
+        "Position de la France : aucune réaction officielle française n'a pu être identifiée concernant spécifiquement cette trêve d'Oleshky ou son prolongement. Les dernières prises de position publiques connues du Quai d'Orsay sur le dossier ukrainien remontent à des échanges antérieurs sur les lignes rouges européennes dans la perspective de négociations plus larges.",
+        "En Pologne, le Premier ministre Donald Tusk a affirmé qu'il poursuivrait la refonte du système judiciaire, en défendant la suspension contestée de la présidente du Tribunal constitutionnel, Julia Przyłębska. L'opposition, portée par le camp du président Karol Nawrocki et par le président du Tribunal constitutionnel Bogdan Święczkowski, accuse le gouvernement de mener un véritable « coup d'État institutionnel », une bataille juridique et politique qui s'enlise depuis le début de l'année, avec des procureurs et des responsables convoqués de part et d'autre.",
+        "Position de la France : aucune réaction officielle française n'a pu être identifiée sur ce bras de fer polonais, qui reste pour l'instant traité comme une affaire intérieure par les partenaires européens de la Pologne, malgré ses implications pour l'État de droit au sein de l'Union.",
+        "Enfin, dans l'Atlantique Sud, les tensions autour des Malouines alimentent une véritable ruée vers les ressources halieutiques : des navires venus de Chine, d'Espagne et d'autres pays intensifient leur activité près des eaux contestées, faisant craindre un épuisement des stocks de poissons dans une zone déjà disputée entre le Royaume-Uni et l'Argentine.",
+        "Position de la France : aucune réaction officielle française n'a pu être identifiée sur ce dossier, qui touche toutefois indirectement les intérêts européens en matière de politique commune de la pêche."
       ],
       "essentiel": [
-        "Lula réélu avec 51,8 % des voix, retournement complet par rapport au premier tour",
-        "Bolsonaro conteste le résultat sans apporter d'éléments probants",
-        "Un Congrès plus à droite limitera la marge de manœuvre du nouveau mandat",
-        "Emmanuel Macron a félicité Lula sur X"
+        "Trêve humanitaire à Oleshky : évacuation de civils piégés dans la ville occupée",
+        "Pourparlers techniques Ukraine-Russie-États-Unis prévus à Abou Dabi en novembre",
+        "Pologne : Tusk défend la suspension de la présidente du Tribunal constitutionnel, l'opposition dénonce un « coup d'État »",
+        "Atlantique Sud : une pêche intensive près des Malouines fait craindre un épuisement des stocks"
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 3,
-      "rubrique": "GEOPOLITIQUE",
-      "titre": "Détroit d'Ormuz : la marée noire sur les plages émiriennes illustre l'escalade pétrolière avec l'Iran",
-      "chapeau": "Une nappe d'hydrocarbures a atteint les plages d'Umm Al Qaïwaïn, aux Émirats arabes unis, après plusieurs semaines d'attaques répétées contre des pétroliers dans le détroit d'Ormuz.",
-      "dureeLectureMin": 4,
+      "rubrique": "GEOECONOMIE",
+      "titre": "Krach partiel sur la tech, record des cyberattaques, tensions énergétiques : la géoéconomie sous pression",
+      "chapeau": "Entre l'anxiété des marchés face aux dépenses en intelligence artificielle, le plus grand vol de cryptomonnaies de l'histoire attribué à la Corée du Nord, et les difficultés énergétiques de l'Allemagne, plusieurs fronts économiques à portée géopolitique s'ouvrent simultanément.",
+      "dureeLectureMin": 6,
       "corpsArticle": [
-        "Les autorités émiriennes ont confirmé le confinement d'une marée noire ayant atteint les plages d'Umm Al Qaïwaïn, quelques jours après qu'un pétrolier a été touché par un projectile au large des côtes des Émirats arabes unis et a pris feu. Selon une société de sécurité maritime citée par la presse spécialisée, le navire concerné serait le Gem No. 2, un très grand transporteur de brut battant pavillon panaméen, frappé le 9 octobre.",
-        "Cet incident s'inscrit dans une séquence de plusieurs semaines d'attaques répétées contre des navires marchands dans le détroit d'Ormuz, point de passage par lequel transite une part décisive des exportations pétrolières et gazières du Golfe. L'organisme britannique UKMTO a recensé cinq incidents en une semaine dans la zone. L'origine exacte de la marée noire n'a pas été formellement établie par les autorités émiriennes, mais la multiplication des attaques dans le secteur, que plusieurs capitales du Golfe attribuent à l'Iran, fait craindre une dégradation durable de la sécurité maritime régionale.",
-        "Le trafic pétrolier par le détroit d'Ormuz s'est effondré depuis le début de l'année, passant d'environ 21,6 millions de barils par jour fin 2025 à 4,9 millions de barils par jour au deuxième trimestre 2026, selon les données de l'Agence américaine d'information sur l'énergie, signe de la prudence croissante des armateurs face au risque d'attaque. Cette contraction du trafic pèse directement sur les recettes pétrolières des pays du Golfe et alimente une volatilité persistante des prix de l'énergie à l'échelle mondiale, avec des répercussions concrètes sur les économies importatrices, dont la France.",
-        "Position de la France : selon plusieurs informations de presse, la France figure parmi les signataires d'une déclaration conjointe, aux côtés notamment du Royaume-Uni, du Canada et du Japon, condamnant les attaques iraniennes visant des navires ainsi que des infrastructures pétrolières et gazières dans la région. Les autorités émiriennes ont pour leur part qualifié ces attaques de menace directe pour la stabilité régionale et pour la sécurité énergétique mondiale."
+        "Les grandes valeurs technologiques américaines ont connu une semaine difficile : Amazon, Meta, Microsoft et Alphabet (Google) ont perdu ensemble près de 900 milliards de dollars de capitalisation boursière en quelques jours, les investisseurs s'inquiétant de la soutenabilité des dépenses massives consacrées à l'intelligence artificielle. Alphabet a lui seul vu sa valeur reculer de 500 milliards de dollars après avoir annoncé une forte consommation de liquidités, tandis qu'Intel a subi sa plus forte chute depuis 1974.",
+        "Dans ce contexte, Anthropic a déposé un dossier pour ce qui pourrait devenir la plus grande introduction en bourse de l'histoire, avec des estimations de valorisation très divergentes selon les sources, allant de plusieurs centaines de milliards à environ deux mille milliards de dollars. La société reconnaît dans son prospectus que l'intelligence artificielle avancée pourrait présenter des risques « catastrophiques, voire existentiels », tout en affichant une croissance rapide de ses revenus. Blackstone a averti que l'entreprise pourrait ne pas obtenir de notation de catégorie investissement à l'issue de l'opération.",
+        "Sur le plan de la cybersécurité, le FBI a attribué à un groupe de pirates nord-coréens le vol record de 6,3 milliards de dollars de cryptomonnaies subi par la plateforme Binance, qui a dû suspendre temporairement tous les retraits. Cet épisode illustre la dimension géoéconomique de la cybercriminalité d'État, souvent utilisée par Pyongyang pour contourner les sanctions internationales et financer ses programmes militaires ; les plateformes d'échange renforcent désormais leurs dispositifs de sécurité.",
+        "Sur le front énergétique, l'Allemagne n'a pas atteint son objectif de remplissage des réserves de gaz avant l'hiver, ce qui pourrait l'obliger à recourir davantage aux achats sur le marché spot et faire remonter les prix pour l'ensemble de l'Union européenne, dont l'Allemagne reste la première économie. Ce constat s'ajoute à la réticence des grandes compagnies pétrolières à investir dans de nouvelles capacités de raffinage, malgré des marges élevées, les conflits au Moyen-Orient et en Ukraine ayant restreint l'offre mondiale de carburants raffinés."
       ],
       "essentiel": [
-        "Marée noire confirmée sur les plages d'Umm Al Qaïwaïn, aux Émirats arabes unis",
-        "Cinq attaques recensées en une semaine dans le détroit d'Ormuz par l'UKMTO",
-        "Le trafic pétrolier par Ormuz a été divisé par plus de quatre en un an",
-        "La France co-signataire d'une déclaration internationale condamnant les attaques iraniennes"
+        "Près de 900 milliards de dollars effacés en une semaine chez les géants américains de la tech",
+        "Anthropic vise potentiellement la plus grande introduction en bourse jamais réalisée",
+        "Le FBI attribue le vol record de 6,3 milliards de dollars sur Binance à des pirates nord-coréens",
+        "L'Allemagne rate son objectif de stockage de gaz avant l'hiver, un risque pour les prix européens"
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 4,
-      "rubrique": "GEOECONOMIE",
-      "titre": "À une semaine des midterms américains, les marchés mondiaux sur les nerfs",
-      "chapeau": "Les élections de mi-mandat du 3 novembre, qui pourraient faire basculer le contrôle du Congrès, s'ajoutent à une liste déjà longue d'incertitudes géopolitiques pour les investisseurs.",
-      "dureeLectureMin": 3,
+      "rubrique": "FRANCE",
+      "titre": "Budget 2027 : Lecornu avance sans majorité, sous la menace d'une censure",
+      "chapeau": "Alors que la France entame un week-end de Toussaint sous un calme relatif, le projet de budget 2027 du Premier ministre Sébastien Lecornu continue de structurer le débat politique et économique.",
+      "dureeLectureMin": 5,
       "corpsArticle": [
-        "À quelques jours des élections de mi-mandat américaines, prévues le 3 novembre, le climat sur les marchés s'est nettement détérioré. Une enquête de Morgan Stanley Wealth Management menée auprès de 953 investisseurs américains entre le 1er et le 23 octobre fait apparaître un sentiment baissier atteignant 42 %, en hausse de quatre points par rapport au trimestre précédent, les investisseurs citant l'inflation persistante, la perspective de nouvelles hausses de taux et l'incertitude électorale.",
-        "L'enjeu central pour les marchés est le contrôle du Congrès : un basculement vers un gouvernement divisé pourrait geler une partie de l'agenda législatif et budgétaire de l'administration en place, avec des conséquences sur la fiscalité, la régulation technologique et la politique commerciale. Les analystes rappellent toutefois que les marchés ne réagissent pas tant au résultat électoral lui-même qu'à ce qu'il implique pour la croissance, les résultats des entreprises et les politiques à venir.",
-        "Cette échéance électorale s'ajoute à une accumulation de chocs géopolitiques et économiques déjà présents à l'esprit des investisseurs, qu'il s'agisse des tensions commerciales, de l'escalade dans le Golfe ou de la correction boursière qui a frappé les valeurs technologiques ces derniers jours, Wall Street ayant ouvert en forte baisse après des résultats jugés décevants d'Amazon et un recul de plus de 500 milliards de dollars de la capitalisation d'Alphabet, dont les dirigeants ont reconnu que les nouveaux modes de recherche fondés sur l'intelligence artificielle pesaient sur l'activité publicitaire historique du groupe."
+        "Le Premier ministre Sébastien Lecornu défend son projet de budget 2027, qui prévoit un effort d'économies de 54 milliards d'euros sans hausse d'impôts par rapport à 2026. Il a affirmé qu'« attendre la présidentielle, c'est choisir le désordre », présentant ce texte comme une protection de la stabilité financière du pays plutôt que comme un choix partisan. Le gouvernement, qui ne dispose d'aucune majorité à l'Assemblée nationale, dit vouloir faire adopter ce budget sans recourir à l'article 49.3 ni aux ordonnances, une méthode risquée à l'approche de l'élection présidentielle de 2027.",
+        "La cheffe des députés La France insoumise, Mathilde Panot, a d'ores et déjà brandi la menace d'une motion de censure contre ce qu'elle qualifie de budget d'austérité. Cette fragilité politique s'ajoute à un contexte économique tendu : selon la newsletter Newswrap du Financial Times du 30 octobre, l'agence de notation Fitch aurait procédé à un abaissement non programmé de la perspective de la note souveraine française, peu après la publication de données faisant état d'une contraction inattendue du produit intérieur brut au troisième trimestre. Cette information n'a pu être recoupée de façon indépendante au moment de la rédaction et doit être prise avec la prudence qui s'impose.",
+        "Sur le plan social, le pays aborde ce week-end les vacances scolaires de la Toussaint, une période traditionnellement plus calme sur le plan de l'actualité politique, entre fête d'Halloween et jour férié du 1er novembre."
       ],
       "essentiel": [
-        "Sentiment baissier des investisseurs américains en hausse à 42 %",
-        "Le contrôle du Congrès, principal enjeu pour les marchés le 3 novembre",
-        "Rout technologique : Amazon déçoit, Alphabet perd plus de 500 Md$ de capitalisation"
+        "Lecornu propose 54 milliards d'euros d'économies pour 2027, sans hausse d'impôts",
+        "Budget présenté sans majorité, sans 49.3 ni ordonnances : LFI menace déjà de censurer",
+        "Selon le Financial Times, Fitch aurait abaissé sans préavis la perspective de la note française (information à confirmer)",
+        "Week-end de Toussaint : vacances scolaires et accalmie relative dans l'actualité intérieure"
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 5,
-      "rubrique": "GEOECONOMIE",
-      "titre": "Cybercriminalité nord-coréenne : Binance visée par un vol de grande ampleur",
-      "chapeau": "Le Financial Times rapporte que la plus grande plateforme mondiale d'échange de cryptomonnaies a été frappée par un vol massif attribué à des pirates nord-coréens, après la compromission de l'ordinateur d'un ingénieur.",
-      "dureeLectureMin": 3,
-      "corpsArticle": [
-        "Selon des informations publiées ce jour par le Financial Times, Binance, la plus grande plateforme mondiale d'échange de cryptomonnaies, a été la cible d'un vol de plusieurs milliards de dollars en l'espace d'une trentaine de minutes, après la compromission de l'ordinateur portable d'un de ses ingénieurs. L'épisode est présenté par le quotidien britannique comme l'un des plus importants vols de cryptomonnaies jamais enregistrés, et serait attribué à des pirates informatiques nord-coréens.",
-        "Ce type d'opération s'inscrit dans une stratégie bien documentée de la Corée du Nord, qui a massivement recouru depuis plusieurs années au piratage de plateformes de cryptomonnaies pour financer ses programmes militaires et contourner les sanctions internationales qui pèsent sur son économie. Selon les estimations cumulées de plusieurs sociétés spécialisées dans l'analyse de la blockchain, les groupes de pirates liés à Pyongyang auraient détourné plusieurs milliards de dollars d'actifs numériques depuis 2017, les plateformes d'échange étant régulièrement visées en raison des volumes qu'elles traitent.",
-        "Au-delà du préjudice direct pour Binance et ses utilisateurs, cet épisode illustre un enjeu géoéconomique plus large : la capacité d'un État sous sanctions à utiliser la cybercriminalité comme un outil de financement alternatif, échappant largement aux circuits financiers traditionnels sous surveillance. Il relance également le débat, récurrent chez les régulateurs occidentaux, sur le niveau de sécurité et de traçabilité exigible des grandes plateformes d'échange de cryptoactifs."
-      ],
-      "essentiel": [
-        "Vol massif chez Binance en une trentaine de minutes, selon le Financial Times",
-        "Compromission de l'ordinateur d'un ingénieur à l'origine de l'intrusion",
-        "La Corée du Nord utilise la cybercriminalité pour contourner les sanctions internationales"
-      ],
-      "signature": "Par la rédaction du Diplomate"
-    },
-    {
-      "ordre": 6,
-      "rubrique": "GEOECONOMIE",
-      "titre": "Minerais critiques en RDC : Washington presse le pas face à la domination chinoise",
-      "chapeau": "La société américaine KoBold Metals, soutenue par Bill Gates et Jeff Bezos, accélère son exploration en République démocratique du Congo, dans un secteur encore très largement dominé par des groupes chinois.",
-      "dureeLectureMin": 3,
-      "corpsArticle": [
-        "La société américaine KoBold Metals, soutenue par des investisseurs comme Bill Gates et Jeff Bezos, poursuit son exploration intensive du gisement de Manono, en République démocratique du Congo, où elle a recueilli environ 2 000 échantillons de sol par semaine depuis avril sur un portefeuille de quatorze permis d'exploration couvrant plus de 3 000 km². L'entreprise a fait état de résultats qu'elle qualifie de « très encourageants », sans en détailler la teneur à ce stade.",
-        "Cette présence s'inscrit dans un accord de principe conclu avec Kinshasa, prévoyant notamment la numérisation des données géologiques congolaises, et plus largement dans une stratégie américaine visant à réduire le poids de la Chine dans la chaîne d'approvisionnement des minerais critiques. Selon des estimations reprises par plusieurs médias spécialisés, des groupes chinois contrôlent aujourd'hui 70 à 80 % du marché congolais du cuivre et du cobalt, deux métaux essentiels aux batteries électriques et à de nombreuses technologies de défense.",
-        "Le succès de cette initiative américaine reste toutefois conditionné à la résolution de différends locaux autour du site de Manono et à la stabilisation des relations avec les parties prenantes congolaises, dans un pays où l'instabilité politique et sécuritaire, notamment dans l'est du territoire, continue de peser sur l'ensemble du secteur minier. Cette compétition entre puissances pour l'accès aux minerais critiques congolais illustre une dimension de plus en plus centrale de la rivalité sino-américaine, dans laquelle l'Europe, dépendante des deux filières, cherche également à se positionner."
-      ],
-      "essentiel": [
-        "KoBold Metals intensifie son exploration du gisement de Manono, en RDC",
-        "La Chine contrôlerait 70 à 80 % du marché congolais du cuivre et du cobalt",
-        "La bataille des minerais critiques, nouveau front de la rivalité sino-américaine"
-      ],
-      "signature": "Par la rédaction du Diplomate"
-    },
-    {
-      "ordre": 7,
-      "rubrique": "FRANCE",
-      "titre": "L'économie française s'est contractée de 0,1 % au troisième trimestre",
-      "chapeau": "La deuxième économie de la zone euro recule légèrement entre juillet et septembre, pénalisée par des prix de l'énergie élevés et une hausse des coûts d'emprunt.",
-      "dureeLectureMin": 3,
-      "corpsArticle": [
-        "Le produit intérieur brut français s'est contracté de 0,1 % au troisième trimestre 2026, selon les premières estimations publiées cette semaine. Ce recul, même limité, confirme la fragilité persistante de la deuxième économie de la zone euro, confrontée à la combinaison de prix de l'énergie restés élevés et d'une remontée des coûts d'emprunt qui pèse sur l'investissement des entreprises comme sur la consommation des ménages.",
-        "Ce ralentissement intervient dans un contexte budgétaire particulièrement tendu, à quelques semaines d'échéances parlementaires décisives sur les finances publiques pour 2027. Il illustre la difficulté de l'exécutif à conjuguer redressement des comptes publics et soutien à une activité économique qui montre des signes d'essoufflement, alors même que plusieurs grands partenaires européens de la France affichent une dynamique plus favorable."
-      ],
-      "essentiel": [
-        "PIB français en recul de 0,1 % au troisième trimestre 2026",
-        "Prix de l'énergie et coûts d'emprunt élevés en cause",
-        "Un contexte budgétaire tendu qui complique la réponse de l'exécutif"
-      ],
-      "signature": "Par la rédaction du Diplomate"
-    },
-    {
-      "ordre": 8,
-      "rubrique": "FRANCE",
-      "titre": "Budget 2027 : l'Assemblée nationale toujours dans l'impasse, le recours à l'article 49.3 se profile",
-      "chapeau": "L'examen du projet de loi de finances, enlisé depuis la rentrée, pourrait contraindre le gouvernement de Sébastien Lecornu à recourir à l'article 49.3 ou aux ordonnances budgétaires prévues par la Constitution.",
-      "dureeLectureMin": 3,
-      "corpsArticle": [
-        "Présenté en Conseil des ministres le 1er octobre par le Premier ministre Sébastien Lecornu, le projet de loi de finances pour 2027 vise un déficit public ramené à 5,0 % du produit intérieur brut, contre une prévision révisée de 5,4 % pour 2026, notamment via le gel des aides personnalisées au logement à leur niveau de 2026. Mais son parcours parlementaire s'est rapidement enlisé : la commission des finances de l'Assemblée nationale a rejeté dès le 9 octobre la partie recettes du texte, par 31 voix contre, 3 pour et 2 abstentions.",
-        "Les débats en séance publique, entamés le 13 octobre, ont été repoussés à plusieurs reprises, le vote solennel initialement prévu le 20 octobre n'ayant pas eu lieu. Une motion de rejet préalable déposée par les députés socialistes a encore allongé les discussions. Faute de majorité à l'Assemblée nationale, le gouvernement a évoqué le recours possible à l'article 49.3 de la Constitution, voire, si le Parlement ne se prononce pas dans les délais impartis, aux ordonnances budgétaires prévues par l'article 47, qui permettraient de reprendre le texte initial du projet de loi.",
-        "Cette situation illustre la difficulté structurelle d'un exécutif sans majorité absolue à faire adopter des textes budgétaires dans les délais constitutionnels, un schéma déjà observé lors des précédents exercices budgétaires. Les droits de regard du Parlement sur la trajectoire des finances publiques françaises, déjà sous la surveillance de la Commission européenne, restent ainsi l'otage d'un rapport de forces politique qui ne s'est pas clarifié depuis la dissolution de 2024."
-      ],
-      "essentiel": [
-        "Partie recettes du PLF 2027 rejetée en commission des finances dès le 9 octobre",
-        "Vote solennel repoussé, débats enlisés depuis le 13 octobre",
-        "Recours à l'article 49.3 ou aux ordonnances budgétaires de l'article 47 envisagé"
-      ],
-      "signature": "Par la rédaction du Diplomate"
-    },
-    {
-      "ordre": 9,
       "rubrique": "REGARD_DIPLOMATE",
-      "titre": "Ce que les impasses électorales nous apprennent sur le temps diplomatique",
+      "titre": "Sous le fracas des postures, la diplomatie discrète continue son travail",
+      "chapeau": "Un regard éditorial sur ce que les dossiers du jour révèlent des mécanismes profonds de la négociation internationale.",
       "dureeLectureMin": 3,
       "corpsArticle": [
-        "Deux scrutins, deux lectures opposées, un même enseignement. En Israël, une élection censée trancher l'après-7-Octobre ne tranche rien et ouvre une période d'incertitude qui pourrait durer des semaines. Au Brésil, un second tour renverse un premier tour qui semblait pourtant annoncer l'issue du scrutin. Dans les deux cas, la tentation du commentaire immédiat est de chercher un verdict clair, alors que la réalité politique, elle, s'installe précisément dans le flou. Pour qui observe les relations internationales, c'est un rappel utile : une élection n'est pas un instantané qui fige une situation, mais une étape dans un processus de rapports de force qui continue de se négocier bien après la fermeture des bureaux de vote.",
-        "Cette leçon vaut aussi pour la lecture des rapports de puissance plus larges. La marée noire d'Ormuz, la course aux minerais congolais ou le piratage attribué à la Corée du Nord racontent, chacun à leur échelle, la même histoire : celle d'acteurs qui, faute de pouvoir l'emporter frontalement, déplacent l'affrontement vers des terrains moins visibles — le flux maritime, la chaîne d'approvisionnement, la cybercriminalité. C'est un point de vue éditorial, non un constat définitif, mais il invite à une discipline de lecture : résister à l'instantanéité du commentaire et accepter que la diplomatie, comme la géoéconomie, se juge sur la durée plutôt que sur l'instant du résultat annoncé."
+        "À nos yeux, la journée illustre un phénomène que les étudiants en relations internationales devraient apprendre à repérer systématiquement : la coexistence, presque simultanée, d'une rhétorique maximaliste et d'une diplomatie de couloir bien réelle. D'un côté, Téhéran promet une riposte « sans limites géographiques » ; de l'autre, des médiateurs qataris sont physiquement sur place pour désamorcer la crise. De même, en Ukraine, l'annonce d'une trêve localisée à Oleshky, obtenue par un canal informel associant la Maison Blanche, ne doit pas être lue comme un signe de dégel général, mais comme un mécanisme technique de gestion de crise, circonscrit et réversible. Ce n'est pas une contradiction : c'est la structure même de la diplomatie de crise contemporaine, où l'escalade verbale sert souvent de monnaie d'échange dans des canaux de négociation qui, eux, restent discrets.",
+        "Cette lecture à double niveau vaut aussi, selon nous, pour l'économie : l'engouement pour l'intelligence artificielle, qui pousse Anthropic vers ce qui pourrait devenir la plus grande introduction en bourse de l'histoire, avance de front avec des avertissements, assumés par l'entreprise elle-même, sur des risques qualifiés de potentiellement existentiels. La diplomatie économique de demain devra composer avec cette tension entre emballement des marchés et gouvernance des risques technologiques, un terrain encore largement à inventer pour les chancelleries. C'est, à notre sens, un principe de lecture à retenir au-delà de l'actualité du jour : ne jamais confondre le volume d'une déclaration avec la direction réelle d'une négociation."
       ],
       "essentiel": [
-        "Une élection est une étape, pas un verdict définitif",
-        "Les rapports de force se déplacent souvent vers des terrains moins visibles"
+        "Rhétorique maximaliste et médiation discrète coexistent souvent dans une même crise",
+        "Les trêves localisées sont des outils techniques, pas des signaux de résolution globale",
+        "La gouvernance des risques technologiques devient un enjeu diplomatique à part entière"
       ],
       "signature": "L'éditorial du Diplomate"
     }
