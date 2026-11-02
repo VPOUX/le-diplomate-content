@@ -1,0 +1,426 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Le Diplomate — 2 novembre</title>
+<style>
+  /*
+    Layout: single-column broadsheet, masthead + rule, articles stacked with
+    hairline dividers, a small "L'essentiel" kicker box per article, a fixed
+    bottom-right listen toggle. Reads like a printed morning paper on paper stock.
+  */
+  :root{
+    --paper:#f3ecdd;
+    --paper-2:#eadfc8;
+    --ink:#1f1a14;
+    --ink-soft:#4a4035;
+    --rule:#c9b990;
+    --accent:#7a2420;
+    --accent-soft:#9c4a3f;
+    --chip-bg:#e4d6b4;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#1c1812;
+      --paper-2:#231e16;
+      --ink:#ece3d1;
+      --ink-soft:#c9bea8;
+      --rule:#5a4e34;
+      --accent:#e2a08a;
+      --accent-soft:#c97b63;
+      --chip-bg:#2e2619;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#1c1812;
+    --paper-2:#231e16;
+    --ink:#ece3d1;
+    --ink-soft:#c9bea8;
+    --rule:#5a4e34;
+    --accent:#e2a08a;
+    --accent-soft:#c97b63;
+    --chip-bg:#2e2619;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Source Serif 4","PT Serif",Georgia,serif;
+    padding-left:max(16px, env(safe-area-inset-left,0px));
+    padding-right:max(16px, env(safe-area-inset-right,0px));
+    padding-bottom:96px;
+  }
+  .wrap{max-width:720px;margin:0 auto}
+
+  .masthead{
+    padding-block:28px 14px;
+    text-align:center;
+    border-bottom:3px solid var(--ink);
+  }
+  .masthead .name{
+    font-family:"Playfair Display",Georgia,serif;
+    font-weight:900;
+    font-size:clamp(2.1rem,7vw,3.4rem);
+    letter-spacing:0.5px;
+    text-wrap:balance;
+    margin:0;
+  }
+  .masthead .tagline{
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.72rem;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-top:6px;
+  }
+  .masthead .meta{
+    display:flex;justify-content:center;gap:14px;flex-wrap:wrap;
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.72rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-top:12px;
+    padding-top:8px;
+    border-top:1px solid var(--rule);
+  }
+
+  nav.toc{
+    display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+    padding-block:16px;
+    border-bottom:1px solid var(--rule);
+  }
+  nav.toc a{
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.68rem;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--ink);
+    background:var(--chip-bg);
+    border:1px solid var(--rule);
+    border-radius:3px;
+    padding:5px 10px;
+  }
+
+  article{
+    padding-block:34px;
+    border-bottom:1px solid var(--rule);
+  }
+  article:last-of-type{border-bottom:none}
+
+  .kicker{
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.72rem;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:700;
+    display:flex;align-items:center;gap:10px;
+  }
+  .kicker .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .kicker .dureeLecture{
+    color:var(--ink-soft);
+    font-weight:400;
+    letter-spacing:0.5px;
+    margin-left:auto;
+    font-variant-numeric:tabular-nums;
+  }
+
+  h2.titre{
+    font-family:"Playfair Display",Georgia,serif;
+    font-weight:800;
+    font-size:clamp(1.5rem,5.4vw,2.05rem);
+    line-height:1.18;
+    text-wrap:balance;
+    margin:10px 0 10px;
+  }
+
+  p.chapeau{
+    font-family:"Source Serif 4","PT Serif",Georgia,serif;
+    font-style:italic;
+    font-size:1.08rem;
+    line-height:1.5;
+    color:var(--ink-soft);
+    margin:0 0 20px;
+    padding-left:14px;
+    border-left:3px solid var(--accent-soft);
+  }
+
+  .corps{max-width:38em}
+  .corps p{
+    font-size:1.03rem;
+    line-height:1.68;
+    margin:0 0 16px;
+  }
+  .corps p::first-letter{
+    font-family:"Playfair Display",Georgia,serif;
+  }
+
+  .essentiel{
+    margin-top:22px;
+    background:var(--paper-2);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    padding:16px 18px;
+    max-width:38em;
+  }
+  .essentiel h3{
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.68rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 10px;
+  }
+  .essentiel ul{margin:0;padding-left:1.1em}
+  .essentiel li{
+    font-family:"Source Serif 4","PT Serif",Georgia,serif;
+    font-size:0.92rem;
+    line-height:1.5;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+
+  .signature{
+    margin-top:18px;
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.72rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .signature.edito{color:var(--accent-soft)}
+
+  footer.colophon{
+    text-align:center;
+    padding-block:28px 16px;
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.68rem;
+    letter-spacing:1px;
+    color:var(--ink-soft);
+  }
+
+  .listen-btn{
+    position:fixed;
+    right:max(18px, calc(18px + env(safe-area-inset-right,0px)));
+    bottom:calc(18px + env(safe-area-inset-bottom,0px));
+    z-index:20;
+    display:flex;align-items:center;gap:8px;
+    background:var(--accent);
+    color:#fbf3e3;
+    border:none;
+    border-radius:999px;
+    padding:12px 18px;
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.82rem;
+    font-weight:600;
+    letter-spacing:0.3px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.28);
+    cursor:pointer;
+  }
+  .listen-btn:active{transform:translateY(1px)}
+  .listen-btn[data-playing="true"]{background:var(--accent-soft)}
+  .listen-btn .icon{font-size:1rem;line-height:1}
+
+  @media (prefers-reduced-motion:no-preference){
+    article{transition:opacity .2s ease}
+  }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;600;700&display=swap">
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="name">Le Diplomate</p>
+    <p class="tagline">Revue de presse diplomatique</p>
+    <div class="meta">
+      <span id="meta-date">lundi 2 novembre 2026</span>
+      <span>·</span>
+      <span>N° 26</span>
+      <span>·</span>
+      <span>Édition de 07:20</span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire">
+    <a href="#une">Une</a>
+    <a href="#geopolitique">Géopolitique</a>
+    <a href="#geoeconomie">Géoéconomie</a>
+    <a href="#france">France</a>
+    <a href="#regard">Regard</a>
+  </nav>
+
+  <article id="une">
+    <p class="kicker"><span class="dot"></span>Une<span class="dureeLecture">6 min</span></p>
+    <h2 class="titre">Golfe sous tension : Doha multiplie les médiations avant un possible nouveau round de la guerre Washington-Téhéran</h2>
+    <p class="chapeau">À la veille des élections de mi-mandat américaines, de hauts diplomates du Moyen-Orient mettent en garde contre une reprise de la guerre entre les États-Unis et l'Iran qu'ils jugent potentiellement plus destructrice que les précédentes, tandis que le Qatar tente d'arracher un accord intérimaire.</p>
+    <div class="corps">
+      <p>Le ministre égyptien des Affaires étrangères, Badr Abdelatty, a averti samedi que toute reprise des hostilités entre les États-Unis et l'Iran serait « plus dangereuse, plus destructrice » que les précédents échanges de frappes, ajoutant : « nous sommes extrêmement inquiets ». Son avertissement intervient alors que plusieurs hauts diplomates du Moyen-Orient redoutent qu'une nouvelle phase du conflit, qui a déjà déstabilisé la région et perturbé les marchés énergétiques internationaux depuis son déclenchement en février, ne débouche sur une impasse totale.</p>
+      <p>En Arabie saoudite, les autorités ont imposé samedi l'enseignement à distance dans l'ensemble du pays, les attaques de missiles et de drones des Houthis, soutenus par l'Iran depuis le Yémen, continuant de viser le royaume. Le Qatar s'est positionné en médiateur central : des responsables iraniens ont passé le week-end à Doha pour des discussions avec des médiateurs, après qu'une délégation qatarie s'est rendue à Téhéran vendredi, dans l'espoir d'obtenir un accord intérimaire avant le scrutin de mi-mandat américain de ce mardi.</p>
+      <p>La crainte, en Iran comme dans l'ensemble de la région, est que le président américain Donald Trump et le Premier ministre israélien Benyamin Netanyahou planifient le lancement d'une phase plus intense de la guerre une fois le vote américain passé, en ciblant les installations nucléaires et balistiques iraniennes, des centrales électriques et d'autres infrastructures. Téhéran a promis une réponse « féroce », nourrissant les craintes, dans le Golfe, que les sites énergétiques et d'autres infrastructures civiles – des aéroports aux usines de dessalement – soient de nouveau pris pour cible.</p>
+      <p>Les analystes militaires soulignent que les options américaines et israéliennes pour une escalade vont de l'extension des campagnes maritimes à une tentative de changement de régime, mais que ces options risquent de provoquer une riposte iranienne dans le Golfe et au-delà. Les marchés reflètent cette nervosité : le baril de Brent, qui s'échangeait autour de 113 dollars dimanche en Asie, est retombé à environ 110 dollars lundi matin après des informations selon lesquelles Donald Trump aurait pressé Benyamin Netanyahou de privilégier encore la voie diplomatique.</p>
+      <p>Cette crise s'inscrit dans un calendrier politique américain chargé : les prix à la pompe, qui ont bondi depuis le déclenchement de la guerre, sont devenus un handicap pour les Républicains à la veille d'un scrutin de mi-mandat dominé par le coût de la vie, ce qui alimente les spéculations sur le moment choisi pour une éventuelle reprise des opérations militaires.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Avertissement du ministre égyptien des Affaires étrangères : un nouveau round serait « plus dangereux, plus destructeur »</li>
+        <li>Écoles à distance en Arabie saoudite face aux attaques de drones et missiles houthis</li>
+        <li>Médiation qatarie intense à Doha avant le scrutin de mi-mandat américain de mardi</li>
+        <li>Crainte d'une phase plus intense de la guerre après le vote, ciblant sites nucléaires et infrastructures</li>
+      </ul>
+    </div>
+    <p class="signature">Par la rédaction du Diplomate</p>
+  </article>
+
+  <article id="geopolitique">
+    <p class="kicker"><span class="dot"></span>Géopolitique<span class="dureeLecture">7 min</span></p>
+    <h2 class="titre">Ukraine, Bulgarie, Atlantique Sud : la carte des fractures se redessine</h2>
+    <p class="chapeau">Entre le détournement forcé des exportations russes de céréales vers l'Arctique, le maintien au pouvoir d'une présidente bulgare favorable au dialogue avec Moscou et une ruée de pêche contestée près des Malouines, trois dossiers rappellent la permanence des tensions issues de la guerre en Ukraine.</p>
+    <div class="corps">
+      <p>La guerre en Ukraine continue de redessiner les routes commerciales mondiales. Faute de pouvoir exporter depuis la mer Noire, où les combats se poursuivent, des exploitants agricoles russes acheminent désormais leurs céréales depuis des ports situés à des milliers de kilomètres, dans l'Arctique, ce qui fait grimper les coûts pour les acheteurs étrangers. Cette réorganisation logistique intervient alors que des civils évacués d'une ville occupée par la Russie continuent d'arriver côté ukrainien, signe que les combats et leurs conséquences humaines restent soutenus sur le terrain.</p>
+      <p><strong>Position de la France :</strong> le Quai d'Orsay a condamné « avec la plus grande fermeté » les frappes russes contre les civils et les infrastructures ukrainiennes dans un communiqué début octobre, une ligne que Paris a répétée à plusieurs reprises au fil de l'année. Aucune déclaration officielle française distincte, spécifiquement datée de ce week-end ou de ce lundi, n'a pu être identifiée à ce stade ; la position de fermeté exprimée début octobre demeure, à notre connaissance, la plus récente.</p>
+      <p>En Bulgarie, la présidente sortante Iliana Iotova, favorable au dialogue avec Moscou et hostile à un soutien militaire accru à l'Ukraine, est donnée en tête après le second tour de dimanche, avec plus de 57 % des voix contre moins de 40 % pour son rival pro-occidental Andrey Gyurov. Ce scrutin, marqué par une abstention très élevée, s'est tenu alors même que les frappes russes en mer Noire ont atteint les côtes bulgares, posant la question de la cohésion de l'Union européenne et de l'OTAN face à Moscou dans un pays directement exposé.</p>
+      <p><strong>Position de la France :</strong> aucune réaction officielle française à ce résultat électoral n'a pu être identifiée à ce stade.</p>
+      <p>Plus au sud, la rivalité de souveraineté autour des Malouines prend une tournure économique : une véritable « ruée » de pêche s'est développée dans l'Atlantique Sud, des navires venus notamment de Chine et d'Espagne intensifiant leur activité près des eaux contestées, au risque d'épuiser des stocks de poissons déjà fragiles. Le dossier reste un point de friction ancien entre le Royaume-Uni et l'Argentine, désormais compliqué par l'appétit de flottes extra-régionales.</p>
+      <p><strong>Position de la France :</strong> aucune réaction officielle française identifiée à ce stade sur ce dossier.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>La Russie exporte désormais ses céréales via l'Arctique, faute d'accès sûr à la mer Noire</li>
+        <li>Bulgarie : la présidente pro-dialogue avec Moscou, Iliana Iotova, donnée gagnante du second tour</li>
+        <li>Atlantique Sud : ruée de pêche internationale près des eaux contestées des Malouines</li>
+        <li>Aucune réaction officielle française identifiée sur la Bulgarie et les Malouines à ce stade</li>
+      </ul>
+    </div>
+    <p class="signature">Par la rédaction du Diplomate</p>
+  </article>
+
+  <article id="geoeconomie">
+    <p class="kicker"><span class="dot"></span>Géoéconomie<span class="dureeLecture">6 min</span></p>
+    <h2 class="titre">Essence record, cyber-braquage nord-coréen, ruée sur les minerais critiques</h2>
+    <p class="chapeau">Entre le record des prix à la pompe aux États-Unis, le vol de 3,6 milliards de dollars sur la plateforme Binance attribué à la Corée du Nord et la difficulté de l'Occident à transformer ses milliards d'aide en production réelle de minerais critiques, la géoéconomie du jour illustre les effets de contournement des rapports de force.</p>
+    <div class="corps">
+      <p>Le prix moyen de l'essence aux États-Unis sous le second mandat de Donald Trump s'apprête à dépasser 3,46 dollars le gallon ce lundi, un record pour une présidence américaine, dépassant le précédent pic atteint sous Joe Biden. Cette hausse, alimentée par la guerre contre l'Iran lancée en février, s'est transformée en handicap politique pour les Républicains à la veille des élections de mi-mandat, alors même que Donald Trump avait fait campagne en 2024 sur la promesse de ramener le prix du gallon à 2 dollars.</p>
+      <p>Sur un autre front, le FBI a attribué samedi à un groupe lié à la Corée du Nord le vol record de 6,3 milliards de dollars sur la plateforme d'échange de cryptomonnaies Binance, précisant s'attendre à ce que les fonds soient convertis puis « davantage blanchis ». Les utilisateurs ont retiré 3,64 milliards de dollars de la plateforme dès sa réouverture. Ce « hold-up » illustre la manière dont Pyongyang, exsangue financièrement et sous sanctions internationales, a fait du piratage informatique un pilier de son financement, contournant ainsi l'isolement économique imposé par les sanctions.</p>
+      <p>Côté matières premières stratégiques, l'effort américain de relance de la production de minerais critiques a surtout profité, pour l'instant, aux cabinets de lobbying de Washington : malgré des milliards de dollars de soutien public et une multiplication des accords, l'augmentation de la production domestique reste limitée, selon une analyse détaillée des flux de financement engagés depuis le début de l'année.</p>
+      <p>Enfin, la Banque mondiale, dans un rapport publié le 28 octobre, anticipe une hausse de 23 % des prix des matières premières en 2026, portée par les tensions sur les marchés de l'énergie et les perturbations commerciales liées aux multiples fronts géopolitiques ouverts cette année, avant un repli attendu de l'ordre de 7 % en 2027 si ces tensions se résorbent.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Record historique du prix de l'essence aux États-Unis sous Trump, lié à la guerre contre l'Iran</li>
+        <li>Vol de 6,3 milliards de dollars sur Binance attribué à un groupe nord-coréen par le FBI</li>
+        <li>Minerais critiques : milliards d'aide publique, mais production domestique toujours limitée aux États-Unis</li>
+        <li>La Banque mondiale anticipe +23 % sur les prix des matières premières en 2026</li>
+      </ul>
+    </div>
+    <p class="signature">Par la rédaction du Diplomate</p>
+  </article>
+
+  <article id="france">
+    <p class="kicker"><span class="dot"></span>France<span class="dureeLecture">5 min</span></p>
+    <h2 class="titre">Budget 2027 : l'examen se poursuit à l'Assemblée sans majorité acquise, sur fond de refroidissement météorologique</h2>
+    <p class="chapeau">Le projet de loi de finances pour 2027 continue son parcours chaotique à l'Assemblée nationale, tandis que la France s'apprête à connaître un net coup de frais en début de semaine.</p>
+    <div class="corps">
+      <p>L'examen du budget 2027 se poursuit à l'Assemblée nationale dans un climat politique et social toujours pesant. Le gouvernement de Sébastien Lecornu, qui ne dispose d'aucune majorité propre dans l'hémicycle, a déjà vu une motion de rejet déposée par les députés socialistes écartée à la mi-octobre, mais reste exposé au risque d'un recours à l'article 49.3 ou à une motion de censure si les débats s'enlisent. Ce bras de fer budgétaire, qui succède à l'échec du budget 2026, place l'exécutif dans une situation où chaque étape du calendrier parlementaire – commissions, amendements, vote en séance – est scrutée comme un test de sa survie politique.</p>
+      <p>Sur le plan météorologique, un flux continental doit s'installer sur la France en ce début de mois de novembre, avec des températures généralement inférieures de 1 à 3°C aux normales de saison, et des écarts pouvant atteindre 3 à 6°C dans le centre-est du pays. Un premier épisode de gelées matinales est attendu autour du 4 et 5 novembre dans le nord et le centre si le ciel se dégage sous un régime anticyclonique, sans toutefois constituer, selon les prévisionnistes, une vague de froid au sens météorologique du terme.</p>
+      <p>Ce climat de tension budgétaire fait écho à l'état d'esprit mesuré par les enquêtes d'opinion les plus récentes, qui montrent une large majorité de Français jugeant la situation du pays préoccupante, un contexte qui pèse directement sur la marge de manœuvre politique du gouvernement à l'approche des arbitrages budgétaires les plus sensibles.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Budget 2027 : gouvernement sans majorité, risque persistant de 49.3 ou de censure</li>
+        <li>Motion de rejet socialiste écartée à la mi-octobre, débats en cours à l'Assemblée</li>
+        <li>Coup de frais attendu en France dès le 2 novembre, gelées possibles autour du 4-5 novembre</li>
+        <li>Climat d'opinion dégradé, qui pèse sur les arbitrages budgétaires du gouvernement</li>
+      </ul>
+    </div>
+    <p class="signature">Par la rédaction du Diplomate</p>
+  </article>
+
+  <article id="regard">
+    <p class="kicker"><span class="dot"></span>Regard du Diplomate<span class="dureeLecture">3 min</span></p>
+    <h2 class="titre">Le calendrier intérieur, grand ordonnateur discret des crises internationales</h2>
+    <p class="chapeau">Un regard éditorial sur la manière dont les agendas électoraux nationaux façonnent, bien plus qu'on ne le reconnaît, le tempo des crises internationales.</p>
+    <div class="corps">
+      <p>À nos yeux, la coïncidence n'est jamais tout à fait un hasard : c'est au moment précis où les Américains s'apprêtent à voter que la crainte d'une reprise plus intense de la guerre contre l'Iran se fait la plus pressante, et c'est aussi à ce moment que le prix de l'essence, désormais record, devient un handicap politique assumé par une partie de l'appareil d'État américain lui-même. L'histoire diplomatique regorge de ces séquences où le tempo d'une crise extérieure se règle, consciemment ou non, sur celui d'une échéance intérieure. S'en souvenir est une discipline de lecture utile : avant d'interpréter une escalade ou une accalmie comme le pur produit d'une logique stratégique, il faut toujours se demander quel calendrier électoral, budgétaire ou social, chez l'un des acteurs, pourrait en expliquer le rythme.</p>
+      <p>La même grille de lecture vaut, selon nous, pour les phénomènes de contournement observés aujourd'hui : l'Arctique pour exporter des céréales russes isolées de la mer Noire, le piratage informatique pour financer un régime nord-coréen sous sanctions, les lobbyistes de Washington pour capter des subventions censées produire des minerais critiques. Dans chacun de ces cas, la pression – qu'elle soit militaire, commerciale ou financière – ne supprime pas les flux qu'elle cherche à entraver : elle les déplace, les complexifie, et souvent les rend plus coûteux pour tout le monde, y compris pour celui qui l'exerce. C'est, à notre sens, une leçon diplomatique de fond : l'efficacité réelle d'un rapport de force ou d'un régime de sanctions se mesure moins à sa sévérité affichée qu'à sa capacité à résister, dans la durée, à l'inventivité de ceux qu'il vise à contraindre.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Les agendas électoraux intérieurs pèsent souvent sur le tempo réel des crises internationales</li>
+        <li>Les sanctions et blocus déplacent les flux plutôt que de les supprimer</li>
+        <li>Point de vue éditorial, non un constat factuel</li>
+      </ul>
+    </div>
+    <p class="signature edito">L'éditorial du Diplomate</p>
+  </article>
+
+  <footer class="colophon">
+    Le Diplomate — édition générée automatiquement pour un usage d'études de diplomatie.
+  </footer>
+
+</div>
+
+<button class="listen-btn" id="listenBtn" data-playing="false" aria-pressed="false">
+  <span class="icon" aria-hidden="true">🔊</span>
+  <span id="listenLabel">Écouter</span>
+</button>
+
+<script>
+(function(){
+  var btn = document.getElementById('listenBtn');
+  var label = document.getElementById('listenLabel');
+  var synth = window.speechSynthesis;
+
+  function buildScript(){
+    var parts = [];
+    parts.push("Le Diplomate. Édition du lundi 2 novembre 2026, numéro 26.");
+    document.querySelectorAll('article').forEach(function(art){
+      var titre = art.querySelector('.titre');
+      var chapeau = art.querySelector('.chapeau');
+      var paras = art.querySelectorAll('.corps p');
+      if (titre) parts.push(titre.textContent.trim() + ".");
+      if (chapeau) parts.push(chapeau.textContent.trim());
+      paras.forEach(function(p){ parts.push(p.textContent.trim()); });
+    });
+    return parts.join(' ');
+  }
+
+  function setPlaying(isPlaying){
+    btn.setAttribute('data-playing', isPlaying ? 'true' : 'false');
+    btn.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
+    label.textContent = isPlaying ? 'Arrêter' : 'Écouter';
+  }
+
+  if (!synth){
+    btn.hidden = true;
+    return;
+  }
+
+  btn.addEventListener('click', function(){
+    if (synth.speaking){
+      synth.cancel();
+      setPlaying(false);
+      return;
+    }
+    var text = buildScript();
+    var utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'fr-FR';
+    utter.rate = 0.98;
+    utter.onend = function(){ setPlaying(false); };
+    utter.onerror = function(){ setPlaying(false); };
+    synth.speak(utter);
+    setPlaying(true);
+  });
+
+  window.addEventListener('beforeunload', function(){
+    try { synth.cancel(); } catch(e){}
+  });
+})();
+</script>
