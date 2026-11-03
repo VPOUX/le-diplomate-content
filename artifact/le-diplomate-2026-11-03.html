@@ -1,0 +1,427 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Le Diplomate — 3 novembre</title>
+<style>
+  /*
+    Layout: single-column broadsheet, masthead + rule, articles stacked with
+    hairline dividers, a small "L'essentiel" kicker box per article, a fixed
+    bottom-right listen toggle. Reads like a printed morning paper on paper stock.
+  */
+  :root{
+    --paper:#f3ecdd;
+    --paper-2:#eadfc8;
+    --ink:#1f1a14;
+    --ink-soft:#4a4035;
+    --rule:#c9b990;
+    --accent:#7a2420;
+    --accent-soft:#9c4a3f;
+    --chip-bg:#e4d6b4;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#1c1812;
+      --paper-2:#231e16;
+      --ink:#ece3d1;
+      --ink-soft:#c9bea8;
+      --rule:#5a4e34;
+      --accent:#e2a08a;
+      --accent-soft:#c97b63;
+      --chip-bg:#2e2619;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#1c1812;
+    --paper-2:#231e16;
+    --ink:#ece3d1;
+    --ink-soft:#c9bea8;
+    --rule:#5a4e34;
+    --accent:#e2a08a;
+    --accent-soft:#c97b63;
+    --chip-bg:#2e2619;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Source Serif 4","PT Serif",Georgia,serif;
+    padding-left:max(16px, env(safe-area-inset-left,0px));
+    padding-right:max(16px, env(safe-area-inset-right,0px));
+    padding-bottom:96px;
+  }
+  .wrap{max-width:720px;margin:0 auto}
+
+  .masthead{
+    padding-block:28px 14px;
+    text-align:center;
+    border-bottom:3px solid var(--ink);
+  }
+  .masthead .name{
+    font-family:"Playfair Display",Georgia,serif;
+    font-weight:900;
+    font-size:clamp(2.1rem,7vw,3.4rem);
+    letter-spacing:0.5px;
+    text-wrap:balance;
+    margin:0;
+  }
+  .masthead .tagline{
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.72rem;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-top:6px;
+  }
+  .masthead .meta{
+    display:flex;justify-content:center;gap:14px;flex-wrap:wrap;
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.72rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-top:12px;
+    padding-top:8px;
+    border-top:1px solid var(--rule);
+  }
+
+  nav.toc{
+    display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+    padding-block:16px;
+    border-bottom:1px solid var(--rule);
+  }
+  nav.toc a{
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.68rem;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--ink);
+    background:var(--chip-bg);
+    border:1px solid var(--rule);
+    border-radius:3px;
+    padding:5px 10px;
+  }
+
+  article{
+    padding-block:34px;
+    border-bottom:1px solid var(--rule);
+  }
+  article:last-of-type{border-bottom:none}
+
+  .kicker{
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.72rem;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:700;
+    display:flex;align-items:center;gap:10px;
+  }
+  .kicker .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .kicker .dureeLecture{
+    color:var(--ink-soft);
+    font-weight:400;
+    letter-spacing:0.5px;
+    margin-left:auto;
+    font-variant-numeric:tabular-nums;
+  }
+
+  h2.titre{
+    font-family:"Playfair Display",Georgia,serif;
+    font-weight:800;
+    font-size:clamp(1.5rem,5.4vw,2.05rem);
+    line-height:1.18;
+    text-wrap:balance;
+    margin:10px 0 10px;
+  }
+
+  p.chapeau{
+    font-family:"Source Serif 4","PT Serif",Georgia,serif;
+    font-style:italic;
+    font-size:1.08rem;
+    line-height:1.5;
+    color:var(--ink-soft);
+    margin:0 0 20px;
+    padding-left:14px;
+    border-left:3px solid var(--accent-soft);
+  }
+
+  .corps{max-width:38em}
+  .corps p{
+    font-size:1.03rem;
+    line-height:1.68;
+    margin:0 0 16px;
+  }
+  .corps p::first-letter{
+    font-family:"Playfair Display",Georgia,serif;
+  }
+
+  .essentiel{
+    margin-top:22px;
+    background:var(--paper-2);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    padding:16px 18px;
+    max-width:38em;
+  }
+  .essentiel h3{
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.68rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 10px;
+  }
+  .essentiel ul{margin:0;padding-left:1.1em}
+  .essentiel li{
+    font-family:"Source Serif 4","PT Serif",Georgia,serif;
+    font-size:0.92rem;
+    line-height:1.5;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+
+  .signature{
+    margin-top:18px;
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.72rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .signature.edito{color:var(--accent-soft)}
+
+  footer.colophon{
+    text-align:center;
+    padding-block:28px 16px;
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.68rem;
+    letter-spacing:1px;
+    color:var(--ink-soft);
+  }
+
+  .listen-btn{
+    position:fixed;
+    right:max(18px, calc(18px + env(safe-area-inset-right,0px)));
+    bottom:calc(18px + env(safe-area-inset-bottom,0px));
+    z-index:20;
+    display:flex;align-items:center;gap:8px;
+    background:var(--accent);
+    color:#fbf3e3;
+    border:none;
+    border-radius:999px;
+    padding:12px 18px;
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.82rem;
+    font-weight:600;
+    letter-spacing:0.3px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.28);
+    cursor:pointer;
+  }
+  .listen-btn:active{transform:translateY(1px)}
+  .listen-btn[data-playing="true"]{background:var(--accent-soft)}
+  .listen-btn .icon{font-size:1rem;line-height:1}
+
+  @media (prefers-reduced-motion:no-preference){
+    article{transition:opacity .2s ease}
+  }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;600;700&display=swap">
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="name">Le Diplomate</p>
+    <p class="tagline">Revue de presse diplomatique</p>
+    <div class="meta">
+      <span id="meta-date">mardi 3 novembre 2026</span>
+      <span>·</span>
+      <span>N° 27</span>
+      <span>·</span>
+      <span>Édition de 07:40</span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire">
+    <a href="#une">Une</a>
+    <a href="#geopolitique">Géopolitique</a>
+    <a href="#geoeconomie">Géoéconomie</a>
+    <a href="#france">France</a>
+    <a href="#regard">Regard</a>
+  </nav>
+
+  <article id="une">
+    <p class="kicker"><span class="dot"></span>Une<span class="dureeLecture">7 min</span></p>
+    <h2 class="titre">Jour de vote aux États-Unis : les midterms se jouent sous l'ombre de la guerre contre l'Iran et de la vie chère</h2>
+    <p class="chapeau">Les Américains votent ce mardi pour des élections de mi-mandat présentées comme un référendum sur Donald Trump, dans un climat marqué par la lassitude face à la guerre contre l'Iran et par la hausse du coût de la vie — sur fond de nouvelles frappes américaines sur l'île iranienne de Qeshm à la veille du scrutin.</p>
+    <div class="corps">
+      <p>Les électeurs américains se rendent aux urnes ce mardi 3 novembre pour des élections de mi-mandat qui pourraient rebattre les cartes du pouvoir au Congrès et déterminer la capacité du président Donald Trump à gouverner pour le reste de son second mandat. Les 435 sièges de la Chambre des représentants et l'intégralité des 100 sièges du Sénat sont en jeu. Selon le dernier sondage New York Times/Siena, les démocrates sont en tête dans la quasi-totalité des sept scrutins sénatoriaux les plus serrés, avec au moins cinq points d'avance dans quatre d'entre eux — des chiffres qui alimentent les spéculations sur une « vague bleue » redonnant aux démocrates la majorité dans les deux chambres.</p>
+      <p>Ce scrutin est largement perçu comme un jugement sur le bilan de Donald Trump. Selon un sondage du Financial Times, plus des deux tiers des électeurs américains se disent mécontents de la gestion présidentielle de l'inflation et du coût de la vie — une défiance alimentée par l'envolée des prix du carburant, elle-même liée à la guerre non déclarée que Washington mène contre l'Iran depuis le début de l'année. Les derniers jours de campagne ont par ailleurs été marqués par des tensions internes au camp démocrate, notamment dans le Michigan, ainsi que par des accusations visant des démocrates d'Alaska, suspectés d'avoir soutenu un candidat destiné à diviser le vote républicain. La Cour suprême des États-Unis a par ailleurs rejeté une demande de l'administration Trump visant à intervenir dans le décompte des voix en Californie.</p>
+      <p>C'est dans ce climat électoral sous tension que les forces américaines ont frappé dans la nuit des cibles sur l'île iranienne de Qeshm, dans le détroit d'Ormuz, une opération que Washington a qualifiée de strictement défensive. Cette frappe survient alors même que les prix du pétrole avaient reflué ces derniers jours sur fond d'espoirs de pourparlers entre Washington et Téhéran, le président iranien ayant indiqué que le guide suprême avait accordé à certains responsables une marge de négociation. La coïncidence entre ce regain de tension militaire et la journée électorale américaine n'a pas échappé aux observateurs, dans un contexte où la guerre contre l'Iran pèse directement sur le porte-monnaie des électeurs et, par ricochet, sur le sort électoral du camp présidentiel.</p>
+      <p>L'enjeu dépasse la seule politique intérieure américaine : le résultat de ce scrutin conditionnera la marge de manœuvre de Washington sur plusieurs dossiers internationaux ouverts simultanément, qu'il s'agisse de la poursuite de la guerre contre l'Iran, des pourparlers trilatéraux à venir avec la Russie et l'Ukraine, ou de la politique commerciale américaine envers la Chine et plusieurs pays africains. Les premiers résultats, et la lecture qui en sera faite par les partenaires et adversaires des États-Unis, seront scrutés dans toutes les capitales dès la nuit prochaine.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Élections de mi-mandat aux États-Unis : Chambre des représentants et Sénat entièrement renouvelables</li>
+        <li>Sondages NYT/Siena et FT : avance démocrate dans les swing states, impopularité de la gestion de l'inflation par Trump</li>
+        <li>Frappes américaines sur l'île iranienne de Qeshm dans la nuit précédant le scrutin, présentées comme défensives</li>
+        <li>Le résultat du vote pèsera directement sur la conduite de la guerre contre l'Iran et sur plusieurs dossiers diplomatiques en cours</li>
+      </ul>
+    </div>
+    <p class="signature">Par la rédaction du Diplomate</p>
+  </article>
+
+  <article id="geopolitique">
+    <p class="kicker"><span class="dot"></span>Géopolitique<span class="dureeLecture">8 min</span></p>
+    <h2 class="titre">Abou Dhabi, Téhéran, Jérusalem : trois fronts diplomatiques s'activent en parallèle du scrutin américain</h2>
+    <p class="chapeau">Au-delà du Golfe, un nouveau cycle de pourparlers américano-russo-ukrainiens se prépare à Abou Dhabi, tandis qu'en Israël la régularité du scrutin est publiquement contestée par le Premier ministre sortant et que les services britanniques alertent sur la montée des cyberattaques d'État.</p>
+    <div class="corps">
+      <p>Les frappes américaines sur l'île de Qeshm ne sont qu'un des fronts ouverts avec l'Iran : Washington a présenté cette opération nocturne comme une mesure défensive, destinée selon les responsables américains à réduire la menace pesant sur les forces américaines et le trafic maritime dans le détroit d'Ormuz. Téhéran n'avait pas encore formulé de réponse officielle au moment de la rédaction de cet article.</p>
+      <p><strong>Position de la France :</strong> aucune réaction officielle française n'a pu être identifiée à ce stade concernant spécifiquement ces frappes sur l'île de Qeshm.</p>
+      <p>Sur le dossier ukrainien, un nouveau cycle de pourparlers trilatéraux entre les États-Unis, la Russie et l'Ukraine doit se tenir à Abou Dhabi dans la première quinzaine de novembre — le premier contact direct de ce format depuis février. Selon le Kremlin, les discussions porteraient notamment sur les garanties de sécurité consécutives à un éventuel règlement. Moscou évoquerait une tenue autour du 10 novembre, tandis que Kiev plaide pour un calendrier plus rapide ; la Russie souhaiterait par ailleurs un format strictement trilatéral, excluant les Européens des négociations.</p>
+      <p><strong>Position de la France :</strong> aucune déclaration officielle du Quai d'Orsay ou de l'Élysée sur ce nouveau cycle de pourparlers n'a pu être identifiée à ce stade. L'exclusion annoncée des Européens du format de discussion est toutefois un point qui pourrait appeler une prise de position française dans les prochains jours, Paris ayant constamment plaidé pour une association des Européens à toute négociation touchant à la sécurité du continent.</p>
+      <p>En Israël, le président de la commission électorale centrale a publiquement démenti les accusations du Premier ministre Benyamin Netanyahou, qui affirme que le scrutin récent lui aurait été « volé » ; il a affirmé que les élections s'étaient déroulées « dans les règles ». Ce différend, inhabituel dans une démocratie alliée des Occidentaux, s'ajoute aux tensions politiques internes israéliennes déjà vives.</p>
+      <p><strong>Position de la France :</strong> aucune réaction officielle française identifiée à ce stade sur ce différend électoral israélien.</p>
+      <p>Enfin, sur le plan de la sécurité numérique, la directrice du GCHQ britannique doit avertir que les cyberattaques assistées par l'intelligence artificielle, attribuées à des acteurs chinois et russes, deviendront d'ici 2028 un phénomène « de routine », les défenses actuelles, en particulier celles des infrastructures critiques, étant jugées largement insuffisantes. Cet avertissement s'inscrit dans une série de signaux similaires émis cette année par les services de sécurité occidentaux sur l'ampleur de la menace hybride russo-chinoise.</p>
+      <p><strong>Position de la France :</strong> aucune réaction officielle française à cet avertissement britannique n'a pu être identifiée à ce stade ; l'Agence nationale de la sécurité des systèmes d'information (ANSSI) alerte régulièrement, de son côté, sur des menaces de nature comparable visant les infrastructures françaises.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Frappes américaines sur Qeshm : aucune réaction française identifiée</li>
+        <li>Pourparlers USA-Russie-Ukraine à Abou Dhabi mi-novembre, dans un format qui exclurait les Européens</li>
+        <li>Israël : le président de la commission électorale rejette les accusations de fraude de Netanyahou</li>
+        <li>Le GCHQ britannique prévoit des cyberattaques chinoises et russes assistées par l'IA « de routine » dès 2028</li>
+      </ul>
+    </div>
+    <p class="signature">Par la rédaction du Diplomate</p>
+  </article>
+
+  <article id="geoeconomie">
+    <p class="kicker"><span class="dot"></span>Géoéconomie<span class="dureeLecture">7 min</span></p>
+    <h2 class="titre">Puces, préférences commerciales et milliards de l'IA : la guerre économique se poursuit sur plusieurs continents</h2>
+    <p class="chapeau">Entre le nouveau verrou imposé par Nvidia à ses clients chinois, le retrait des préférences commerciales américaines à l'Afrique du Sud et au Rwanda et l'engagement massif d'Anthropic sur les infrastructures d'intelligence artificielle, la géoéconomie du jour illustre l'intensification de la rivalité technologique et commerciale mondiale.</p>
+    <div class="corps">
+      <p>Nvidia a demandé à ses partenaires exploitant des centres de données de réduire leur exposition à la clientèle chinoise, leur imposant de vendre désormais au moins 51 % de leurs services à des entreprises non chinoises, selon plusieurs sources proches du dossier. Cette mesure, qui s'ajoute aux restrictions américaines existantes sur l'exportation de semi-conducteurs avancés, vise à limiter davantage la capacité de la Chine à maintenir le rythme de ses rivaux américains dans la course à l'intelligence artificielle, tout en cherchant à préserver les débouchés commerciaux de l'entreprise californienne.</p>
+      <p>Washington a par ailleurs engagé une procédure pour retirer à l'Afrique du Sud et au Rwanda leur accès en franchise de droits au marché américain, invoquant à la fois des barrières commerciales persistantes et des préoccupations de sécurité nationale, dans un contexte de détérioration des relations avec Pretoria et Kigali. Cette décision, si elle se confirme, aurait des conséquences économiques significatives pour les exportateurs des deux pays, notamment dans le secteur textile, déjà fragilisé par des épisodes similaires lors du premier mandat de Donald Trump.</p>
+      <p>Sur le marché de l'énergie, le pétrole a d'abord reflué ces derniers jours sur fond d'espoirs de pourparlers entre Washington et Téhéran, avant que les nouvelles frappes sur l'île de Qeshm ne viennent raviver l'incertitude ; le baril de Brent évoluait mardi matin autour de 105 dollars. Cette volatilité illustre la sensibilité persistante des marchés énergétiques mondiaux au moindre mouvement du dossier iranien, plus d'un an après le déclenchement du conflit.</p>
+      <p>Dans le secteur technologique, Anthropic a confirmé s'être engagée à dépenser près de 900 milliards de dollars dans les infrastructures d'intelligence artificielle au cours des prochaines années, afin de soutenir une croissance jugée indispensable face à une concurrence mondiale où les dépenses d'investissement progressent plus vite que les revenus. Cet engagement illustre l'ampleur des sommes désormais mobilisées par les grands acteurs de l'IA, dans une course aux capacités de calcul qui redessine également la géographie mondiale de la demande en électricité et en composants électroniques.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Nvidia impose un quota de 51 % de clients non chinois à ses partenaires de centres de données</li>
+        <li>Washington engage le retrait des préférences commerciales AGOA pour l'Afrique du Sud et le Rwanda</li>
+        <li>Le baril de Brent, redescendu sur fond d'espoirs diplomatiques, reste sous la pression du dossier iranien</li>
+        <li>Anthropic confirme un engagement de près de 900 milliards de dollars sur les infrastructures d'IA</li>
+      </ul>
+    </div>
+    <p class="signature">Par la rédaction du Diplomate</p>
+  </article>
+
+  <article id="france">
+    <p class="kicker"><span class="dot"></span>France<span class="dureeLecture">5 min</span></p>
+    <h2 class="titre">Budget 2027 : la bataille parlementaire continue, grève nationale annoncée à la SNCF jeudi</h2>
+    <p class="chapeau">Le gouvernement de Sébastien Lecornu poursuit son travail d'équilibriste budgétaire sans majorité à l'Assemblée, tandis que les syndicats de cheminots appellent à une grève nationale pour la journée de jeudi.</p>
+    <div class="corps">
+      <p>Le projet de budget 2027, présenté par Sébastien Lecornu avec un objectif affiché de 54 milliards d'euros d'économies pour contenir le déficit public, continue son parcours parlementaire dans un climat politique tendu. Le Premier ministre, qui ne dispose d'aucune majorité propre à l'Assemblée nationale, a réaffirmé ne pas être candidat à l'élection présidentielle de 2027 et défend un budget qu'il qualifie de « réversible », tout en mettant en garde contre les risques d'un blocage prolongé des décisions publiques. La France insoumise a d'ores et déjà annoncé son intention de censurer le gouvernement sur ce texte, tandis que le Parti socialiste a de son côté rejeté tout chantage parlementaire sur le sujet.</p>
+      <p>Sur le plan social, les quatre organisations syndicales représentatives de la SNCF — CGT-Cheminots, Unsa-Ferroviaire, Sud-Rail et CFDT-Cheminots — ont lancé un appel commun à la grève pour la journée de jeudi 5 novembre, avec des perturbations attendues sur l'ensemble du réseau ferroviaire national dont l'ampleur reste, à ce stade, incertaine.</p>
+      <p>Ce climat de tension budgétaire et sociale s'inscrit dans un calendrier parlementaire contraint : le Parlement dispose de 70 jours pour examiner le projet de loi de finances, soit jusqu'au 26 novembre, et de 50 jours pour le projet de loi de financement de la sécurité sociale, échéance fixée à la mi-décembre. Chaque étape de ce parcours est désormais scrutée comme un indicateur de la survie politique du gouvernement.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Budget 2027 : objectif de 54 milliards d'euros d'économies, gouvernement sans majorité à l'Assemblée</li>
+        <li>La France insoumise annonce son intention de censurer le gouvernement sur ce texte</li>
+        <li>Grève nationale à la SNCF annoncée pour jeudi 5 novembre</li>
+        <li>Échéance parlementaire du 26 novembre pour le vote du budget</li>
+      </ul>
+    </div>
+    <p class="signature">Par la rédaction du Diplomate</p>
+  </article>
+
+  <article id="regard">
+    <p class="kicker"><span class="dot"></span>Regard du Diplomate<span class="dureeLecture">3 min</span></p>
+    <h2 class="titre">Quand la légitimité électorale devient elle-même un terrain de confrontation</h2>
+    <p class="chapeau">Un regard éditorial sur la manière dont la contestation de la légitimité électorale, de Washington à Jérusalem, devient un instrument diplomatique à part entière.</p>
+    <div class="corps">
+      <p>À nos yeux, le jour du scrutin américain offre une illustration presque parfaite d'un phénomène plus large : la légitimité électorale, longtemps considérée comme une affaire purement intérieure, est devenue un enjeu diplomatique en soi. Qu'un Premier ministre israélien conteste publiquement la régularité d'une élection, que la Cour suprême américaine soit saisie d'un contentieux électoral avec des répercussions sur la politique étrangère de Washington, ou que les prix du carburant liés à une guerre lointaine pèsent sur le vote d'une puissance mondiale : dans chacun de ces cas, c'est la solidité même du contrat démocratique qui devient, aux yeux des partenaires et adversaires, une variable à intégrer dans l'analyse de risque. Un diplomate avisé ne lit donc plus seulement les résultats d'un scrutin ; il lit aussi la manière dont ce scrutin est accepté, contesté ou instrumentalisé par les acteurs en présence, car c'est souvent dans cette contestation elle-même que se niche l'information la plus utile sur la stabilité future d'un partenaire.</p>
+      <p>La même économie de l'esquive se retrouve, selon nous, dans les rapports de force de nature plus technique : le quota imposé par Nvidia à ses clients chinois, le retrait des préférences commerciales américaines à deux pays africains, ou l'exclusion annoncée des Européens d'un format de négociation sur l'Ukraine, sont autant de façons de déplacer un rapport de force sans recourir à la confrontation ouverte. Ce sont des instruments de politique de puissance à part entière, simplement plus discrets que la force militaire — et c'est précisément cette discrétion qui en fait, à notre sens, des signaux diplomatiques à surveiller avec la même attention qu'un mouvement de troupes : ils révèlent, souvent avec plus de franchise que les discours officiels, où se situent réellement les lignes de fracture du moment.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>La contestation de la légitimité électorale devient un instrument diplomatique à part entière</li>
+        <li>Les leviers économiques et commerciaux (puces, préférences tarifaires, formats d'exclusion) sont des signaux de rapport de force à lire comme tels</li>
+        <li>Point de vue éditorial, non un constat factuel</li>
+      </ul>
+    </div>
+    <p class="signature edito">L'éditorial du Diplomate</p>
+  </article>
+
+  <footer class="colophon">
+    Le Diplomate — édition générée automatiquement pour un usage d'études de diplomatie.
+  </footer>
+
+</div>
+
+<button class="listen-btn" id="listenBtn" data-playing="false" aria-pressed="false">
+  <span class="icon" aria-hidden="true">🔊</span>
+  <span id="listenLabel">Écouter</span>
+</button>
+
+<script>
+(function(){
+  var btn = document.getElementById('listenBtn');
+  var label = document.getElementById('listenLabel');
+  var synth = window.speechSynthesis;
+
+  function buildScript(){
+    var parts = [];
+    parts.push("Le Diplomate. Édition du mardi 3 novembre 2026, numéro 27.");
+    document.querySelectorAll('article').forEach(function(art){
+      var titre = art.querySelector('.titre');
+      var chapeau = art.querySelector('.chapeau');
+      var paras = art.querySelectorAll('.corps p');
+      if (titre) parts.push(titre.textContent.trim() + ".");
+      if (chapeau) parts.push(chapeau.textContent.trim());
+      paras.forEach(function(p){ parts.push(p.textContent.trim()); });
+    });
+    return parts.join(' ');
+  }
+
+  function setPlaying(isPlaying){
+    btn.setAttribute('data-playing', isPlaying ? 'true' : 'false');
+    btn.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
+    label.textContent = isPlaying ? 'Arrêter' : 'Écouter';
+  }
+
+  if (!synth){
+    btn.hidden = true;
+    return;
+  }
+
+  btn.addEventListener('click', function(){
+    if (synth.speaking){
+      synth.cancel();
+      setPlaying(false);
+      return;
+    }
+    var text = buildScript();
+    var utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'fr-FR';
+    utter.rate = 0.98;
+    utter.onend = function(){ setPlaying(false); };
+    utter.onerror = function(){ setPlaying(false); };
+    synth.speak(utter);
+    setPlaying(true);
+  });
+
+  window.addEventListener('beforeunload', function(){
+    try { synth.cancel(); } catch(e){}
+  });
+})();
+</script>
