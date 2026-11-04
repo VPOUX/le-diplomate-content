@@ -1,0 +1,427 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Le Diplomate — 4 novembre</title>
+<style>
+  /*
+    Layout: single-column broadsheet, masthead + rule, articles stacked with
+    hairline dividers, a small "L'essentiel" kicker box per article, a fixed
+    bottom-right listen toggle. Reads like a printed morning paper on paper stock.
+  */
+  :root{
+    --paper:#f3ecdd;
+    --paper-2:#eadfc8;
+    --ink:#1f1a14;
+    --ink-soft:#4a4035;
+    --rule:#c9b990;
+    --accent:#7a2420;
+    --accent-soft:#9c4a3f;
+    --chip-bg:#e4d6b4;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#1c1812;
+      --paper-2:#231e16;
+      --ink:#ece3d1;
+      --ink-soft:#c9bea8;
+      --rule:#5a4e34;
+      --accent:#e2a08a;
+      --accent-soft:#c97b63;
+      --chip-bg:#2e2619;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#1c1812;
+    --paper-2:#231e16;
+    --ink:#ece3d1;
+    --ink-soft:#c9bea8;
+    --rule:#5a4e34;
+    --accent:#e2a08a;
+    --accent-soft:#c97b63;
+    --chip-bg:#2e2619;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Source Serif 4","PT Serif",Georgia,serif;
+    padding-left:max(16px, env(safe-area-inset-left,0px));
+    padding-right:max(16px, env(safe-area-inset-right,0px));
+    padding-bottom:96px;
+  }
+  .wrap{max-width:720px;margin:0 auto}
+
+  .masthead{
+    padding-block:28px 14px;
+    text-align:center;
+    border-bottom:3px solid var(--ink);
+  }
+  .masthead .name{
+    font-family:"Playfair Display",Georgia,serif;
+    font-weight:900;
+    font-size:clamp(2.1rem,7vw,3.4rem);
+    letter-spacing:0.5px;
+    text-wrap:balance;
+    margin:0;
+  }
+  .masthead .tagline{
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.72rem;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-top:6px;
+  }
+  .masthead .meta{
+    display:flex;justify-content:center;gap:14px;flex-wrap:wrap;
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.72rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-top:12px;
+    padding-top:8px;
+    border-top:1px solid var(--rule);
+  }
+
+  nav.toc{
+    display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+    padding-block:16px;
+    border-bottom:1px solid var(--rule);
+  }
+  nav.toc a{
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.68rem;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--ink);
+    background:var(--chip-bg);
+    border:1px solid var(--rule);
+    border-radius:3px;
+    padding:5px 10px;
+  }
+
+  article{
+    padding-block:34px;
+    border-bottom:1px solid var(--rule);
+  }
+  article:last-of-type{border-bottom:none}
+
+  .kicker{
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.72rem;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:700;
+    display:flex;align-items:center;gap:10px;
+  }
+  .kicker .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .kicker .dureeLecture{
+    color:var(--ink-soft);
+    font-weight:400;
+    letter-spacing:0.5px;
+    margin-left:auto;
+    font-variant-numeric:tabular-nums;
+  }
+
+  h2.titre{
+    font-family:"Playfair Display",Georgia,serif;
+    font-weight:800;
+    font-size:clamp(1.5rem,5.4vw,2.05rem);
+    line-height:1.18;
+    text-wrap:balance;
+    margin:10px 0 10px;
+  }
+
+  p.chapeau{
+    font-family:"Source Serif 4","PT Serif",Georgia,serif;
+    font-style:italic;
+    font-size:1.08rem;
+    line-height:1.5;
+    color:var(--ink-soft);
+    margin:0 0 20px;
+    padding-left:14px;
+    border-left:3px solid var(--accent-soft);
+  }
+
+  .corps{max-width:38em}
+  .corps p{
+    font-size:1.03rem;
+    line-height:1.68;
+    margin:0 0 16px;
+  }
+  .corps p::first-letter{
+    font-family:"Playfair Display",Georgia,serif;
+  }
+
+  .essentiel{
+    margin-top:22px;
+    background:var(--paper-2);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    padding:16px 18px;
+    max-width:38em;
+  }
+  .essentiel h3{
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.68rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 10px;
+  }
+  .essentiel ul{margin:0;padding-left:1.1em}
+  .essentiel li{
+    font-family:"Source Serif 4","PT Serif",Georgia,serif;
+    font-size:0.92rem;
+    line-height:1.5;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+
+  .signature{
+    margin-top:18px;
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.72rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .signature.edito{color:var(--accent-soft)}
+
+  footer.colophon{
+    text-align:center;
+    padding-block:28px 16px;
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.68rem;
+    letter-spacing:1px;
+    color:var(--ink-soft);
+  }
+
+  .listen-btn{
+    position:fixed;
+    right:max(18px, calc(18px + env(safe-area-inset-right,0px)));
+    bottom:calc(18px + env(safe-area-inset-bottom,0px));
+    z-index:20;
+    display:flex;align-items:center;gap:8px;
+    background:var(--accent);
+    color:#fbf3e3;
+    border:none;
+    border-radius:999px;
+    padding:12px 18px;
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.82rem;
+    font-weight:600;
+    letter-spacing:0.3px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.28);
+    cursor:pointer;
+  }
+  .listen-btn:active{transform:translateY(1px)}
+  .listen-btn[data-playing="true"]{background:var(--accent-soft)}
+  .listen-btn .icon{font-size:1rem;line-height:1}
+
+  @media (prefers-reduced-motion:no-preference){
+    article{transition:opacity .2s ease}
+  }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;600;700&display=swap">
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="name">Le Diplomate</p>
+    <p class="tagline">Revue de presse diplomatique</p>
+    <div class="meta">
+      <span id="meta-date">mercredi 4 novembre 2026</span>
+      <span>·</span>
+      <span>N° 28</span>
+      <span>·</span>
+      <span>Édition de 07:36</span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire">
+    <a href="#une">Une</a>
+    <a href="#geopolitique">Géopolitique</a>
+    <a href="#geoeconomie">Géoéconomie</a>
+    <a href="#france">France</a>
+    <a href="#regard">Regard du Diplomate</a>
+  </nav>
+
+  <article id="une">
+    <p class="kicker"><span class="dot"></span>Une<span class="dureeLecture">5 min</span></p>
+    <h2 class="titre">Vague bleue aux midterms américains : Trump affaibli à la veille d'un possible sommet avec Poutine et Xi</h2>
+    <p class="chapeau">Les démocrates reprennent le contrôle du Sénat américain, infligeant à Donald Trump son premier revers électoral majeur depuis son retour au pouvoir, au moment même où se dessine un sommet trilatéral inédit avec la Russie et la Chine.</p>
+    <div class="corps">
+      <p>Les élections de mi-mandat du 3 novembre ont tourné à la déroute pour le camp républicain. Selon les projections de l'agence Associated Press relayées par le Financial Times, les démocrates ont repris la majorité au Sénat américain, en arrachant des sièges dans des territoires jusque-là acquis aux républicains : le Texas, où James Talarico a devancé le candidat choisi personnellement par Donald Trump, Ken Paxton ; le Kansas, un État que les démocrates n'avaient pas remporté au Sénat depuis 1932 ; mais aussi l'Iowa, la Caroline du Nord, la Caroline du Sud et l'Ohio. À la Chambre des représentants, les démocrates avaient déjà repris huit sièges au moment de la rédaction, avec une tendance qui s'annonce plus large encore selon les analystes cités par le FT.</p>
+      <p>Dans les États pivots, des figures démocrates ont également conforté leurs positions : Jon Ossoff a conservé son siège en Géorgie, tandis qu'Abdul El-Sayed luttait pour maintenir l'ancrage du parti dans le Michigan. Un second tour sénatorial pourrait encore se tenir en Géorgie en décembre selon certaines sources, information toutefois non confirmée de manière définitive à ce stade.</p>
+      <p>Les sondages évoqués par le Financial Times attribuent ce recul républicain à la colère de l'électorat face à la gestion de l'économie par Donald Trump, exacerbée par la flambée du prix des carburants consécutive à la guerre menée contre l'Iran et par la hausse générale du coût de la vie. Dans une tribune, l'éditorialiste Edward Luce estime que l'implication très directe du président dans plusieurs campagnes locales s'est retournée contre son propre camp, une lecture qui reste un point de vue d'analyste et non un fait établi.</p>
+      <p>Ce désaveu intérieur survient à un moment diplomatique chargé : Washington, Moscou et Pékin évoquent la possibilité d'une rencontre tripartite entre Donald Trump, Vladimir Poutine et Xi Jinping en marge du sommet de l'APEC, prévu les 18 et 19 novembre à Shenzhen. Un Trump fragilisé dans ses urnes abordera cette échéance avec une marge de manœuvre intérieure réduite, alors même que les enjeux ukrainien et commercial sino-américain y seront au cœur des discussions.</p>
+      <p>Sur le plan intérieur, l'affaiblissement de la majorité républicaine complique aussi la suite du mandat présidentiel, les deux chambres du Congrès pouvant désormais freiner ou infléchir l'agenda législatif et budgétaire de la Maison Blanche pour les deux dernières années du mandat.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Les démocrates reprennent la majorité au Sénat américain en gagnant des sièges dans des États traditionnellement républicains (Texas, Kansas, Iowa, Ohio, Carolines).</li>
+        <li>La colère liée à la hausse du coût de la vie et des prix de l'énergie, conséquence indirecte de la guerre en Iran, est citée comme facteur clé du vote.</li>
+        <li>Ce revers intérieur précède de deux semaines un possible sommet trilatéral Trump-Poutine-Xi à l'APEC de Shenzhen (18-19 novembre).</li>
+        <li>Un second tour sénatorial pourrait encore se tenir en Géorgie en décembre, information à confirmer.</li>
+      </ul>
+    </div>
+    <p class="signature">Par la rédaction du Diplomate</p>
+  </article>
+
+  <article id="geopolitique">
+    <p class="kicker"><span class="dot"></span>Géopolitique<span class="dureeLecture">6 min</span></p>
+    <h2 class="titre">Sommet APEC, dossier iranien, sanctions contre la CPI et troubles en Serbie : les autres fronts diplomatiques du jour</h2>
+    <p class="chapeau">Au-delà du séisme électoral américain, plusieurs dossiers diplomatiques avancent en parallèle : un éventuel sommet Trump-Poutine-Xi, la poursuite de l'impasse iranienne, l'escalade des sanctions américaines contre la justice pénale internationale, et une nouvelle secousse politico-financière à Belgrade.</p>
+    <div class="corps">
+      <p>Selon le Kremlin, Vladimir Poutine et Donald Trump ont évoqué, lors d'un échange téléphonique, l'idée d'une rencontre à trois avec Xi Jinping en marge du sommet de l'APEC à Shenzhen, les 18 et 19 novembre. Le porte-parole russe Dmitri Peskov a confirmé qu'une telle option existait réellement, tandis que le conseiller diplomatique Iouri Ouchakov précise qu'aucune modalité pratique n'a encore été arrêtée. Une rencontre bilatérale Poutine-Xi est en revanche déjà programmée en marge du sommet. Moscou lie par ailleurs un éventuel déplacement de Vladimir Poutine à un G20 à Miami aux résultats concrets qui pourraient émerger des discussions de Shenzhen sur le dossier ukrainien.</p>
+      <p><strong>Position de la France :</strong> aucune réaction officielle française spécifique à cette hypothèse de sommet trilatéral n'a été identifiée à ce stade. La position constante exprimée à plusieurs reprises par Emmanuel Macron reste que les Ukrainiens doivent être associés à toute négociation touchant à l'avenir de leur pays ; rien n'indique cependant que l'Élysée ait réagi spécifiquement à cette annonce du Kremlin.</p>
+      <p>Sur le dossier iranien, Donald Trump a déclaré au Financial Times ne pas avoir de projet immédiat de frappe contre l'Iran, qualifiant sa position de bras de fer avec Téhéran de brillante, tout en se disant prêt à une nouvelle escalade militaire si nécessaire. Washington maintient une pression militaire significative dans la région, avec le déploiement d'un troisième groupe aéronaval vers le Golfe persique selon plusieurs sources de presse. Des pourparlers se poursuivraient par l'intermédiaire de médiateurs, Téhéran posant sept conditions préalables jugées par Washington difficiles à accepter en l'état.</p>
+      <p><strong>Position de la France :</strong> aucune réaction officielle française identifiée à ce stade sur cette déclaration précise de Donald Trump. Le Quai d'Orsay avait convoqué, le 7 octobre, l'ambassadeur iranien en France, mais pour un motif distinct : une campagne de désinformation visant le mouvement lycéen français. Paris maintient par ailleurs ses appels antérieurs à la libération des ressortissants français détenus en Iran et à la désescalade régionale.</p>
+      <p>Autre dossier sensible, celui des sanctions américaines visant la Cour pénale internationale (CPI) : après de nouvelles mesures prises le 20 août contre la présidente de la Cour et un membre du Bureau du Procureur, qui s'ajoutent à celles déjà visant onze magistrats, la France a formellement condamné, le 9 octobre, ces sanctions institutionnelles et exige leur retrait.</p>
+      <p><strong>Position de la France :</strong> le gouvernement français indique qu'il se mobilisera avec ses partenaires européens et les États parties au Statut de Rome, y compris, si nécessaire, en recourant au règlement européen de blocage contre les effets extraterritoriaux des sanctions américaines. Ce mécanisme n'est toutefois pas encore activé : l'Union européenne, malgré plusieurs résolutions du Parlement européen en ce sens, ne l'a pas encore déclenché à ce jour.</p>
+      <p>Enfin, en Serbie, l'arrestation du propriétaire de la banque Alta, Davor Macura, relance les tensions politiques à Belgrade. L'opposition, par la voix de la vice-présidente du Parti de la liberté et de la justice Marinika Tepić, accuse cet établissement d'avoir servi de façade aux opérations financières de l'entourage du président Aleksandar Vučić ; il s'agit pour l'instant d'une accusation politique, sans confirmation judiciaire indépendante. Cette affaire s'inscrit dans un climat de contestation anticorruption qui agite la Serbie depuis plusieurs mois.</p>
+      <p><strong>Position de la France :</strong> aucune réaction officielle française identifiée à ce stade concernant cette affaire serbe.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Kremlin et Washington évoquent un sommet trilatéral Trump-Poutine-Xi à l'APEC de Shenzhen (18-19 novembre), sans modalités pratiques arrêtées.</li>
+        <li>Trump exclut une frappe immédiate contre l'Iran mais maintient une forte pression militaire régionale ; les négociations via médiateurs se poursuivent.</li>
+        <li>La France condamne fermement les nouvelles sanctions américaines contre la CPI et envisage le règlement de blocage européen, non encore activé par l'UE.</li>
+        <li>L'arrestation du patron de la banque Alta ravive les tensions politico-financières en Serbie, sur fond d'accusations visant l'entourage du président Vučić.</li>
+      </ul>
+    </div>
+    <p class="signature">Par la rédaction du Diplomate</p>
+  </article>
+
+  <article id="geoeconomie">
+    <p class="kicker"><span class="dot"></span>Géoéconomie<span class="dureeLecture">5 min</span></p>
+    <h2 class="titre">Le gaz qatarien bascule vers les États-Unis, la Turquie secouée par un scandale financier, Pretoria et Kigali perdent leurs préférences commerciales</h2>
+    <p class="chapeau">La guerre au Moyen-Orient redessine la carte énergétique mondiale, tandis qu'un scandale de fraude de près de 20 milliards de dollars ébranle la confiance dans l'économie turque et que Washington resserre ses outils commerciaux en Afrique australe et de l'Est.</p>
+    <div class="corps">
+      <p>QatarEnergy est en voie de devenir le plus grand acheteur mondial de gaz naturel liquéfié (GNL) américain au début de la prochaine décennie, selon des informations du Financial Times. La compagnie qatarienne a signé un accord de fourniture de vingt ans avec l'australien Woodside Energy portant sur sa plateforme de Louisiane, avec des premières livraisons attendues à partir de 2030. Ce virage s'explique par la guerre au Moyen-Orient, qui a perturbé les capacités d'exportation du Qatar - son complexe gazier ayant notamment été touché en mars 2026 selon plusieurs sources de presse spécialisée - et pousse Doha à diversifier ses sources d'approvisionnement pour honorer ses propres contrats de revente, notamment vers la Chine, son premier marché d'exportation. Les États-Unis, déjà premier exportateur mondial de GNL depuis 2023, devant le Qatar, voient ainsi leur position se renforcer encore davantage dans la recomposition énergétique mondiale induite par le conflit.</p>
+      <p>En Turquie, un scandale financier d'ampleur continue de secouer la confiance des marchés. Les autorités turques ont placé en liquidation, le 17 septembre, cent trente-et-un fonds d'investissement gérés par sept sociétés, soupçonnés d'avoir attiré plus de 455 000 petits épargnants avec la promesse de rendements pouvant atteindre 1 000 %. Les estimations du préjudice varient fortement selon les sources : environ 20 milliards de dollars selon des calculs relayés par Reuters, 826 milliards de livres turques selon la presse locale, ou encore 18 milliards de dollars selon Al-Monitor, qui compare l'affaire au scandale Madoff. Le ministre turc de la Justice, Akin Gürlek, a promis le remboursement des victimes, dont l'ampleur exacte reste néanmoins débattue. L'ancienne ministre de la Famille, Fatma Betül Sayan Kaya, a par ailleurs démissionné et vu ses avoirs gelés, l'opposition l'accusant d'avoir profité d'informations privilégiées aux côtés de son époux.</p>
+      <p>Sur le front commercial, le Financial Times rapporte que Washington prépare le retrait de l'accès en franchise de droits de douane dont bénéficiaient jusqu'ici l'Afrique du Sud et le Rwanda. Cette information, encore peu détaillée à ce stade et non corroborée de manière indépendante par d'autres sources au moment de la rédaction, s'inscrit dans la ligne commerciale plus dure adoptée par l'administration américaine à l'égard de plusieurs partenaires africains ces dernières années, notamment au titre du cadre de l'AGOA (African Growth and Opportunity Act).</p>
+      <p>Enfin, sur le plan monétaire, Eurostat doit publier ce mercredi 4 novembre, à 11 heures (heure de Paris), son estimation rapide de l'inflation de la zone euro pour le mois d'octobre. Le mois de septembre avait déjà marqué une accélération notable, à 3,8 % en rythme annuel contre 3,2 % en août, un niveau qui, s'il se confirmait ou se renforçait en octobre, pourrait peser sur les futures décisions de la Banque centrale européenne et, par ricochet, sur la situation budgétaire de plusieurs États membres, dont la France.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>QatarEnergy est en passe de devenir le premier acheteur mondial de GNL américain via un accord de vingt ans avec Woodside, conséquence directe des perturbations liées à la guerre au Moyen-Orient.</li>
+        <li>La Turquie fait face à un scandale financier estimé entre 18 et 20 milliards de dollars, touchant plus de 455 000 petits épargnants.</li>
+        <li>Washington prépare, selon le Financial Times, le retrait des préférences commerciales accordées à l'Afrique du Sud et au Rwanda (information à confirmer).</li>
+        <li>Eurostat publie ce jour son estimation de l'inflation d'octobre en zone euro, après un bond à 3,8 % en septembre.</li>
+      </ul>
+    </div>
+    <p class="signature">Par la rédaction du Diplomate</p>
+  </article>
+
+  <article id="france">
+    <p class="kicker"><span class="dot"></span>France<span class="dureeLecture">4 min</span></p>
+    <h2 class="titre">Grève nationale à la SNCF le 5 novembre, bataille budgétaire à l'Assemblée</h2>
+    <p class="chapeau">À la veille d'une mobilisation cheminote d'ampleur inhabituelle, le gouvernement Lecornu engage une course contre le temps pour faire adopter son budget 2027 avant l'échéance présidentielle, sous la menace d'une censure de La France insoumise.</p>
+    <div class="corps">
+      <p>Les quatre organisations syndicales représentatives de la SNCF - CGT-Cheminots, UNSA-Ferroviaire, SUD-Rail et CFDT-Cheminots - appellent à une grève nationale le jeudi 5 novembre, avec un front syndical jugé inhabituellement large par plusieurs observateurs. Selon certaines sources, cette mobilisation pourrait s'élargir en grève interprofessionnelle plus vaste, la CGT ayant appelé à une mobilisation générale à laquelle la CFDT et le syndicat enseignant Snes-FSU se joindraient également. Les revendications portent sur les salaires, l'emploi et les conditions de travail. La SNCF n'a pas encore communiqué le nombre de trains qui seront supprimés, cette information n'étant généralement donnée que la veille du mouvement. Le mouvement intervient au moment du retour des vacances de la Toussaint et à la veille de l'inauguration de la nouvelle ligne TGV M, ce qui fait craindre une forte saturation du réseau routier par report de trafic.</p>
+      <p>Sur le plan budgétaire, le gouvernement de Sébastien Lecornu poursuit l'examen de son projet de loi de finances pour 2027, présenté en conseil des ministres le 1er octobre et déposé à l'Assemblée nationale le 6 octobre. Qualifié d'offensif par le Premier ministre, le texte prévoit un effort d'économies de 54 milliards d'euros. Le Parlement dispose de soixante-dix jours pour examiner et adopter le budget général, jusqu'au 26 novembre, et de cinquante jours pour le budget de la Sécurité sociale, jusqu'au 17 décembre. Sébastien Lecornu plaide pour une adoption du texte avant l'élection présidentielle, avertissant que l'attendre reviendrait, selon ses mots, à choisir le désordre.</p>
+      <p>Le chef du gouvernement doit néanmoins composer avec une Assemblée nationale sans majorité. Jean-Luc Mélenchon a annoncé que les députés de La France insoumise déposeraient une motion de censure contre ce budget, tandis que le premier secrétaire du Parti socialiste, Boris Vallaud, a reconnu la nécessité d'un budget pour la France tout en affirmant qu'il ne s'agirait pas de celui de Sébastien Lecornu. Le dénouement de ce bras de fer parlementaire reste à ce stade incertain.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Grève nationale SNCF le 5 novembre, avec un front syndical large et un risque d'élargissement en mobilisation interprofessionnelle.</li>
+        <li>Le budget 2027 de Sébastien Lecornu, qui prévoit 54 milliards d'euros d'économies, doit être adopté par l'Assemblée avant le 26 novembre.</li>
+        <li>La France insoumise annonce une motion de censure ; le dénouement parlementaire reste incertain.</li>
+      </ul>
+    </div>
+    <p class="signature">Par la rédaction du Diplomate</p>
+  </article>
+
+  <article id="regard">
+    <p class="kicker"><span class="dot"></span>Regard du Diplomate<span class="dureeLecture">3 min</span></p>
+    <h2 class="titre">Quand la politique intérieure dicte la diplomatie</h2>
+    <p class="chapeau">La journée illustre, à sa manière, une loi ancienne des relations internationales : aucune négociation extérieure ne se mène jamais tout à fait hors du regard de l'électeur domestique.</p>
+    <div class="corps">
+      <p>Il y a quelque chose d'enseignant, pour qui étudie la diplomatie, à voir un même homme sortir affaibli des urnes de son pays le jour même où se profile l'un des rendez-vous internationaux les plus scrutés de l'année. Ce n'est pas un hasard de calendrier mais une régularité que la science politique a nommée, depuis les travaux de Robert Putnam dans les années 1980, le jeu à deux niveaux : tout dirigeant négocie simultanément avec ses partenaires étrangers et avec sa propre opinion, et la marge de manœuvre qu'il détient à la table internationale dépend directement de celle qu'il conserve chez lui. Un président fragilisé par un revers électoral n'arrive jamais à un sommet en position de force identique à celle qu'il aurait eue la veille d'une victoire ; ses interlocuteurs le savent, et ajustent leurs propres exigences en conséquence.</p>
+      <p>Cette lecture reste un point de vue éditorial, et non un pronostic : elle ne dit rien de ce qui se passera réellement à Shenzhen, ni de la forme que prendra, ou non, un dialogue à trois entre Washington, Moscou et Pékin. Mais elle invite à une forme de prudence dans l'analyse diplomatique au jour le jour : les postures affichées à l'extérieur sont rarement lisibles sans la carte, souvent moins visible, des contraintes intérieures qui les ont précédées. C'est aussi, sans doute, ce qui rend la diplomatie plus intéressante à observer qu'à pratiquer : elle oblige à lire deux échiquiers à la fois, celui que l'on montre et celui que l'on subit.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Le jeu à deux niveaux (Putnam) rappelle que la force d'un dirigeant à la table internationale dépend de sa marge de manœuvre intérieure.</li>
+        <li>Un revers électoral n'est jamais sans conséquence sur la posture diplomatique qui suit.</li>
+        <li>Point de vue éditorial : à lire comme une grille d'analyse, non comme une prédiction.</li>
+      </ul>
+    </div>
+    <p class="signature edito">L'éditorial du Diplomate</p>
+  </article>
+
+  <footer class="colophon">
+    Le Diplomate — édition générée automatiquement pour un usage d'études de diplomatie.
+  </footer>
+
+</div>
+
+<button class="listen-btn" id="listenBtn" data-playing="false" aria-pressed="false">
+  <span class="icon" aria-hidden="true">🔊</span>
+  <span id="listenLabel">Écouter</span>
+</button>
+
+<script>
+(function(){
+  var btn = document.getElementById('listenBtn');
+  var label = document.getElementById('listenLabel');
+  var synth = window.speechSynthesis;
+
+  function buildScript(){
+    var parts = [];
+    parts.push("Le Diplomate. Édition du mercredi 4 novembre 2026, numéro 28.");
+    document.querySelectorAll('article').forEach(function(art){
+      var titre = art.querySelector('.titre');
+      var chapeau = art.querySelector('.chapeau');
+      var paras = art.querySelectorAll('.corps p');
+      if (titre) parts.push(titre.textContent.trim() + ".");
+      if (chapeau) parts.push(chapeau.textContent.trim());
+      paras.forEach(function(p){ parts.push(p.textContent.trim()); });
+    });
+    return parts.join(' ');
+  }
+
+  function setPlaying(isPlaying){
+    btn.setAttribute('data-playing', isPlaying ? 'true' : 'false');
+    btn.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
+    label.textContent = isPlaying ? 'Arrêter' : 'Écouter';
+  }
+
+  if (!synth){
+    btn.hidden = true;
+    return;
+  }
+
+  btn.addEventListener('click', function(){
+    if (synth.speaking){
+      synth.cancel();
+      setPlaying(false);
+      return;
+    }
+    var text = buildScript();
+    var utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'fr-FR';
+    utter.rate = 0.98;
+    utter.onend = function(){ setPlaying(false); };
+    utter.onerror = function(){ setPlaying(false); };
+    synth.speak(utter);
+    setPlaying(true);
+  });
+
+  window.addEventListener('beforeunload', function(){
+    try { synth.cancel(); } catch(e){}
+  });
+})();
+</script>
