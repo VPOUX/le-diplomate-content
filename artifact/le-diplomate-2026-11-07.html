@@ -1,0 +1,427 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Le Diplomate — 7 novembre</title>
+<style>
+  /*
+    Layout: single-column broadsheet, masthead + rule, articles stacked with
+    hairline dividers, a small "L'essentiel" kicker box per article, a fixed
+    bottom-right listen toggle. Reads like a printed morning paper on paper stock.
+  */
+  :root{
+    --paper:#f3ecdd;
+    --paper-2:#eadfc8;
+    --ink:#1f1a14;
+    --ink-soft:#4a4035;
+    --rule:#c9b990;
+    --accent:#7a2420;
+    --accent-soft:#9c4a3f;
+    --chip-bg:#e4d6b4;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#1c1812;
+      --paper-2:#231e16;
+      --ink:#ece3d1;
+      --ink-soft:#c9bea8;
+      --rule:#5a4e34;
+      --accent:#e2a08a;
+      --accent-soft:#c97b63;
+      --chip-bg:#2e2619;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#1c1812;
+    --paper-2:#231e16;
+    --ink:#ece3d1;
+    --ink-soft:#c9bea8;
+    --rule:#5a4e34;
+    --accent:#e2a08a;
+    --accent-soft:#c97b63;
+    --chip-bg:#2e2619;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Source Serif 4","PT Serif",Georgia,serif;
+    padding-left:max(16px, env(safe-area-inset-left,0px));
+    padding-right:max(16px, env(safe-area-inset-right,0px));
+    padding-bottom:96px;
+  }
+  .wrap{max-width:720px;margin:0 auto}
+
+  .masthead{
+    padding-block:28px 14px;
+    text-align:center;
+    border-bottom:3px solid var(--ink);
+  }
+  .masthead .name{
+    font-family:"Playfair Display",Georgia,serif;
+    font-weight:900;
+    font-size:clamp(2.1rem,7vw,3.4rem);
+    letter-spacing:0.5px;
+    text-wrap:balance;
+    margin:0;
+  }
+  .masthead .tagline{
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.72rem;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-top:6px;
+  }
+  .masthead .meta{
+    display:flex;justify-content:center;gap:14px;flex-wrap:wrap;
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.72rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-top:12px;
+    padding-top:8px;
+    border-top:1px solid var(--rule);
+  }
+
+  nav.toc{
+    display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+    padding-block:16px;
+    border-bottom:1px solid var(--rule);
+  }
+  nav.toc a{
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.68rem;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--ink);
+    background:var(--chip-bg);
+    border:1px solid var(--rule);
+    border-radius:3px;
+    padding:5px 10px;
+  }
+
+  article{
+    padding-block:34px;
+    border-bottom:1px solid var(--rule);
+  }
+  article:last-of-type{border-bottom:none}
+
+  .kicker{
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.72rem;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:700;
+    display:flex;align-items:center;gap:10px;
+  }
+  .kicker .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .kicker .dureeLecture{
+    color:var(--ink-soft);
+    font-weight:400;
+    letter-spacing:0.5px;
+    margin-left:auto;
+    font-variant-numeric:tabular-nums;
+  }
+
+  h2.titre{
+    font-family:"Playfair Display",Georgia,serif;
+    font-weight:800;
+    font-size:clamp(1.5rem,5.4vw,2.05rem);
+    line-height:1.18;
+    text-wrap:balance;
+    margin:10px 0 10px;
+  }
+
+  p.chapeau{
+    font-family:"Source Serif 4","PT Serif",Georgia,serif;
+    font-style:italic;
+    font-size:1.08rem;
+    line-height:1.5;
+    color:var(--ink-soft);
+    margin:0 0 20px;
+    padding-left:14px;
+    border-left:3px solid var(--accent-soft);
+  }
+
+  .corps{max-width:38em}
+  .corps p{
+    font-size:1.03rem;
+    line-height:1.68;
+    margin:0 0 16px;
+  }
+  .corps p::first-letter{
+    font-family:"Playfair Display",Georgia,serif;
+  }
+
+  .essentiel{
+    margin-top:22px;
+    background:var(--paper-2);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    padding:16px 18px;
+    max-width:38em;
+  }
+  .essentiel h3{
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.68rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 10px;
+  }
+  .essentiel ul{margin:0;padding-left:1.1em}
+  .essentiel li{
+    font-family:"Source Serif 4","PT Serif",Georgia,serif;
+    font-size:0.92rem;
+    line-height:1.5;
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+
+  .signature{
+    margin-top:18px;
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.72rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .signature.edito{color:var(--accent-soft)}
+
+  footer.colophon{
+    text-align:center;
+    padding-block:28px 16px;
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.68rem;
+    letter-spacing:1px;
+    color:var(--ink-soft);
+  }
+
+  .listen-btn{
+    position:fixed;
+    right:max(18px, calc(18px + env(safe-area-inset-right,0px)));
+    bottom:calc(18px + env(safe-area-inset-bottom,0px));
+    z-index:20;
+    display:flex;align-items:center;gap:8px;
+    background:var(--accent);
+    color:#fbf3e3;
+    border:none;
+    border-radius:999px;
+    padding:12px 18px;
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:0.82rem;
+    font-weight:600;
+    letter-spacing:0.3px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.28);
+    cursor:pointer;
+  }
+  .listen-btn:active{transform:translateY(1px)}
+  .listen-btn[data-playing="true"]{background:var(--accent-soft)}
+  .listen-btn .icon{font-size:1rem;line-height:1}
+
+  @media (prefers-reduced-motion:no-preference){
+    article{transition:opacity .2s ease}
+  }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;600;700&display=swap">
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="name">Le Diplomate</p>
+    <p class="tagline">Revue de presse diplomatique</p>
+    <div class="meta">
+      <span id="meta-date">samedi 7 novembre 2026</span>
+      <span>·</span>
+      <span>N° 31</span>
+      <span>·</span>
+      <span>Édition de 08:10</span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire">
+    <a href="#une">Une</a>
+    <a href="#geopolitique">Géopolitique</a>
+    <a href="#geoeconomie">Géoéconomie</a>
+    <a href="#france">France</a>
+    <a href="#regard">Regard du Diplomate</a>
+  </nav>
+
+  <article id="une">
+    <p class="kicker"><span class="dot"></span>Une<span class="dureeLecture">6 min</span></p>
+    <h2 class="titre">Wall Street tremble, Trump recompose son cabinet : l'Amérique digère sa déroute électorale</h2>
+    <p class="chapeau">Trois jours après la défaite historique des républicains aux élections de mi-mandat, 3 200 milliards de dollars se sont évaporés des marchés américains et Donald Trump a limogé sa cheffe de cabinet au profit de Stephen Miller.</p>
+    <div class="corps">
+      <p>Trois jours après la déroute du camp républicain lors des élections de mi-mandat du 3 novembre, les marchés américains ont vécu une séance de panique. Le S&amp;P Composite 1500, qui regroupe l'essentiel des sociétés cotées aux États-Unis, a perdu environ 3 200 milliards de dollars de capitalisation en une seule journée, la plus forte chute de valeur depuis le tournant du millénaire. Le Nasdaq 100, dominé par les géants de l'intelligence artificielle, a plongé de 6,4 %.</p>
+      <p>La cause immédiate de cette panique n'est pas seulement financière : elle est politique. La campagne électorale démocrate a largement porté sur la régulation de l'intelligence artificielle et sur le ralentissement de la frénésie de construction de centres de données, certains candidats promettant explicitement de faire payer ce qu'ils ont appelé la « classe milliardaire de l'IA ». Échaudés par la perspective d'un encadrement plus strict, voire d'une pause dans le développement des modèles d'IA de pointe réclamée par une partie du camp démocrate, les investisseurs ont déserté en masse le pari sur l'intelligence artificielle qui dominait les marchés actions depuis près de deux ans.</p>
+      <p>La secousse s'est propagée à l'Asie dès le lendemain : le Nikkei de Tokyo a cédé 6 %, sa plus mauvaise séance depuis le déclenchement de la guerre commerciale américaine en avril 2025, tandis que le Kospi sud-coréen, porté par les fabricants de semi-conducteurs, perdait également 6 %. Un rebond s'est ensuite amorcé à Wall Street, mais jugé « poussif » par les analystes au regard des reprises historiques observées après de telles corrections. Il est en outre fragilisé par la publication, le même jour, de chiffres de l'emploi américain meilleurs qu'attendu (165 000 créations de postes en octobre), qui renforcent les anticipations d'un marché du travail encore tendu et compliquent la tâche de la Réserve fédérale.</p>
+      <p>Sur le plan politique, Donald Trump a répondu à la défaite électorale par un geste spectaculaire : le remplacement de sa cheffe de cabinet Susie Wiles par Stephen Miller, artisan de la politique migratoire la plus dure de son second mandat. Loin d'un repli, ce choix signale un durcissement de la ligne présidentielle à l'approche d'une seconde partie de mandat désormais privée de majorité pleine au Congrès.</p>
+      <p><strong>Position de la France :</strong> aucune réaction officielle n'a été exprimée par l'Élysée ou le Quai d'Orsay sur ce remaniement interne de l'exécutif américain, qui relève de la politique intérieure d'un État partenaire et n'appelle traditionnellement pas de commentaire public de Paris.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>3 200 milliards de dollars effacés en une séance sur les marchés américains, pire chute depuis 2000.</li>
+        <li>La régulation de l'intelligence artificielle, enjeu de campagne démocrate, au cœur de la panique boursière.</li>
+        <li>Contagion en Asie : Nikkei et Kospi en baisse de 6 %.</li>
+        <li>Trump remplace Susie Wiles par le très droitier Stephen Miller comme chef de cabinet.</li>
+      </ul>
+    </div>
+    <p class="signature">Par la rédaction du Diplomate</p>
+  </article>
+
+  <article id="geopolitique">
+    <p class="kicker"><span class="dot"></span>Géopolitique<span class="dureeLecture">7 min</span></p>
+    <h2 class="titre">L'Europe face aux ondes de choc américaines et russes</h2>
+    <p class="chapeau">Entre une possible association de la Russie à un futur cadre de sécurité européen, une vague d'alertes à la bombe suspectées d'origine russe et un appel qatari à la désescalade sur l'Iran, trois dossiers rappellent la vulnérabilité du continent.</p>
+    <div class="corps">
+      <p>Trois dossiers dominent l'agenda diplomatique de ce vendredi, tous liés, d'une manière ou d'une autre, à la question de la sécurité du continent européen.</p>
+      <p>Selon plusieurs informations concordantes, l'administration Trump travaillerait à un nouveau « cadre » de sécurité pour l'Europe dans lequel la Russie serait associée aux discussions sur l'architecture de sécurité du continent, en marge des négociations sur un futur accord de paix en Ukraine. Cette perspective a suscité l'inquiétude de plusieurs capitales européennes, qui craignent d'être tenues à l'écart d'un arrangement engageant pourtant leur propre sécurité.</p>
+      <p><strong>Position de la France :</strong> aucune déclaration officielle datée de ce jour n'a pu être identifiée sur cette hypothèse précise. Paris a toutefois constamment rappelé, lors des précédents rounds de négociation sur l'Ukraine, qu'aucune décision affectant les intérêts de l'Europe et de l'OTAN ne saurait être prise sans le soutien conjoint des Européens, et a exigé des garanties de sécurité « robustes » avant toute discussion sur un règlement territorial.</p>
+      <p>Parallèlement, une vague inhabituelle d'alertes à la bombe a perturbé, ces derniers jours, au moins sept vols ainsi qu'un paquebot de croisière à travers l'Europe, provoquant la fermeture temporaire d'un aéroport près de Varsovie, le déroutement d'un avion de la compagnie Ryanair escorté par la chasse italienne, et l'évacuation de rédactions de presse en Irlande. Plusieurs services de sécurité européens explorent l'hypothèse d'une origine russe, dans la continuité d'une série d'actes de sabotage déjà attribués à Moscou ou à Téhéran ces derniers mois, sans qu'aucune preuve formelle n'ait pour l'instant été rendue publique.</p>
+      <p><strong>Position de la France :</strong> aucune réaction officielle française n'a été identifiée à ce stade concernant cette vague d'alertes.</p>
+      <p>Enfin, au Proche-Orient, le Qatar a appelé Donald Trump à privilégier la voie diplomatique dans son différend avec l'Iran, alors que plusieurs États de la région cherchent à éviter une nouvelle escalade. Téhéran, qui a ouvertement célébré la défaite électorale du président américain, est par ailleurs soupçonné d'être lié à des navires repérés à proximité de câbles sous-marins de télécommunications en Europe, après avoir menacé de représailles en cas de reprise des frappes contre son territoire.</p>
+      <p><strong>Position de la France :</strong> aucune réaction officielle française n'a été identifiée à ce stade sur ce dossier.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Washington envisagerait d'associer la Russie à un futur cadre de sécurité européenne.</li>
+        <li>Vague d'alertes à la bombe suspectée d'origine russe contre des vols et un aéroport polonais.</li>
+        <li>Le Qatar appelle à la désescalade entre Washington et Téhéran.</li>
+        <li>Aucune réaction officielle française confirmée sur ces trois dossiers à ce stade.</li>
+      </ul>
+    </div>
+    <p class="signature">Par la rédaction du Diplomate</p>
+  </article>
+
+  <article id="geoeconomie">
+    <p class="kicker"><span class="dot"></span>Géoéconomie<span class="dureeLecture">6 min</span></p>
+    <h2 class="titre">Terres rares, robots et fonte brute : la guerre économique mondiale s'intensifie</h2>
+    <p class="chapeau">Washington accuse Pékin de ne pas honorer l'accord de Busan sur les terres rares, la Chine bloquerait un rachat technologique japonais, et la Russie réoriente ses exportations de métal vers l'Arctique pour contourner sanctions et frappes ukrainiennes.</p>
+    <div class="corps">
+      <p>Washington a sommé Pékin de respecter « immédiatement » les termes de l'accord commercial conclu à Busan il y a un an entre Donald Trump et Xi Jinping. Le représentant américain au Commerce, Jamieson Greer, accuse la Chine de ne pas honorer ses engagements d'approvisionnement en terres rares et autres minéraux critiques, alors que la trêve commerciale bilatérale vient d'être prolongée jusqu'au 10 janvier. Washington avait renoncé, dans le cadre de cet accord, à une surtaxe de 100 % sur les produits chinois, en échange d'une levée temporaire des restrictions chinoises à l'export de terres rares ; cet équilibre apparaît aujourd'hui fragile.</p>
+      <p>Dans le secteur technologique, la Chine bloquerait le rachat par le groupe japonais SoftBank de la division robotique du groupe ABB, une opération évaluée à 5,4 milliards de dollars. Ce geste menacerait directement les ambitions de son fondateur, Masayoshi Son, dans la robotique et l'intelligence artificielle, et illustre la manière dont les autorités chinoises utilisent désormais le contrôle des fusions-acquisitions comme un levier géopolitique dans la rivalité technologique avec les États-Unis et leurs alliés.</p>
+      <p>Sur le front énergétique et minier, la Russie a commencé à exporter sa fonte brute par la voie arctique, via le port de Mourmansk, pour la première fois depuis trente ans. Cette réorientation logistique vise à contourner à la fois les sanctions occidentales qui pèsent sur les routes traditionnelles et l'intensification des frappes ukrainiennes contre le trafic maritime en mer Noire, par où transitait jusqu'ici l'essentiel de ces exportations.</p>
+      <p>Ces trois dossiers illustrent une même tendance de fond : la fragmentation des chaînes de valeur stratégiques, qu'il s'agisse de minéraux critiques, de robotique avancée ou de matières premières sanctionnées, se poursuit indépendamment, et parfois en dépit, des trêves commerciales officiellement affichées.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Washington accuse Pékin de ne pas respecter l'accord de Busan sur les terres rares.</li>
+        <li>Trêve commerciale sino-américaine prolongée jusqu'au 10 janvier.</li>
+        <li>La Chine bloquerait le rachat de la division robotique d'ABB par SoftBank (5,4 Md$).</li>
+        <li>La Russie exporte sa fonte brute via l'Arctique pour contourner sanctions et frappes ukrainiennes.</li>
+      </ul>
+    </div>
+    <p class="signature">Par la rédaction du Diplomate</p>
+  </article>
+
+  <article id="france">
+    <p class="kicker"><span class="dot"></span>France<span class="dureeLecture">5 min</span></p>
+    <h2 class="titre">Acte IV : la France retourne dans la rue à six mois de la présidentielle</h2>
+    <p class="chapeau">Deux jours après une grève générale massivement suivie, un nouvel « Acte IV » de mobilisation sociale se tient ce samedi, sur fond de crise budgétaire persistante.</p>
+    <div class="corps">
+      <p>La France connaît ce samedi 7 novembre un nouvel épisode de mobilisation sociale, baptisé « Acte IV » par ses organisateurs, deux jours après une grève générale interprofessionnelle qui a réuni, selon les sources, entre 575 000 personnes selon le ministère de l'Intérieur et environ 1,6 million de manifestants selon la CGT à travers le pays. Un dispositif de sécurité exceptionnel, mobilisant environ 70 000 policiers et gendarmes, a été reconduit pour cette nouvelle journée d'action.</p>
+      <p>À Paris, le cortège intersyndical doit relier la place de la République à la place de la Nation en passant par le boulevard Voltaire, selon un parcours validé par la préfecture de police, tandis qu'un rassemblement distinct est appelé place de la Concorde dans la tradition des « gilets jaunes ». Le mouvement, qui a pris la forme de plusieurs samedis de mobilisation successifs depuis la mi-octobre (550 000 manifestants le 17 octobre et 320 000 le 31 octobre selon l'Intérieur), traduit une convergence inédite entre jeunesse scolarisée, salariés syndiqués et collectifs mobilisés sur le pouvoir d'achat.</p>
+      <p>Cette agitation sociale se greffe sur une crise budgétaire persistante. Le gouvernement de Sébastien Lecornu, qui ne dispose d'aucune majorité à l'Assemblée nationale, défend un projet de budget pour 2027 prévoyant 54 milliards d'euros d'économies, destiné à ramener le déficit public à 5 % du PIB. Jean-Luc Mélenchon a promis que La France insoumise déposerait une motion de censure contre ce texte, tandis que M. Lecornu, qui a réaffirmé ne pas être candidat à l'élection présidentielle de 2027, met en garde contre la tentation d'attendre l'échéance électorale pour trancher les choix budgétaires.</p>
+      <p>Des incidents isolés ont par ailleurs été signalés en marge des mobilisations de la semaine, notamment à Lyon, où des poubelles ont été incendiées devant un lycée et huit personnes interpellées.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>« Acte IV » : nouvelle journée de mobilisation nationale ce 7 novembre, 70 000 policiers mobilisés.</li>
+        <li>Grève du 5 novembre : entre 575 000 (Intérieur) et 1,6 million (CGT) manifestants selon les sources.</li>
+        <li>Budget 2027 : 54 milliards d'euros d'économies annoncés, La France insoumise promet la censure.</li>
+        <li>Convergence inédite entre jeunesse, syndicats et mouvement de la « vie chère ».</li>
+      </ul>
+    </div>
+    <p class="signature">Par la rédaction du Diplomate</p>
+  </article>
+
+  <article id="regard">
+    <p class="kicker"><span class="dot"></span>Regard du Diplomate<span class="dureeLecture">4 min</span></p>
+    <h2 class="titre">Ce que la rue dit de la politique étrangère</h2>
+    <p class="chapeau">Washington et Paris rappellent, chacun à leur manière, que la politique étrangère ne se comprend jamais indépendamment de la politique intérieure qui la porte ou qui la contraint.</p>
+    <div class="corps">
+      <p>Il existe une tentation, en diplomatie, de traiter la politique intérieure d'un État comme un simple bruit de fond, extérieur à l'analyse des rapports de force internationaux. La journée d'aujourd'hui invite à s'en méfier. Qu'il s'agisse de Washington, où un basculement électoral intérieur sur la question de l'intelligence artificielle fait trembler les marchés mondiaux et pousse un président affaibli à durcir son équipe plutôt qu'à l'ouvrir, ou de Paris, où la contestation sociale du jour s'enracine dans une crise budgétaire qui conditionnera la marge de manœuvre extérieure du pays pour les mois à venir, le constat est le même : la politique étrangère ne se comprend jamais indépendamment de la politique intérieure qui la porte, ou qui la contraint.</p>
+      <p>Ce principe, cher aux classiques de la pensée diplomatique, mérite toutefois d'être manié avec prudence : il ne s'agit pas d'un déterminisme mécanique, mais d'une grille de lecture parmi d'autres. Un gouvernement fragilisé chez lui peut aussi bien se montrer prudent à l'extérieur que, au contraire, chercher dans l'affirmation internationale un exutoire à ses difficultés domestiques — l'histoire offre des exemples dans les deux sens. Face à l'incertitude qui entoure, par exemple, les intentions américaines sur l'architecture de sécurité européenne ou la trajectoire budgétaire française, le réflexe diplomatique le plus sûr n'est donc pas de prédire, mais d'observer avec constance l'articulation entre les fragilités internes d'un partenaire ou d'un rival et les signaux qu'il envoie à l'extérieur. C'est, précisément, la vocation de cette revue.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>La politique intérieure éclaire toujours la politique étrangère, sans jamais la déterminer entièrement.</li>
+        <li>Prudence recommandée face aux lectures mécanistes des crises domestiques.</li>
+      </ul>
+    </div>
+    <p class="signature edito">L'éditorial du Diplomate</p>
+  </article>
+
+  <footer class="colophon">
+    Le Diplomate — édition générée automatiquement pour un usage d'études de diplomatie.
+  </footer>
+
+</div>
+
+<button class="listen-btn" id="listenBtn" data-playing="false" aria-pressed="false">
+  <span class="icon" aria-hidden="true">🔊</span>
+  <span id="listenLabel">Écouter</span>
+</button>
+
+<script>
+(function(){
+  var btn = document.getElementById('listenBtn');
+  var label = document.getElementById('listenLabel');
+  var synth = window.speechSynthesis;
+
+  function buildScript(){
+    var parts = [];
+    parts.push("Le Diplomate. Édition du samedi 7 novembre 2026, numéro 31.");
+    document.querySelectorAll('article').forEach(function(art){
+      var titre = art.querySelector('.titre');
+      var chapeau = art.querySelector('.chapeau');
+      var paras = art.querySelectorAll('.corps p');
+      if (titre) parts.push(titre.textContent.trim() + ".");
+      if (chapeau) parts.push(chapeau.textContent.trim());
+      paras.forEach(function(p){ parts.push(p.textContent.trim()); });
+    });
+    return parts.join(' ');
+  }
+
+  function setPlaying(isPlaying){
+    btn.setAttribute('data-playing', isPlaying ? 'true' : 'false');
+    btn.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
+    label.textContent = isPlaying ? 'Arrêter' : 'Écouter';
+  }
+
+  if (!synth){
+    btn.hidden = true;
+    return;
+  }
+
+  btn.addEventListener('click', function(){
+    if (synth.speaking){
+      synth.cancel();
+      setPlaying(false);
+      return;
+    }
+    var text = buildScript();
+    var utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'fr-FR';
+    utter.rate = 0.98;
+    utter.onend = function(){ setPlaying(false); };
+    utter.onerror = function(){ setPlaying(false); };
+    synth.speak(utter);
+    setPlaying(true);
+  });
+
+  window.addEventListener('beforeunload', function(){
+    try { synth.cancel(); } catch(e){}
+  });
+})();
+</script>
