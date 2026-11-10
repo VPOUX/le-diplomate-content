@@ -1,0 +1,481 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Le Diplomate</title>
+<style>
+/* Layout: broadsheet masthead, single reading column, paper texture, sticky section nav */
+:root {
+  --paper: #f3ede0;
+  --paper-2: #ece4d2;
+  --ink: #241f16;
+  --ink-soft: #55493a;
+  --rule: #c9bb9e;
+  --accent: #7a2f22;
+  --accent-soft: #b5543f;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1b1813;
+    --paper-2: #221f18;
+    --ink: #ece3d2;
+    --ink-soft: #c2b59b;
+    --rule: #4a4232;
+    --accent: #d98a6f;
+    --accent-soft: #e4a98f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #1b1813;
+  --paper-2: #221f18;
+  --ink: #ece3d2;
+  --ink-soft: #c2b59b;
+  --rule: #4a4232;
+  --accent: #d98a6f;
+  --accent-soft: #e4a98f;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: var(--paper-2);
+}
+
+.wrap { max-width: 680px; margin: 0 auto; padding-bottom: 64px; }
+
+header.masthead {
+  padding-top: max(28px, env(safe-area-inset-top, 0px));
+  padding-bottom: 18px;
+  border-bottom: 3px double var(--rule);
+  text-align: center;
+}
+.kicker {
+  font-family: 'Space Grotesk', Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.masthead h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 900;
+  font-size: clamp(2.4rem, 9vw, 3.4rem);
+  margin: 6px 0 4px;
+  letter-spacing: 0.01em;
+}
+.masthead .tagline {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+.masthead .edition-line {
+  margin-top: 14px;
+  font-family: 'Space Grotesk', Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.toolbar {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 5;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.toolbar::-webkit-scrollbar { display: none; }
+.nav-link {
+  font-family: 'Space Grotesk', Arial, sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 4px 2px;
+  border-bottom: 2px solid transparent;
+}
+.nav-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+.listen-btn {
+  margin-left: auto;
+  flex: 0 0 auto;
+  font-family: 'Space Grotesk', Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  background: var(--accent);
+  color: var(--paper);
+  border: none;
+  border-radius: 999px;
+  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.listen-btn:active { transform: translateY(1px); }
+.listen-btn[data-playing="true"] { background: var(--accent-soft); }
+
+.section {
+  padding: 34px 0;
+  border-bottom: 1px solid var(--rule);
+  scroll-margin-top: 56px;
+}
+.section:last-of-type { border-bottom: none; }
+.rubrique-tag {
+  font-family: 'Space Grotesk', Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.section h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(1.4rem, 5.5vw, 1.9rem);
+  line-height: 1.18;
+  margin: 0 0 10px;
+  text-wrap: balance;
+}
+.chapeau {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+.meta-row {
+  font-family: 'Space Grotesk', Arial, sans-serif;
+  font-size: 11.5px;
+  color: var(--ink-soft);
+  letter-spacing: 0.03em;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+.dot { opacity: 0.6; }
+.corps p {
+  font-size: 1.08rem;
+  line-height: 1.68;
+  margin: 0 0 16px;
+  max-width: 100%;
+}
+.corps p::first-letter {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+.essentiel {
+  margin-top: 22px;
+  padding: 16px 18px;
+  background: var(--paper-2);
+  border-left: 3px solid var(--accent);
+  border-radius: 2px;
+}
+.essentiel-label {
+  font-family: 'Space Grotesk', Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.essentiel ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.essentiel li {
+  font-family: 'Space Grotesk', Arial, sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin-bottom: 6px;
+  color: var(--ink);
+}
+.essentiel li:last-child { margin-bottom: 0; }
+
+mark.reading {
+  background: transparent;
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-soft);
+}
+
+footer.colophon {
+  text-align: center;
+  padding: 28px 0 10px;
+  font-family: 'Space Grotesk', Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+
+@media (max-width: 440px) {
+  .masthead h1 { font-size: 2.1rem; }
+  .corps p { font-size: 1.02rem; }
+}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Space+Grotesk:wght@400;500&display=swap">
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="kicker">Revue de presse diplomatique &middot; édition quotidienne</div>
+    <h1>Le Diplomate</h1>
+    <div class="tagline">Comprendre le monde, une édition à la fois</div>
+    <div class="edition-line">
+      <span>10 novembre 2026</span>
+      <span>&middot;</span>
+      <span>N&deg;&nbsp;34</span>
+      <span>&middot;</span>
+      <span>07:30</span>
+    </div>
+  </header>
+
+  <nav class="toolbar">
+    <a href="#sec-1" class="nav-link">À la une</a>
+<a href="#sec-2" class="nav-link">Géopolitique</a>
+<a href="#sec-3" class="nav-link">Géoéconomie</a>
+<a href="#sec-4" class="nav-link">France</a>
+<a href="#sec-5" class="nav-link">Le regard du diplomate</a>
+    <button class="listen-btn" id="listenBtn" data-playing="false" aria-pressed="false">
+      <span id="listenIcon">&#128266;</span>
+      <span id="listenLabel">Écouter</span>
+    </button>
+  </nav>
+
+  <main>
+    
+<article class="section" id="sec-1" data-ordre="1">
+  <div class="rubrique-tag">À la une</div>
+  <h2>Abou Dhabi : un quatrième round de pourparlers russo-ukrainiens s'ouvre sous la menace de nouvelles frappes russes</h2>
+  <p class="chapeau">Négociateurs russes, ukrainiens et américains se retrouvent les 10 et 11 novembre à Abou Dhabi, au lendemain de la réunion du G7 à Paris, alors que Volodymyr Zelensky met en garde contre des frappes russes visant les ponts du Dniepr et le réseau énergétique ukrainien.</p>
+  <div class="meta-row">
+    <span class="duree">7 min de lecture</span>
+    <span class="dot">&middot;</span>
+    <span class="signature">Par la rédaction du Diplomate</span>
+  </div>
+  <div class="corps" id="text-1">
+    <p>Des négociateurs russes, ukrainiens et américains se réunissent ce 10 novembre et le 11 novembre à Abou Dhabi pour un quatrième round de pourparlers trilatéraux depuis janvier 2026, après deux sessions dans la même ville émirienne puis une à Genève, toutes restées sans accord. La délégation russe est conduite par le conseiller présidentiel Vladimir Medinsky, tandis que l'émissaire américain Steve Witkoff et le gendre du président Trump, Jared Kushner, représentent Washington. Selon Witkoff, les échanges doivent porter sur un cadre de sécurité pour l'après-guerre, des mesures de désescalade, des dispositions humanitaires et les conditions d'une sortie de la guerre, qui entre dans sa cinquième année.</p>
+<p>Ce round s'ouvre dans un climat dégradé sur le terrain. Le président ukrainien Volodymyr Zelensky a averti disposer de renseignements sur une attaque russe de grande ampleur en préparation contre les infrastructures énergétiques et les ponts franchissant le Dniepr, après que des frappes ont déjà endommagé plusieurs ouvrages majeurs de Kyiv, dont le pont Nord, provoquant une interruption de la circulation et des dégâts aux réseaux électriques de la capitale. Selon la Financial Times, ces frappes visent, aux yeux de Kyiv, à couper les liaisons énergétiques et de transport entre les deux rives du fleuve, menaçant de scinder le pays à la veille même des discussions d'Abou Dhabi.</p>
+<p>La séquence diplomatique s'inscrit dans la continuité de la réunion des ministres des Affaires étrangères du G7 tenue les 9 et 10 novembre à Paris sous présidence française, assortie d'une conférence de financement pour l'Ukraine organisée avec la Banque européenne pour la reconstruction et le développement. Elle intervient aussi après que l'Union européenne, par la voix de sa cheffe de la diplomatie Kaja Kallas, a écarté le 7 novembre un projet américain d'accord de sécurité couvrant l'ensemble du continent avec la Russie, Kallas affirmant que l'UE dispose déjà de sa propre architecture de sécurité. Le ministre ukrainien des Affaires étrangères, Andrii Sybiha, a de son côté insisté sur le fait que ni l'avenir de l'Ukraine ni la sécurité de l'Europe ne sauraient être tranchés sans la participation directe des deux parties concernées.</p>
+<p>Aucune issue précise n'a été communiquée à ce stade sur le contenu des discussions d'Abou Dhabi. Les trois rounds précédents n'ont débouché sur aucune percée formelle, et les observateurs évoquent, au mieux, un « timide rapprochement » entre Moscou et Kyiv, sans changement sur le fond des positions respectives.</p>
+  </div>
+  <div class="essentiel">
+    <div class="essentiel-label">L'essentiel</div>
+    <ul>
+      <li>Quatrième round de négociations trilatérales Russie-Ukraine-États-Unis ouvert le 10 novembre à Abou Dhabi, sans issue connue à ce stade</li>
+<li>Zelensky met en garde contre des frappes russes visant les ponts du Dniepr et le réseau énergétique, au risque de scinder le pays</li>
+<li>L'UE écarte un projet américain d'accord de sécurité paneuropéen avec la Russie ; Kyiv réclame sa participation directe à toute décision</li>
+<li>Ce round suit la réunion du G7 à Paris et une conférence de financement pour l'Ukraine organisée les 9 et 10 novembre</li>
+    </ul>
+  </div>
+</article>
+
+<article class="section" id="sec-2" data-ordre="2">
+  <div class="rubrique-tag">Géopolitique</div>
+  <h2>Cyberattaques attribuées à l'Iran, sécurité européenne, COP31 : les autres fronts diplomatiques du jour</h2>
+  <p class="chapeau">Paris attribue à Téhéran les cyberattaques ayant visé des centaines de supermarchés français, l'Union européenne écarte un projet de sécurité paneuropéen avec Moscou, et la COP31 se poursuit à Antalya avant un sommet des chefs d'État les 11 et 12 novembre.</p>
+  <div class="meta-row">
+    <span class="duree">7 min de lecture</span>
+    <span class="dot">&middot;</span>
+    <span class="signature">Par la rédaction du Diplomate</span>
+  </div>
+  <div class="corps" id="text-2">
+    <p>La ministre française des Affaires étrangères a accusé les autorités iraniennes d'être à l'origine de cyberattaques « extrêmement graves » ayant visé, en octobre, les systèmes de réfrigération commerciale de plusieurs centaines de supermarchés français, essentiellement des enseignes Intermarché et Netto. L'attaque avait fait grimper la température de certains équipements jusqu'à 50°C, provoquant des pertes alimentaires et, dans certains cas, des départs de feu. L'Agence nationale de la sécurité des systèmes d'information avait identifié une vulnérabilité dans un logiciel du fabricant danois Danfoss, sans établir si elle avait joué un rôle dans l'attaque, et le parquet de Paris avait ouvert une enquête. L'attribution à l'Iran, rendue publique ce 10 novembre par la cheffe de la diplomatie française, relance les inquiétudes sur la sécurité alimentaire du pays face à des actions hybrides visant des infrastructures civiles.</p>
+<p>Position de la France : cette déclaration constitue en elle-même la position officielle française sur le dossier, la ministre des Affaires étrangères ayant personnellement formulé l'accusation contre Téhéran. Paris n'a pas encore précisé publiquement les suites qu'elle entend donner à cette attribution, qu'il s'agisse de sanctions ou de mesures diplomatiques.</p>
+<p>Par ailleurs, l'Union européenne a écarté le 7 novembre un projet de l'administration américaine visant à conclure avec la Russie un accord de sécurité couvrant l'ensemble du continent européen. La cheffe de la diplomatie européenne, Kaja Kallas, s'exprimant à Varsovie, a affirmé que l'Union européenne dispose déjà de sa propre architecture de sécurité. Le ministre ukrainien des Affaires étrangères, Andrii Sybiha, a réaffirmé que ni l'avenir de l'Ukraine ni la sécurité de l'Europe ne pouvaient être décidés sans la participation directe de Kyiv et des Européens, à la veille des pourparlers d'Abou Dhabi.</p>
+<p>Position de la France : aucune déclaration officielle française datée spécifiquement sur ce rejet du projet américain n'a pu être identifiée à ce stade. Paris maintient toutefois, de façon constante depuis le Conseil européen de juin 2026, la position selon laquelle aucune décision sur l'architecture de sécurité du continent ne saurait être prise sans l'Union européenne et sans l'Ukraine elle-même.</p>
+<p>Enfin, la COP31 des Nations unies sur le climat entre dans sa deuxième journée à Antalya, en Turquie, avant un sommet des chefs d'État et de gouvernement prévu les 11 et 12 novembre sous le thème d'un « avenir durable, résilient et équitable ». La présidence turque, confiée à Murat Kurum, a affirmé détenir la décision finale en cas de désaccord avec l'Australie, chargée d'animer les négociations selon le compromis trouvé en amont de la conférence.</p>
+<p>Position de la France : Paris maintient la position défendue depuis l'ouverture de la conférence, à savoir l'inscription d'un objectif d'électrification contraignant — conditionné à la décarbonation de la production électrique — plus ambitieux que l'objectif de 35 % porté par la présidence turque, ainsi que la défense du rôle du GIEC comme référence scientifique dans les négociations.</p>
+  </div>
+  <div class="essentiel">
+    <div class="essentiel-label">L'essentiel</div>
+    <ul>
+      <li>La ministre française des Affaires étrangères attribue à l'Iran les cyberattaques ayant visé les systèmes de réfrigération de plusieurs centaines de supermarchés en France</li>
+<li>L'UE écarte un projet américain d'accord de sécurité paneuropéen avec la Russie ; Kyiv insiste sur sa participation directe à toute décision la concernant</li>
+<li>La COP31 se poursuit à Antalya avant un sommet des chefs d'État les 11 et 12 novembre, sur fond de désaccord entre présidence turque et Australie</li>
+<li>La France maintient ses positions constantes sur l'architecture de sécurité européenne et sur un objectif contraignant d'électrification à la COP31</li>
+    </ul>
+  </div>
+</article>
+
+<article class="section" id="sec-3" data-ordre="3">
+  <div class="rubrique-tag">Géoéconomie</div>
+  <h2>Espionnage chez Nvidia, record commercial chinois, pétrole russe : la guerre économique mondiale se durcit</h2>
+  <p class="chapeau">L'affaire d'espionnage présumé visant le patron de Nvidia relance les tensions sur les exportations de puces vers la Chine, tandis que l'excédent commercial chinois franchit les 1 000 milliards de dollars et que les sanctions occidentales continuent de redessiner les flux pétroliers russes.</p>
+  <div class="meta-row">
+    <span class="duree">7 min de lecture</span>
+    <span class="dot">&middot;</span>
+    <span class="signature">Par la rédaction du Diplomate</span>
+  </div>
+  <div class="corps" id="text-3">
+    <p>Donald Trump a déclaré que le FBI « se penchait » sur le cas de Jensen Huang, patron de Nvidia, après que celui-ci a admis une liaison avec une femme que les services de renseignement américains soupçonnent d'avoir été recrutée comme agente par les services de renseignement chinois. L'affaire, révélée le 29 octobre par le New York Times, a fait chuter l'action Nvidia de 4,3 % et conduit le conseil d'administration du groupe, pesant 4 300 milliards de dollars, à ouvrir sa propre enquête interne, tout en affirmant n'avoir aucune raison de penser que des secrets de l'entreprise ou la sécurité nationale aient été compromis. Pékin a qualifié ces accusations de « spéculation infondée ».</p>
+<p>Trois présidents de commissions de la Chambre des représentants ont invité Jensen Huang à un briefing à huis clos prévu le 18 novembre. L'affaire relance par ailleurs les tensions internes à Washington sur la politique d'exportation des puces d'intelligence artificielle vers la Chine : selon la Financial Times, Huang aurait personnellement poussé Donald Trump à autoriser la vente de puces H200 à des clients chinois, suscitant l'agacement de responsables de la sécurité nationale. Une enquête de l'organisation C4ADS a par ailleurs recensé au moins 56 achats de puces Nvidia soumises à restrictions entre juillet 2025 et janvier 2026, par contournement via des plateformes asiatiques.</p>
+<p>Sur le plan commercial, l'excédent commercial chinois a dépassé les 1 000 milliards de dollars sur les dix premiers mois de l'année 2026, une trajectoire qui le place en passe de battre un record annuel et qui attise les tensions avec les partenaires commerciaux de Pékin, déjà nombreux à dénoncer une concurrence jugée déloyale dans plusieurs secteurs industriels.</p>
+<p>Sur le front énergétique, les prix du pétrole ont atteint leur plus bas niveau en dix semaines après que Donald Trump a jugé « hautement improbable » une nouvelle frappe américaine contre l'Iran. Parallèlement, les sanctions occidentales visant les groupes pétroliers russes Rosneft et Lukoil, en vigueur depuis octobre 2025, continuent de réorienter une partie des flux de brut russe vers l'Asie, tandis que l'Union européenne pousse un vingtième paquet de sanctions visant notamment les services maritimes aux navires transportant du pétrole russe, avec l'objectif d'une fin complète des importations européennes de pétrole russe d'ici à fin 2027 ; la Hongrie conserve toutefois une dérogation jusqu'en novembre 2026.</p>
+<p>Dans un autre registre, l'opérateur britannique BT a annoncé renoncer, pour l'instant, à son partenariat avec Starlink, la filiale satellite d'Elon Musk, le temps que « le bruit retombe » autour des récentes perturbations du service qui avaient entravé les opérations militaires ukrainiennes — un nouvel exemple des risques stratégiques désormais attachés aux infrastructures technologiques privées impliquées dans des conflits.</p>
+  </div>
+  <div class="essentiel">
+    <div class="essentiel-label">L'essentiel</div>
+    <ul>
+      <li>Trump affirme que le FBI « se penche » sur Jensen Huang après la révélation d'une liaison avec une femme soupçonnée d'espionnage pour Pékin</li>
+<li>Le Congrès américain a invité Huang à un briefing à huis clos le 18 novembre, sur fond de tensions sur les ventes de puces IA à la Chine</li>
+<li>L'excédent commercial chinois dépasse 1 000 milliards de dollars sur dix mois, un record qui attise les tensions commerciales</li>
+<li>Les prix du pétrole reculent après que Trump a jugé une frappe sur l'Iran « hautement improbable » ; les sanctions redessinent les flux pétroliers russes vers l'Asie</li>
+    </ul>
+  </div>
+</article>
+
+<article class="section" id="sec-4" data-ordre="4">
+  <div class="rubrique-tag">France</div>
+  <h2>Budget de la Sécu au Sénat, climat social tendu, premiers jalons de 2027 : l'actualité française du jour</h2>
+  <p class="chapeau">Le Sénat examine depuis le 9 novembre le budget 2027 de la Sécurité sociale, dans un climat social toujours marqué par la grève nationale du 5 novembre, tandis que Gabriel Attal tient un grand meeting politique à Lyon.</p>
+  <div class="meta-row">
+    <span class="duree">6 min de lecture</span>
+    <span class="dot">&middot;</span>
+    <span class="signature">Par la rédaction du Diplomate</span>
+  </div>
+  <div class="corps" id="text-4">
+    <p>Le Sénat a entamé le 9 novembre l'examen en séance du projet de loi de financement de la Sécurité sociale (PLFSS) pour 2027, après que l'Assemblée nationale n'a pas réussi à le voter en première lecture le 23 octobre. La commission des affaires sociales, présidée par Philippe Mouiller, avait examiné le texte le 4 novembre. Un vote solennel est attendu le 18 novembre. Les sénateurs se sont engagés à tenir le niveau de déficit fixé par le gouvernement, tout en modifiant plusieurs dispositions du texte initial, notamment sur les franchises médicales, les arrêts maladie et les retraites.</p>
+<p>Le climat social reste tendu au lendemain de la journée de grève et de manifestation du 5 novembre, appelée par l'ensemble des organisations syndicales dans le prolongement de plusieurs samedis de mobilisation. Les chiffres de participation divergent fortement selon les sources, entre environ 600 000 manifestants selon les autorités et près d'un million et demi selon la CGT, répartis sur plus de 250 rassemblements. Les secteurs de La Poste, de la SNCF et de la fonction publique d'État ont été particulièrement mobilisés, sur fond de revendications salariales liées au coût de la vie et aux arbitrages du projet de budget 2027.</p>
+<p>Sur le plan politique, l'ancien Premier ministre Gabriel Attal tient ce 10 novembre un grand meeting à Lyon, dans un contexte de prépositionnement précoce en vue de l'élection présidentielle de 2027, alors que plusieurs formations politiques multiplient les déplacements et initiatives destinés à occuper le terrain avant l'ouverture officielle de la campagne.</p>
+  </div>
+  <div class="essentiel">
+    <div class="essentiel-label">L'essentiel</div>
+    <ul>
+      <li>Le Sénat examine depuis le 9 novembre le budget 2027 de la Sécurité sociale, avec un vote solennel attendu le 18 novembre</li>
+<li>Les sénateurs s'engagent à tenir le niveau de déficit fixé par le gouvernement tout en modifiant plusieurs dispositions du texte</li>
+<li>La mobilisation sociale du 5 novembre laisse un climat social tendu, avec des chiffres de participation très disputés entre syndicats et autorités</li>
+<li>Gabriel Attal tient un grand meeting politique à Lyon, dans un contexte de prépositionnement pour 2027</li>
+    </ul>
+  </div>
+</article>
+
+<article class="section" id="sec-5" data-ordre="5">
+  <div class="rubrique-tag">Le regard du diplomate</div>
+  <h2>Le retour sans fin : ce que le quatrième round d'Abou Dhabi dit de la patience diplomatique</h2>
+  <p class="chapeau">Entre un nouveau cycle de pourparlers sans percée annoncée et des frappes russes visant les ponts du Dniepr à la veille même de ces discussions, la journée invite à distinguer deux lectures possibles de la répétition en diplomatie.</p>
+  <div class="meta-row">
+    <span class="duree">5 min de lecture</span>
+    <span class="dot">&middot;</span>
+    <span class="signature">L'éditorial du Diplomate</span>
+  </div>
+  <div class="corps" id="text-5">
+    <p>Ce point de vue éditorial propose une lecture, et non un constat établi. Le round d'Abou Dhabi ouvert ce 10 novembre est le quatrième de son genre en dix mois, dans le même format, sans qu'aucune percée n'ait jamais été officiellement annoncée à l'issue des trois précédents. Certains observateurs y voient un « timide rapprochement » malgré un statu quo persistant sur le fond. On pourrait être tenté d'y voir un signe d'échec. Une autre lecture, plus prudente, consiste à y voir une information en soi : la reconduction d'un canal de discussion, même infructueux, signale qu'aucune des parties n'a intérêt à le rompre formellement, ce qui constitue une forme de gestion de la désescalade distincte d'une résolution du conflit.</p>
+<p>Cette même semaine offre d'autres illustrations de ce que l'on pourrait appeler le temps long de la diplomatie : la COP31 s'étend sur deux semaines de négociations avant tout résultat, et la présidence française du G7 s'est elle-même construite sur une succession de rendez-vous plutôt que sur un sommet unique. Dans ces formats, la valeur résiderait autant dans le maintien du canal que dans la résolution immédiate d'un problème donné. Mais cette lecture devrait s'accompagner d'une prudence symétrique : la poursuite d'un dialogue peut aussi masquer une absence d'urgence réelle, ou servir de paravent à une pression militaire qui continue par ailleurs. Les frappes russes annoncées par Volodymyr Zelensky contre les ponts du Dniepr, à la veille même de l'ouverture des pourparlers d'Abou Dhabi, en offrent une illustration : juger de la nature d'une négociation suppose de regarder ce qui se passe entre les séances, et non uniquement ce qui s'y dit.</p>
+  </div>
+  <div class="essentiel">
+    <div class="essentiel-label">L'essentiel</div>
+    <ul>
+      <li>Lecture éditoriale, non un fait établi : la répétition d'un round de négociation sans percée peut être un signe de blocage ou de gestion de la désescalade</li>
+<li>La COP31 et la présidence française du G7 illustrent un même temps long où le canal de discussion compte autant que le résultat immédiat</li>
+<li>Cette lecture appelle une prudence symétrique : la poursuite du dialogue peut aussi masquer une absence d'urgence réelle</li>
+<li>Les frappes russes annoncées à la veille des pourparlers d'Abou Dhabi rappellent qu'il faut observer ce qui se passe entre les séances de négociation</li>
+    </ul>
+  </div>
+</article>
+
+  </main>
+
+  <footer class="colophon">
+    Le Diplomate &middot; édition générée automatiquement pour études de diplomatie
+  </footer>
+</div>
+
+<script>
+(function() {
+  var btn = document.getElementById('listenBtn');
+  var icon = document.getElementById('listenIcon');
+  var label = document.getElementById('listenLabel');
+  var textIds = ["text-1", "text-2", "text-3", "text-4", "text-5"];
+  var synth = window.speechSynthesis;
+  var utterances = [];
+  var playing = false;
+
+  function buildUtterances() {
+    utterances = [];
+    textIds.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      var paras = el.querySelectorAll('p');
+      paras.forEach(function(p) {
+        var u = new SpeechSynthesisUtterance(p.textContent);
+        u.lang = 'fr-FR';
+        u.rate = 1.0;
+        utterances.push(u);
+      });
+    });
+  }
+
+  function stopReading() {
+    if (synth) synth.cancel();
+    playing = false;
+    btn.dataset.playing = 'false';
+    btn.setAttribute('aria-pressed', 'false');
+    icon.textContent = '\u{1F50A}';
+    label.textContent = 'Écouter';
+  }
+
+  function startReading() {
+    if (!synth) return;
+    if (utterances.length === 0) buildUtterances();
+    synth.cancel();
+    utterances.forEach(function(u) { synth.speak(u); });
+    playing = true;
+    btn.dataset.playing = 'true';
+    btn.setAttribute('aria-pressed', 'true');
+    icon.textContent = '\u23F8';
+    label.textContent = 'Arrêter';
+    var last = utterances[utterances.length - 1];
+    if (last) {
+      last.onend = function() { stopReading(); };
+    }
+  }
+
+  btn.addEventListener('click', function() {
+    if (!synth) {
+      label.textContent = 'Indisponible';
+      return;
+    }
+    if (playing) {
+      stopReading();
+    } else {
+      startReading();
+    }
+  });
+
+  document.querySelectorAll('.nav-link').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      var id = a.getAttribute('href').slice(1);
+      var target = document.getElementById(id);
+      if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
+  });
+})();
+</script>
