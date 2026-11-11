@@ -1,0 +1,487 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Le Diplomate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /*
+    Layout: a single-column broadsheet column (masthead, dateline, five
+    articles separated by hairline rules) laid over a warm paper texture.
+  */
+  :root{
+    --paper:#f3ecd9;
+    --paper-2:#eae1c9;
+    --ink:#241f17;
+    --ink-soft:#4b4435;
+    --rule:#cbbf9e;
+    --accent:#8a1f11;
+    --accent-ink:#fbeee9;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#171310;
+      --paper-2:#1f1a15;
+      --ink:#eee5d3;
+      --ink-soft:#c9bfa9;
+      --rule:#4a4234;
+      --accent:#e2694f;
+      --accent-ink:#241109;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#171310;
+    --paper-2:#1f1a15;
+    --ink:#eee5d3;
+    --ink-soft:#c9bfa9;
+    --rule:#4a4234;
+    --accent:#e2694f;
+    --accent-ink:#241109;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background: var(--paper);
+    background-image:
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.035), transparent 60%),
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.018) 0px, rgba(0,0,0,0.018) 1px, transparent 1px, transparent 3px);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .sheet{
+    max-width: 680px;
+    margin: 0 auto;
+    padding-block: 28px 64px;
+  }
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    padding-bottom: 18px;
+    border-bottom: 3px solid var(--ink);
+  }
+  .masthead .eyebrow{
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .masthead h1{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(2.6rem, 9vw, 4rem);
+    letter-spacing: 0.01em;
+    margin: 6px 0 10px;
+    line-height: 0.95;
+  }
+  .dateline{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    padding-top: 6px;
+    text-transform: uppercase;
+  }
+
+  /* Listen control */
+  .listen-row{
+    display:flex;
+    justify-content:center;
+    margin: 16px 0 6px;
+  }
+  .listen-btn{
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    background: var(--accent);
+    border: none;
+    border-radius: 999px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+  }
+  .listen-btn:hover{ opacity:0.9; }
+  .listen-btn:active{ transform: scale(0.97); }
+  .listen-btn[data-state="speaking"]{ background: var(--ink); }
+  .listen-status{
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    text-align:center;
+    min-height: 14px;
+    margin-top: 6px;
+  }
+
+  /* Articles */
+  article{
+    padding-top: 30px;
+    padding-bottom: 26px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article:last-of-type{ border-bottom: none; }
+
+  .rubrique{
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .rubrique::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background: var(--rule);
+  }
+
+  h2.titre{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(1.5rem, 5.4vw, 2.05rem);
+    line-height: 1.12;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+  p.chapeau{
+    font-family:"Fraunces", Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.07rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0 0 16px;
+    max-width: 65ch;
+  }
+  .meta-row{
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+
+  .corps p{
+    font-size: 1.04rem;
+    line-height: 1.68;
+    margin: 0 0 1em;
+    max-width: 65ch;
+  }
+  .corps p:first-of-type::first-letter{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight: 700;
+    font-size: 3.1em;
+    line-height: 0.82;
+    float:left;
+    padding-right: 7px;
+    padding-top: 2px;
+    color: var(--accent);
+  }
+  .corps p strong.position-tag{
+    font-family:"IBM Plex Mono", monospace;
+    font-weight:500;
+    font-style:normal;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+  }
+
+  .essentiel{
+    margin-top: 20px;
+    background: var(--paper-2);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    max-width: 65ch;
+  }
+  .essentiel .label{
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display:block;
+  }
+  .essentiel ul{
+    margin:0;
+    padding-left: 1.1em;
+  }
+  .essentiel li{
+    font-family:"Source Serif 4", serif;
+    font-size: 0.93rem;
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .essentiel li:last-child{ margin-bottom:0; }
+
+  .signature{
+    margin-top: 16px;
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  footer{
+    text-align:center;
+    padding-top: 26px;
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 10px;
+    color: var(--ink-soft);
+    letter-spacing: 0.06em;
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    article{ animation: rise 0.5s ease backwards; }
+    article:nth-of-type(1){ animation-delay: 0.02s; }
+    article:nth-of-type(2){ animation-delay: 0.06s; }
+    article:nth-of-type(3){ animation-delay: 0.1s; }
+    article:nth-of-type(4){ animation-delay: 0.14s; }
+    article:nth-of-type(5){ animation-delay: 0.18s; }
+    @keyframes rise{ from{ opacity:0; transform: translateY(6px);} to{ opacity:1; transform:none; } }
+  }
+</style>
+
+<div class="sheet">
+  <div class="masthead">
+    <div class="eyebrow">Revue de presse diplomatique &middot; édition quotidienne</div>
+    <h1>Le Diplomate</h1>
+    <div class="dateline">
+      <span id="meta-date">Mercredi 11 novembre 2026</span>
+      <span id="meta-numero">N° 35</span>
+    </div>
+  </div>
+
+  <div class="listen-row">
+    <button class="listen-btn" id="listenBtn" data-state="idle" aria-pressed="false">🔊 Écouter l'édition</button>
+  </div>
+  <div class="listen-status" id="listenStatus">&nbsp;</div>
+
+  <main id="articles">
+
+    <article data-rubrique="UNE">
+      <div class="rubrique">À la une</div>
+      <h2 class="titre">Abou Dhabi : Russes, Ukrainiens et Américains de nouveau à la même table</h2>
+      <p class="chapeau">Pour la première fois depuis février, Moscou, Kiev et Washington négocient en direct dans la capitale émiratie, sous l'œil méfiant d'une Europe qui réclame sa place à la table.</p>
+      <div class="meta-row">4 min de lecture &middot; Par la rédaction du Diplomate</div>
+      <div class="corps">
+        <p>Les 10 et 11 novembre, des délégations russe, ukrainienne et américaine se retrouvent à Abou Dhabi pour un quatrième cycle de pourparlers trilatéraux depuis janvier 2026, le premier depuis l'interruption des discussions en février. L'administration américaine, représentée par l'émissaire Steve Witkoff et le conseiller Jared Kushner, assure la médiation. Moscou a dépêché Vladimir Medinski, l'un des artisans habituels de ses négociations avec Kiev.</p>
+        <p>L'ordre du jour annoncé couvre un éventuel cessez-le-feu limité aux infrastructures énergétiques et au trafic maritime, des échanges de prisonniers, le retour d'enfants ukrainiens déplacés vers la Russie, ainsi que la question, plus large et plus disputée, des garanties de sécurité pour l'Ukraine.</p>
+        <p>La participation européenne reste le point de friction. La Russie insiste pour que les discussions restent strictement trilatérales. La France, l'Allemagne et le Royaume-Uni, réunis dans le format dit E3, ainsi que la haute représentante de l'UE Kaja Kallas, cherchent au contraire à être associés à certaines sessions. Le ministre français des Affaires étrangères Jean-Noël Barrot a confirmé le 8 novembre que la France et les Européens seraient « représentés », sans préciser qui occuperait ce rôle ni s'il siégerait lui-même à la table : ce ne sera pas le cas.</p>
+        <p>Cette pression diplomatique française a été ouvertement raillée par la diplomatie russe, qui a qualifié la démarche de Paris de « pathétique ». À Berlin, le chancelier Friedrich Merz a de son côté exprimé des doutes sur la volonté réelle de la Russie de négocier sérieusement. Le président ukrainien Volodymyr Zelensky, lui, espère que ce round ouvrira la voie à une rencontre à trois avec Vladimir Poutine.</p>
+        <p>À l'heure de la rédaction de cette édition, aucune issue officielle de ce round n'a encore été communiquée. L'enjeu dépasse le cadre bilatéral : la crédibilité du format trilatéral, la place future de l'Europe dans l'architecture de sécurité du continent, et le calendrier diplomatique plus large qui doit notamment amener Donald Trump à Shenzhen plus tard ce mois-ci pour le sommet de l'APEC.</p>
+      </div>
+      <div class="essentiel">
+        <span class="label">L'essentiel</span>
+        <ul>
+          <li>Quatrième cycle de pourparlers trilatéraux Russie-Ukraine-États-Unis depuis janvier, le premier depuis février</li>
+          <li>Agenda : cessez-le-feu énergétique et maritime, échange de prisonniers, retour d'enfants déplacés, garanties de sécurité</li>
+          <li>Désaccord persistant sur la participation du format E3 (France, Allemagne, Royaume-Uni) aux discussions</li>
+          <li>Moscou dénonce une « diplomatie pathétique » de Paris ; scepticisme affiché à Berlin</li>
+        </ul>
+      </div>
+    </article>
+
+    <article data-rubrique="GEOPOLITIQUE">
+      <div class="rubrique">Géopolitique</div>
+      <h2 class="titre">Ukraine, dissuasion franco-allemande et Iran : trois dossiers sous tension</h2>
+      <p class="chapeau">Au-delà d'Abou Dhabi, trois fronts diplomatiques distincts occupent la semaine : la guerre des infrastructures en Ukraine, le débat sur la doctrine nucléaire européenne, et une trêve iranienne toujours précaire.</p>
+      <div class="meta-row">5 min de lecture &middot; Par la rédaction du Diplomate</div>
+      <div class="corps">
+        <p>En Ukraine, la guerre se joue aussi sur les réseaux vitaux. Après une semaine de frappes russes répétées sur les infrastructures énergétiques, des millions d'habitants de Kiev, déjà soumis à des coupures de courant et de chauffage prolongées, font désormais face à des coupures d'eau. Les autorités municipales ont fait état de perturbations d'approvisionnement quasi continues ces derniers jours.</p>
+        <p><strong class="position-tag">Position de la France :</strong> le Quai d'Orsay n'a pas publié, à l'heure de la rédaction de cette édition, de déclaration spécifique sur les coupures d'eau constatées cette semaine à Kiev. La diplomatie française a toutefois, à plusieurs reprises depuis le début de l'année, condamné les frappes russes visant les infrastructures énergétiques ukrainiennes, allant jusqu'à qualifier certaines attaques contre des centrales thermiques de « potentiellement constitutives de crimes de guerre ». Aucune réaction officielle française propre à cet épisode précis n'a pu être identifiée à ce stade.</p>
+        <p>Sur le volet nucléaire, la France exerce une pression diplomatique directe sur l'Allemagne. Paris demande à Berlin de définir clairement comment elle emploierait des missiles à longue portée en cas de conflit avec la Russie, avertissant qu'une doctrine floue risquerait d'entraîner l'Europe, par accident, dans une escalade nucléaire. Cette démarche s'inscrit dans la doctrine française de « dissuasion avancée » présentée par Emmanuel Macron le 2 mars 2026 à l'Île Longue, qui prévoit un groupe de pilotage nucléaire franco-allemand de haut niveau et l'association, à terme, de plusieurs partenaires européens — la Finlande a rejoint l'initiative le 14 septembre.</p>
+        <p><strong class="position-tag">Position de la France :</strong> sur ce dossier, Paris est à l'initiative. La France affirme vouloir étendre les bénéfices de sa dissuasion à ses partenaires européens sans jamais partager la décision ultime de feu nucléaire, qui reste une prérogative strictement française, ainsi que l'a rappelé l'Élysée dans les conclusions du Conseil franco-allemand de défense et de sécurité du 17 juillet 2026. La participation allemande annoncée à des exercices nucléaires français reste, pour 2026, de nature strictement conventionnelle.</p>
+        <p>Au Moyen-Orient, la trêve entre les États-Unis et l'Iran demeure fragile. Téhéran a affirmé le 7 novembre que son armée était désormais plus forte qu'au début du conflit, signe d'une posture durcie plutôt que d'un apaisement. Le Qatar maintient un canal de médiation actif, tandis que Donald Trump a reculé sur sa menace de nouvelles frappes, ce qui a permis au baril de repasser sous les 90 dollars après plusieurs semaines de tension sur les marchés pétroliers.</p>
+        <p><strong class="position-tag">Position de la France :</strong> la diplomatie française, qui a accueilli les ministres des Affaires étrangères du G7 à Paris le 9 novembre avec le Moyen-Orient au centre des discussions, maintient une ligne constante sur ce dossier : pas de levée des sanctions des Nations unies sans garanties sur la réouverture effective du détroit d'Ormuz, assortie d'une négociation encadrant strictement le programme nucléaire iranien. Aucune déclaration française distincte n'a en revanche été identifiée sur l'annonce du 7 novembre concernant la posture militaire iranienne.</p>
+      </div>
+      <div class="essentiel">
+        <span class="label">L'essentiel</span>
+        <ul>
+          <li>Kiev confrontée à des coupures d'eau prolongées après une semaine de frappes russes sur le réseau énergétique</li>
+          <li>Paris presse Berlin de clarifier sa doctrine sur l'emploi de missiles longue portée face à la Russie</li>
+          <li>Téhéran affiche une posture plus dure ; Trump recule sur la menace de frappes, le pétrole repasse sous 90 dollars</li>
+          <li>Le G7 s'est réuni à Paris le 9 novembre, le Moyen-Orient au centre des discussions</li>
+        </ul>
+      </div>
+    </article>
+
+    <article data-rubrique="GEOECONOMIE">
+      <div class="rubrique">Géoéconomie</div>
+      <h2 class="titre">Terres rares, puces et pétrole : la géoéconomie sous tension</h2>
+      <p class="chapeau">Pékin prolonge sa trêve sur les terres rares, Washington temporise sur un dossier chinois sensible, et le marché pétrolier respire après le recul américain sur l'Iran.</p>
+      <div class="meta-row">4 min de lecture &middot; Par la rédaction du Diplomate</div>
+      <div class="corps">
+        <p>Le ministère chinois du Commerce a annoncé le 9 novembre, à la veille de l'échéance prévue, une prolongation de deux mois — jusqu'au 10 janvier 2027 — de la suspension de ses contrôles élargis à l'exportation de terres rares et de technologies liées aux batteries au lithium. Cette suspension, décidée initialement pour un an après le sommet entre Donald Trump et Xi Jinping en Corée du Sud, s'accompagne d'une prolongation similaire des mesures visant une quinzaine d'entreprises américaines placées sur les listes de contrôle chinoises. Cette trêve s'inscrit dans des négociations commerciales toujours en cours entre Pékin et Washington, à l'approche d'un possible sommet Trump-Xi lors de l'APEC à Shenzhen.</p>
+        <p>Aux États-Unis, le département du Commerce a par ailleurs retardé l'inscription de l'entreprise Megaspeed sur sa liste noire commerciale, malgré des soupçons selon lesquels celle-ci aurait facilité le contournement des contrôles américains à l'exportation de puces avancées vers la Chine. Le dossier est lié au scandale médiatique entourant Alice Huang, cadre liée à Megaspeed présentée par plusieurs médias américains comme soupçonnée d'espionnage pour le compte de Pékin et ayant eu accès au directeur général de Nvidia, Jensen Huang. Nvidia dément toute irrégularité et affirme que les accusations de contournement ont déjà été « minutieusement examinées et réfutées » l'an dernier ; Pékin a de son côté rejeté ces accusations comme non étayées.</p>
+        <p>Sur le marché de l'énergie, le repli de Washington sur la menace d'une nouvelle frappe contre l'Iran a permis au Brent de redescendre sous les 90 dollars le baril, après plusieurs semaines de tension liées au risque pesant sur le détroit d'Ormuz. Cette détente a accompagné un rebond des marchés actions mondiaux, après le mouvement de vente observé la semaine précédente.</p>
+      </div>
+      <div class="essentiel">
+        <span class="label">L'essentiel</span>
+        <ul>
+          <li>Pékin prolonge jusqu'au 10 janvier 2027 la suspension de ses contrôles élargis sur les terres rares, à l'approche d'un possible sommet Trump-Xi</li>
+          <li>Washington retarde l'inscription de Megaspeed sur sa liste noire commerciale malgré des soupçons de contournement des contrôles à l'exportation de puces IA</li>
+          <li>Le scandale d'espionnage chinois présumé autour de l'entourage de Jensen Huang (Nvidia) alimente les tensions technologiques sino-américaines</li>
+          <li>Le Brent repasse sous 90 dollars après le recul de Washington sur une frappe contre l'Iran</li>
+        </ul>
+      </div>
+    </article>
+
+    <article data-rubrique="FRANCE">
+      <div class="rubrique">France</div>
+      <h2 class="titre">Budget 2027 sous tension sociale, l'Armistice en toile de fond</h2>
+      <p class="chapeau">Entre mobilisation syndicale contre le budget 2027 et commémorations du 11-Novembre, la France conjugue cette semaine mémoire nationale et bras de fer parlementaire.</p>
+      <div class="meta-row">3 min de lecture &middot; Par la rédaction du Diplomate</div>
+      <div class="corps">
+        <p>Le gouvernement s'efforce de faire adopter son projet de budget 2027, qui prévoit un effort d'économies de l'ordre de trente milliards d'euros ainsi qu'un gel du point d'indice des fonctionnaires, devant un Parlement sans majorité absolue, à quelques mois de l'élection présidentielle. Une journée de grève nationale le 5 novembre, à l'appel de plusieurs organisations syndicales dont la CGT, a réuni fonctionnaires, retraités et salariés du secteur public dans plus de 170 manifestations à travers le pays pour protester contre les mesures d'austérité envisagées.</p>
+        <p>Ce climat social s'accompagne, ce 11 novembre, des commémorations du 108e anniversaire de l'Armistice de 1918, marquées par la cérémonie traditionnelle sous l'Arc de Triomphe à Paris ainsi que par des hommages organisés dans les communes à travers tout le pays, en mémoire des soldats « Morts pour la France ».</p>
+      </div>
+      <div class="essentiel">
+        <span class="label">L'essentiel</span>
+        <ul>
+          <li>Le gouvernement cherche à faire adopter son budget 2027 dans un Parlement sans majorité absolue</li>
+          <li>Grève nationale du 5 novembre : plus de 170 manifestations contre les mesures d'austérité annoncées</li>
+          <li>La France commémore le 108e anniversaire de l'Armistice de 1918 ce 11 novembre</li>
+        </ul>
+      </div>
+    </article>
+
+    <article data-rubrique="REGARD_DIPLOMATE">
+      <div class="rubrique">Le regard du diplomate</div>
+      <h2 class="titre">La diplomatie du sursis</h2>
+      <p class="chapeau">Un fil conducteur relie les nouvelles du jour : partout, on gère le temps plus qu'on ne résout les crises.</p>
+      <div class="meta-row">3 min de lecture &middot; L'éditorial du Diplomate</div>
+      <div class="corps">
+        <p>Un même motif traverse l'actualité de ce 11 novembre, sous des formes très différentes : à Abou Dhabi, un quatrième round de pourparlers trilatéraux sans garantie de percée ; à Pékin, une trêve commerciale reconduite de deux mois plutôt que transformée en accord durable ; à Téhéran, un cessez-le-feu maintenu sous médiation qatarie mais fragilisé par une posture militaire iranienne durcie ; entre Paris et Berlin, un dialogue nucléaire qui avance par étapes successives sans doctrine commune arrêtée. Dans chacun de ces dossiers, l'issue retenue n'est pas la résolution du différend de fond, mais son report maîtrisé à une échéance ultérieure.</p>
+        <p>C'est, à notre sens, une clé de lecture utile pour suivre l'actualité diplomatique dans la durée : beaucoup de ce qui se présente comme de la diplomatie active relève en réalité d'une gestion du temps plus que des causes. Ce mode de fonctionnement n'est pas nécessairement un échec — il évite l'escalade immédiate et laisse une porte ouverte à la négociation. Mais il a un coût : chaque échéance de renouvellement, qu'il s'agisse du 10 janvier pour les terres rares, d'un prochain round sur l'Ukraine ou de la prochaine inspection du dossier nucléaire iranien, devient un point de crise potentiel en soi. Lire la diplomatie contemporaine, c'est aussi apprendre à repérer ces dates de rendez-vous différé, qui en disent souvent plus sur l'état réel des rapports de force que les communiqués qui les accompagnent. Ceci reste, bien entendu, un simple point de vue éditorial, non une prédiction.</p>
+      </div>
+      <div class="essentiel">
+        <span class="label">L'essentiel</span>
+        <ul>
+          <li>Abou Dhabi, la trêve sino-américaine sur les terres rares et la trêve avec l'Iran partagent un même ressort : le report plutôt que la résolution</li>
+          <li>Ce mode de gestion du temps diplomatique transforme chaque échéance de renouvellement en point de crise potentiel</li>
+        </ul>
+      </div>
+    </article>
+
+  </main>
+
+  <footer>
+    Le Diplomate &middot; revue de presse générée automatiquement à usage d'études de diplomatie &middot; sources publiques
+  </footer>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var btn = document.getElementById('listenBtn');
+  var status = document.getElementById('listenStatus');
+  var synth = window.speechSynthesis;
+
+  if (!synth) {
+    btn.textContent = 'Lecture audio indisponible';
+    btn.disabled = true;
+    return;
+  }
+
+  function collectText(){
+    var parts = [];
+    document.querySelectorAll('#articles article').forEach(function(art){
+      var rub = art.querySelector('.rubrique');
+      var titre = art.querySelector('.titre');
+      var chapeau = art.querySelector('.chapeau');
+      if (rub) parts.push(rub.textContent.trim() + '.');
+      if (titre) parts.push(titre.textContent.trim() + '.');
+      if (chapeau) parts.push(chapeau.textContent.trim());
+      art.querySelectorAll('.corps p').forEach(function(p){
+        parts.push(p.textContent.trim());
+      });
+      var essentielItems = art.querySelectorAll('.essentiel li');
+      if (essentielItems.length){
+        parts.push("L'essentiel.");
+        essentielItems.forEach(function(li){ parts.push(li.textContent.trim()); });
+      }
+    });
+    return parts;
+  }
+
+  var queue = [];
+  var idx = 0;
+  var state = 'idle'; // idle | speaking | paused
+
+  function setState(s){
+    state = s;
+    btn.setAttribute('data-state', s);
+    if (s === 'idle'){
+      btn.textContent = '🔊 Écouter l’édition';
+      btn.setAttribute('aria-pressed', 'false');
+      status.textContent = ' ';
+    } else if (s === 'speaking'){
+      btn.textContent = '⏸ Pause';
+      btn.setAttribute('aria-pressed', 'true');
+    } else if (s === 'paused'){
+      btn.textContent = '▶ Reprendre';
+      btn.setAttribute('aria-pressed', 'true');
+    }
+  }
+
+  function speakNext(){
+    if (idx >= queue.length){
+      setState('idle');
+      idx = 0;
+      return;
+    }
+    var utt = new SpeechSynthesisUtterance(queue[idx]);
+    utt.lang = 'fr-FR';
+    utt.rate = 1.0;
+    status.textContent = 'Paragraphe ' + (idx + 1) + ' / ' + queue.length;
+    utt.onend = function(){
+      idx++;
+      speakNext();
+    };
+    utt.onerror = function(){
+      idx++;
+      speakNext();
+    };
+    synth.speak(utt);
+  }
+
+  btn.addEventListener('click', function(){
+    try {
+      if (state === 'idle'){
+        queue = collectText();
+        idx = 0;
+        synth.cancel();
+        setState('speaking');
+        speakNext();
+      } else if (state === 'speaking'){
+        synth.pause();
+        setState('paused');
+      } else if (state === 'paused'){
+        synth.resume();
+        setState('speaking');
+      }
+    } catch (e) {
+      status.textContent = "Lecture audio indisponible dans ce navigateur.";
+    }
+  });
+
+  window.addEventListener('beforeunload', function(){
+    try { synth.cancel(); } catch(e){}
+  });
+})();
+</script>
