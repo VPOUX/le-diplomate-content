@@ -1,0 +1,486 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Le Diplomate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /*
+    Layout: a single-column broadsheet column (masthead, dateline, five
+    articles separated by hairline rules) laid over a warm paper texture.
+  */
+  :root{
+    --paper:#f3ecd9;
+    --paper-2:#eae1c9;
+    --ink:#241f17;
+    --ink-soft:#4b4435;
+    --rule:#cbbf9e;
+    --accent:#8a1f11;
+    --accent-ink:#fbeee9;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#171310;
+      --paper-2:#1f1a15;
+      --ink:#eee5d3;
+      --ink-soft:#c9bfa9;
+      --rule:#4a4234;
+      --accent:#e2694f;
+      --accent-ink:#241109;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#171310;
+    --paper-2:#1f1a15;
+    --ink:#eee5d3;
+    --ink-soft:#c9bfa9;
+    --rule:#4a4234;
+    --accent:#e2694f;
+    --accent-ink:#241109;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background: var(--paper);
+    background-image:
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.035), transparent 60%),
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.018) 0px, rgba(0,0,0,0.018) 1px, transparent 1px, transparent 3px);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .sheet{
+    max-width: 680px;
+    margin: 0 auto;
+    padding-block: 28px 64px;
+  }
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    padding-bottom: 18px;
+    border-bottom: 3px solid var(--ink);
+  }
+  .masthead .eyebrow{
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .masthead h1{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(2.6rem, 9vw, 4rem);
+    letter-spacing: 0.01em;
+    margin: 6px 0 10px;
+    line-height: 0.95;
+  }
+  .dateline{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    padding-top: 6px;
+    text-transform: uppercase;
+  }
+
+  /* Listen control */
+  .listen-row{
+    display:flex;
+    justify-content:center;
+    margin: 16px 0 6px;
+  }
+  .listen-btn{
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    background: var(--accent);
+    border: none;
+    border-radius: 999px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+  }
+  .listen-btn:hover{ opacity:0.9; }
+  .listen-btn:active{ transform: scale(0.97); }
+  .listen-btn[data-state="speaking"]{ background: var(--ink); }
+  .listen-status{
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    text-align:center;
+    min-height: 14px;
+    margin-top: 6px;
+  }
+
+  /* Articles */
+  article{
+    padding-top: 30px;
+    padding-bottom: 26px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article:last-of-type{ border-bottom: none; }
+
+  .rubrique{
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .rubrique::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background: var(--rule);
+  }
+
+  h2.titre{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(1.5rem, 5.4vw, 2.05rem);
+    line-height: 1.12;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+  p.chapeau{
+    font-family:"Fraunces", Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.07rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0 0 16px;
+    max-width: 65ch;
+  }
+  .meta-row{
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+
+  .corps p{
+    font-size: 1.04rem;
+    line-height: 1.68;
+    margin: 0 0 1em;
+    max-width: 65ch;
+  }
+  .corps p:first-of-type::first-letter{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight: 700;
+    font-size: 3.1em;
+    line-height: 0.82;
+    float:left;
+    padding-right: 7px;
+    padding-top: 2px;
+    color: var(--accent);
+  }
+  .corps p strong.position-tag{
+    font-family:"IBM Plex Mono", monospace;
+    font-weight:500;
+    font-style:normal;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+  }
+
+  .essentiel{
+    margin-top: 20px;
+    background: var(--paper-2);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    max-width: 65ch;
+  }
+  .essentiel .label{
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display:block;
+  }
+  .essentiel ul{
+    margin:0;
+    padding-left: 1.1em;
+  }
+  .essentiel li{
+    font-family:"Source Serif 4", serif;
+    font-size: 0.93rem;
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .essentiel li:last-child{ margin-bottom:0; }
+
+  .signature{
+    margin-top: 16px;
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  footer{
+    text-align:center;
+    padding-top: 26px;
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 10px;
+    color: var(--ink-soft);
+    letter-spacing: 0.06em;
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    article{ animation: rise 0.5s ease backwards; }
+    article:nth-of-type(1){ animation-delay: 0.02s; }
+    article:nth-of-type(2){ animation-delay: 0.06s; }
+    article:nth-of-type(3){ animation-delay: 0.1s; }
+    article:nth-of-type(4){ animation-delay: 0.14s; }
+    article:nth-of-type(5){ animation-delay: 0.18s; }
+    @keyframes rise{ from{ opacity:0; transform: translateY(6px);} to{ opacity:1; transform:none; } }
+  }
+</style>
+
+<div class="sheet">
+  <div class="masthead">
+    <div class="eyebrow">Revue de presse diplomatique &middot; édition quotidienne</div>
+    <h1>Le Diplomate</h1>
+    <div class="dateline">
+      <span id="meta-date">Jeudi 12 novembre 2026</span>
+      <span id="meta-numero">N° 36</span>
+    </div>
+  </div>
+
+  <div class="listen-row">
+    <button class="listen-btn" id="listenBtn" data-state="idle" aria-pressed="false">🔊 Écouter l'édition</button>
+  </div>
+  <div class="listen-status" id="listenStatus">&nbsp;</div>
+
+  <main id="articles">
+
+    <article data-rubrique="UNE">
+      <div class="rubrique">À la une</div>
+      <h2 class="titre">Abou Dhabi : échange de prisonniers acté, mais toujours pas de percée sur l'Ukraine</h2>
+      <p class="chapeau">Le quatrième cycle de pourparlers trilatéraux s'est achevé sans accord global sur la guerre en Ukraine, mais avec un accord sur un vaste échange de prisonniers ; les émissaires américains sont attendus ce jeudi à Moscou pour rencontrer Vladimir Poutine.</p>
+      <div class="meta-row">4 min de lecture &middot; Par la rédaction du Diplomate</div>
+      <div class="corps">
+        <p>Les pourparlers trilatéraux réunissant des délégations russe, ukrainienne et américaine se sont achevés hier à Abou Dhabi sans percée majeure sur le cœur du dossier ukrainien, selon des responsables cités par le Financial Times. Les trois parties se sont toutefois mises d'accord sur un échange de prisonniers de grande ampleur, premier résultat concret de ce quatrième cycle de négociations depuis janvier, et le premier depuis l'interruption des discussions en février. L'ordre du jour, annoncé en amont, couvrait aussi un possible cessez-le-feu limité aux infrastructures énergétiques et au trafic maritime, le retour d'enfants ukrainiens déplacés vers la Russie, ainsi que la question plus disputée des garanties de sécurité pour Kiev.</p>
+        <p>La diplomatie américaine ne marque pas de pause : les émissaires Jared Kushner et Steve Witkoff, qui ont conduit la médiation à Abou Dhabi, sont attendus ce jeudi à Moscou pour y rencontrer le président russe Vladimir Poutine, signe que Washington entend maintenir la dynamique engagée malgré l'absence d'accord global.</p>
+        <p>La question de la participation européenne au processus reste, comme lors des cycles précédents, un point de friction non résolu. Selon plusieurs analyses publiées avant la reprise des discussions, la France, le Royaume-Uni, l'Allemagne et l'Italie auraient pu dépêcher des conseillers à la sécurité en marge des échanges d'Abou Dhabi ; aucune confirmation officielle de leur présence effective lors de ce cycle n'a pu être établie à l'heure de la rédaction de cette édition.</p>
+        <p>L'enjeu dépasse le cadre strictement bilatéral russo-ukrainien : la crédibilité du format trilatéral, la place future de l'Europe dans l'architecture de sécurité du continent, et un calendrier diplomatique plus large qui doit notamment amener Donald Trump en Asie plus tard ce mois-ci pour le sommet de l'APEC. Sur les marchés, les opérateurs pétroliers continuent, avec prudence, d'intégrer dans les prix la perspective d'une désescalade progressive.</p>
+      </div>
+      <div class="essentiel">
+        <span class="label">L'essentiel</span>
+        <ul>
+          <li>Le cycle de pourparlers trilatéraux à Abou Dhabi s'achève sans accord global, mais avec un accord sur un vaste échange de prisonniers</li>
+          <li>Kushner et Witkoff attendus ce jeudi à Moscou pour rencontrer Vladimir Poutine</li>
+          <li>La participation effective des Européens (France, Royaume-Uni, Allemagne, Italie) à ce cycle n'a pas pu être confirmée</li>
+          <li>Le dossier reste suspendu à un calendrier diplomatique plus large, avec en toile de fond le sommet de l'APEC</li>
+        </ul>
+      </div>
+    </article>
+
+    <article data-rubrique="GEOPOLITIQUE">
+      <div class="rubrique">Géopolitique</div>
+      <h2 class="titre">Groenland, cyberattaques iraniennes, mer Noire : trois dossiers où Paris doit se positionner</h2>
+      <p class="chapeau">Entre un accord de sécurité contesté sur le Groenland, une accusation inédite de cyberattaques visée contre Téhéran et des tensions croissantes en mer Noire, la diplomatie française multiplie les prises de position sans toujours disposer d'un levier décisif.</p>
+      <div class="meta-row">5 min de lecture &middot; Par la rédaction du Diplomate</div>
+      <div class="corps">
+        <p>Le Parlement danois doit débattre ce mois-ci de la ratification de l'accord de sécurité conclu en septembre entre Washington et Copenhague sur le Groenland, après que le Parlement groenlandais l'a lui-même approuvé le 3 novembre par 16 voix contre zéro, avec sept abstentions. Le texte, présenté par Donald Trump comme donnant aux États-Unis « un contrôle permanent » sur la sécurité de l'île, autorise la modernisation de la base de Pituffik et la projection d'éléments du système antimissile « Golden Dome », tout en réaffirmant formellement la souveraineté danoise. L'opposition groenlandaise Naleraq a mis en doute, lors du débat au Groenland, l'intérêt économique réel de l'accord pour le territoire.</p>
+        <p><strong class="position-tag">Position de la France :</strong> le ministère de l'Europe et des Affaires étrangères a affirmé, dans une prise de position du 17 juin 2026, qu'il appartient « au Danemark et au Groenland, et à eux seuls » de décider des questions qui les concernent, tout en se déclarant prêt à renforcer la contribution française à la sécurité arctique, en concertation avec Copenhague et Nuuk. Emmanuel Macron avait qualifié dès janvier la situation groenlandaise d'« appel au réveil stratégique pour toute l'Europe », et la France participe depuis à une mission militaire européenne destinée à épauler le Danemark sur l'île. Aucune réaction française distincte n'a en revanche été identifiée sur le débat parlementaire danois de cette semaine.</p>
+        <p>La France a par ailleurs formellement attribué, le 9 novembre, une série de cyberattaques ayant visé les systèmes de régulation thermique d'environ 700 sites de la grande distribution dans la nuit du 11 au 12 octobre, à l'unité cyber-offensive Shahid Kaveh, rattachée aux Gardiens de la révolution iraniens. Selon l'Agence nationale de la sécurité des systèmes d'information (ANSSI), ces intrusions ont provoqué une hausse incontrôlée des températures dans les équipements frigorifiques de supermarchés, entraînant d'importantes pertes de produits frais et surgelés.</p>
+        <p><strong class="position-tag">Position de la France :</strong> sur ce dossier, c'est Paris qui est à l'origine de l'accusation. Le ministre des Affaires étrangères Jean-Noël Barrot a annoncé la convocation de l'ambassadeur iranien en France et la préparation, avec les partenaires européens, de nouvelles sanctions visant les responsables identifiés. Une information judiciaire a par ailleurs été ouverte, ciblant trois responsables de l'unité Shahid Kaveh. Téhéran n'avait, à l'heure de la rédaction de cette édition, pas répondu publiquement à ces accusations.</p>
+        <p>En mer Noire, le président roumain Nicușor Dan a proposé de faire financer par Bucarest le maintien de troupes américaines sur le sol roumain, alors que des incursions répétées de drones russes raniment les inquiétudes sécuritaires dans la région et que l'administration Trump engage un mouvement plus large de réduction de ses déploiements militaires en Europe. La Roumanie finance déjà l'extension de la base aérienne de Mihail Kogălniceanu, un projet évalué entre 2,5 et 3 milliards d'euros destiné à terme à accueillir jusqu'à 10 000 militaires.</p>
+        <p><strong class="position-tag">Position de la France :</strong> aucune réaction officielle française n'a pu être identifiée à ce stade sur la proposition roumaine, ni sur le mouvement annoncé de réduction des effectifs américains en Europe.</p>
+      </div>
+      <div class="essentiel">
+        <span class="label">L'essentiel</span>
+        <ul>
+          <li>Le Parlement groenlandais a approuvé le 3 novembre l'accord de sécurité avec Washington ; le Parlement danois doit encore se prononcer</li>
+          <li>La France attribue à une unité cyber des Gardiens de la révolution iraniens une série d'attaques ayant visé environ 700 supermarchés ; ambassadeur convoqué, sanctions européennes annoncées</li>
+          <li>La Roumanie propose de payer le maintien des troupes américaines sur son sol face aux incursions de drones russes en mer Noire</li>
+          <li>Sur ce dernier dossier, aucune réaction officielle française n'a été identifiée</li>
+        </ul>
+      </div>
+    </article>
+
+    <article data-rubrique="GEOECONOMIE">
+      <div class="rubrique">Géoéconomie</div>
+      <h2 class="titre">Nvidia, diesel russe, BCE : la géoéconomie sous tension</h2>
+      <p class="chapeau">Un scandale personnel ébranle le géant des semi-conducteurs, les sanctions américaines produisent des effets inattendus sur le marché du diesel russe, et la succession de Christine Lagarde à la BCE s'accélère.</p>
+      <div class="meta-row">4 min de lecture &middot; Par la rédaction du Diplomate</div>
+      <div class="corps">
+        <p>Le conseil d'administration de Nvidia a tenu des discussions d'urgence dans la nuit après la révélation d'une seconde liaison de son fondateur et directeur général Jensen Huang, cette fois avec Kimberly Powell, vice-présidente du groupe en charge du secteur de la santé — quelques jours seulement après la révélation par le Financial Times d'une relation antérieure avec une cadre que les autorités américaines soupçonnent d'être un agent de renseignement chinois. L'action du groupe, valorisé à 4 200 milliards de dollars, a chuté de 8,6% dans les échanges après la clôture des marchés. Le conseil, qui a fait appel à un ancien procureur fédéral pour enquêter sur les liens de M. Huang avec la cadre suspectée d'espionnage, continue pour l'instant de soutenir son maintien à la tête de l'entreprise, affirmant n'avoir à ce stade aucune preuve d'une compromission des secrets industriels du groupe ou de la sécurité nationale américaine.</p>
+        <p>L'épisode relance les inquiétudes sur la concentration du risque dans les portefeuilles d'investissement liés à l'intelligence artificielle, un petit nombre de valeurs technologiques pesant désormais de manière disproportionnée sur les grands indices boursiers américains.</p>
+        <p>Sur le marché de l'énergie, les exportations russes de diesel ont doublé le mois dernier après la décision de Donald Trump de lever les sanctions américaines visant les livraisons de ce carburant, selon des données citées par le Financial Times — sans qu'aucune de ces cargaisons ne soit pour autant parvenue jusqu'aux États-Unis. Ce rebond devrait toutefois se révéler de courte durée : l'Ukraine a repris ses frappes contre les raffineries russes, ce qui devrait de nouveau peser sur les capacités d'exportation de Moscou dans les prochaines semaines.</p>
+        <p>La France a par ailleurs laissé entendre qu'elle pourrait soutenir la candidature de l'Espagnol Pablo Hernández de Cos, actuel directeur général de la Banque des règlements internationaux et ancien gouverneur de la Banque d'Espagne, pour succéder à Christine Lagarde à la présidence de la Banque centrale européenne, selon des informations relayées par le Financial Times citant quatre sources proches du dossier. Les dirigeants européens espèrent boucler cet accord dès ce mois-ci. Mme Lagarde a annoncé fin octobre un départ anticipé, effectif en février 2027, ouvrant une bataille de succession disputée avec le Néerlandais Klaas Knot et l'Allemand Joachim Nagel, dans un contexte de tensions persistantes sur les marchés obligataires.</p>
+      </div>
+      <div class="essentiel">
+        <span class="label">L'essentiel</span>
+        <ul>
+          <li>Jensen Huang, PDG de Nvidia, visé par la révélation d'une seconde liaison ; l'action chute de 8,6%, le conseil d'administration réuni en urgence</li>
+          <li>Les exportations de diesel russe doublent après la levée des sanctions américaines sur ce carburant, sans qu'aucune cargaison n'atteigne les États-Unis</li>
+          <li>La France signale un possible soutien à l'Espagnol Hernández de Cos pour la présidence de la BCE, face au Néerlandais Knot et à l'Allemand Nagel</li>
+        </ul>
+      </div>
+    </article>
+
+    <article data-rubrique="FRANCE">
+      <div class="rubrique">France</div>
+      <h2 class="titre">Budget 2027 : le texte rejeté à l'Assemblée part au Sénat, le SMIC revalorisé par anticipation</h2>
+      <p class="chapeau">Sans majorité à l'Assemblée, le gouvernement voit son projet de budget transmis au Sénat après un rejet unanime ; il tente dans le même temps d'apaiser le front social par une hausse anticipée du salaire minimum, jugée insuffisante par la CGT.</p>
+      <div class="meta-row">3 min de lecture &middot; Par la rédaction du Diplomate</div>
+      <div class="corps">
+        <p>Les députés ont rejeté à l'unanimité, le 4 novembre au soir, la partie recettes du projet de loi de finances pour 2027, entraînant le rejet de l'ensemble du texte par l'Assemblée nationale. Profondément remanié au fil de débats menés dans un hémicycle sans majorité absolue, le projet initial du gouvernement — qui visait un déficit ramené à 5% du produit intérieur brut, contre 5,4% attendus cette année — est désormais transmis au Sénat sans que sa partie dépenses ait été examinée par les députés. Le Premier ministre Sébastien Lecornu pourrait recourir à l'article 49.3 de la Constitution, ou à des ordonnances, pour faire aboutir le texte ; le budget de la Sécurité sociale, également rejeté à l'Assemblée, devra trouver une issue similaire.</p>
+        <p>Parallèlement, M. Lecornu a annoncé le 9 novembre une revalorisation anticipée du salaire minimum de 1,6%, portant le SMIC à 1 502 euros nets par mois dès le 1er décembre, ainsi que la prolongation en 2027 de la prise en charge à 75% par les employeurs des abonnements de transport en commun. La CGT, qui réclamait une hausse de 10%, juge la mesure insuffisante et a appelé à une nouvelle journée de grève le 17 novembre ; La France insoumise estime que le gain réel par rapport à l'indexation automatique prévue au 1er janvier 2027 ne dépasserait pas quelques euros nets par mois.</p>
+      </div>
+      <div class="essentiel">
+        <span class="label">L'essentiel</span>
+        <ul>
+          <li>L'Assemblée nationale rejette à l'unanimité le volet recettes du budget 2027 ; le texte part au Sénat sans examen des dépenses</li>
+          <li>Sébastien Lecornu pourrait recourir au 49.3 ou à des ordonnances pour faire adopter le budget et celui de la Sécurité sociale</li>
+          <li>Hausse anticipée du SMIC à 1 502 euros nets au 1er décembre ; la CGT la juge insuffisante et appelle à la grève le 17 novembre</li>
+        </ul>
+      </div>
+    </article>
+
+    <article data-rubrique="REGARD_DIPLOMATE">
+      <div class="rubrique">Le regard du diplomate</div>
+      <h2 class="titre">La diplomatie par la norme, quand la table est fermée</h2>
+      <p class="chapeau">Ce 12 novembre illustre, par contraste, deux manières de peser sur les affaires du monde : être à la table des négociations, ou agir par la force du droit et de la déclaration.</p>
+      <div class="meta-row">3 min de lecture &middot; L'éditorial du Diplomate</div>
+      <div class="corps">
+        <p>À Abou Dhabi, les Européens restent à la porte d'un format trilatéral qui, pour l'heure, avance sans eux. Ce constat, qui n'est pas nouveau, éclaire par contraste la façon dont Paris choisit d'agir ailleurs dans l'actualité du jour : en attribuant publiquement, preuves techniques à l'appui, une campagne de cyberattaques aux Gardiens de la révolution iraniens ; en rappelant, sur le Groenland, un principe de droit international — la souveraineté danoise — plutôt qu'un rapport de force militaire qu'elle n'a pas les moyens d'imposer seule ; en gardant, sur la Roumanie et la mer Noire, un silence qui est aussi une façon de ne pas se prononcer sur un dossier où elle pèse peu.</p>
+        <p>Ce sont là, nous semble-t-il, deux grammaires diplomatiques distinctes, et la seconde n'est pas condamnée à l'infériorité face à la première. Une puissance exclue d'une négociation bilatérale ou trilatérale peut encore agir par l'attribution publique, la sanction coordonnée, la solidarité déclaratoire ou la médiation multilatérale — autant d'instruments qui ne produisent pas d'effet immédiat, mais qui accumulent, sur la durée, un capital normatif susceptible de peser le jour où la table s'ouvre à nouveau. Le risque, à l'inverse, est de confondre cette diplomatie de la norme avec une diplomatie de l'influence réelle, et de croire qu'une déclaration ferme suffit à compenser l'absence d'un siège. Ce n'est, bien sûr, qu'une grille de lecture parmi d'autres, non un jugement arrêté sur l'efficacité de la politique étrangère française.</p>
+      </div>
+      <div class="essentiel">
+        <span class="label">L'essentiel</span>
+        <ul>
+          <li>À Abou Dhabi, les Européens restent exclus du format trilatéral ; ailleurs, Paris agit par l'attribution, le droit et la déclaration plutôt que par le rapport de force</li>
+          <li>Cette diplomatie normative accumule un capital de long terme, mais ne doit pas être confondue avec une influence décisionnelle immédiate</li>
+        </ul>
+      </div>
+    </article>
+
+  </main>
+
+  <footer>
+    Le Diplomate &middot; revue de presse générée automatiquement à usage d'études de diplomatie &middot; sources publiques
+  </footer>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var btn = document.getElementById('listenBtn');
+  var status = document.getElementById('listenStatus');
+  var synth = window.speechSynthesis;
+
+  if (!synth) {
+    btn.textContent = 'Lecture audio indisponible';
+    btn.disabled = true;
+    return;
+  }
+
+  function collectText(){
+    var parts = [];
+    document.querySelectorAll('#articles article').forEach(function(art){
+      var rub = art.querySelector('.rubrique');
+      var titre = art.querySelector('.titre');
+      var chapeau = art.querySelector('.chapeau');
+      if (rub) parts.push(rub.textContent.trim() + '.');
+      if (titre) parts.push(titre.textContent.trim() + '.');
+      if (chapeau) parts.push(chapeau.textContent.trim());
+      art.querySelectorAll('.corps p').forEach(function(p){
+        parts.push(p.textContent.trim());
+      });
+      var essentielItems = art.querySelectorAll('.essentiel li');
+      if (essentielItems.length){
+        parts.push("L'essentiel.");
+        essentielItems.forEach(function(li){ parts.push(li.textContent.trim()); });
+      }
+    });
+    return parts;
+  }
+
+  var queue = [];
+  var idx = 0;
+  var state = 'idle'; // idle | speaking | paused
+
+  function setState(s){
+    state = s;
+    btn.setAttribute('data-state', s);
+    if (s === 'idle'){
+      btn.textContent = '🔊 Écouter l’édition';
+      btn.setAttribute('aria-pressed', 'false');
+      status.textContent = ' ';
+    } else if (s === 'speaking'){
+      btn.textContent = '⏸ Pause';
+      btn.setAttribute('aria-pressed', 'true');
+    } else if (s === 'paused'){
+      btn.textContent = '▶ Reprendre';
+      btn.setAttribute('aria-pressed', 'true');
+    }
+  }
+
+  function speakNext(){
+    if (idx >= queue.length){
+      setState('idle');
+      idx = 0;
+      return;
+    }
+    var utt = new SpeechSynthesisUtterance(queue[idx]);
+    utt.lang = 'fr-FR';
+    utt.rate = 1.0;
+    status.textContent = 'Paragraphe ' + (idx + 1) + ' / ' + queue.length;
+    utt.onend = function(){
+      idx++;
+      speakNext();
+    };
+    utt.onerror = function(){
+      idx++;
+      speakNext();
+    };
+    synth.speak(utt);
+  }
+
+  btn.addEventListener('click', function(){
+    try {
+      if (state === 'idle'){
+        queue = collectText();
+        idx = 0;
+        synth.cancel();
+        setState('speaking');
+        speakNext();
+      } else if (state === 'speaking'){
+        synth.pause();
+        setState('paused');
+      } else if (state === 'paused'){
+        synth.resume();
+        setState('speaking');
+      }
+    } catch (e) {
+      status.textContent = "Lecture audio indisponible dans ce navigateur.";
+    }
+  });
+
+  window.addEventListener('beforeunload', function(){
+    try { synth.cancel(); } catch(e){}
+  });
+})();
+</script>
