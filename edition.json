@@ -1,99 +1,97 @@
 {
-  "date": "2026-11-12",
-  "numero": 36,
-  "heureGeneration": "07:50",
+  "date": "2026-11-13",
+  "numero": 37,
+  "heureGeneration": "07:37",
   "sections": [
     {
       "ordre": 1,
       "rubrique": "UNE",
-      "titre": "Abou Dhabi : échange de prisonniers acté, mais toujours pas de percée sur l'Ukraine",
-      "chapeau": "Le quatrième cycle de pourparlers trilatéraux s'est achevé sans accord global sur la guerre en Ukraine, mais avec un accord sur un vaste échange de prisonniers ; les émissaires américains sont attendus ce jeudi à Moscou pour rencontrer Vladimir Poutine.",
+      "titre": "Kushner : pas d'accord possible sur l'Ukraine sans l'Europe, qui rejette le plan russe de refonte sécuritaire",
+      "chapeau": "L'émissaire américain affirme qu'aucun accord de paix sur l'Ukraine ne pourra être scellé sans les Européens, alors que ceux-ci rejettent une proposition russe de refonte de l'architecture de sécurité du continent et qu'un format inspiré du Conseil OTAN-Russie serait à l'étude à Washington.",
       "dureeLectureMin": 4,
       "corpsArticle": [
-        "Les pourparlers trilatéraux réunissant des délégations russe, ukrainienne et américaine se sont achevés hier à Abou Dhabi sans percée majeure sur le cœur du dossier ukrainien, selon des responsables cités par le Financial Times. Les trois parties se sont toutefois mises d'accord sur un échange de prisonniers de grande ampleur, premier résultat concret de ce quatrième cycle de négociations depuis janvier, et le premier depuis l'interruption des discussions en février. L'ordre du jour, annoncé en amont, couvrait aussi un possible cessez-le-feu limité aux infrastructures énergétiques et au trafic maritime, le retour d'enfants ukrainiens déplacés vers la Russie, ainsi que la question plus disputée des garanties de sécurité pour Kiev.",
-        "La diplomatie américaine ne marque pas de pause : les émissaires Jared Kushner et Steve Witkoff, qui ont conduit la médiation à Abou Dhabi, sont attendus ce jeudi à Moscou pour y rencontrer le président russe Vladimir Poutine, signe que Washington entend maintenir la dynamique engagée malgré l'absence d'accord global.",
-        "La question de la participation européenne au processus reste, comme lors des cycles précédents, un point de friction non résolu. Selon plusieurs analyses publiées avant la reprise des discussions, la France, le Royaume-Uni, l'Allemagne et l'Italie auraient pu dépêcher des conseillers à la sécurité en marge des échanges d'Abou Dhabi ; aucune confirmation officielle de leur présence effective lors de ce cycle n'a pu être établie à l'heure de la rédaction de cette édition.",
-        "L'enjeu dépasse le cadre strictement bilatéral russo-ukrainien : la crédibilité du format trilatéral, la place future de l'Europe dans l'architecture de sécurité du continent, et un calendrier diplomatique plus large qui doit notamment amener Donald Trump en Asie plus tard ce mois-ci pour le sommet de l'APEC. Sur les marchés, les opérateurs pétroliers continuent, avec prudence, d'intégrer dans les prix la perspective d'une désescalade progressive."
+        "L'émissaire américain Jared Kushner a affirmé que les États-Unis ne pourront pas parvenir à un accord mettant fin à la guerre en Ukraine sans l'implication de l'Europe, selon des propos rapportés ce vendredi par le Financial Times. Cette déclaration intervient alors que plusieurs capitales européennes rejettent une proposition russe visant à revoir en profondeur l'architecture de sécurité du continent, dans le cadre des discussions engagées depuis plusieurs mois entre Washington, Kiev, Moscou et les Européens.",
+        "Selon des informations publiées le 8 novembre par le site ukrainien Pravda, M. Kushner chercherait à faire renaître un format inspiré du Conseil OTAN-Russie pour structurer les discussions sur la sécurité du continent une fois la guerre terminée. Un désaccord de fond subsiste toutefois sur le calendrier : les Européens insistent pour qu'un cessez-le-feu soit obtenu avant toute négociation plus large sur l'architecture de sécurité, tandis que l'émissaire américain plaide pour mener les deux discussions de front.",
+        "L'Élysée a publié, le 10 novembre, un communiqué consacré à une réunion entre les États-Unis, l'Ukraine et des partenaires européens, signe que Paris entend rester associé au processus. Le contenu détaillé des échanges tenus à cette occasion n'a toutefois pas été rendu public, et aucune déclaration française distincte sur les propos de M. Kushner n'a pu être identifiée à l'heure de la rédaction de cette édition.",
+        "Au-delà du dossier ukrainien proprement dit, c'est la question de la place de l'Europe dans l'architecture de sécurité du continent qui se trouve posée : les Européens, répétant depuis des mois ne pas vouloir être tenus à l'écart d'un accord qui engagerait leur propre sécurité, se retrouvent une nouvelle fois dans la position de devoir réagir à un calendrier qu'ils ne maîtrisent pas entièrement."
       ],
       "essentiel": [
-        "Le cycle de pourparlers trilatéraux à Abou Dhabi s'achève sans accord global, mais avec un accord sur un vaste échange de prisonniers",
-        "Kushner et Witkoff attendus ce jeudi à Moscou pour rencontrer Vladimir Poutine",
-        "La participation effective des Européens (France, Royaume-Uni, Allemagne, Italie) à ce cycle n'a pas pu être confirmée",
-        "Le dossier reste suspendu à un calendrier diplomatique plus large, avec en toile de fond le sommet de l'APEC"
+        "Jared Kushner affirme qu'aucun accord sur l'Ukraine ne sera possible sans l'Europe, alors que les Européens rejettent un projet russe de refonte sécuritaire",
+        "Washington étudierait un format inspiré du Conseil OTAN-Russie pour structurer les discussions de sécurité d'après-guerre",
+        "Désaccord persistant sur l'ordre des priorités : cessez-le-feu d'abord pour les Européens, discussion globale simultanée pour Kushner",
+        "L'Élysée a publié le 10 novembre un communiqué sur une réunion entre Washington, Kiev et les partenaires européens, sans détail public sur son contenu"
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 2,
       "rubrique": "GEOPOLITIQUE",
-      "titre": "Groenland, cyberattaques iraniennes, mer Noire : trois dossiers où Paris doit se positionner",
-      "chapeau": "Entre un accord de sécurité contesté sur le Groenland, une accusation inédite de cyberattaques visée contre Téhéran et des tensions croissantes en mer Noire, la diplomatie française multiplie les prises de position sans toujours disposer d'un levier décisif.",
+      "titre": "Iran, Royaume-Uni : deux dossiers où Washington recompose ses priorités, et où Paris réagit en ordre dispersé",
+      "chapeau": "Donald Trump met un coup d'arrêt à l'initiative de son vice-président sur le dossier nucléaire iranien, tandis que le Premier ministre britannique Andy Burnham prépare un sommet avec l'Union européenne ; la France réagit sur l'un de ces dossiers, pas sur l'autre.",
       "dureeLectureMin": 5,
       "corpsArticle": [
-        "Le Parlement danois doit débattre ce mois-ci de la ratification de l'accord de sécurité conclu en septembre entre Washington et Copenhague sur le Groenland, après que le Parlement groenlandais l'a lui-même approuvé le 3 novembre par 16 voix contre zéro, avec sept abstentions. Le texte, présenté par Donald Trump comme donnant aux États-Unis « un contrôle permanent » sur la sécurité de l'île, autorise la modernisation de la base de Pituffik et la projection d'éléments du système antimissile « Golden Dome », tout en réaffirmant formellement la souveraineté danoise. L'opposition groenlandaise Naleraq a mis en doute, lors du débat au Groenland, l'intérêt économique réel de l'accord pour le territoire.",
-        "Position de la France : le ministère de l'Europe et des Affaires étrangères a affirmé, dans une prise de position du 17 juin 2026, qu'il appartient « au Danemark et au Groenland, et à eux seuls » de décider des questions qui les concernent, tout en se déclarant prêt à renforcer la contribution française à la sécurité arctique, en concertation avec Copenhague et Nuuk. Emmanuel Macron avait qualifié dès janvier la situation groenlandaise d'« appel au réveil stratégique pour toute l'Europe », et la France participe depuis à une mission militaire européenne destinée à épauler le Danemark sur l'île. Aucune réaction française distincte n'a en revanche été identifiée sur le débat parlementaire danois de cette semaine.",
-        "La France a par ailleurs formellement attribué, le 9 novembre, une série de cyberattaques ayant visé les systèmes de régulation thermique d'environ 700 sites de la grande distribution dans la nuit du 11 au 12 octobre, à l'unité cyber-offensive Shahid Kaveh, rattachée aux Gardiens de la révolution iraniens. Selon l'Agence nationale de la sécurité des systèmes d'information (ANSSI), ces intrusions ont provoqué une hausse incontrôlée des températures dans les équipements frigorifiques de supermarchés, entraînant d'importantes pertes de produits frais et surgelés.",
-        "Position de la France : sur ce dossier, c'est Paris qui est à l'origine de l'accusation. Le ministre des Affaires étrangères Jean-Noël Barrot a annoncé la convocation de l'ambassadeur iranien en France et la préparation, avec les partenaires européens, de nouvelles sanctions visant les responsables identifiés. Une information judiciaire a par ailleurs été ouverte, ciblant trois responsables de l'unité Shahid Kaveh. Téhéran n'avait, à l'heure de la rédaction de cette édition, pas répondu publiquement à ces accusations.",
-        "En mer Noire, le président roumain Nicușor Dan a proposé de faire financer par Bucarest le maintien de troupes américaines sur le sol roumain, alors que des incursions répétées de drones russes raniment les inquiétudes sécuritaires dans la région et que l'administration Trump engage un mouvement plus large de réduction de ses déploiements militaires en Europe. La Roumanie finance déjà l'extension de la base aérienne de Mihail Kogălniceanu, un projet évalué entre 2,5 et 3 milliards d'euros destiné à terme à accueillir jusqu'à 10 000 militaires.",
-        "Position de la France : aucune réaction officielle française n'a pu être identifiée à ce stade sur la proposition roumaine, ni sur le mouvement annoncé de réduction des effectifs américains en Europe."
+        "Selon le Financial Times, Donald Trump a signalé la fin de l'initiative menée depuis plusieurs mois par son vice-président JD Vance en vue d'un nouvel accord avec Téhéran, déclarant que les États-Unis n'ont pas besoin d'un accord avec l'Iran et chargeant M. Vance de se recentrer sur des priorités de politique intérieure. Ce revirement survient après des semaines de négociations indirectes menées par le vice-président, qui avait évoqué des avancées sur la reprise des inspections de l'Agence internationale de l'énergie atomique et la réouverture du détroit d'Ormuz, sans qu'un accord final n'ait jamais été formellement conclu.",
+        "Position de la France : à l'issue d'une réunion des ministres des Affaires étrangères du G7 accueillie par le Quai d'Orsay le 10 novembre, Jean-Noël Barrot a mis en garde contre un risque de nouvelle escalade militaire entre les États-Unis et l'Iran, selon des informations de presse relayant les propos tenus à cette occasion. Paris a par ailleurs rappelé à plusieurs reprises ces derniers mois qu'aucune levée des sanctions des Nations unies visant l'Iran ne pourrait intervenir sans l'accord français.",
+        "Le Premier ministre britannique Andy Burnham a affirmé vouloir obtenir, lors du sommet entre le Royaume-Uni et l'Union européenne attendu ce mois-ci, un accord porteur de « bénéfices réels » pour son pays, tout en assurant qu'aucune discussion n'est engagée sur un retour du Royaume-Uni dans le bloc européen. Le rapprochement engagé depuis l'été avec Bruxelles, qui porte notamment sur le commerce, les visas de jeunes Européens et les frais de scolarité universitaires, est contesté par l'opposition conservatrice, qui y voit un détricotage de l'accord de sortie du Brexit.",
+        "Position de la France : aucune réaction officielle française n'a pu être identifiée à ce stade sur les préparatifs de ce sommet ni sur les déclarations de M. Burnham."
       ],
       "essentiel": [
-        "Le Parlement groenlandais a approuvé le 3 novembre l'accord de sécurité avec Washington ; le Parlement danois doit encore se prononcer",
-        "La France attribue à une unité cyber des Gardiens de la révolution iraniens une série d'attaques ayant visé environ 700 supermarchés ; ambassadeur convoqué, sanctions européennes annoncées",
-        "La Roumanie propose de payer le maintien des troupes américaines sur son sol face aux incursions de drones russes en mer Noire",
-        "Sur ce dernier dossier, aucune réaction officielle française n'a été identifiée"
+        "Donald Trump met fin à l'initiative de JD Vance sur un nouvel accord avec l'Iran et le charge de priorités intérieures",
+        "Jean-Noël Barrot a averti, le 10 novembre, d'un risque de nouvelle escalade militaire entre Washington et Téhéran",
+        "Andy Burnham vise un accord aux « bénéfices réels » avec l'UE sans évoquer de retour du Royaume-Uni dans le bloc",
+        "Aucune réaction officielle française identifiée à ce stade sur le dossier britannique"
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 3,
       "rubrique": "GEOECONOMIE",
-      "titre": "Nvidia, diesel russe, BCE : la géoéconomie sous tension",
-      "chapeau": "Un scandale personnel ébranle le géant des semi-conducteurs, les sanctions américaines produisent des effets inattendus sur le marché du diesel russe, et la succession de Christine Lagarde à la BCE s'accélère.",
+      "titre": "Nvidia sous le choc, l'électrification au cœur de la COP31",
+      "chapeau": "La démission de Jensen Huang, précipitée par un scandale personnel aux ramifications sécuritaires, ébranle un instant le symbole de la course mondiale aux puces d'intelligence artificielle, tandis que la France pousse, à la COP31, pour un objectif contraignant d'électrification propre.",
       "dureeLectureMin": 4,
       "corpsArticle": [
-        "Le conseil d'administration de Nvidia a tenu des discussions d'urgence dans la nuit après la révélation d'une seconde liaison de son fondateur et directeur général Jensen Huang, cette fois avec Kimberly Powell, vice-présidente du groupe en charge du secteur de la santé — quelques jours seulement après la révélation par le Financial Times d'une relation antérieure avec une cadre que les autorités américaines soupçonnent d'être un agent de renseignement chinois. L'action du groupe, valorisé à 4 200 milliards de dollars, a chuté de 8,6% dans les échanges après la clôture des marchés. Le conseil, qui a fait appel à un ancien procureur fédéral pour enquêter sur les liens de M. Huang avec la cadre suspectée d'espionnage, continue pour l'instant de soutenir son maintien à la tête de l'entreprise, qu'il n'a par ailleurs aucune preuve d'une compromission des secrets industriels du groupe ou de la sécurité nationale américaine.",
-        "L'épisode relance les inquiétudes sur la concentration du risque dans les portefeuilles d'investissement liés à l'intelligence artificielle, un petit nombre de valeurs technologiques pesant désormais de manière disproportionnée sur les grands indices boursiers américains.",
-        "Sur le marché de l'énergie, les exportations russes de diesel ont doublé le mois dernier après la décision de Donald Trump de lever les sanctions américaines visant les livraisons de ce carburant, selon des données citées par le Financial Times — sans qu'aucune de ces cargaisons ne soit pour autant parvenue jusqu'aux États-Unis. Ce rebond devrait toutefois se révéler de courte durée : l'Ukraine a repris ses frappes contre les raffineries russes, ce qui devrait de nouveau peser sur les capacités d'exportation de Moscou dans les prochaines semaines.",
-        "La France a par ailleurs laissé entendre qu'elle pourrait soutenir la candidature de l'Espagnol Pablo Hernández de Cos, actuel directeur général de la Banque des règlements internationaux et ancien gouverneur de la Banque d'Espagne, pour succéder à Christine Lagarde à la présidence de la Banque centrale européenne, selon des informations relayées par le Financial Times citant quatre sources proches du dossier. Les dirigeants européens espèrent boucler cet accord dès ce mois-ci. Mme Lagarde a annoncé fin octobre un départ anticipé, effectif en février 2027, ouvrant une bataille de succession disputée avec le Néerlandais Klaas Knot et l'Allemand Joachim Nagel, dans un contexte de tensions persistantes sur les marchés obligataires."
+        "Jensen Huang, fondateur et directeur général de Nvidia, a démissionné après la révélation, par le Financial Times, de liaisons extraconjugales impliquant notamment une cadre du groupe que les autorités américaines soupçonnent d'être liée au renseignement chinois. Ce départ met fin à trois décennies à la tête de l'entreprise qui a fait de ses puces le socle matériel du boom mondial de l'intelligence artificielle. L'action a chuté de 13% dans la séance qui a suivi l'annonce, effaçant plus de 500 milliards de dollars de valorisation, avant de se redresser largement, des investisseurs misant sur la solidité du groupe au-delà de son fondateur.",
+        "L'épisode relance, au-delà du scandale personnel, un débat plus ancien sur le rôle de Nvidia dans la politique américaine de contrôle des exportations de semi-conducteurs vers la Chine, M. Huang s'étant lui-même publiquement opposé à plusieurs de ces restrictions, qu'il jugeait contre-productives pour l'industrie américaine. Des commentateurs cités par la presse économique soulignent par ailleurs le risque de concentration que fait peser, sur les marchés financiers, le poids désormais disproportionné d'un petit nombre de valeurs technologiques liées à l'intelligence artificielle.",
+        "À la COP31, qui se tient à Antalya jusqu'au 20 novembre, la présidence turque pousse un objectif consistant à porter à 35% la part de l'électricité dans la demande énergétique mondiale d'ici 2035. La France milite pour que cet objectif figure parmi les décisions négociées de la conférence plutôt que parmi de simples engagements volontaires, et pour qu'il soit assorti d'une exigence d'électricité « propre », afin d'éviter qu'un surcroît de production électrique ne soit couvert par un recours accru au charbon. L'Union européenne a publiquement soutenu cette approche."
       ],
       "essentiel": [
-        "Jensen Huang, PDG de Nvidia, visé par la révélation d'une seconde liaison ; l'action chute de 8,6%, le conseil d'administration réuni en urgence",
-        "Les exportations de diesel russe doublent après la levée des sanctions américaines sur ce carburant, sans qu'aucune cargaison n'atteigne les États-Unis",
-        "La France signale un possible soutien à l'Espagnol Hernández de Cos pour la présidence de la BCE, face au Néerlandais Knot et à l'Allemand Nagel"
+        "Jensen Huang démissionne de la direction de Nvidia après la révélation d'une liaison avec une cadre suspectée de liens avec le renseignement chinois",
+        "L'action du groupe chute de 13% avant de se redresser largement",
+        "L'épisode relance le débat sur les restrictions américaines à l'exportation de puces vers la Chine",
+        "À la COP31 d'Antalya, la France pousse pour un objectif contraignant d'électrification « propre » (35% d'ici 2035)"
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 4,
       "rubrique": "FRANCE",
-      "titre": "Budget 2027 : le texte rejeté à l'Assemblée part au Sénat, le SMIC revalorisé par anticipation",
-      "chapeau": "Sans majorité à l'Assemblée, le gouvernement voit son projet de budget transmis au Sénat après un rejet unanime ; il tente dans le même temps d'apaiser le front social par une hausse anticipée du salaire minimum, jugée insuffisante par la CGT.",
+      "titre": "Budget 2027 : le Sénat allège l'effort demandé aux collectivités locales, la mobilisation sociale se poursuit",
+      "chapeau": "Après le rejet du texte à l'Assemblée nationale, les sénateurs reprennent la main sur le projet de loi de finances et réduisent l'effort imposé aux collectivités locales, tandis que les organisations syndicales préparent une nouvelle journée d'action à l'échelle européenne.",
       "dureeLectureMin": 3,
       "corpsArticle": [
-        "Les députés ont rejeté à l'unanimité, le 4 novembre au soir, la partie recettes du projet de loi de finances pour 2027, entraînant le rejet de l'ensemble du texte par l'Assemblée nationale. Profondément remanié au fil de débats menés dans un hémicycle sans majorité absolue, le projet initial du gouvernement — qui visait un déficit ramené à 5% du produit intérieur brut, contre 5,4% attendus cette année — est désormais transmis au Sénat sans que sa partie dépenses ait été examinée par les députés. Le Premier ministre Sébastien Lecornu pourrait recourir à l'article 49.3 de la Constitution, ou à des ordonnances, pour faire aboutir le texte ; le budget de la Sécurité sociale, également rejeté à l'Assemblée, devra trouver une issue similaire.",
-        "Parallèlement, M. Lecornu a annoncé le 9 novembre une revalorisation anticipée du salaire minimum de 1,6%, portant le SMIC à 1 502 euros nets par mois dès le 1er décembre, ainsi que la prolongation en 2027 de la prise en charge à 75% par les employeurs des abonnements de transport en commun. La CGT, qui réclamait une hausse de 10%, juge la mesure insuffisante et a appelé à une nouvelle journée de grève le 17 novembre ; La France insoumise estime que le gain réel par rapport à l'indexation automatique prévue au 1er janvier 2027 ne dépasserait pas quelques euros nets par mois."
+        "Le Sénat, qui examine le projet de budget de la Sécurité sociale pour 2027 depuis le 9 novembre avant de se pencher sur le projet de loi de finances à partir du 20, a entrepris de réduire l'effort budgétaire demandé par le gouvernement aux collectivités locales, selon des travaux parlementaires relayés par la presse spécialisée. La sénatrice Christine Lavarde (Les Républicains), récemment désignée rapporteure générale du budget, doit composer entre l'objectif de réduction du déficit public, ramené à 5% du produit intérieur brut en 2027, et les contraintes politiques d'un hémicycle sans majorité absolue, un contexte qui avait déjà conduit au rejet unanime du texte à l'Assemblée nationale.",
+        "Sur le front social, les organisations syndicales qui avaient appelé à une journée de grève et de manifestations le 5 novembre préparent une nouvelle mobilisation pour la fin du mois, cette fois coordonnée avec des organisations syndicales d'au moins six autres pays européens autour de la question du coût de la vie. Le ministre du Travail, Laurent Panifous, a évoqué une mesure relative au salaire minimum sans en préciser le contenu exact à ce stade."
       ],
       "essentiel": [
-        "L'Assemblée nationale rejette à l'unanimité le volet recettes du budget 2027 ; le texte part au Sénat sans examen des dépenses",
-        "Sébastien Lecornu pourrait recourir au 49.3 ou à des ordonnances pour faire adopter le budget et celui de la Sécurité sociale",
-        "Hausse anticipée du SMIC à 1 502 euros nets au 1er décembre ; la CGT la juge insuffisante et appelle à la grève le 17 novembre"
+        "Le Sénat réduit l'effort budgétaire demandé aux collectivités locales dans le projet de budget 2027",
+        "Christine Lavarde, nouvelle rapporteure générale du budget au Sénat, doit composer avec un hémicycle sans majorité",
+        "Les syndicats préparent une mobilisation coordonnée avec au moins six autres pays européens fin novembre sur le coût de la vie"
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 5,
       "rubrique": "REGARD_DIPLOMATE",
-      "titre": "La diplomatie par la norme, quand la table est fermée",
-      "chapeau": "Ce 12 novembre illustre, par contraste, deux manières de peser sur les affaires du monde : être à la table des négociations, ou agir par la force du droit et de la déclaration.",
+      "titre": "Quand l'allié devient variable d'ajustement",
+      "chapeau": "De l'Ukraine à l'Iran en passant par le Royaume-Uni, la journée illustre une même dynamique : les tracks diplomatiques se redéfinissent au gré des priorités intérieures de la puissance dominante, laissant aux partenaires le soin de s'adapter.",
       "dureeLectureMin": 3,
       "corpsArticle": [
-        "À Abou Dhabi, les Européens restent à la porte d'un format trilatéral qui, pour l'heure, avance sans eux. Ce constat, qui n'est pas nouveau, éclaire par contraste la façon dont Paris choisit d'agir ailleurs dans l'actualité du jour : en attribuant publiquement, preuves techniques à l'appui, une campagne de cyberattaques aux Gardiens de la révolution iraniens ; en rappelant, sur le Groenland, un principe de droit international — la souveraineté danoise — plutôt qu'un rapport de force militaire qu'elle n'a pas les moyens d'imposer seule ; en gardant, sur la Roumanie et la mer Noire, un silence qui est aussi une façon de ne pas se prononcer sur un dossier où elle pèse peu.",
-        "Ce sont là, nous semble-t-il, deux grammaires diplomatiques distinctes, et la seconde n'est pas condamnée à l'infériorité face à la première. Une puissance exclue d'une négociation bilatérale ou trilatérale peut encore agir par l'attribution publique, la sanction coordonnée, la solidarité déclaratoire ou la médiation multilatérale — autant d'instruments qui ne produisent pas d'effet immédiat, mais qui accumulent, sur la durée, un capital normatif susceptible de peser le jour où la table s'ouvre à nouveau. Le risque, à l'inverse, est de confondre cette diplomatie de la norme avec une diplomatie de l'influence réelle, et de croire qu'une déclaration ferme suffit à compenser l'absence d'un siège. Ce n'est, bien sûr, qu'une grille de lecture parmi d'autres, non un jugement arrêté sur l'efficacité de la politique étrangère française."
+        "Trois dossiers, trois échelles différentes, un même ressort. Jared Kushner affirme qu'aucun accord sur l'Ukraine ne tiendra sans l'Europe — mais c'est lui, et non les Européens, qui continue de fixer le format des discussions. Donald Trump met un terme, du jour au lendemain, à l'investissement de son propre vice-président dans le dossier iranien, au motif que celui-ci devrait désormais se consacrer à des priorités de politique intérieure américaine. Andy Burnham, de son côté, cherche à rapprocher le Royaume-Uni de l'Union européenne sans jamais prononcer le mot qui fâche — une adhésion —, par crainte d'un procès en trahison du Brexit intenté par son opposition.",
+        "Ce qui frappe, dans ces trois cas, c'est la faible marge de manœuvre laissée aux parties les plus exposées : les Européens sur l'Ukraine, Téhéran sur le nucléaire, Bruxelles sur la relation post-Brexit avec Londres. Aucune de ces parties ne décide du calendrier ; toutes doivent composer avec des arbitrages pris ailleurs, souvent pour des raisons de politique intérieure américaine ou britannique plutôt que pour des raisons tenant au fond des dossiers. C'est, nous semble-t-il, une leçon récurrente de la diplomatie contemporaine : la capacité à peser sur un dossier dépend moins de la légitimité à y participer que de la capacité à ne pas dépendre entièrement du calendrier d'un tiers. Ce n'est là qu'une grille de lecture parmi d'autres, non un constat définitif sur l'état des relations transatlantiques."
       ],
       "essentiel": [
-        "À Abou Dhabi, les Européens restent exclus du format trilatéral ; ailleurs, Paris agit par l'attribution, le droit et la déclaration plutôt que par le rapport de force",
-        "Cette diplomatie normative accumule un capital de long terme, mais ne doit pas être confondue avec une influence décisionnelle immédiate"
+        "Ukraine, Iran, Royaume-Uni : trois dossiers où le calendrier est fixé par la puissance dominante plutôt que par les parties les plus concernées",
+        "Point de vue éditorial : la marge de manœuvre diplomatique dépend moins de la légitimité à participer que de l'indépendance vis-à-vis du calendrier d'un tiers"
       ],
       "signature": "L'éditorial du Diplomate"
     }
