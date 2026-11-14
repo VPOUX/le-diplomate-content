@@ -1,0 +1,486 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Le Diplomate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /*
+    Layout: a single-column broadsheet column (masthead, dateline, five
+    articles separated by hairline rules) laid over a warm paper texture.
+  */
+  :root{
+    --paper:#f3ecd9;
+    --paper-2:#eae1c9;
+    --ink:#241f17;
+    --ink-soft:#4b4435;
+    --rule:#cbbf9e;
+    --accent:#8a1f11;
+    --accent-ink:#fbeee9;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#171310;
+      --paper-2:#1f1a15;
+      --ink:#eee5d3;
+      --ink-soft:#c9bfa9;
+      --rule:#4a4234;
+      --accent:#e2694f;
+      --accent-ink:#241109;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#171310;
+    --paper-2:#1f1a15;
+    --ink:#eee5d3;
+    --ink-soft:#c9bfa9;
+    --rule:#4a4234;
+    --accent:#e2694f;
+    --accent-ink:#241109;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background: var(--paper);
+    background-image:
+      radial-gradient(ellipse at top left, rgba(0,0,0,0.035), transparent 60%),
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.018) 0px, rgba(0,0,0,0.018) 1px, transparent 1px, transparent 3px);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .sheet{
+    max-width: 680px;
+    margin: 0 auto;
+    padding-block: 28px 64px;
+  }
+
+  /* Masthead */
+  .masthead{
+    text-align:center;
+    padding-bottom: 18px;
+    border-bottom: 3px solid var(--ink);
+  }
+  .masthead .eyebrow{
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .masthead h1{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(2.6rem, 9vw, 4rem);
+    letter-spacing: 0.01em;
+    margin: 6px 0 10px;
+    line-height: 0.95;
+  }
+  .dateline{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    padding-top: 6px;
+    text-transform: uppercase;
+  }
+
+  /* Listen control */
+  .listen-row{
+    display:flex;
+    justify-content:center;
+    margin: 16px 0 6px;
+  }
+  .listen-btn{
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    background: var(--accent);
+    border: none;
+    border-radius: 999px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+  }
+  .listen-btn:hover{ opacity:0.9; }
+  .listen-btn:active{ transform: scale(0.97); }
+  .listen-btn[data-state="speaking"]{ background: var(--ink); }
+  .listen-status{
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    text-align:center;
+    min-height: 14px;
+    margin-top: 6px;
+  }
+
+  /* Articles */
+  article{
+    padding-top: 30px;
+    padding-bottom: 26px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article:last-of-type{ border-bottom: none; }
+
+  .rubrique{
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .rubrique::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background: var(--rule);
+  }
+
+  h2.titre{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(1.5rem, 5.4vw, 2.05rem);
+    line-height: 1.12;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+  p.chapeau{
+    font-family:"Fraunces", Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.07rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0 0 16px;
+    max-width: 65ch;
+  }
+  .meta-row{
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+
+  .corps p{
+    font-size: 1.04rem;
+    line-height: 1.68;
+    margin: 0 0 1em;
+    max-width: 65ch;
+  }
+  .corps p:first-of-type::first-letter{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight: 700;
+    font-size: 3.1em;
+    line-height: 0.82;
+    float:left;
+    padding-right: 7px;
+    padding-top: 2px;
+    color: var(--accent);
+  }
+  .corps p strong.position-tag{
+    font-family:"IBM Plex Mono", monospace;
+    font-weight:500;
+    font-style:normal;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+  }
+
+  .essentiel{
+    margin-top: 20px;
+    background: var(--paper-2);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    max-width: 65ch;
+  }
+  .essentiel .label{
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display:block;
+  }
+  .essentiel ul{
+    margin:0;
+    padding-left: 1.1em;
+  }
+  .essentiel li{
+    font-family:"Source Serif 4", serif;
+    font-size: 0.93rem;
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .essentiel li:last-child{ margin-bottom:0; }
+
+  .signature{
+    margin-top: 16px;
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  footer{
+    text-align:center;
+    padding-top: 26px;
+    font-family:"IBM Plex Mono", monospace;
+    font-size: 10px;
+    color: var(--ink-soft);
+    letter-spacing: 0.06em;
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    article{ animation: rise 0.5s ease backwards; }
+    article:nth-of-type(1){ animation-delay: 0.02s; }
+    article:nth-of-type(2){ animation-delay: 0.06s; }
+    article:nth-of-type(3){ animation-delay: 0.1s; }
+    article:nth-of-type(4){ animation-delay: 0.14s; }
+    article:nth-of-type(5){ animation-delay: 0.18s; }
+    @keyframes rise{ from{ opacity:0; transform: translateY(6px);} to{ opacity:1; transform:none; } }
+  }
+</style>
+
+<div class="sheet">
+  <div class="masthead">
+    <div class="eyebrow">Revue de presse diplomatique &middot; édition quotidienne</div>
+    <h1>Le Diplomate</h1>
+    <div class="dateline">
+      <span id="meta-date">Samedi 14 novembre 2026</span>
+      <span id="meta-numero">N&deg; 38</span>
+    </div>
+  </div>
+
+  <div class="listen-row">
+    <button class="listen-btn" id="listenBtn" data-state="idle" aria-pressed="false">&#128266; &Eacute;couter l'&eacute;dition</button>
+  </div>
+  <div class="listen-status" id="listenStatus">&nbsp;</div>
+
+  <main id="articles">
+
+    <article data-rubrique="UNE">
+      <div class="rubrique">À la une</div>
+      <h2 class="titre">Au sommet de l'APEC, Washington s'apprête à mettre de côté le dossier d'espionnage Nvidia pour discuter avec Pékin</h2>
+      <p class="chapeau">Donald Trump pourrait rencontrer Xi Jinping et Vladimir Poutine les 18 et 19 novembre à Shenzhen ; des responsables américains indiquent que Washington n'abordera pas avec la Chine le scandale d'espionnage qui a coûté sa place à Jensen Huang, patron historique de Nvidia, illustrant la manière dont les priorités diplomatiques peuvent prendre le pas sur un contentieux de sécurité pourtant jugé sérieux à Washington.</p>
+      <div class="meta-row">5 min de lecture &middot; Par la rédaction du Diplomate</div>
+      <div class="corps">
+        <p>Donald Trump a indiqué le 9 novembre qu'il s'attendait à rencontrer ses homologues chinois et russe, Xi Jinping et Vladimir Poutine, à l'occasion du sommet des dirigeants de l'APEC qui se tiendra à Shenzhen les 18 et 19 novembre. « L'une des réunions, je pense, se fera avec le président Poutine et le président Xi », a-t-il déclaré avant de quitter la Floride pour Washington, selon des propos largement relayés par la presse internationale. Le président américain a associé cette rencontre à ses priorités sur le dossier iranien et la dénucléarisation. Du côté russe, le conseiller du Kremlin Iouri Ouchakov a confirmé l'intention de Vladimir Poutine de s'entretenir avec Xi Jinping et Donald Trump, en précisant toutefois qu'un format strictement trilatéral dépendrait de la Chine, pays hôte du sommet. Pékin, de son côté, n'a confirmé ni date ni ordre du jour précis, une prudence que plusieurs analystes interprètent comme un signe de réticence ; certains évoquent plutôt des rencontres bilatérales séparées, Poutine-Xi puis, éventuellement, Poutine-Trump, en marge du sommet, plutôt qu'une séance à trois pleinement formalisée.</p>
+        <p>C'est dans ce contexte que le Financial Times a rapporté, selon des responsables américains, que Donald Trump n'entendait pas aborder avec Xi Jinping le dossier d'espionnage qui a précipité, cette semaine, le départ de Jensen Huang de la direction de Nvidia. Washington semble ainsi vouloir préserver le canal de discussion ouvert avec Pékin sur les priorités jugées plus urgentes — en premier lieu le dossier iranien — plutôt que de l'encombrer d'un contentieux de sécurité touchant directement les intérêts chinois. Le choix est d'autant plus notable qu'une audition parlementaire à huis clos sur les liens de M. Huang avec une femme d'affaires suspectée par le renseignement américain d'être proche de Pékin, ainsi que sur les dispositifs de protection de Nvidia contre l'espionnage, doit se tenir le 18 novembre devant plusieurs commissions de la Chambre des représentants — soit le jour même où Donald Trump pourrait rencontrer Xi Jinping.</p>
+        <p>Le scandale, révélé par le New York Times le 29 octobre puis complété le 6 novembre, a conduit le conseil d'administration de Nvidia à ouvrir une enquête indépendante le 8 novembre. M. Huang reconnaît une infidélité conjugale mais ne confirme pas les accusations d'espionnage ; Nvidia et Pékin rejettent tous deux ce récit, le qualifiant d'infondé. La recherche d'un successeur est déjà engagée : selon le Financial Times, le conseil d'administration de Nvidia a approché Rene Haas, directeur général d'Arm, la société britannique de conception de puces contrôlée par SoftBank, qui a travaillé chez Nvidia il y a plus d'une décennie et conserve des relations étroites avec M. Huang et certains membres du conseil.</p>
+        <p>Le dossier chinois s'accompagne par ailleurs de tensions internes à l'administration américaine sur l'application des contrôles à l'exportation de puces. Le secrétaire au Trésor Scott Bessent aurait, selon Axios, mis en cause début novembre le secrétaire au Commerce Howard Lutnick, lui demandant pourquoi Megaspeed — une société basée à Singapour accusée d'avoir acheminé pour plus de 4,8 milliards de dollars de puces Nvidia vers la Chine depuis la mi-2024 — n'avait toujours pas été inscrite sur la liste noire des exportations américaines. Le département du Commerce a démenti qu'un tel échange ait eu lieu entre les deux secrétaires. Il n'a ajouté aucune entité à cette liste depuis treize mois, alors que le ministère de la Justice américain enquête parallèlement sur Megaspeed, qui dément tout contournement des règles.</p>
+        <p><strong class="position-tag">Position de la France :</strong> aucune réaction officielle française n'a pu être identifiée à ce stade, ni sur les préparatifs du sommet de l'APEC, ni sur le choix de Washington de ne pas y aborder le dossier d'espionnage Nvidia avec Pékin. Paris n'est, à ce stade, pas partie aux discussions sino-américaines sur ce dossier, bien que la France ait rappelé le 10 novembre, lors d'une réunion du G7 accueillie par le Quai d'Orsay, qu'aucune levée des sanctions des Nations unies visant l'Iran — l'un des axes que Donald Trump associe à ce sommet — ne pourrait intervenir sans son accord.</p>
+      </div>
+      <div class="essentiel">
+        <span class="label">L'essentiel</span>
+        <ul>
+          <li>Donald Trump dit s'attendre à rencontrer Xi Jinping et Vladimir Poutine au sommet de l'APEC à Shenzhen, les 18 et 19 novembre</li>
+          <li>Selon des responsables américains, Washington n'abordera pas avec Pékin le dossier d'espionnage ayant coûté sa place à Jensen Huang</li>
+          <li>Une audition parlementaire à huis clos sur ce dossier est prévue le 18 novembre, jour possible de la rencontre Trump-Xi</li>
+          <li>Aucune réaction officielle française identifiée à ce stade</li>
+        </ul>
+      </div>
+    </article>
+
+    <article data-rubrique="GEOPOLITIQUE">
+      <div class="rubrique">Géopolitique</div>
+      <h2 class="titre">Ukraine : Moscou écarte un rôle direct de l'Union européenne dans les pourparlers ; de nouveaux drones inquiètent une base américaine au Royaume-Uni</h2>
+      <p class="chapeau">Le négociateur russe Vladimir Medinsky dit ne pas voir de rôle pour l'UE dans le processus de négociation, tandis que la cheffe de la diplomatie européenne Kaja Kallas réaffirme qu'aucun accord n'est possible sans Bruxelles ; au Royaume-Uni, des drones non identifiés ont de nouveau été repérés au-dessus d'une base utilisée par l'armée américaine.</p>
+      <div class="meta-row">5 min de lecture &middot; Par la rédaction du Diplomate</div>
+      <div class="corps">
+        <p>Un nouveau cycle de pourparlers entre délégations russe et ukrainienne s'est tenu les 10 et 11 novembre à Abou Dhabi, sous médiation américaine, le négociateur russe Vladimir Medinsky — qui participe aux discussions avec Kiev depuis 2022 — faisant état de « certains progrès » avec la partie ukrainienne. Il a toutefois écarté, pour l'instant, tout rôle direct des Européens dans le processus, affirmant ne pas voir clairement quelle serait leur place, selon des propos relayés par plusieurs agences de presse. Cette position confirme la ligne tenue par Moscou depuis janvier, lorsque le porte-parole du Kremlin Dmitri Peskov avait exclu toute négociation avec les dirigeants de l'Union européenne, qu'il qualifiait alors de « fonctionnaires incompétents ».</p>
+        <p><strong class="position-tag">Position de la France :</strong> avant l'ouverture de ce cycle de discussions, le ministre des Affaires étrangères Jean-Noël Barrot avait annoncé, dans un entretien à RTL, que la France « sera certainement » présente à Abou Dhabi pour que « la voix du continent » soit entendue, tout en précisant ne pas savoir encore qui la représenterait et en insistant : « personne ne parlera en notre nom ». Paris indiquait alors espérer qu'un format multilatéral élargi, avec participation directe des Européens, puisse se mettre en place si des progrès étaient réalisés. Aucune déclaration française plus récente sur l'issue de ce cycle de pourparlers n'a pu être identifiée à l'heure de la rédaction de cette édition. La haute représentante de l'Union pour les Affaires étrangères, l'Estonienne Kaja Kallas, a pour sa part réaffirmé que tout accord de paix devait impliquer l'UE et que la Russie n'avait aucun droit de veto sur les choix de sécurité européens, ajoutant ne voir « aucun signe de bonne volonté russe » et décrivant la participation de Moscou au processus comme une façade destinée à gagner du temps pendant que les bombardements de civils se poursuivent.</p>
+        <p>Par ailleurs, l'armée de l'air américaine a signalé la présence de drones non identifiés au-dessus de la base de la RAF à Lakenheath, dans l'est de l'Angleterre, utilisée par les forces américaines stationnées au Royaume-Uni. Il s'agirait, selon les informations relayées ce 14 novembre par le Financial Times, de la quatrième alerte de sécurité de ce type visant une base aérienne utilisée par l'armée américaine outre-Manche au cours des derniers mois. Des incidents similaires survenus fin 2024 au-dessus de plusieurs bases britanniques, dont Lakenheath, avaient donné lieu à une évaluation d'un centre de recherche selon laquelle la Russie en était « très probablement » à l'origine, sans qu'aucune attribution officielle n'ait toutefois été confirmée pour ce nouvel épisode.</p>
+        <p><strong class="position-tag">Position de la France :</strong> aucune réaction officielle française n'a pu être identifiée sur cet incident survenu au Royaume-Uni. Paris fait cependant face, sur son propre territoire, à un phénomène comparable : des drones non identifiés ont été signalés ces derniers mois au-dessus de plusieurs sites militaires sensibles français, dont la base des sous-marins nucléaires de l'Île Longue, en Bretagne, où une enquête judiciaire a été ouverte, la base aérienne de renseignement de Creil, ainsi que des installations navales et d'artillerie à Toulon et Hyères en octobre, sans qu'aucune attribution n'ait non plus été établie publiquement à ce jour.</p>
+      </div>
+      <div class="essentiel">
+        <span class="label">L'essentiel</span>
+        <ul>
+          <li>Vladimir Medinsky évoque des progrès avec Kiev lors d'un nouveau cycle de pourparlers à Abou Dhabi, mais exclut pour l'instant un rôle direct de l'UE</li>
+          <li>Jean-Noël Barrot avait annoncé la présence de la France aux pourparlers, précisant que « personne ne parlera en notre nom »</li>
+          <li>Kaja Kallas dit ne voir « aucun signe de bonne volonté russe » et réclame un rôle pour l'UE dans tout accord</li>
+          <li>Des drones non identifiés repérés au-dessus de la base de la RAF à Lakenheath ; aucune réaction française identifiée, la France connaît un phénomène similaire sur ses propres sites</li>
+        </ul>
+      </div>
+    </article>
+
+    <article data-rubrique="GEOECONOMIE">
+      <div class="rubrique">Géoéconomie</div>
+      <h2 class="titre">Pétrole en surplus, bras de fer sur les puces Nvidia et panne Microsoft : une semaine sous tension pour l'économie mondiale</h2>
+      <p class="chapeau">L'Agence internationale de l'énergie signale un retour à l'excédent sur le marché pétrolier, la bataille sur les contrôles à l'exportation de puces vers la Chine s'intensifie à Washington, et une panne mondiale des services Microsoft 365 a perturbé entreprises et administrations sur plusieurs continents.</p>
+      <div class="meta-row">4 min de lecture &middot; Par la rédaction du Diplomate</div>
+      <div class="corps">
+        <p>Selon les données de l'Agence internationale de l'énergie (AIE), le marché pétrolier mondial est repassé en excédent en octobre pour la première fois depuis le début de la guerre entre les États-Unis et l'Iran, l'offre ayant dépassé la demande d'environ 2 millions de barils par jour, portée notamment par une reprise des expéditions depuis le Golfe. Les analystes de l'agence préviennent toutefois qu'il faudra plusieurs mois pour reconstituer les stocks mondiaux, qui s'étaient fortement réduits pendant le conflit.</p>
+        <p>Le dossier des semi-conducteurs continue par ailleurs d'agiter Washington. Selon Axios, le secrétaire au Trésor Scott Bessent aurait interpellé début novembre son homologue au Commerce, Howard Lutnick, sur l'absence d'inscription de Megaspeed — société basée à Singapour accusée d'avoir acheminé vers la Chine plus de 4,8 milliards de dollars de puces Nvidia depuis la mi-2024 — sur la liste noire des exportations américaines, alors que le ministère de la Justice enquête en parallèle sur cette société. Le département du Commerce dément toute confrontation entre les deux responsables. Cette controverse, combinée au scandale d'espionnage visant l'ancien patron de Nvidia, a provoqué un recul boursier des valeurs technologiques chinoises liées à l'intelligence artificielle — les actions de Z.ai et MiniMax ont respectivement chuté de 10% et 8% à Hong Kong — par crainte d'un durcissement des restrictions américaines, un mouvement qui s'est propagé à des groupes technologiques chinois plus larges comme Alibaba et Tencent.</p>
+        <p>Une panne mondiale des services Microsoft 365 — affectant notamment Outlook, Teams et l'assistant Copilot — a par ailleurs perturbé depuis jeudi des entreprises et administrations aux États-Unis, en Europe et en Asie, ainsi que des agences gouvernementales américaine, australienne et japonaise ; les autorités de Singapour ont également signalé des effets sur certains systèmes de l'État. Microsoft a assuré que l'incident n'était pas lié à une « activité malveillante ou cybercriminelle » et a fait état d'une « reprise progressive » des services vendredi. Le gouvernement allemand a néanmoins indiqué « anticiper un impact économique très important », une déclaration qui illustre la vulnérabilité des économies occidentales à la concentration de l'infrastructure numérique mondiale entre un petit nombre de fournisseurs de services en nuage.</p>
+      </div>
+      <div class="essentiel">
+        <span class="label">L'essentiel</span>
+        <ul>
+          <li>L'AIE signale un retour à l'excédent sur le marché pétrolier mondial en octobre, après la guerre USA-Iran, mais prévient qu'il faudra des mois pour reconstituer les stocks</li>
+          <li>Le secrétaire au Trésor américain aurait mis en cause son homologue au Commerce sur l'absence de sanctions contre Megaspeed, accusée d'avoir fourni des puces Nvidia à la Chine</li>
+          <li>Les valeurs technologiques chinoises liées à l'IA chutent en Bourse par crainte d'un durcissement des contrôles américains</li>
+          <li>Une panne mondiale des services Microsoft 365 pousse Berlin à anticiper « un impact économique très important »</li>
+        </ul>
+      </div>
+    </article>
+
+    <article data-rubrique="FRANCE">
+      <div class="rubrique">France</div>
+      <h2 class="titre">Budget 2027 : le Sénat prend le relais dans un climat social toujours tendu</h2>
+      <p class="chapeau">Après le rejet unanime du projet de budget à l'Assemblée nationale, les sénateurs examinent désormais les textes financiers pour 2027, tandis que la contestation sociale se poursuit malgré l'annonce d'une hausse du Smic.</p>
+      <div class="meta-row">4 min de lecture &middot; Par la rédaction du Diplomate</div>
+      <div class="corps">
+        <p>Après le rejet, début novembre, de la première partie du projet de loi de finances par les députés, réunis dans une Assemblée nationale sans majorité absolue, c'est désormais au Sénat qu'il revient d'examiner les textes budgétaires pour 2027. Le projet de loi de financement de la Sécurité sociale (PLFSS) y est débattu du 9 au 17 novembre, avec un vote solennel attendu le 18 ; le projet de loi de finances (PLF) proprement dit sera examiné du 20 novembre au 8 décembre, pour un vote solennel fixé au 9 décembre. Le gouvernement, qui vise un déficit public ramené à 5% du produit intérieur brut en 2027 contre 5,4% attendus pour 2026, n'exclut pas de recourir en décembre à l'article 49.3 de la Constitution ou à des ordonnances si aucun compromis n'émerge entre les deux chambres.</p>
+        <p>Sur le plan social, le Premier ministre Sébastien Lecornu a réuni les partenaires sociaux le 9 novembre à Matignon et annoncé une revalorisation du Smic de 1,6%, dans l'espoir de désamorcer une colère alimentée notamment par le gel envisagé du point d'indice des fonctionnaires. Les organisations syndicales se sont toutefois dites peu convaincues par cette mesure. La mobilisation, qui avait pris la forme d'une grève nationale début novembre après le rejet du budget par les députés, s'est poursuivie les jours suivants avec de nouveaux rassemblements, notamment à Besançon, Nice et Clermont-Ferrand, où enseignants, lycéens et étudiants ont rejoint les cortèges.</p>
+      </div>
+      <div class="essentiel">
+        <span class="label">L'essentiel</span>
+        <ul>
+          <li>Après le rejet du budget à l'Assemblée, le Sénat examine le PLFSS (vote le 18 novembre) puis le PLF (vote le 9 décembre)</li>
+          <li>Le gouvernement vise un déficit de 5% du PIB en 2027, contre 5,4% attendus en 2026</li>
+          <li>Sébastien Lecornu annonce une hausse du Smic de 1,6% pour tenter d'apaiser la contestation sociale</li>
+          <li>Les syndicats, peu convaincus, poursuivent la mobilisation, avec de nouveaux rassemblements à Besançon, Nice et Clermont-Ferrand</li>
+        </ul>
+      </div>
+    </article>
+
+    <article data-rubrique="REGARD_DIPLOMATE">
+      <div class="rubrique">Le regard du diplomate</div>
+      <h2 class="titre">Ce qu'on choisit de ne pas dire</h2>
+      <p class="chapeau">Du sommet de l'APEC aux pourparlers d'Abou Dhabi, la journée illustre une même règle tacite de la diplomatie : la hiérarchisation des contentieux compte parfois davantage que leur résolution.</p>
+      <div class="meta-row">3 min de lecture &middot; L'éditorial du Diplomate</div>
+      <div class="corps">
+        <p>Que Washington choisisse de ne pas évoquer, lors d'un sommet avec Pékin, un dossier d'espionnage qui occupe pourtant le Congrès américain depuis plusieurs semaines n'a rien d'anodin : c'est un choix diplomatique à part entière, et sans doute aussi révélateur que le contenu des discussions qui auront effectivement lieu. Il rappelle un principe ancien des relations entre grandes puissances, la compartimentation des contentieux, qui consiste à préserver un canal de discussion sur les dossiers jugés prioritaires — ici, selon les mots mêmes de Donald Trump, l'Iran et la dénucléarisation — en acceptant de ne pas y mêler des différends, pourtant sérieux, relevant d'un autre registre. Cette lecture n'est qu'un point de vue parmi d'autres sur un sommet dont l'agenda réel reste, à ce stade, largement incertain.</p>
+        <p>À l'autre bout du spectre diplomatique, le refus russe d'associer l'Union européenne aux pourparlers sur l'Ukraine illustre une tactique inverse mais tout aussi classique : fragmenter un front qu'on cherche à affaiblir, en ne traitant qu'avec les interlocuteurs jugés incontournables du moment. Face à cette logique, la réponse européenne — qu'elle vienne de Kaja Kallas à Bruxelles ou de Jean-Noël Barrot insistant sur le fait que « personne ne parlera en notre nom » pour la France — tient moins à la force d'un argument juridique qu'à la capacité, toujours incertaine, de parler d'une seule voix. C'est, nous semble-t-il, une leçon qui dépasse le seul dossier ukrainien : la cohésion affichée entre capitales européennes pèse souvent plus, dans la durée, que la qualité de chacun des arguments avancés séparément.</p>
+      </div>
+      <div class="essentiel">
+        <span class="label">L'essentiel</span>
+        <ul>
+          <li>Le choix de ne pas aborder un sujet est lui-même un acte diplomatique, qu'il s'agisse de compartimenter les contentieux ou de fragmenter un front adverse</li>
+          <li>Point de vue éditorial : face à cette logique, la cohésion entre capitales européennes pèse souvent plus que la force isolée de chaque argument</li>
+        </ul>
+      </div>
+    </article>
+
+  </main>
+
+  <footer>
+    Le Diplomate &middot; revue de presse g&eacute;n&eacute;r&eacute;e automatiquement &agrave; usage d'&eacute;tudes de diplomatie &middot; sources publiques
+  </footer>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var btn = document.getElementById('listenBtn');
+  var status = document.getElementById('listenStatus');
+  var synth = window.speechSynthesis;
+
+  if (!synth) {
+    btn.textContent = 'Lecture audio indisponible';
+    btn.disabled = true;
+    return;
+  }
+
+  function collectText(){
+    var parts = [];
+    document.querySelectorAll('#articles article').forEach(function(art){
+      var rub = art.querySelector('.rubrique');
+      var titre = art.querySelector('.titre');
+      var chapeau = art.querySelector('.chapeau');
+      if (rub) parts.push(rub.textContent.trim() + '.');
+      if (titre) parts.push(titre.textContent.trim() + '.');
+      if (chapeau) parts.push(chapeau.textContent.trim());
+      art.querySelectorAll('.corps p').forEach(function(p){
+        parts.push(p.textContent.trim());
+      });
+      var essentielItems = art.querySelectorAll('.essentiel li');
+      if (essentielItems.length){
+        parts.push("L'essentiel.");
+        essentielItems.forEach(function(li){ parts.push(li.textContent.trim()); });
+      }
+    });
+    return parts;
+  }
+
+  var queue = [];
+  var idx = 0;
+  var state = 'idle'; // idle | speaking | paused
+
+  function setState(s){
+    state = s;
+    btn.setAttribute('data-state', s);
+    if (s === 'idle'){
+      btn.textContent = '\uD83D\uDD0A \u00C9couter l\u2019\u00E9dition';
+      btn.setAttribute('aria-pressed', 'false');
+      status.textContent = ' ';
+    } else if (s === 'speaking'){
+      btn.textContent = '\u23F8 Pause';
+      btn.setAttribute('aria-pressed', 'true');
+    } else if (s === 'paused'){
+      btn.textContent = '\u25B6 Reprendre';
+      btn.setAttribute('aria-pressed', 'true');
+    }
+  }
+
+  function speakNext(){
+    if (idx >= queue.length){
+      setState('idle');
+      idx = 0;
+      return;
+    }
+    var utt = new SpeechSynthesisUtterance(queue[idx]);
+    utt.lang = 'fr-FR';
+    utt.rate = 1.0;
+    status.textContent = 'Paragraphe ' + (idx + 1) + ' / ' + queue.length;
+    utt.onend = function(){
+      idx++;
+      speakNext();
+    };
+    utt.onerror = function(){
+      idx++;
+      speakNext();
+    };
+    synth.speak(utt);
+  }
+
+  btn.addEventListener('click', function(){
+    try {
+      if (state === 'idle'){
+        queue = collectText();
+        idx = 0;
+        synth.cancel();
+        setState('speaking');
+        speakNext();
+      } else if (state === 'speaking'){
+        synth.pause();
+        setState('paused');
+      } else if (state === 'paused'){
+        synth.resume();
+        setState('speaking');
+      }
+    } catch (e) {
+      status.textContent = "Lecture audio indisponible dans ce navigateur.";
+    }
+  });
+
+  window.addEventListener('beforeunload', function(){
+    try { synth.cancel(); } catch(e){}
+  });
+})();
+</script>
