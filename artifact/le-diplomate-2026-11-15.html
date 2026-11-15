@@ -1,0 +1,382 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Le Diplomate — 15 novembre</title>
+<style>
+/* Layout: broadsheet column on a paper ground, masthead rules, rubric labels as running heads */
+:root{
+  --paper:#f3ecdd; --ink:#211b14; --ink-soft:#4d4537; --rule:#c9bda0;
+  --accent:#8a2e23; --accent-soft:#8a2e2320; --card:#eadfc7; --focus:#1f5fae;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1b1813; --ink:#ece2c9; --ink-soft:#bdb193;
+    --rule:#4a4330; --accent:#e0776a; --accent-soft:#e0776a26; --card:#242019; --focus:#8fb8ef;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1b1813; --ink:#ece2c9; --ink-soft:#bdb193;
+  --rule:#4a4330; --accent:#e0776a; --accent-soft:#e0776a26; --card:#242019; --focus:#8fb8ef;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+.wrap{max-width:720px; margin:0 auto; padding-block:28px 60px;}
+.masthead{text-align:center; padding-bottom:14px; border-bottom:3px solid var(--ink);}
+.masthead .kicker{
+  font-family:"Libre Franklin", Arial, sans-serif; font-size:11px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--ink-soft); margin:0 0 6px;
+}
+.masthead h1{
+  font-family:"Fraunces", Georgia, serif; font-weight:600; font-size:clamp(34px,8vw,52px);
+  margin:0; letter-spacing:-0.01em;
+}
+.masthead .meta{
+  display:flex; justify-content:center; gap:14px; flex-wrap:wrap;
+  font-family:"Libre Franklin", Arial, sans-serif; font-size:12px; color:var(--ink-soft);
+  margin-top:10px; text-transform:uppercase; letter-spacing:.04em;
+}
+.masthead .meta span{white-space:nowrap}
+
+.toolbar{display:flex; justify-content:center; margin:18px 0 6px;}
+.listen-btn{
+  font-family:"Libre Franklin", Arial, sans-serif; font-size:13px; font-weight:600;
+  letter-spacing:.03em; border:1.5px solid var(--ink); background:transparent; color:var(--ink);
+  padding:9px 18px; border-radius:999px; cursor:pointer; display:inline-flex; align-items:center; gap:8px;
+  transition:background .15s ease, color .15s ease;
+}
+.listen-btn:hover{background:var(--ink); color:var(--paper);}
+.listen-btn:focus-visible{outline:3px solid var(--focus); outline-offset:2px;}
+.listen-btn[data-playing="true"]{background:var(--accent); border-color:var(--accent); color:#fff;}
+
+nav.toc{
+  display:flex; gap:10px; flex-wrap:wrap; justify-content:center;
+  margin:18px 0 0; padding:0; list-style:none;
+}
+nav.toc a{
+  font-family:"Libre Franklin", Arial, sans-serif; font-size:11.5px; letter-spacing:.07em;
+  text-transform:uppercase; color:var(--ink-soft); text-decoration:none; border-bottom:1px solid var(--rule);
+  padding-bottom:2px;
+}
+nav.toc a:hover{color:var(--accent); border-color:var(--accent);}
+
+article.section{margin-top:46px; padding-top:28px; border-top:1px solid var(--rule);}
+article.section:first-of-type{margin-top:34px;}
+.rubrique{
+  font-family:"Libre Franklin", Arial, sans-serif; font-size:12px; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin:0 0 10px;
+}
+.titre{
+  font-family:"Fraunces", Georgia, serif; font-weight:600; font-size:clamp(22px,4.6vw,30px);
+  line-height:1.18; margin:0 0 14px; text-wrap:balance;
+}
+.chapeau{
+  font-family:"Libre Franklin", Arial, sans-serif; font-size:16px; line-height:1.55;
+  color:var(--ink-soft); margin:0 0 18px; font-weight:500;
+}
+.meta-row{
+  display:flex; gap:12px; align-items:center; font-family:"Libre Franklin", Arial, sans-serif;
+  font-size:11.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.05em; margin-bottom:18px;
+}
+.meta-row .dot{width:4px;height:4px;border-radius:50%;background:var(--ink-soft);flex:none;}
+
+.corps p{
+  font-size:17px; line-height:1.68; margin:0 0 16px; max-width:65ch;
+}
+.corps p::first-letter{ }
+.corps p:first-of-type::first-letter{
+  font-family:"Fraunces", Georgia, serif; font-size:3.1em; float:left; line-height:.86;
+  padding:.04em .07em 0 0; color:var(--accent); font-weight:600;
+}
+
+.essentiel{
+  background:var(--card); border-radius:10px; padding:16px 18px; margin:22px 0 0;
+  border-left:4px solid var(--accent);
+}
+.essentiel .label{
+  font-family:"Libre Franklin", Arial, sans-serif; font-size:11px; font-weight:700;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin:0 0 8px;
+}
+.essentiel ul{margin:0; padding:0; list-style:none;}
+.essentiel li{
+  font-family:"Libre Franklin", Arial, sans-serif; font-size:14.5px; line-height:1.5;
+  color:var(--ink); margin:0 0 7px; padding-left:16px; position:relative;
+}
+.essentiel li::before{content:"—"; position:absolute; left:0; color:var(--accent);}
+.essentiel li:last-child{margin-bottom:0}
+
+.signature{
+  margin-top:18px; font-family:"Libre Franklin", Arial, sans-serif; font-size:12px;
+  font-style:italic; color:var(--ink-soft);
+}
+.signature.editorial{color:var(--accent); font-style:normal; font-weight:600;}
+
+footer{
+  margin-top:50px; padding-top:18px; border-top:3px solid var(--ink); text-align:center;
+  font-family:"Libre Franklin", Arial, sans-serif; font-size:11px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--ink-soft);
+}
+
+@media (max-width:480px){
+  .corps p{font-size:16px;}
+  .meta-row{flex-wrap:wrap}
+}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Libre+Franklin:wght@500;600;700&display=swap">
+
+<div class="wrap">
+  <header class="masthead">
+    <p class="kicker">Revue matinale de géopolitique — édition n°39</p>
+    <h1>Le Diplomate</h1>
+    <div class="meta">
+      <span>Dimanche 15 novembre 2026</span>
+      <span>·</span>
+      <span>Générée à 06:40</span>
+    </div>
+    <div class="toolbar">
+      <button class="listen-btn" id="listenBtn" type="button" aria-pressed="false">
+        <span aria-hidden="true">🔊</span><span id="listenLabel">Écouter</span>
+      </button>
+    </div>
+    <nav class="toc" aria-label="Sommaire">
+      <a href="#s1">Une</a>
+      <a href="#s2">Géopolitique</a>
+      <a href="#s3">Géoéconomie</a>
+      <a href="#s4">France</a>
+      <a href="#s5">Regard du Diplomate</a>
+    </nav>
+  </header>
+
+  <main id="articles"></main>
+
+  <footer>Le Diplomate · revue de presse automatisée à usage d'études diplomatiques</footer>
+</div>
+
+<script>
+const EDITION = {
+  sections: [
+    {
+      id: "s1", ordre:1, rubrique:"Une",
+      titre:"Guerre Iran–États-Unis : Washington menace de « riposter vingt fois plus fort », le détroit d'Ormuz reste un front ouvert",
+      chapeau:"Donald Trump a averti Téhéran que toute nouvelle attaque contre un navire dans le détroit d'Ormuz entraînerait des frappes sur des ponts et des centrales électriques iraniennes, évoquant même une prise en charge directe de la sécurité du détroit par les États-Unis. L'Organisation maritime internationale recense désormais 133 incidents confirmés contre des navires marchands depuis le début de la guerre, tandis que les flux pétroliers, eux, se sont partiellement rétablis par des voies de contournement.",
+      duree:5,
+      corps:[
+        "Plusieurs mois après le déclenchement du conflit entre les États-Unis et l'Iran, le détroit d'Ormuz reste le théâtre d'une escalade verbale et militaire qui ne faiblit pas. Le président américain Donald Trump a averti, le 12 novembre, que toute nouvelle attaque iranienne contre un navire commercial dans le détroit entraînerait des frappes américaines sur des ponts et des centrales électriques en Iran, y compris à Téhéran. Il a également laissé entendre que Washington pourrait aller plus loin et « prendre en charge » directement la sécurité du détroit, accusant le régime iranien d'avoir rompu un accord militaire antérieur.",
+        "Le ton employé par le président américain illustre la logique de dissuasion maximale qui prévaut depuis le début du conflit : « chaque fois qu'ils nous frappent, nous les frapperons vingt fois plus fort », aurait-il déclaré, selon des propos largement relayés par la presse américaine et régionale. Le secrétaire d'État Marco Rubio a, de son côté, qualifié le contrôle exercé par l'Iran sur une partie du trafic maritime de « précédent dangereux », tout en affirmant que Washington n'avait « aucun intérêt » à rencontrer Téhéran pour l'instant, en dépit d'efforts de médiation évoqués par plusieurs capitales régionales.",
+        "Téhéran n'a pas cédé sur le fond : le secrétaire du Conseil suprême de sécurité nationale iranien, Ali Larijani, a affirmé que les Iraniens ne craignaient pas ces menaces, tandis que l'agence Tasnim a cité une source militaire selon laquelle l'Iran frapperait des infrastructures énergétiques régionales si les États-Unis mettaient leur menace à exécution.",
+        "Sur le terrain maritime, l'Organisation maritime internationale (OMI) recensait, à la date du 10 novembre, 133 incidents confirmés impliquant des navires commerciaux depuis le début du conflit, et 25 marins tués. Les attaques contre les pétroliers se sont nettement intensifiées en octobre et se poursuivent depuis à un rythme proche du plus élevé observé depuis le début de la guerre. Les monarchies du Golfe sont elles-mêmes directement exposées : des défenses antiaériennes koweïtiennes ont intercepté des attaques de missiles et de drones ces derniers jours, et le géant pétrolier saoudien Aramco avait déjà fait évacuer son siège de Dhahran le 22 octobre après une alerte, après qu'un immeuble du groupe eut été touché par un missile la semaine précédente.",
+        "Paradoxalement, l'impact sur les flux physiques de pétrole reste disputé. Téhéran affirme que le détroit est fermé et qu'il n'exporte plus rien par cette voie. Mais selon le cabinet de données Kpler, les flux à travers le détroit d'Ormuz lui-même seraient remontés en octobre à environ 11,7 millions de barils par jour, soit près de 82&nbsp;% du niveau d'avant-guerre, loin du quasi-arrêt observé au printemps. Aramco indique par ailleurs que les volumes transitant par un pipeline de contournement évitant le détroit ont plus que triplé depuis le début du conflit, signe que les acteurs économiques se sont partiellement adaptés à un état de guerre prolongé.",
+        "Position de la France : Paris a constamment défendu, depuis le printemps 2026, le principe de la liberté de navigation et réclamé la réouverture « immédiate, pleine et inconditionnelle » du détroit d'Ormuz par toutes les parties, dans le cadre d'une déclaration conjointe signée par plus de cinquante pays non belligérants. La France avait aussi engagé, avec le Royaume-Uni, les préparatifs d'une mission navale de déminage et d'escorte dans la région, le porte-avions Charles-de-Gaulle ayant été prépositionné en mer d'Arabie. Aucune déclaration officielle plus récente, visant spécifiquement les développements de cette semaine — menace américaine du 12 novembre et bilan de l'OMI du 10 novembre —, n'a pu être identifiée à ce stade."
+      ],
+      essentiel:[
+        "Trump menace Téhéran de frappes sur ponts et centrales électriques, et évoque une prise en charge américaine de la sécurité du détroit d'Ormuz.",
+        "L'OMI recense 133 incidents confirmés et 25 marins tués depuis le début du conflit ; les attaques se sont intensifiées en octobre.",
+        "Les flux pétroliers se sont partiellement rétablis via des voies de contournement, malgré les attaques et le discours iranien de fermeture totale.",
+        "La France réclame depuis le printemps la réouverture inconditionnelle du détroit ; aucune réaction française plus récente identifiée sur les développements de la semaine."
+      ],
+      signature:"Par la rédaction du Diplomate", editorial:false
+    },
+    {
+      id:"s2", ordre:2, rubrique:"Géopolitique",
+      titre:"Ukraine : les pourparlers d'Abou Dabi s'achèvent sur un format restreint ; Pékin prépare un sommet de l'APEC sous ses propres termes",
+      chapeau:"Le nouveau cycle de négociations russo-ukrainiennes sous médiation américaine s'est refermé mercredi à Abou Dabi après une séance de moins de deux heures, tandis que Berlin réaffirme vouloir la paix avant toute discussion de sécurité européenne avec Moscou. À Pékin, la perspective d'un sommet de l'APEC à Shenzhen les 18 et 19 novembre, où Donald Trump pourrait rencontrer Xi Jinping et Vladimir Poutine, confirme l'ambition chinoise de peser davantage sur l'ordre mondial.",
+      duree:6,
+      corps:[
+        "Les pourparlers entre délégations ukrainienne et russe, sous médiation américaine, se sont achevés mercredi 11 novembre à Abou Dabi après une séance de moins de deux heures, au lendemain d'une première journée d'échanges plus longue et jugée positive par Kiev et Washington. Volodymyr Zelensky a évoqué une possible « fenêtre d'opportunité » pour une percée avant la fin de l'année, et a indiqué que l'éventualité d'un vaste échange de prisonniers avait été abordée lors de la session de mardi. La délégation ukrainienne a ensuite poursuivi, le même jour, des discussions séparées avec des représentants européens et américains.",
+        "Sur le terrain, la guerre continue de frapper les infrastructures civiles ukrainiennes : des drones russes ont visé des installations ferroviaires à Loutsk et à Fastiv, dont un train de passagers, qui a pu être évacué à temps après la détection de la menace. En marge de la Conférence sur la reconstruction de l'Ukraine, le chancelier allemand Friedrich Merz a réitéré une offre allemande d'achat de systèmes de défense antiaérienne américains Patriot destinés à l'Ukraine. Le secrétaire général de l'OTAN, Mark Rutte, a pour sa part estimé que Washington, Kiev et les Européens restaient « alignés » sur les grandes lignes du dossier. Côté allemand toujours, le porte-parole du gouvernement a insisté sur la nécessité d'obtenir la paix en Ukraine avant d'engager toute discussion sur la sécurité européenne avec Moscou — signe que les Européens cherchent à peser sur le calendrier des négociations sans y être pleinement associés.",
+        "Position de la France : aucune réaction officielle française à ce cycle de pourparlers d'Abou Dabi n'a pu être identifiée à ce stade. Le Quai d'Orsay n'a pas publié, au moment de la rédaction, de communiqué spécifique sur la session du 10-11 novembre ou sur les annonces allemandes faites en marge de la Conférence sur la reconstruction.",
+        "À Pékin, la perspective du sommet des dirigeants de l'APEC, qui se tiendra à Shenzhen les 18 et 19 novembre, continue de structurer l'agenda diplomatique de la semaine. La presse économique relève que cette réunion, la troisième organisée par la Chine après 2001 et 2014, doit illustrer « l'ambition chinoise de redessiner l'ordre mondial selon ses propres termes », sur fond de rencontres possibles entre Donald Trump, Xi Jinping et Vladimir Poutine. Le thème retenu par Pékin pour sa présidence de l'APEC, « Construire une communauté Asie-Pacifique pour prospérer ensemble », met l'accent sur l'ouverture commerciale, l'innovation et la coopération — autant de registres sur lesquels la Chine cherche à se positionner comme un pôle de stabilité face aux tensions commerciales et militaires qui traversent par ailleurs l'année 2026.",
+        "Position de la France : le sommet de Shenzhen ne s'étant pas encore tenu, aucune réaction officielle française n'a pu être identifiée à ce stade sur l'agenda ou les rencontres bilatérales qui y sont annoncées."
+      ],
+      essentiel:[
+        "Les pourparlers d'Abou Dabi se sont achevés mercredi après une séance courte ; Zelensky évoque une « fenêtre d'opportunité » et un possible grand échange de prisonniers.",
+        "Des drones russes ont visé des installations ferroviaires à Loutsk et Fastiv ; l'Allemagne réitère son offre de systèmes Patriot pour l'Ukraine.",
+        "Aucune réaction officielle française identifiée sur ce cycle de négociations à ce stade.",
+        "Le sommet de l'APEC à Shenzhen (18-19 novembre) doit illustrer l'ambition chinoise de peser sur l'ordre mondial ; aucune réaction française identifiée, le sommet n'ayant pas encore eu lieu."
+      ],
+      signature:"Par la rédaction du Diplomate", editorial:false
+    },
+    {
+      id:"s3", ordre:3, rubrique:"Géoéconomie",
+      titre:"Après la chute de Jensen Huang, Nvidia affronte son « après » ; Bruxelles tâtonne sur l'union bancaire",
+      chapeau:"La presse économique s'interroge sur l'ère post-Huang chez Nvidia, l'entreprise ayant perdu son fondateur emblématique dans un scandale d'espionnage présumé qui a aussi relancé le débat sur la gouvernance des géants technologiques. En Europe, l'Autorité bancaire européenne s'écarte d'un projet de garantie des dépôts unique, tandis que les marchés mondiaux continuent de digérer les répercussions économiques de la guerre en Iran et des contrôles à l'exportation de semi-conducteurs vers la Chine.",
+      duree:5,
+      corps:[
+        "Plusieurs titres de la presse économique anglo-saxonne consacrent ce dimanche leurs analyses à « l'après-Huang » chez Nvidia. Jensen Huang, fondateur et visage du groupe pendant plus de trente ans, a quitté ses fonctions à la suite d'un scandale déclenché par la révélation d'une liaison avec une ancienne dirigeante d'un groupe technologique chinois que les services américains suspectent d'espionnage. Le conseil d'administration avait ouvert une enquête interne après que M.&nbsp;Huang eut lui-même reconnu, dans une note adressée aux salariés, avoir été infidèle à son épouse&nbsp;; plusieurs analystes avaient alors jugé improbable son maintien à la tête de l'entreprise. Un commentateur du Financial Times résume la leçon de cet épisode en estimant que « la chute de Huang montre que le jugement humain n'est pas aussi fiable qu'on le prétend » — une clé de lecture qui dépasse le seul cas de Nvidia et interroge la gouvernance des entreprises devenues stratégiques pour la sécurité nationale.",
+        "Au-delà du feuilleton personnel, l'enjeu structurel reste la rivalité technologique avec la Chine sur les semi-conducteurs avancés&nbsp;: la bataille sur les contrôles à l'exportation de puces s'intensifie à Washington, dans un contexte où Nvidia a par ailleurs perdu, selon la presse spécialisée, l'essentiel de sa part de marché en Chine du fait des restrictions américaines successives. Le sort de l'entreprise post-Huang sera scruté de près lors du sommet de l'APEC à Shenzhen la semaine prochaine, où les discussions entre Washington et Pékin pourraient, selon plusieurs responsables américains, volontairement laisser de côté ce dossier d'espionnage pour se concentrer sur d'autres priorités bilatérales.",
+        "En Europe, le président de l'Autorité bancaire européenne travaille désormais sur des solutions alternatives pour fluidifier le crédit transfrontalier au sein de l'Union, après avoir pris ses distances avec le projet, porté depuis plusieurs années par la Commission, d'un système unique de garantie des dépôts pour la zone euro. Ce choix traduit la difficulté persistante de l'UE à achever son union bancaire, un chantier géoéconomique de long terme destiné à renforcer l'autonomie financière européenne face aux chocs extérieurs.",
+        "Sur les marchés, le groupe Trump Media, propriétaire de Truth Social, est confronté à une échéance de dette d'environ un milliard de dollars rendue plus difficile par le repli conjoint du cours de l'action et des cryptomonnaies dans lesquelles l'entreprise avait investi une partie de sa trésorerie. Ce dossier, à la frontière entre finance et politique américaine, illustre la manière dont les positions prises par des acteurs proches du pouvoir exécutif américain sur les actifs numériques peuvent se retourner en vulnérabilité économique, dans un contexte de marché mondial encore marqué par la guerre en Iran et par les conséquences économiques des élections de mi-mandat américaines du 3 novembre, qui ont donné aux démocrates le contrôle des deux chambres du Congrès."
+      ],
+      essentiel:[
+        "Jensen Huang a quitté la direction de Nvidia après un scandale d'espionnage présumé ; la presse économique analyse « l'après-Huang ».",
+        "La rivalité sino-américaine sur les semi-conducteurs reste le fond de l'affaire, avec une perte de part de marché chinoise pour Nvidia.",
+        "L'Autorité bancaire européenne s'écarte d'un système unique de garantie des dépôts pour l'UE, au profit de solutions alternatives sur le crédit transfrontalier.",
+        "Trump Media affronte une échéance de dette d'un milliard de dollars après le repli du cours de l'action et des cryptomonnaies."
+      ],
+      signature:"Par la rédaction du Diplomate", editorial:false
+    },
+    {
+      id:"s4", ordre:4, rubrique:"France",
+      titre:"Budget 2027 : le Sénat poursuit son examen, l'Assemblée nationale réservée à une niche parlementaire de La France insoumise",
+      chapeau:"Après le rejet par les députés de la première partie du projet de loi de finances début novembre, le Sénat continue d'examiner les textes budgétaires pour 2027, avec un vote solennel sur le volet social attendu le 18 novembre. Ce dimanche, l'Assemblée nationale est pour sa part réservée à une niche parlementaire du groupe La France insoumise.",
+      duree:3,
+      corps:[
+        "Le débat budgétaire français se poursuit cette semaine au Sénat, qui examine le projet de loi de financement de la Sécurité sociale (PLFSS) pour 2027 du 9 au 17 novembre, avec un vote solennel attendu le 18, après le rejet par l'Assemblée nationale, début novembre, de la première partie du projet de loi de finances dans un hémicycle sans majorité absolue. Le gouvernement de Sébastien Lecornu avait présenté, début octobre, un projet visant un déficit public ramené à 5&nbsp;% du PIB en 2027 contre 5,4&nbsp;% attendus pour 2026, pour un effort budgétaire total annoncé à 54 milliards d'euros. Le calendrier parlementaire prévoit que le Parlement doit se prononcer sur le PLF avant le 26 novembre et sur le PLFSS avant le 17 décembre, faute de quoi le gouvernement devra recourir à des mesures d'urgence pour reconduire le budget 2026.",
+        "Ce dimanche 15 novembre, l'Assemblée nationale est réservée à une niche parlementaire du groupe La France insoumise, selon le calendrier institutionnel de la semaine&nbsp;; ces journées, propres à chaque groupe d'opposition, permettent l'examen de propositions de loi inscrites à l'initiative du groupe concerné. Le climat social reste par ailleurs marqué par la contestation engagée début novembre autour du projet de budget, qui avait rassemblé plusieurs centaines de milliers de manifestants à l'échelle nationale, dans un contexte où le gouvernement a par ailleurs annoncé une revalorisation du Smic."
+      ],
+      essentiel:[
+        "Le Sénat examine le PLFSS jusqu'au 17 novembre, avec un vote solennel attendu le 18 ; le PLF doit être tranché avant le 26 novembre.",
+        "L'Assemblée nationale est réservée ce dimanche à une niche parlementaire du groupe La France insoumise.",
+        "Le climat social reste tendu depuis les mobilisations de début novembre contre le projet de budget, malgré l'annonce d'une hausse du Smic."
+      ],
+      signature:"Par la rédaction du Diplomate", editorial:false
+    },
+    {
+      id:"s5", ordre:5, rubrique:"Regard du Diplomate",
+      titre:"Ce que les marchés pardonnent, et ce que la diplomatie ne pardonne pas",
+      chapeau:"Entre les menaces maximalistes échangées autour du détroit d'Ormuz et le rebond discret des flux pétroliers mondiaux, la semaine illustre un décalage classique entre la rhétorique de la puissance et la plasticité des échanges économiques.",
+      duree:3,
+      corps:[
+        "Il y a quelque chose de frappant dans la coexistence, cette semaine, d'un langage de guerre absolue — des ponts et des centrales électriques promis aux flammes, des ripostes annoncées « vingt fois » plus dures que l'offense initiale — et d'une réalité économique nettement plus mesurée, où les flux de pétrole à travers le détroit d'Ormuz sont remontés à 82&nbsp;% de leur niveau d'avant-guerre et où les volumes transitant par les pipelines de contournement ont triplé. Ce grand écart n'est pas nouveau en relations internationales&nbsp;: il rappelle que les marchés, contrairement aux opinions publiques et aux chancelleries, ont une tolérance presque illimitée à l'ambiguïté stratégique, pourvu que les primes de risque restent calculables. Un conflit peut rester, pour les cargaisons et les assureurs, une variable d'ajustement plutôt qu'un fait absolu — ce qui, paradoxalement, retire une partie de l'effet de levier que les belligérants espèrent tirer du blocage d'un point de passage aussi stratégique.",
+        "Ce découplage entre l'intensité du discours et la résilience des circuits économiques n'est cependant pas un gage de stabilité&nbsp;: il peut au contraire encourager une escalade verbale sans retenue, précisément parce que chaque camp calcule que l'autre absorbera le choc sans y être contraint de céder. C'est un principe de lecture qui vaut sans doute aussi pour d'autres dossiers ouverts cette semaine — des pourparlers d'Abou Dabi qui se referment en deux heures sans avancée visible, à la perspective d'un sommet de l'APEC où Washington et Pékin pourraient délibérément ignorer un contentieux d'espionnage pourtant sérieux. Dans tous les cas, la question posée aux chancelleries n'est pas seulement celle du rapport de force déclaré, mais celle de sa traduction réelle dans les circuits qui, eux, continuent de s'adapter en silence. C'est un avis, pas un constat&nbsp;: il invite simplement à lire les postures aussi à l'aune de ce qu'elles coûtent vraiment à ceux qui les tiennent."
+      ],
+      essentiel:[
+        "L'écart entre rhétorique de guerre totale et résilience des flux économiques est un angle de lecture classique, pas un fait établi.",
+        "Les marchés tolèrent l'ambiguïté stratégique tant que le risque reste calculable, ce qui peut aussi favoriser l'escalade verbale.",
+        "Point de vue éditorial du Diplomate, à mettre en regard d'autres lectures possibles de la semaine."
+      ],
+      signature:"L'éditorial du Diplomate", editorial:true
+    }
+  ]
+};
+
+function stripHtml(s){
+  const d = document.createElement('div');
+  d.innerHTML = s;
+  return d.textContent || d.innerText || '';
+}
+
+function render(){
+  const main = document.getElementById('articles');
+  const frag = document.createDocumentFragment();
+  EDITION.sections.forEach(s=>{
+    const art = document.createElement('article');
+    art.className = 'section';
+    art.id = s.id;
+
+    const rub = document.createElement('p');
+    rub.className = 'rubrique';
+    rub.textContent = s.rubrique;
+    art.appendChild(rub);
+
+    const h = document.createElement('h2');
+    h.className = 'titre';
+    h.textContent = s.titre;
+    art.appendChild(h);
+
+    if(s.chapeau){
+      const ch = document.createElement('p');
+      ch.className = 'chapeau';
+      ch.textContent = s.chapeau;
+      art.appendChild(ch);
+    }
+
+    const metaRow = document.createElement('div');
+    metaRow.className = 'meta-row';
+    metaRow.innerHTML = `<span>${s.duree} min de lecture</span><span class="dot"></span><span>${s.signature}</span>`;
+    art.appendChild(metaRow);
+
+    const corpsDiv = document.createElement('div');
+    corpsDiv.className = 'corps';
+    s.corps.forEach(p=>{
+      const para = document.createElement('p');
+      para.innerHTML = p;
+      corpsDiv.appendChild(para);
+    });
+    art.appendChild(corpsDiv);
+
+    const ess = document.createElement('div');
+    ess.className = 'essentiel';
+    const lbl = document.createElement('p');
+    lbl.className = 'label';
+    lbl.textContent = "L'essentiel";
+    ess.appendChild(lbl);
+    const ul = document.createElement('ul');
+    s.essentiel.forEach(item=>{
+      const li = document.createElement('li');
+      li.textContent = item;
+      ul.appendChild(li);
+    });
+    ess.appendChild(ul);
+    art.appendChild(ess);
+
+    const sig = document.createElement('p');
+    sig.className = 'signature' + (s.editorial ? ' editorial' : '');
+    sig.textContent = s.signature;
+    art.appendChild(sig);
+
+    frag.appendChild(art);
+  });
+  main.appendChild(frag);
+}
+render();
+
+// Speech synthesis toggle — never autostarts, reads the full edition top to bottom.
+(function(){
+  const btn = document.getElementById('listenBtn');
+  const label = document.getElementById('listenLabel');
+  if(!('speechSynthesis' in window)){
+    btn.disabled = true;
+    label.textContent = 'Lecture indisponible';
+    return;
+  }
+
+  function buildUtteranceText(){
+    let parts = ['Le Diplomate. Édition du dimanche 15 novembre 2026.'];
+    EDITION.sections.forEach(s=>{
+      parts.push(s.rubrique + '. ' + s.titre + '.');
+      if(s.chapeau) parts.push(s.chapeau);
+      s.corps.forEach(p=> parts.push(stripHtml(p)));
+    });
+    return parts.join(' ');
+  }
+
+  let utterance = null;
+  let playing = false;
+
+  function setPlaying(v){
+    playing = v;
+    btn.dataset.playing = String(v);
+    btn.setAttribute('aria-pressed', String(v));
+    label.textContent = v ? 'Arrêter' : 'Écouter';
+  }
+
+  btn.addEventListener('click', ()=>{
+    if(playing){
+      window.speechSynthesis.cancel();
+      setPlaying(false);
+      return;
+    }
+    window.speechSynthesis.cancel();
+    utterance = new SpeechSynthesisUtterance(buildUtteranceText());
+    utterance.lang = 'fr-FR';
+    utterance.rate = 0.98;
+    utterance.onend = ()=> setPlaying(false);
+    utterance.onerror = ()=> setPlaying(false);
+    window.speechSynthesis.speak(utterance);
+    setPlaying(true);
+  });
+
+  document.addEventListener('visibilitychange', ()=>{
+    if(document.hidden && playing){
+      window.speechSynthesis.cancel();
+      setPlaying(false);
+    }
+  });
+})();
+</script>
