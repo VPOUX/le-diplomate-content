@@ -1,0 +1,368 @@
+<title>Le Diplomate — 16 nov. 2026</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* layout: broadsheet front page — masthead, rule, 5 stacked sections each with a rubrique eyebrow, pull-quote "essentiel", paper texture background */
+:root{
+  --paper:#f3ecd9; --ink:#1d1a14; --ink-soft:#5a5346; --rule:#c9bd9c;
+  --accent:#7a1f2b; --accent-soft:#c99a62; --card:#eae2cb;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#15130f; --ink:#ece4d2; --ink-soft:#a79d88; --rule:#3c362a;
+    --accent:#e0a0a8; --accent-soft:#caa06a; --card:#1d1a14;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15130f; --ink:#ece4d2; --ink-soft:#a79d88; --rule:#3c362a;
+  --accent:#e0a0a8; --accent-soft:#caa06a; --card:#1d1a14;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:"Source Serif 4", Georgia, serif;
+  margin:0; line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+body::before{
+  content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:10; background:var(--paper);
+}
+.wrap{max-width:720px; margin:0 auto; padding-bottom:64px}
+header.masthead{
+  padding-top:max(28px, env(safe-area-inset-top,0px)); text-align:center; border-bottom:3px solid var(--ink);
+}
+.masthead .kicker{
+  font-family:Inter, sans-serif; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft);
+}
+.masthead h1{
+  font-family:"Fraunces", Georgia, serif; font-weight:900; font-size:clamp(2.4rem,9vw,3.6rem);
+  margin:4px 0 6px; letter-spacing:-.01em; text-wrap:balance;
+}
+.masthead .meta{
+  font-family:Inter, sans-serif; font-size:12px; color:var(--ink-soft); letter-spacing:.04em;
+  display:flex; justify-content:center; gap:14px; flex-wrap:wrap; padding-bottom:14px;
+}
+.masthead .meta b{color:var(--ink); font-weight:600}
+
+.toolbar{
+  display:flex; justify-content:center; gap:10px; padding:14px 0 6px; flex-wrap:wrap;
+}
+button.listen{
+  font-family:Inter, sans-serif; font-size:13px; font-weight:600; letter-spacing:.02em;
+  background:var(--accent); color:var(--paper); border:none; border-radius:999px;
+  padding:10px 20px; cursor:pointer; display:inline-flex; align-items:center; gap:8px;
+}
+button.listen:active{transform:scale(.98)}
+button.listen[data-state="playing"]{background:var(--ink); }
+button.listen .dot{width:7px;height:7px;border-radius:50%;background:currentColor;display:inline-block}
+button.listen[data-state="playing"] .dot{animation:pulse 1s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.scope{
+  font-family:Inter, sans-serif; font-size:11px; color:var(--ink-soft); text-align:center; padding-bottom:18px;
+}
+
+nav.toc{
+  display:flex; justify-content:center; gap:2px; flex-wrap:wrap; padding:4px 0 28px;
+  font-family:Inter, sans-serif; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+}
+nav.toc a{
+  color:var(--ink-soft); text-decoration:none; padding:6px 10px; border-bottom:2px solid transparent;
+}
+nav.toc a:hover, nav.toc a:focus{color:var(--accent); border-color:var(--accent)}
+
+section.piece{ padding:30px 0 10px; border-top:1px solid var(--rule); scroll-margin-top:20px; }
+section.piece:first-of-type{border-top:none}
+.rubrique{
+  font-family:Inter, sans-serif; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent); margin:0 0 10px;
+}
+.piece h2{
+  font-family:"Fraunces", Georgia, serif; font-weight:700; font-size:clamp(1.5rem,5.5vw,2rem);
+  line-height:1.15; margin:0 0 10px; text-wrap:balance;
+}
+.chapeau{
+  font-family:"Fraunces", Georgia, serif; font-style:italic; font-weight:400; font-size:1.08rem;
+  color:var(--ink-soft); margin:0 0 16px; max-width:38em;
+}
+.readtime{
+  font-family:Inter, sans-serif; font-size:11px; color:var(--ink-soft); margin-bottom:18px; letter-spacing:.03em;
+}
+.piece p{max-width:38em; margin:0 0 15px; font-size:1.02rem}
+.piece p:first-of-type::first-letter{
+  float:left; font-family:"Fraunces", Georgia, serif; font-weight:900; font-size:3.4em; line-height:.82;
+  padding:.03em .07em 0 0; color:var(--accent);
+}
+.essentiel{
+  background:var(--card); border-left:3px solid var(--accent-soft); border-radius:2px;
+  padding:14px 18px; margin:20px 0 6px; max-width:38em;
+}
+.essentiel .label{
+  font-family:Inter, sans-serif; font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-soft); margin-bottom:8px;
+}
+.essentiel ul{margin:0; padding-left:1.1em}
+.essentiel li{font-family:Inter, sans-serif; font-size:.86rem; margin-bottom:5px; color:var(--ink)}
+.signature{
+  font-family:Inter, sans-serif; font-size:11px; font-style:normal; color:var(--ink-soft);
+  letter-spacing:.03em; margin-top:16px;
+}
+.piece.editorial{background:transparent}
+.piece.editorial .rubrique{color:var(--ink-soft)}
+.piece.editorial h2{font-style:italic}
+
+footer{
+  text-align:center; padding:30px 0 10px; font-family:Inter, sans-serif; font-size:11px; color:var(--ink-soft);
+  border-top:1px solid var(--rule); margin-top:10px;
+}
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="kicker">Revue de presse diplomatique &amp; géoéconomique</div>
+    <h1>Le Diplomate</h1>
+    <div class="meta">
+      <span><b>N<sup>o</sup> 40</b></span>
+      <span>Lundi 16 novembre 2026</span>
+      <span>Générée à 07:36</span>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <button class="listen" id="listenBtn" data-state="idle" aria-pressed="false">
+      <span class="dot"></span>
+      <span class="label">🔊 Écouter</span>
+    </button>
+  </div>
+  <div class="scope">La lecture audio utilise la voix de votre appareil et commence uniquement si vous l'activez.</div>
+
+  <nav class="toc">
+    <a href="#une">Une</a>
+    <a href="#geopolitique">Géopolitique</a>
+    <a href="#geoeconomie">Géoéconomie</a>
+    <a href="#france">France</a>
+    <a href="#regard">Regard du Diplomate</a>
+  </nav>
+
+  <main id="articles">
+    <!-- sections injected by script from EDITION data -->
+  </main>
+
+  <footer>
+    Le Diplomate — édition automatisée, à usage d'étude des relations internationales.<br>
+    Les positions officielles citées sont sourcées ; leur absence est signalée explicitement plutôt qu'inventée.
+  </footer>
+</div>
+
+<script>
+const EDITION = {
+  date: "2026-11-16", numero: 40, heureGeneration: "07:36",
+  sections: [
+    {
+      ordre:1, rubrique:"UNE", anchor:"une",
+      titre:"« Yalta 2.0 » : la rencontre Trump-Xi-Poutine qui inquiète l'Europe",
+      chapeau:"À quelques jours du sommet de l'APEC à Shenzhen, une possible rencontre à trois entre Donald Trump, Xi Jinping et Vladimir Poutine ravive le spectre d'un réaménagement de l'ordre mondial décidé sans les pays directement concernés.",
+      dureeLectureMin:4,
+      corpsArticle:[
+        "Le sommet des dirigeants économiques de l'APEC se tient les 18 et 19 novembre à Shenzhen, en Chine. Donald Trump a indiqué être disposé à y rencontrer à la fois Xi Jinping et Vladimir Poutine : « si le président Xi le veut, je le ferai », a-t-il déclaré début novembre. Certains commentateurs ont immédiatement qualifié cette rencontre hypothétique de « Yalta 2.0 », en référence à la conférence de 1945 qui avait scellé entre grandes puissances l'ordre international de l'après-guerre.",
+        "À ce stade, rien n'est confirmé. Le Kremlin a indiqué que Vladimir Poutine prévoit de se rendre à Shenzhen et qu'une réunion tripartite a bien été évoquée lors d'un appel avec Donald Trump. Pékin affirme pour sa part que des discussions sont en cours avec les parties concernées, sans valider ni la tenue, ni le format, ni l'ordre du jour d'une telle rencontre. Washington n'a pas non plus confirmé la présence du président américain.",
+        "La charge symbolique de l'image l'emporte, pour l'instant, sur son contenu diplomatique : peu de résultats concrets sont attendus d'une éventuelle rencontre à trois, mais la simple photographie de Donald Trump entouré de Xi Jinping et Vladimir Poutine, deux dirigeants aux pratiques autoritaires, suffirait à faire resurgir l'idée d'un monde régi par quelques puissances s'arrangeant entre elles.",
+        "Cette perspective inquiète les Européens et plus encore Kyiv, absente d'un format qui la concerne pourtant directement. Le ministre ukrainien des Affaires étrangères a jugé qu'une telle rencontre « encouragerait Poutine à poursuivre cette guerre ». Si la rencontre a bien lieu, elle serait la troisième entre Donald Trump et Xi Jinping cette année, alors que la trêve commerciale sino-américaine actuelle doit expirer en janvier et que Donald Trump a évoqué de possibles discussions sur le contrôle des armements nucléaires et sur la fin de la guerre en Iran."
+      ],
+      essentiel:[
+        "L'APEC se tient à Shenzhen les 18 et 19 novembre ; une rencontre Trump-Xi-Poutine y est envisagée mais non confirmée.",
+        "La référence à « Yalta 2.0 » renvoie à la conférence de 1945 qui avait fixé l'ordre d'après-guerre entre grandes puissances.",
+        "Kyiv et les Européens s'inquiètent d'un format qui exclurait l'Ukraine des discussions la concernant.",
+        "La trêve commerciale USA-Chine, qui expire en janvier, ajoute un enjeu économique à cette rencontre potentielle."
+      ],
+      signature:"Par la rédaction du Diplomate"
+    },
+    {
+      ordre:2, rubrique:"GEOPOLITIQUE", anchor:"geopolitique",
+      titre:"Ukraine, Baltique, Golfe, Brexit : l'Europe sollicitée sur tous les fronts",
+      chapeau:"Entre un nouveau prêt européen pour Kyiv, un incident frontalier balte, une nouvelle escalade dans le Golfe et la relance du dossier britannique, la diplomatie européenne est mise à l'épreuve ce lundi sur plusieurs tableaux.",
+      dureeLectureMin:7,
+      corpsArticle:[
+        "La Commission européenne doit proposer un nouvel emprunt de 45 milliards d'euros, adossé au budget commun de l'Union, pour financer l'Ukraine à l'approche de ce qui pourrait être son hiver le plus difficile depuis le début de l'invasion russe. Ce mécanisme nécessitera l'accord des vingt-sept capitales, alors que quatre pays ont déjà annoncé qu'ils ne participeraient pas au financement futur de Kyiv.",
+        "Position de la France : aucune réaction officielle française n'a pu être identifiée à ce stade sur cette proposition spécifique, dévoilée ce lundi. Paris avait toutefois, par le passé, exprimé par la voix du porte-parole du Quai d'Orsay son soutien à l'unité européenne sur les mécanismes de financement de l'Ukraine, tout en appelant à la prudence et en posant des conditions de sécurité juridique — notamment au sujet d'un précédent projet de prêt adossé aux avoirs russes gelés.",
+        "L'Estonie a annoncé la fermeture de sa frontière avec la Russie à partir de décembre, après avoir attribué à Moscou une deuxième tentative présumée de sabotage visant une entreprise de défense balte, un fabricant de drones. Tallinn pointe la responsabilité du renseignement militaire russe, le GRU, dans cette attaque manquée.",
+        "Position de la France : aucune réaction officielle française n'est identifiable à ce stade sur cet incident précis. Le ministre français de l'Europe et des Affaires étrangères avait reçu son homologue estonien au Quai d'Orsay en octobre, sans que le contenu des échanges n'ait été rendu public dans le détail.",
+        "Au Moyen-Orient, le Bahreïn affirme avoir intercepté de nouvelles attaques iraniennes cette semaine, après plusieurs mois d'accalmie relative dans le Golfe. Cet épisode marque une nouvelle poussée de tension dans une zone où les hostilités entre Téhéran et ses voisins se sont multipliées par vagues tout au long de l'année 2026.",
+        "Position de la France : aucune réaction officielle française spécifique à cette nouvelle escalade n'a été identifiée à ce stade. Paris avait toutefois affirmé par le passé, par la voix du ministre Jean-Noël Barrot, sa disposition à contribuer à la défense des pays du Golfe face aux attaques iraniennes.",
+        "Enfin, le premier ministre britannique Andy Burnham doit affirmer sa volonté de rouvrir le débat sur une relation de long terme entre le Royaume-Uni et l'Union européenne, à l'occasion d'un sommet cette semaine, quitte à raviver des doutes jusque dans son propre camp sur l'opportunité de relancer ce débat post-Brexit.",
+        "Position de la France : sans déclaration officielle nouvelle ce jour, Paris a constamment poussé, selon la presse européenne, pour que Bruxelles conserve des conditions strictes dans ces discussions, notamment en limitant l'accès des entreprises britanniques aux programmes européens de défense comme SAFE ou EDIP."
+      ],
+      essentiel:[
+        "La Commission propose un emprunt de 45 Md€ pour l'Ukraine ; quatre pays de l'UE refusent d'y participer.",
+        "L'Estonie fermera sa frontière avec la Russie en décembre après un sabotage attribué au renseignement militaire russe (GRU).",
+        "Le Bahreïn affirme avoir intercepté de nouvelles attaques iraniennes, signe d'une escalade persistante dans le Golfe.",
+        "Londres relance le débat sur un « reset » post-Brexit avec l'UE, sous la pression d'une ligne française prudente."
+      ],
+      signature:"Par la rédaction du Diplomate"
+    },
+    {
+      ordre:3, rubrique:"GEOECONOMIE", anchor:"geoeconomie",
+      titre:"La crise Nvidia et le ralentissement asiatique rappellent la fragilité de l'économie mondiale",
+      chapeau:"Entre la tourmente autour de la direction de Nvidia, les doutes sur la bulle de l'intelligence artificielle et le ralentissement conjoint de la Chine et du Japon, les tensions commerciales sino-américaines continuent de peser sur l'économie réelle.",
+      dureeLectureMin:5,
+      corpsArticle:[
+        "Jensen Huang envisagerait un retour à la tête de Nvidia, quelques jours après sa démission consécutive à des révélations sur des liaisons avec une personne suspectée d'espionnage pour le compte de la Chine. Des alliés en Californie disent organiser une mobilisation pour obtenir sa réintégration et chercher le soutien de la Maison Blanche, tandis qu'une enquête indépendante du conseil d'administration est toujours en cours. Le secrétaire au Trésor Scott Bessent a de son côté réclamé que Nvidia se dote d'un dirigeant extérieur à l'entreprise, afin de garantir que le groupe respecte bien les restrictions américaines sur l'exportation de semi-conducteurs vers la Chine.",
+        "Les retombées boursières de cet épisode s'ajoutent à des inquiétudes plus larges sur la bulle de l'intelligence artificielle : les valeurs liées à la construction de centres de données ont perdu l'équivalent de 4 200 milliards de dollars alors que l'engouement pour le « AI trade » se dégonfle. Les dix plus grandes introductions en bourse de l'année ont par ailleurs perdu en moyenne plus de 20 % de leur valeur, une statistique qui alimente les craintes à l'approche de l'entrée en bourse très attendue d'Anthropic.",
+        "En Asie, l'activité économique chinoise a ralenti en octobre plus que prévu, Pékin cherchant à accélérer les dépenses budgétaires pour compenser cette faiblesse. Au Japon, l'économie s'est contractée pour la première fois depuis un an, pénalisée par une consommation des ménages atone et des pluies record, ce qui complique les plans de la banque centrale en matière de taux d'intérêt.",
+        "Sur les marchés de l'énergie, le baril de Brent se maintient autour de 95 dollars, un niveau qui reste élevé après plusieurs mois de tensions liées à l'Iran dans le Golfe — un rappel que les primes de risque géopolitique continuent d'irriguer les marchés de matières premières, même lorsque des pistes de désescalade sont évoquées ailleurs."
+      ],
+      essentiel:[
+        "La crise de gouvernance chez Nvidia mêle enjeux technologiques, géopolitiques (contrôle des exportations vers la Chine) et boursiers.",
+        "Les valeurs des centres de données ont perdu 4 200 Md$ alors que le « AI trade » se dégonfle.",
+        "La Chine et le Japon ralentissent simultanément, signe de la pression persistante des tensions commerciales et des chocs internes.",
+        "Le pétrole reste élevé (environ 95 $/baril), reflet des tensions dans le Golfe."
+      ],
+      signature:"Par la rédaction du Diplomate"
+    },
+    {
+      ordre:4, rubrique:"FRANCE", anchor:"france",
+      titre:"Grève générale annoncée, hausse du Smic et tensions pré-présidentielles",
+      chapeau:"À dix-huit mois de l'élection présidentielle de 2027, la France se prépare à une nouvelle journée de mobilisation syndicale tandis que le gouvernement avance sur le pouvoir d'achat.",
+      dureeLectureMin:4,
+      corpsArticle:[
+        "Plusieurs organisations syndicales appellent à une nouvelle journée de grève interprofessionnelle mardi 17 novembre, deuxième mobilisation nationale de ce type en moins de deux semaines après celle du 5 novembre, qui avait déjà réuni dans la rue syndicats, étudiants et salariés de plusieurs secteurs autour des questions de salaires et de pouvoir d'achat.",
+        "Sur le plan social, le gouvernement a annoncé, à l'issue d'une conférence sociale organisée le 9 novembre à Matignon, une revalorisation anticipée du Smic de 1,6 %, qui entrera en vigueur dès le 1er décembre plutôt qu'au 1er janvier comme le calendrier habituel l'aurait prévu.",
+        "Sur le plan politique, les commentateurs décrivent un climat de pré-campagne confus à l'approche de la présidentielle de 2027 : plusieurs enquêtes d'opinion situent désormais l'impopularité d'Emmanuel Macron à un niveau proche de celle de Jean-Luc Mélenchon, tandis que La France insoumise a présenté le 6 novembre une nouvelle version de son programme, et que la rivalité entre Olivier Faure et Raphaël Glucksmann illustre les divisions persistantes de la gauche sur la stratégie à adopter."
+      ],
+      essentiel:[
+        "Nouvelle journée de grève interprofessionnelle prévue mardi 17 novembre.",
+        "Le Smic sera revalorisé de 1,6 % dès le 1er décembre, une avance annoncée après la conférence sociale de Matignon.",
+        "Le climat politique se tend à l'approche de la présidentielle de 2027, entre impopularité présidentielle et divisions à gauche."
+      ],
+      signature:"Par la rédaction du Diplomate"
+    },
+    {
+      ordre:5, rubrique:"REGARD_DIPLOMATE", anchor:"regard", editorial:true,
+      titre:"Ce que « Yalta 2.0 » nous apprend sur la lecture diplomatique",
+      chapeau:"Un sommet qui n'a pas encore eu lieu occupe déjà les esprits : une leçon sur la manière de lire les symboles autant que les communiqués.",
+      dureeLectureMin:3,
+      corpsArticle:[
+        "Il est frappant qu'une rencontre encore hypothétique, dont nul ne sait si elle aura vraiment lieu ni ce qui en sortirait, suffise à mobiliser le vocabulaire le plus lourd de l'histoire diplomatique. Le mot « Yalta » ne désigne pas seulement une ville de Crimée : il est devenu, dans le langage commun des relations internationales, le symbole d'un monde que des puissances se partagent au-dessus de la tête des autres. Qu'une simple spéculation sur une photographie à trois à Shenzhen ranime ce vocabulaire montre à quel point, en diplomatie, la forme précède souvent le fond, et la charge symbolique d'un geste peut peser plus lourd, dans l'instant, que son contenu réel.",
+        "On peut en tirer, à titre de point de vue, un principe de lecture plus général : il est souvent aussi instructif d'observer qui est absent d'une table que ce qui s'y dit. L'absence de l'Ukraine dans l'hypothèse d'un format Trump-Xi-Poutine, comme celle, plus largement, des puissances moyennes dans tant de négociations qui les concernent, en dit parfois davantage sur l'état réel des rapports de force que n'importe quel communiqué final. Une revue de presse diplomatique gagnerait ainsi à toujours se demander, devant chaque sommet annoncé : qui parle, certes, mais aussi qui n'est pas invité à la table."
+      ],
+      essentiel:[
+        "La charge symbolique d'un sommet précède souvent, en diplomatie, son contenu réel.",
+        "Observer qui est absent d'une table dit parfois plus sur les rapports de force que les déclarations officielles."
+      ],
+      signature:"L'éditorial du Diplomate"
+    }
+  ]
+};
+
+function renderArticles(){
+  const main = document.getElementById('articles');
+  const rubriqueLabels = {
+    UNE: "À la une", GEOPOLITIQUE: "Géopolitique", GEOECONOMIE: "Géoéconomie",
+    FRANCE: "France", REGARD_DIPLOMATE: "Regard du Diplomate"
+  };
+  main.innerHTML = EDITION.sections.map(s => {
+    const paras = s.corpsArticle.map(p => `<p>${escapeHtml(p)}</p>`).join('');
+    const essentiel = s.essentiel.map(e => `<li>${escapeHtml(e)}</li>`).join('');
+    return `<section class="piece${s.editorial ? ' editorial' : ''}" id="${s.anchor}">
+      <div class="rubrique">${rubriqueLabels[s.rubrique] || s.rubrique}</div>
+      <h2>${escapeHtml(s.titre)}</h2>
+      ${s.chapeau ? `<p class="chapeau">${escapeHtml(s.chapeau)}</p>` : ''}
+      <div class="readtime">${s.dureeLectureMin} min de lecture</div>
+      ${paras}
+      <div class="essentiel">
+        <div class="label">L'essentiel</div>
+        <ul>${essentiel}</ul>
+      </div>
+      <div class="signature">${escapeHtml(s.signature)}</div>
+    </section>`;
+  }).join('');
+}
+function escapeHtml(str){
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+renderArticles();
+
+// Text-to-speech toggle — never autostarts, uses window.speechSynthesis
+(function(){
+  const btn = document.getElementById('listenBtn');
+  const synth = window.speechSynthesis;
+  if (!synth){
+    btn.style.display = 'none';
+    return;
+  }
+  let utterances = [];
+  let playing = false;
+
+  function buildUtterances(){
+    const chunks = [];
+    chunks.push(`Le Diplomate, édition numéro ${EDITION.numero}, du ${EDITION.date}.`);
+    EDITION.sections.forEach(s => {
+      chunks.push(s.titre + '.');
+      if (s.chapeau) chunks.push(s.chapeau);
+      s.corpsArticle.forEach(p => chunks.push(p));
+    });
+    return chunks.map(text => {
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'fr-FR';
+      u.rate = 1;
+      return u;
+    });
+  }
+
+  function setState(state){
+    btn.dataset.state = state;
+    btn.setAttribute('aria-pressed', state === 'playing' ? 'true' : 'false');
+    const label = btn.querySelector('.label');
+    label.textContent = state === 'playing' ? '⏸ Mettre en pause' : '🔊 Écouter';
+  }
+
+  function speakAll(){
+    utterances = buildUtterances();
+    utterances.forEach((u, i) => {
+      if (i === utterances.length - 1){
+        u.onend = () => { playing = false; setState('idle'); };
+      }
+    });
+    utterances.forEach(u => synth.speak(u));
+    playing = true;
+    setState('playing');
+  }
+
+  btn.addEventListener('click', () => {
+    if (!playing && synth.paused && synth.pending === false && synth.speaking){
+      synth.resume();
+      playing = true;
+      setState('playing');
+      return;
+    }
+    if (playing){
+      synth.pause();
+      playing = false;
+      setState('idle');
+      return;
+    }
+    if (synth.speaking || synth.pending){
+      synth.resume();
+      playing = true;
+      setState('playing');
+      return;
+    }
+    speakAll();
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && playing){
+      synth.cancel();
+      playing = false;
+      setState('idle');
+    }
+  });
+})();
+</script>
