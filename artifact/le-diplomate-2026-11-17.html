@@ -1,0 +1,435 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Le Diplomate — 17 novembre</title>
+<style>
+/* Layout: broadsheet grid — masthead rule, dateline, columns of dispatches with a boxed "essentiel" sidebar per section */
+:root{
+  --paper:#f3ecd9;
+  --ink:#201b14;
+  --ink-soft:#4a4336;
+  --rule:#201b14;
+  --accent:#8a2a22;
+  --accent-soft:#c9897f;
+  --box-bg:#e8dfc4;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1b1812;
+    --ink:#ece4d1;
+    --ink-soft:#bcb296;
+    --rule:#ece4d1;
+    --accent:#d98f84;
+    --accent-soft:#8a2a22;
+    --box-bg:#272117;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1b1812;
+  --ink:#ece4d1;
+  --ink-soft:#bcb296;
+  --rule:#ece4d1;
+  --accent:#d98f84;
+  --accent-soft:#8a2a22;
+  --box-bg:#272117;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"PT Serif","Source Serif 4",Georgia,serif;
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+  padding-block:0;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0 0 auto;
+  height:env(safe-area-inset-top,0px);
+  z-index:10;
+  background:var(--paper);
+}
+
+.wrap{max-width:760px;margin:0 auto;padding-bottom:64px;}
+
+/* masthead */
+.masthead{
+  text-align:center;
+  padding-top:28px;
+  padding-bottom:10px;
+}
+.masthead .kicker{
+  font-family:"Libre Franklin","Arial Narrow",sans-serif;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size:11px;
+  color:var(--ink-soft);
+}
+.masthead h1{
+  font-family:"Playfair Display",Georgia,serif;
+  font-weight:900;
+  font-size:clamp(2.4rem,9vw,4rem);
+  letter-spacing:.01em;
+  margin:4px 0 6px;
+  text-wrap:balance;
+}
+.masthead .dateline{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  font-family:"Libre Franklin","Arial Narrow",sans-serif;
+  font-size:12px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  border-top:2px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  padding:7px 2px;
+  margin-top:10px;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+/* sections */
+.section{
+  padding-top:30px;
+}
+.section + .section{
+  border-top:1px solid var(--rule);
+}
+.eyebrow{
+  font-family:"Libre Franklin","Arial Narrow",sans-serif;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-size:12px;
+  color:var(--accent);
+  margin:0 0 8px;
+}
+.section h2{
+  font-family:"Playfair Display",Georgia,serif;
+  font-weight:800;
+  font-size:clamp(1.5rem,5.2vw,2.1rem);
+  line-height:1.15;
+  margin:0 0 10px;
+  text-wrap:balance;
+}
+.chapeau{
+  font-style:italic;
+  color:var(--ink-soft);
+  font-size:1.05rem;
+  line-height:1.5;
+  margin:0 0 14px;
+  padding-bottom:14px;
+  border-bottom:1px solid color-mix(in srgb, var(--rule) 30%, transparent);
+}
+.meta-row{
+  display:flex;
+  justify-content:space-between;
+  font-family:"Libre Franklin","Arial Narrow",sans-serif;
+  font-size:11px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin-bottom:14px;
+}
+.corps{
+  font-size:1.05rem;
+  line-height:1.65;
+  max-width:65ch;
+}
+.corps p{
+  margin:0 0 1em;
+}
+.corps p:first-of-type::first-letter{
+  font-family:"Playfair Display",Georgia,serif;
+  font-weight:900;
+  font-size:2.6em;
+  line-height:.8;
+  float:left;
+  padding-right:.08em;
+  color:var(--accent);
+}
+.position-france{
+  font-style:italic;
+  color:var(--ink-soft);
+  border-left:3px solid var(--accent-soft);
+  padding-left:12px;
+  margin:1em 0 1.3em;
+}
+
+.essentiel{
+  background:var(--box-bg);
+  border:1px solid color-mix(in srgb, var(--rule) 35%, transparent);
+  border-radius:2px;
+  padding:14px 16px;
+  margin-top:20px;
+}
+.essentiel h3{
+  font-family:"Libre Franklin","Arial Narrow",sans-serif;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin:0 0 8px;
+}
+.essentiel ul{
+  margin:0;
+  padding-left:1.1em;
+}
+.essentiel li{
+  margin-bottom:6px;
+  line-height:1.4;
+  font-size:.95rem;
+}
+.essentiel li:last-child{margin-bottom:0;}
+
+.signature{
+  margin-top:16px;
+  font-family:"Libre Franklin","Arial Narrow",sans-serif;
+  font-size:11px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  text-align:right;
+}
+
+.editorial h2{color:var(--accent);}
+.editorial .corps p:first-of-type::first-letter{color:var(--ink);}
+
+footer{
+  text-align:center;
+  font-family:"Libre Franklin","Arial Narrow",sans-serif;
+  font-size:11px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  padding:28px 0 10px;
+}
+
+/* listen control */
+.listen-btn{
+  position:fixed;
+  right:max(18px, calc(env(safe-area-inset-right,0px) + 18px));
+  bottom:max(18px, calc(env(safe-area-inset-bottom,0px) + 18px));
+  z-index:20;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:var(--ink);
+  color:var(--paper);
+  border:none;
+  border-radius:999px;
+  padding:12px 18px;
+  font-family:"Libre Franklin","Arial Narrow",sans-serif;
+  font-size:13px;
+  letter-spacing:.04em;
+  cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+}
+.listen-btn:active{transform:translateY(1px);}
+.listen-btn .ico{font-size:16px;}
+.listen-btn[data-playing="true"]{background:var(--accent);}
+
+@media (max-width:480px){
+  .masthead h1{font-size:2.1rem;}
+}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800;900&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Libre+Franklin:wght@400;700&display=swap">
+
+<div class="wrap">
+  <div class="masthead">
+    <div class="kicker">Revue de presse diplomatique</div>
+    <h1>Le Diplomate</h1>
+    <div class="dateline">
+      <span>Mardi 17 novembre 2026</span>
+      <span>N° 41</span>
+      <span>Édition du matin — 07:55</span>
+    </div>
+  </div>
+
+  <section class="section" id="s1" data-speak="Section Une. Shenzhen, jeudi : Trump, Xi et Poutine à la même table, sans l'Europe ni l'Ukraine.">
+    <p class="eyebrow">Une</p>
+    <h2>Shenzhen, jeudi : Trump, Xi et Poutine à la même table, sans l'Europe ni l'Ukraine</h2>
+    <p class="chapeau">Le premier sommet trilatéral entre les présidents américain, chinois et russe, prévu jeudi en marge de l'APEC et déjà comparé à Yalta par plusieurs commentateurs, se tiendra sans l'Ukraine ni les Européens, au lendemain de la plus vaste attaque de drones ukrainiens de la guerre contre le pont de Kertch.</p>
+    <div class="meta-row"><span>Par la rédaction du Diplomate</span><span>5 min de lecture</span></div>
+    <div class="corps">
+      <p>Donald Trump est arrivé lundi à Manille pour le sommet annuel de l'Asean, avant de rejoindre Shenzhen où se tient mercredi et jeudi le sommet de la Coopération économique pour l'Asie-Pacifique (APEC), qui réunit 21 économies représentant plus de 60 % du PIB mondial et environ la moitié du commerce international. En marge de ce sommet, Donald Trump, Xi Jinping et Vladimir Poutine doivent se retrouver jeudi pour leur première rencontre à trois, un format que plusieurs commentateurs ont surnommé « Yalta 2.0 », en référence à la conférence de 1945 où Roosevelt, Churchill et Staline avaient redessiné l'ordre international d'après-guerre. Pékin met en avant l'objectif d'une déclaration conjointe sur la « paix mondiale », tandis que des responsables américains évoquent plutôt la réduction des arsenaux nucléaires et la fin de la guerre en Iran ; l'Ukraine, en dépit de la charge symbolique de la rencontre, ne devrait pas figurer au cœur des discussions.</p>
+      <p>La rencontre à trois sera précédée d'un entretien bilatéral entre Donald Trump et Xi Jinping, leur troisième de l'année, sur fond de tensions commerciales persistantes. Washington accuse Pékin de ne pas pleinement respecter les engagements pris lors de l'accord de Busan d'octobre 2025 sur les exportations de terres rares, dont la trêve d'un an arrive à un point de renouvellement sans qu'il soit certain qu'elle soit prolongée. En parallèle, les États-Unis viennent de durcir leurs règles d'exportation de puces d'intelligence artificielle après l'affaire Nvidia, ce qui a conduit Pékin à dénoncer des « récits d'espionnage » qu'il juge fabriqués par Washington.</p>
+      <p>Sur le terrain, l'Ukraine a lancé dans la nuit sa plus vaste attaque de drones depuis le début de la guerre, frappant le pont stratégique de Kertch qui relie la Russie à la Crimée occupée, dans le cadre d'un bombardement touchant des cibles dans une quinzaine de régions russes, dont Moscou, après plusieurs frappes russes sur les infrastructures énergétiques ukrainiennes. Parallèlement, la Commission européenne doit proposer un prêt de 45 milliards d'euros à Kyiv, adossé au budget de l'UE, pour combler le besoin de financement de l'Ukraine.</p>
+      <p>Malgré des assurances antérieures de Washington sur une future association des Européens aux négociations, aucun dirigeant européen ni représentant ukrainien ne sera présent à Shenzhen jeudi. Le président allemand Frank-Walter Steinmeier a publiquement insisté pour que les Européens aient une place à la table, et plusieurs capitales européennes ont fait état de leur frustration de ne pas y figurer. Aucune déclaration officielle du Quai d'Orsay ou de l'Élysée sur ce sommet n'a pu être identifiée à l'heure de la rédaction de cette édition.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Premier sommet trilatéral Trump-Xi-Poutine jeudi à Shenzhen, en marge de l'APEC, surnommé « Yalta 2.0 »</li>
+        <li>Ni l'Ukraine ni les Européens n'y seront représentés ; la Commission propose un prêt de 45 milliards d'euros à Kyiv</li>
+        <li>Attaque record de drones ukrainiens contre le pont de Kertch, la plus massive depuis le début de la guerre</li>
+        <li>Tensions sino-américaines en toile de fond : terres rares, puces IA et accusations croisées d'espionnage</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="s2" data-speak="Section Géopolitique. Dialogue avec Moscou, mobilisation de l'OTAN pour Kyiv, COP31 sous tension.">
+    <p class="eyebrow">Géopolitique</p>
+    <h2>Dialogue avec Moscou, mobilisation de l'OTAN pour Kyiv, COP31 sous tension : trois dossiers qui testent l'unité européenne</h2>
+    <p class="chapeau">Entre l'appel du président finlandais à parler directement à Vladimir Poutine, la réunion du format Ramstein à Bruxelles et la dernière semaine de négociations climatiques à Antalya, l'Europe se trouve simultanément testée sur trois fronts diplomatiques distincts.</p>
+    <div class="meta-row"><span>Par la rédaction du Diplomate</span><span>5 min de lecture</span></div>
+    <div class="corps">
+      <p>Le président finlandais Alexander Stubb continue de plaider pour qu'une partie des Européens engage un dialogue direct avec Vladimir Poutine, après l'entretien téléphonique qu'il a eu fin octobre avec le président russe, aux côtés du Premier ministre norvégien Jonas Gahr Støre. Selon le Kremlin, Vladimir Poutine leur a indiqué qu'une paix durable supposait de prendre en compte les intérêts russes. L'initiative a suscité des réactions contrastées en Europe : la Première ministre danoise Mette Frederiksen s'est dite perplexe sur ce que ce canal pourrait obtenir, tandis que le Premier ministre polonais Donald Tusk a appelé à la prudence. Ce débat, déjà ancien, prend un relief particulier à la veille du sommet de Shenzhen, qui illustre le risque pour l'Europe d'être tenue à l'écart des arbitrages la concernant directement.</p>
+      <p class="position-france">Position de la France : aucune réaction officielle française à l'initiative finlandaise n'a pu être identifiée à ce stade.</p>
+      <p>À Bruxelles, le Royaume-Uni et l'Allemagne coprésident ce mardi, au siège de l'OTAN, une nouvelle réunion du groupe de contact sur la défense de l'Ukraine (format Ramstein), consacrée à la défense antiaérienne, aux drones et aux armes de longue portée, ainsi qu'au financement des achats d'armements américains via le mécanisme PURL. Cette session fait suite à une réunion préparatoire du Conseil OTAN-Ukraine début novembre, dans un contexte hivernal marqué par l'intensification des frappes russes sur les infrastructures énergétiques ukrainiennes.</p>
+      <p class="position-france">Position de la France : la France participe de longue date à ce format en tant que fournisseur d'armements à l'Ukraine, mais aucune confirmation du niveau de représentation française à cette session du 17 novembre n'a pu être établie à l'heure de la rédaction.</p>
+      <p>À Antalya, les ministres de l'Environnement entament la dernière semaine de la COP31, marquée par de profondes divisions sur l'électrification, le financement climatique et la trajectoire des énergies fossiles. Des fonds de pension ont publiquement alerté sur un risque climatique systémique pour la stabilité financière mondiale, tandis qu'aucune nouvelle promesse de financement européenne n'a été annoncée à ce stade des discussions.</p>
+      <p class="position-france">Position de la France : Paris, qui avait arrêté sa position avec ses partenaires européens lors d'une réunion ministérielle à Luxembourg le 12 octobre, plaide pour une décision contraignante de la COP31 approuvée par toutes les parties, conditionne le soutien à l'électrification à la décarbonation de la production d'électricité et demande des engagements supplémentaires sur la réduction du méthane.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Le président finlandais Stubb relance le débat sur un dialogue direct de l'Europe avec Vladimir Poutine, sans consensus européen</li>
+        <li>Le format Ramstein se réunit à l'OTAN à Bruxelles, coprésidé par Londres et Berlin, sur la défense antiaérienne et les drones</li>
+        <li>La COP31 entame sa dernière semaine à Antalya, divisée sur l'électrification et le financement climatique</li>
+        <li>Aucune réaction officielle française identifiée sur l'initiative finlandaise ; position française confirmée et sourcée sur le climat</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="s3" data-speak="Section Géoéconomie. Pékin courtise les puissances moyennes, Washington resserre l'étau technologique.">
+    <p class="eyebrow">Géoéconomie</p>
+    <h2>Pékin courtise les puissances moyennes, Washington resserre l'étau technologique</h2>
+    <p class="chapeau">Entre l'accord tarifaire conclu avec le Canada, un excédent commercial record et les frictions persistantes sur les terres rares et les puces d'intelligence artificielle, la Chine affiche ses ambitions internationales malgré un ralentissement économique intérieur.</p>
+    <div class="meta-row"><span>Par la rédaction du Diplomate</span><span>4 min de lecture</span></div>
+    <div class="corps">
+      <p>Xi Jinping et le premier ministre canadien Mark Carney ont annoncé un abaissement réciproque de leurs droits de douane, dans un geste qui s'inscrit dans la stratégie chinoise de séduction des « puissances moyennes » à mesure que les États-Unis de Donald Trump se replient sur eux-mêmes. Des analystes mettent toutefois en garde Ottawa : cette stratégie de couverture face à la pression américaine risque de créer une nouvelle dépendance envers Pékin. Plus largement, plus de la moitié du commerce de marchandises chinois passe désormais par des partenaires de la Nouvelle route de la soie, et la Chine a enregistré un excédent commercial record de plus de 1 000 milliards de dollars sur les dix premiers mois de 2026, une tendance qui nourrit les tensions avec l'Union européenne, inquiète de la concurrence d'importations à bas coût pour ses propres industries.</p>
+      <p>Sur le dossier des minerais critiques, Washington accuse Pékin de ne pas honorer pleinement l'accord de Busan d'octobre 2025, qui prévoyait un assouplissement des contrôles chinois à l'exportation de terres rares ; la trêve, conclue pour un an, arrive à un point de renouvellement sans certitude sur sa prolongation. Ce contentieux fait écho au resserrement américain des règles d'exportation de puces d'intelligence artificielle après le dossier Nvidia, que Pékin qualifie de « récits d'espionnage » fabriqués par Washington — un différend qui devrait peser sur le tête-à-tête Trump-Xi prévu cette semaine à Shenzhen.</p>
+      <p>Sur le plan intérieur, la production industrielle, l'investissement et les ventes au détail chinois ont ralenti plus fortement que prévu en octobre, renforçant la pression sur les autorités pour accélérer les mesures de relance, alors que les prix à la production avaient atteint la semaine précédente leur plus haut niveau en quatre ans.</p>
+      <p>En parallèle, plusieurs grandes banques internationales chercheraient à réduire leur exposition au financement de l'essor de l'intelligence artificielle, cédant une partie de la dette liée aux centres de données et aux semi-conducteurs face à une contestation publique croissante. Dans un registre distinct mais révélateur des risques systémiques du secteur bancaire, une fuite de quinze millions de documents internes de Deutsche Bank, révélée lundi par un consortium international de médias coordonné avec le Financial Times, met en lumière d'anciennes relations d'affaires de la banque avec des oligarques russes sous surveillance de conformité, ainsi que des défaillances de gouvernance dénoncées en interne.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Xi Jinping et Mark Carney annoncent une baisse réciproque des droits de douane, dans la stratégie chinoise de séduction des puissances moyennes</li>
+        <li>Excédent commercial chinois record de plus de 1 000 milliards de dollars en dix mois, source de friction avec l'UE</li>
+        <li>Accord de Busan sur les terres rares à un point de renouvellement incertain ; Pékin dénonce les contrôles américains sur les puces IA</li>
+        <li>Ralentissement de l'économie chinoise en octobre et exposition bancaire croissante aux risques du boom de l'IA</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="s4" data-speak="Section France. Budget de la Sécurité sociale, le gouvernement dans l'impasse, le Sénat reprend la main.">
+    <p class="eyebrow">France</p>
+    <h2>Budget de la Sécurité sociale : le gouvernement dans l'impasse, le Sénat reprend la main</h2>
+    <p class="chapeau">Après le rejet massif du projet de loi de financement de la Sécurité sociale pour 2027 par l'Assemblée nationale en octobre, le texte est examiné depuis le 9 novembre au Sénat dans sa version initiale, sur fond de déficit social persistant.</p>
+    <div class="meta-row"><span>Par la rédaction du Diplomate</span><span>4 min de lecture</span></div>
+    <div class="corps">
+      <p>L'Assemblée nationale a rejeté le 23 octobre, par 115 voix contre une seule, la partie « recettes » du projet de loi de financement de la Sécurité sociale (PLFSS) pour 2027, entraînant par ricochet le rejet de l'ensemble du texte en première lecture. La version ainsi rejetée portait le déficit prévisionnel de la Sécurité sociale à 24 milliards d'euros.</p>
+      <p>Le texte est depuis examiné au Sénat, à partir du 9 novembre, dans sa version gouvernementale initiale, sans les amendements votés par les députés qui ont disparu avec le rejet d'ensemble. Le ministre du Travail Jean-Pierre Farandou figure parmi les intervenants de ce débat, dont l'enjeu central reste un objectif de réduction quasiment de moitié du déficit de la Sécurité sociale à l'horizon 2027.</p>
+      <p>Cet épisode prolonge l'instabilité chronique observée lors du précédent cycle budgétaire, marqué par la suspension de la réforme des retraites jusqu'en 2028 et des débats houleux sur le gel des prestations sociales. L'issue de la navette parlementaire — nouvelle lecture ou commission mixte paritaire — reste incertaine à ce stade.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>L'Assemblée nationale rejette le 23 octobre la partie recettes du PLFSS 2027, entraînant le rejet de l'ensemble du texte</li>
+        <li>Le Sénat examine depuis le 9 novembre la version initiale du gouvernement, sans les amendements des députés</li>
+        <li>Le texte rejeté portait le déficit social à 24 milliards d'euros ; l'objectif reste de le réduire de près de moitié en 2027</li>
+        <li>La navette parlementaire et son issue restent incertaines, dans la continuité de l'instabilité budgétaire des derniers mois</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section editorial" id="s5" data-speak="L'éditorial du Diplomate. Yalta 2.0 : la table, et ceux qui n'y sont pas conviés.">
+    <p class="eyebrow">Regard du Diplomate</p>
+    <h2>Yalta 2.0 : la table, et ceux qui n'y sont pas conviés</h2>
+    <p class="chapeau">Au-delà de ce qui se décidera jeudi à Shenzhen, c'est la composition même de la table qui mérite l'attention du lecteur de diplomatie.</p>
+    <div class="meta-row"><span>L'éditorial du Diplomate</span><span>3 min de lecture</span></div>
+    <div class="corps">
+      <p>La référence à Yalta, convoquée par nombre de commentateurs pour qualifier la rencontre de jeudi entre Donald Trump, Xi Jinping et Vladimir Poutine, dit moins sur le contenu probable de leurs échanges — vraisemblablement modeste — que sur une inquiétude plus ancienne et plus structurelle : celle de voir quelques puissances décider, entre elles, d'un ordre qui engage des tiers absents de la salle. Cette même inquiétude traverse, à des degrés divers, l'accord tarifaire sino-canadien, qui expose Ottawa au risque de substituer une dépendance à une autre, et le débat européen sur l'opportunité d'ouvrir un canal direct avec Moscou, faute d'être associé aux discussions menées par Washington.</p>
+      <p>La leçon de lecture diplomatique qu'on peut en tirer, et qui n'engage ici que notre jugement éditorial, est qu'une chaise vide parle presque aussi fort qu'une chaise occupée : l'absence d'un acteur à la table ne signifie pas son absence des conséquences, mais elle prive cet acteur de la capacité à peser sur le récit qui s'écrit sans lui. Observer la diplomatie internationale sur la durée suppose ainsi de regarder autant qui est présent que qui ne l'est pas — et de se demander, dans chaque cas, ce que cette absence révèle des rapports de force du moment plutôt que des seules intentions affichées.</p>
+    </div>
+    <div class="essentiel">
+      <h3>L'essentiel</h3>
+      <ul>
+        <li>Le parallèle avec Yalta éclaire moins le contenu du sommet de Shenzhen que la question de qui y est, ou non, représenté</li>
+        <li>Cette tension se retrouve dans l'accord tarifaire sino-canadien et dans le débat européen sur un dialogue direct avec Moscou</li>
+        <li>Point de vue éditorial : l'absence à la table prive de prise sur le récit, sans effacer les conséquences qui en découlent</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>Le Diplomate — édition du 17 novembre 2026 — revue de presse à usage d'étude diplomatique</footer>
+</div>
+
+<button class="listen-btn" id="listenBtn" data-playing="false" aria-pressed="false">
+  <span class="ico" id="listenIco">🔊</span>
+  <span id="listenLabel">Écouter</span>
+</button>
+
+<script>
+(function(){
+  var btn = document.getElementById('listenBtn');
+  var label = document.getElementById('listenLabel');
+  var ico = document.getElementById('listenIco');
+  var synth = window.speechSynthesis;
+  var speaking = false;
+
+  function buildText(){
+    var sections = document.querySelectorAll('.section');
+    var parts = [];
+    sections.forEach(function(sec){
+      var eyebrow = sec.querySelector('.eyebrow');
+      var h2 = sec.querySelector('h2');
+      var chapeau = sec.querySelector('.chapeau');
+      var paras = sec.querySelectorAll('.corps p');
+      if(eyebrow) parts.push(eyebrow.textContent + '.');
+      if(h2) parts.push(h2.textContent + '.');
+      if(chapeau) parts.push(chapeau.textContent);
+      paras.forEach(function(p){ parts.push(p.textContent); });
+    });
+    return parts.join(' ');
+  }
+
+  function stop(){
+    try{ synth.cancel(); }catch(e){}
+    speaking = false;
+    btn.setAttribute('data-playing','false');
+    btn.setAttribute('aria-pressed','false');
+    ico.textContent = '🔊';
+    label.textContent = 'Écouter';
+  }
+
+  function start(){
+    if(!synth){
+      label.textContent = 'Indisponible';
+      return;
+    }
+    var text = buildText();
+    var utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'fr-FR';
+    utter.rate = 0.98;
+    utter.onend = stop;
+    utter.onerror = stop;
+    try{
+      synth.cancel();
+      synth.speak(utter);
+      speaking = true;
+      btn.setAttribute('data-playing','true');
+      btn.setAttribute('aria-pressed','true');
+      ico.textContent = '⏸';
+      label.textContent = 'Arrêter';
+    }catch(e){
+      stop();
+    }
+  }
+
+  btn.addEventListener('click', function(){
+    if(speaking){ stop(); } else { start(); }
+  });
+
+  document.addEventListener('visibilitychange', function(){
+    if(document.hidden && speaking){ stop(); }
+  });
+})();
+</script>
