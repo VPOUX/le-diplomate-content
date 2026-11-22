@@ -1,175 +1,100 @@
 {
-  "date": "2026-11-21",
-  "numero": 45,
-  "heureGeneration": "08:30",
+  "date": "2026-11-22",
+  "numero": 46,
+  "heureGeneration": "08:10",
   "sections": [
     {
       "ordre": 1,
       "rubrique": "UNE",
-      "titre": "Course contre l'horloge sur l'Ukraine : Washington veut un accord avant que les démocrates ne prennent le Congrès",
-      "chapeau": "Au lendemain du sommet de Shenzhen et d'une nouvelle vague de frappes russes sur Kyiv, l'administration Trump chercherait à boucler un accord de paix avant janvier, quand la nouvelle majorité démocrate, issue des élections de mi-mandat, prendra le contrôle des deux chambres du Congrès.",
+      "titre": "À Bruxelles, Andy Burnham rouvre le dossier Brexit — et c'est déjà l'ombre de Marine Le Pen qui plane sur la suite",
+      "chapeau": "Deux jours après avoir affirmé que « le Brexit n'a pas fonctionné », le premier ministre britannique Andy Burnham est allé défendre à Bruxelles un rapprochement institutionnel avec l'Union européenne. Mais la presse économique britannique souligne déjà qu'une éventuelle victoire de Marine Le Pen à la présidentielle française de 2027 pourrait suffire à bloquer toute perspective de retour durable du Royaume-Uni dans l'orbite européenne.",
       "dureeLectureMin": 6,
       "corpsArticle": [
-        "La diplomatie ukrainienne entre dans une phase de pression accélérée. Selon le Financial Times, des responsables américains chercheraient désormais à sceller un accord de paix entre Vladimir Poutine et Volodymyr Zelensky avant le mois de janvier, lorsque les démocrates, qui ont remporté la majorité des deux chambres du Congrès lors des élections de mi-mandat du 5 novembre, en prendront formellement le contrôle. Cette échéance survient quelques jours seulement après le sommet trilatéral de Shenzhen entre Donald Trump, Xi Jinping et Vladimir Poutine, où le dossier ukrainien n'avait pourtant pas été formellement abordé.",
-        "Le calendrier politique américain explique en partie cette précipitation : une majorité démocrate au Congrès pourrait compliquer la capacité de l'exécutif à lever unilatéralement des sanctions, à débloquer certains financements ou à faire valider un accord dont les termes restent contestés à Washington même. Cette méthode du compte à rebours n'est pas nouvelle : l'administration Trump y avait déjà recouru à plusieurs reprises depuis le début des négociations, sans qu'aucune de ces échéances successives n'ait jusqu'ici abouti à un texte signé.",
-        "Sur le terrain, la pression ne faiblit pas côté russe. Au lendemain du sommet de Shenzhen, une nouvelle vague de frappes de missiles a endommagé des ponts stratégiques de Kyiv. Vladimir Poutine a par ailleurs indiqué avoir invité plusieurs dirigeants européens à Moscou pour évoquer une issue au conflit, sans toutefois leur garantir de rôle formel dans la définition d'un éventuel accord — un geste que plusieurs observateurs continuent d'interpréter comme un signal de fermeté plutôt que comme une réelle ouverture.",
-        "Pour les chancelleries européennes, cette séquence ravive une inquiétude déjà exprimée à plusieurs reprises : voir les grands arbitrages qui les concernent directement se négocier dans des formats où elles ne sont pas automatiquement représentées, avant d'être ensuite invitées à en endosser les conséquences, qu'il s'agisse des garanties de sécurité, du financement de la reconstruction ou du sort des avoirs russes gelés en Europe."
+        "Lors du traditionnel dîner du Lord Mayor's Banquet à Londres, le 16 novembre, Andy Burnham a franchi un pas que ses prédécesseurs évitaient soigneusement depuis le référendum de 2016 : il a déclaré que « le Brexit qui nous a été livré n'a pas fonctionné » et que le Royaume-Uni avait « perdu plus qu'il n'a gagné ». Cette déclaration intervenait quatre jours avant un second sommet UE-Royaume-Uni, organisé le 20 novembre à Bruxelles avec la présidente de la Commission européenne Ursula von der Leyen et le président du Conseil européen António Costa — un format institutionnel qui, un an plus tôt, aurait paru impensable à beaucoup à Westminster.",
+        "L'agenda de ce sommet portait sur plusieurs dossiers techniques mais à forte portée politique : un lien entre les systèmes d'échange de quotas d'émission carbone britannique et européen, qui supprimerait le besoin d'un ajustement carbone aux frontières entre les deux marchés ; un programme de mobilité des jeunes, dont certaines versions du projet d'accord évoquaient un contingent annuel de 100 000 visas de travail pour les Européens de moins de 31 ans ; ainsi qu'une coopération renforcée sur l'immigration irrégulière dans la Manche et sur les normes sanitaires et phytosanitaires agroalimentaires. Le gouvernement britannique a chiffré à 3,8 milliards de livres par an le bénéfice attendu, pour la seule économie britannique, d'un rapprochement des marchés carbone — un chiffre émanant de Londres et non vérifié de façon indépendante.",
+        "Mais c'est la suite politique annoncée par Andy Burnham qui a le plus retenu l'attention : il a indiqué vouloir ouvrir, après le sommet, une « conversation nationale » sur la relation de long terme entre le Royaume-Uni et l'Union européenne, ce qui a immédiatement ressuscité les lignes de fracture du débat sur le Brexit. D'anciens partisans du Leave, à commencer par Boris Johnson, ont averti que les Britanniques revoteraient pour la sortie de l'Union en cas de nouveau référendum, tandis que Nigel Farage a rappelé que Burnham avait promis de ne pas « rouvrir » ce débat. À l'heure de la rédaction de cette édition, le compte rendu détaillé des conclusions effectivement actées lors du sommet du 20 novembre n'a pas pu être confirmé par une source primaire ; les éléments ci-dessus reflètent donc l'état du projet d'accord avant la rencontre, davantage qu'un texte définitivement signé.",
+        "Au-delà des tractations britanniques, la presse économique relève un paradoxe qui dépasse Londres et Bruxelles : la stratégie de rapprochement patiemment construite par Andy Burnham dépend, pour sa pérennité, d'un calendrier électoral qu'il ne maîtrise pas — celui de la France. Marine Le Pen, qui prépare déjà, selon plusieurs analyses de la presse économique britannique, une présidentielle en 2027 placée sous le signe d'un « rapport de force » avec l'Union européenne sur son budget et ses compétences, dispose en tant que chef d'État français d'un droit de veto de fait sur toute évolution institutionnelle marquante des relations entre le Royaume-Uni et l'Union. Des cadres du Rassemblement national ont d'ailleurs laissé entendre que leur parti pourrait bloquer un retour, même partiel, du Royaume-Uni dans l'orbite européenne s'il accédait au pouvoir. C'est ce qui explique, selon cette lecture, le choix de Burnham de cantonner, dans un premier temps, le débat à un format qualifié d'« informel », pour éviter d'engager un processus que la politique intérieure française pourrait interrompre avant son terme.",
+        "Position de la France : aucune réaction officielle du Quai d'Orsay ou de l'Élysée n'a pu être identifiée concernant spécifiquement ce second sommet UE-Royaume-Uni. Le ministre de l'Europe et des Affaires étrangères, Jean-Noël Barrot, avait reçu son homologue britannique Ed Miliband à Paris le 10 novembre, les deux ministres évoquant alors les étapes à venir du rapprochement UE-Royaume-Uni en amont du sommet du 20 novembre, sans que le contenu précis de leurs échanges n'ait été rendu public. Sur le fond du dossier, la position française de long terme reste celle, constante depuis 2016, d'un soutien à l'intégrité du marché unique et à la primauté des quatre libertés de circulation dans toute négociation avec Londres — mais aucune déclaration gouvernementale française récente ne prend position sur l'hypothèse d'un blocage futur par un gouvernement d'extrême droite."
       ],
       "essentiel": [
-        "Selon le Financial Times, Washington chercherait à conclure un accord de paix sur l'Ukraine avant janvier, avant la prise de fonction du nouveau Congrès à majorité démocrate",
-        "Nouvelle vague de frappes russes sur les ponts stratégiques de Kyiv au lendemain du sommet de Shenzhen",
-        "Vladimir Poutine invite des dirigeants européens à Moscou, sans leur garantir de rôle formel dans un futur accord",
-        "Les Européens redoutent, une fois encore, d'être tenus à l'écart des négociations tout en devant en assumer les conséquences"
+        "Andy Burnham reconnaît publiquement, le 16 novembre, l'échec du Brexit avant un sommet UE-Royaume-Uni tenu le 20 novembre à Bruxelles ; conclusions précises non confirmées à ce stade.",
+        "Projet d'accord : lien entre marchés carbone, mobilité des jeunes (jusqu'à 100 000 visas annuels évoqués), coopération migratoire — avec une vive opposition des partisans du Brexit à Londres.",
+        "La presse économique britannique souligne qu'une victoire de Marine Le Pen à la présidentielle française de 2027 pourrait bloquer toute évolution durable des liens UE-Royaume-Uni.",
+        "Aucune réaction officielle française identifiée sur le sommet lui-même ; position française de fond inchangée depuis 2016 sur l'intégrité du marché unique."
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 2,
       "rubrique": "GEOPOLITIQUE",
-      "titre": "Iran : Donald Trump dit « envisager » de nouvelles frappes, le Pentagone alerte sur l'épuisement des forces",
-      "chapeau": "Près de neuf mois après le déclenchement des opérations militaires américano-israéliennes contre l'Iran, Donald Trump évoque de nouvelles frappes tandis que le Pentagone met en garde contre les risques d'un déploiement prolongé, et que les exportations pétrolières via le détroit d'Ormuz reculent.",
-      "dureeLectureMin": 4,
+      "titre": "Ormuz : les attaques iraniennes s'intensifient malgré le blocus américain, pendant qu'un cartel mexicain s'effondre dans la violence",
+      "chapeau": "Dans le détroit d'Ormuz, les attaques contre les pétroliers se multiplient en dépit du blocus naval américain, tandis que les marchés pétroliers continuent de parier sur une désescalade. Au Mexique, l'État de Sinaloa replonge dans la violence après une opération fédérale visant l'un des principaux chefs de cartel encore en liberté.",
+      "dureeLectureMin": 5,
       "corpsArticle": [
-        "Donald Trump a indiqué « envisager » de nouvelles frappes militaires contre l'Iran, selon plusieurs médias américains, alors que les États-Unis et Israël avaient lancé des opérations militaires coordonnées contre le pays le 28 février 2026. Des responsables du Pentagone mettent toutefois en garde contre le coût d'un engagement prolongé : des déploiements militaires de durée indéterminée et d'éventuelles coupes budgétaires risqueraient, selon eux, d'éroder la capacité opérationnelle des forces américaines si le conflit se poursuit dans la durée.",
-        "Sur le plan énergétique, les volumes de pétrole transitant par le détroit d'Ormuz reculent à mesure que les frappes iraniennes se multiplient dans la région, selon des données citées par la presse économique britannique. Des analystes jugent la reprise des exportations pétrolières du Moyen-Orient « de plus en plus fragile », un facteur qui pèse sur les marchés de l'énergie à l'approche de l'hiver.",
-        "Position de la France : depuis le déclenchement des opérations en février 2026, la France s'est systématiquement désolidarisée de la campagne militaire menée par Washington et Israël, appelant à la retenue et à la reprise des négociations, y compris dans une déclaration conjointe avec l'Allemagne et le Royaume-Uni. Paris a par ailleurs condamné à plusieurs reprises des frappes iraniennes contre des pays du Golfe et affirmé sa disponibilité à participer à leur défense si elle en était sollicitée. Aucune réaction officielle française spécifique aux propos de Donald Trump sur d'éventuelles nouvelles frappes n'a pu être identifiée à ce stade."
+        "Près de neuf mois après le déclenchement des opérations militaires américano-israéliennes contre l'Iran, les attaques contre des navires marchands dans le détroit d'Ormuz seraient devenues, selon plusieurs comptes rendus de presse de la semaine, quasi quotidiennes, en dépit du blocus naval maintenu par les forces américaines. Les gardiens de la révolution iraniens ont revendiqué la mise à feu de deux pétroliers après qu'ils eurent heurté des mines navales sur une route jugée « non autorisée » par Téhéran, provoquant des fuites de pétrole et des dégâts environnementaux. Un responsable pétrolier du Golfe a indiqué à une agence de presse que la situation s'était dégradée depuis les élections de mi-mandat américaines, tandis qu'Iran et ses alliés régionaux auraient également revendiqué des frappes contre les bureaux de Saudi Aramco, des attaques imputées aux Houthis ayant par ailleurs été signalées début novembre.",
+        "Paradoxalement, les marchés pétroliers continuent de parier sur une désescalade : les cours sont retombés à leur plus bas niveau en deux mois, après que des responsables américains ont minimisé la nécessité d'une action militaire supplémentaire contre l'Iran. Le détroit, qui écoule normalement environ un cinquième du pétrole et du gaz naturel liquéfié échangés dans le monde, avait vu son trafic tomber par moments à seulement deux pétroliers par jour au plus fort de la crise ; la reprise reste jugée « de plus en plus fragile » par les analystes cités par la presse économique.",
+        "Position de la France : le Quai d'Orsay a constamment défendu, depuis le déclenchement de la crise, le principe d'une réouverture du détroit « dans des conditions de sécurité » et le rejet de tout « droit de passage » qu'imposerait l'Iran, Jean-Noël Barrot ayant notamment écarté toute levée de sanctions tant que le détroit resterait bloqué. La France avait proposé, avec le Royaume-Uni, une mission internationale de déminage et d'escorte, présentée comme complémentaire de la coalition navale américaine, tout en refusant toute implication directe de l'OTAN sur ce dossier. Le point de presse du porte-parole du Quai d'Orsay du 18 novembre a de nouveau abordé la question des sanctions contre l'Iran en lien avec des incidents survenus en octobre ; son contenu précis n'a toutefois pas pu être vérifié auprès d'une source primaire accessible pour cette édition, et il n'est donc pas possible de confirmer une évolution de la position française au cours des derniers jours.",
+        "Au Mexique, l'État de Sinaloa a connu une recrudescence de violences après une opération fédérale ayant visé Fausto Isidro Meza Flores, dit « El Chapo Isidro », à la tête de sa propre organisation criminelle et inscrit sur la liste des criminels les plus recherchés par le FBI pour trafic de drogue vers les États-Unis. Plusieurs médias évoquent des accrochages armés dans la municipalité de Guasave, fief de ce chef de cartel, sans qu'aucune source officielle n'ait confirmé à ce stade son arrestation ou sa mort ; les autorités mexicaines n'ont identifié par leur nom aucune des personnes interpellées lors de cette opération. Cet épisode s'inscrit dans la guerre de territoire qui oppose depuis plusieurs années différentes factions héritières du cartel de Sinaloa, notamment les réseaux liés à Joaquín « El Chapo » Guzmán et ceux liés à Ismael « El Mayo » Zambada.",
+        "Position de la France : ce dossier relève avant tout de la politique intérieure de sécurité mexicaine et de la coopération antidrogue avec les États-Unis ; aucune réaction officielle française n'a été identifiée, et aucune ne serait d'ailleurs attendue sur un sujet qui ne relève pas directement des intérêts diplomatiques français."
       ],
       "essentiel": [
-        "Donald Trump dit « envisager » de nouvelles frappes contre l'Iran, près de neuf mois après le début des opérations américano-israéliennes",
-        "Le Pentagone met en garde contre l'épuisement des forces en cas de déploiement prolongé",
-        "Les exportations de pétrole via le détroit d'Ormuz reculent sous l'effet des frappes iraniennes",
-        "La France, qui s'est désolidarisée de la campagne militaire depuis février, n'a pas réagi publiquement à ces propos à ce stade"
+        "Détroit d'Ormuz : attaques iraniennes quasi quotidiennes contre des pétroliers, mines navales, incendies ; marchés pétroliers pariant pourtant sur une désescalade et prix au plus bas depuis deux mois.",
+        "Position française constante : réouverture du détroit en sécurité, refus d'un droit de passage iranien, pas d'implication de l'OTAN ; aucune confirmation d'évolution récente de cette position.",
+        "Sinaloa (Mexique) : opération fédérale contre le chef de cartel « El Chapo Isidro », suivie d'accrochages armés à Guasave ; arrestation ou mort du chef de cartel non confirmée officiellement."
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 3,
-      "rubrique": "GEOPOLITIQUE",
-      "titre": "Haïti : le président salvadorien Nayib Bukele étend son intervention militaire face aux gangs",
-      "chapeau": "Plus de 2 000 soldats salvadoriens sont désormais déployés en Haïti, officiellement pour retrouver quatre techniciens militaires disparus, mais aussi en appui à la lutte contre les gangs qui contrôlent une large partie du pays.",
-      "dureeLectureMin": 4,
+      "rubrique": "GEOECONOMIE",
+      "titre": "L'Argentine de Milei perd pied sur les marchés, les prix des serveurs d'IA s'envolent, le cuivre américain repart vers la Chine",
+      "chapeau": "Après la pire semaine boursière pour les valeurs liées à l'intelligence artificielle depuis la pandémie, Nvidia a publié des résultats record qui n'ont que partiellement rassuré les marchés, pendant que ses fournisseurs profitent de la situation pour relever fortement leurs prix. En Argentine, la défiance s'aggrave à l'approche d'échéances électorales. Et l'apaisement partiel des tensions douanières sino-américaines redessine déjà les flux de matières premières.",
+      "dureeLectureMin": 6,
       "corpsArticle": [
-        "Le président salvadorien Nayib Bukele a déployé plus de 2 000 soldats en Haïti, dans une opération présentée comme une mission de recherche de quatre techniciens militaires salvadoriens disparus depuis une embuscade de gangs le 18 octobre, mais qui s'est rapidement élargie à un appui aux forces haïtiennes dans leur lutte contre les groupes armés contrôlant une large partie du territoire. Les forces de sécurité haïtiennes ont notamment repris, le 12 novembre, le contrôle du principal stade du pays, resté deux ans sous l'emprise de gangs ; les troupes salvadoriennes y ont depuis établi une base opérationnelle.",
-        "Nayib Bukele, surnommé « l'empereur du Salvador » par une partie de la presse pour son style de gouvernance, affirme que l'opération « n'est ni une intervention contre le peuple haïtien, ni une invasion », et que son pays en finance l'essentiel. Le ministre haïtien de la Sécurité, Patrick Pelissier, a salué ce déploiement, et les autorités haïtiennes envisageraient d'en demander la prolongation. Près de 2 000 personnes ont toutefois été déplacées depuis l'arrivée des troupes salvadoriennes, selon des organisations sur place.",
-        "Position de la France : aucune réaction officielle française à ce déploiement n'a pu être identifiée à ce stade."
+        "Nvidia a publié le 17 novembre des résultats trimestriels supérieurs aux attentes — 115,8 milliards de dollars de chiffre d'affaires, en hausse de 103 % sur un an, dont 107,6 milliards pour la seule activité de centres de données — et a relevé ses prévisions à environ 130 milliards de dollars pour le trimestre en cours. Le titre a regagné plusieurs points de pourcentage dans les échanges qui ont suivi la publication, après avoir perdu près de 29 % en un mois sur fond de doutes croissants quant à la soutenabilité des investissements massifs dans l'intelligence artificielle. Cette publication n'a toutefois pas suffi à dissiper entièrement la défiance accumulée par les marchés technologiques depuis la pire semaine boursière de la décennie pour ce secteur, début novembre.",
+        "Signe que la demande en infrastructures d'intelligence artificielle reste, elle, tendue : plusieurs fournisseurs d'équipements pour serveurs — Dell, HPE, Lenovo et Supermicro — réclameraient désormais jusqu'à 45 % de plus que les prix initialement convenus dans des contrats déjà signés, plusieurs mois après leur signature, selon la presse économique britannique. Cette hausse, répercutée sur les entreprises qui équipent leurs centres de données, illustre la tension persistante entre l'optimisme de la demande en capacités de calcul et le doute grandissant des marchés financiers sur la rentabilité de ces investissements, estimés à plus de 600 milliards de dollars pour les cinq plus grandes entreprises technologiques américaines sur la seule année 2026.",
+        "En Argentine, la défiance des investisseurs s'est accentuée à mesure que se profilent de nouvelles échéances électorales. Le gouvernement de Javier Milei n'a plus procédé à une émission locale d'obligations en dollars depuis près de deux mois — sa plus longue pause depuis le lancement du programme —, les rendements ayant grimpé de plus de 500 points de base pour dépasser 12 %. Un retour sur les marchés internationaux de dette semble également hors de portée dans l'immédiat, le coût d'un emprunt international restant jugé prohibitif. La cote de popularité de Javier Milei se situerait, selon plusieurs sondages, proche de son plus bas niveau depuis son arrivée au pouvoir, tandis que le soutien des investisseurs locaux s'érode également ; les rendements à deux chiffres continuent néanmoins d'attirer certains investisseurs internationaux convaincus par la réforme économique engagée depuis 2023.",
+        "Sur le front commercial, plusieurs informations font état d'un mouvement de cuivre américain vers la Chine, les opérateurs profitant d'un écart de prix favorable et d'une pénurie aiguë sur le marché chinois, alors que les craintes d'une nouvelle salve de droits de douane américains sous l'administration Trump s'atténuent. Ce mouvement illustre la manière dont l'apaisement, même partiel et réversible, des tensions commerciales sino-américaines continue de redessiner en temps réel les flux mondiaux de matières premières stratégiques — dans un contexte où les tensions sur le détroit d'Ormuz pèsent, elles, sur les prix de l'énergie plutôt que sur les métaux industriels."
       ],
       "essentiel": [
-        "Plus de 2 000 soldats salvadoriens déployés en Haïti, officiellement pour retrouver quatre techniciens disparus",
-        "L'opération s'est élargie à un appui à la lutte contre les gangs ; reprise du principal stade du pays le 12 novembre",
-        "Nayib Bukele dément toute « invasion » ; prolongation de la mission envisagée par Haïti",
-        "Près de 2 000 personnes déplacées depuis l'arrivée des troupes salvadoriennes"
+        "Nvidia : résultats trimestriels record le 17 novembre (115,8 milliards de dollars), qui limitent la casse sans dissiper le doute des marchés sur la rentabilité des investissements en IA.",
+        "Les fournisseurs de serveurs (Dell, HPE, Lenovo, Supermicro) relèvent leurs prix jusqu'à 45 % sur des contrats déjà signés, signe d'une demande en calcul toujours tendue.",
+        "Argentine : pause de deux mois sur les émissions obligataires locales, rendements au-dessus de 12 %, popularité de Javier Milei proche de son plus bas niveau avant de nouvelles échéances électorales.",
+        "Apaisement relatif des tensions douanières sino-américaines : des flux de cuivre américain se redirigent vers la Chine."
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 4,
-      "rubrique": "GEOPOLITIQUE",
-      "titre": "Italie : grève générale de la CGIL contre le budget et la politique de Giorgia Meloni",
-      "chapeau": "Le principal syndicat italien a mené vendredi une grève générale contre le projet de budget du gouvernement Meloni, perturbant les transports et les écoles, sans que les deux autres grandes confédérations syndicales ne s'y associent.",
-      "dureeLectureMin": 3,
+      "rubrique": "FRANCE",
+      "titre": "Inondations répétées dans le Gard, cyberattaque chez La Poste, et le Sénat prend le relais d'un budget 2027 toujours dans l'impasse",
+      "chapeau": "La France fait face à plusieurs dossiers domestiques qui se chevauchent : des inondations répétées dans le Gard, une cyberattaque ayant visé la filiale Maileva de La Poste, et la poursuite, au Sénat, de l'examen d'un budget 2027 que l'Assemblée nationale n'a pas réussi à adopter, sur fond de mobilisation sociale persistante contre la vie chère.",
+      "dureeLectureMin": 4,
       "corpsArticle": [
-        "La CGIL, premier syndicat italien, a organisé vendredi 20 novembre une grève générale contre les choix budgétaires du gouvernement de Giorgia Meloni, perturbant les transports publics et les écoles dans plusieurs villes du pays. Son secrétaire général, Maurizio Landini, a appelé à cette mobilisation pour réclamer des hausses de salaires, une réduction de la précarité de l'emploi, une réforme fiscale plus équitable et davantage d'investissements dans la santé, l'éducation et le logement.",
-        "Les deux autres grandes confédérations syndicales italiennes, la CISL et l'UIL, ont choisi de ne pas s'associer à cette grève, qui reste ainsi une initiative isolée de la CGIL. Cette mobilisation fait suite à une réunion entre une délégation syndicale et le gouvernement, le 13 novembre, que la CGIL avait qualifiée de « cordiale mais politiquement inutile », et à des manifestations ayant rassemblé environ 100 000 personnes dans plus de quarante villes italiennes en octobre.",
-        "Position de la France : il s'agit d'un mouvement social de politique intérieure italienne ; aucune réaction officielle française n'a été recherchée ni identifiée sur ce sujet, la France n'ayant pas vocation à commenter les choix budgétaires d'un pays partenaire."
+        "Dans le Gard, plusieurs communes ont été frappées à deux reprises par des inondations en l'espace de trois semaines, une récurrence qui relance le débat sur l'adaptation des infrastructures locales aux épisodes de pluies intenses, de plus en plus fréquents dans le sud-est de la France. Les autorités locales évaluent l'ampleur des dégâts et la nécessité de nouvelles mesures de prévention.",
+        "Sur le plan numérique, une cyberattaque visant Maileva, filiale du groupe La Poste spécialisée dans les services de courrier et de communication aux entreprises, aurait exposé les données d'environ 22 millions de personnes selon les informations disponibles. L'ampleur exacte de la fuite et la nature des données concernées restent à préciser par le groupe et par les autorités compétentes en matière de protection des données.",
+        "Sur le plan budgétaire et social, le Sénat a pris le relais d'une Assemblée nationale dans l'impasse sur le projet de budget 2027, dans un climat toujours marqué par la mobilisation du 5 novembre contre la vie chère, qui avait réuni plus de 250 000 manifestants selon la CGT en milieu de journée. Le Sénat a par ailleurs rejeté, le 12 novembre, une proposition de réforme des majorations de pension pour les familles nombreuses, illustrant les tensions persistantes sur les finances sociales dans un contexte budgétaire contraint.",
+        "Sur le plan météorologique, plusieurs médias s'interrogent sur un possible épisode de froid marqué qui pourrait toucher la France début décembre, ce qui ajouterait une pression supplémentaire sur la consommation énergétique hivernale, dans un contexte européen déjà marqué par les incertitudes sur l'approvisionnement énergétique liées à la crise au Moyen-Orient."
       ],
       "essentiel": [
-        "Grève générale de la CGIL en Italie le 20 novembre contre le budget du gouvernement Meloni",
-        "La CISL et l'UIL ne se sont pas associées au mouvement, resté isolé",
-        "Revendications : salaires, précarité de l'emploi, fiscalité, investissements publics",
-        "Les tensions sociales succèdent à des manifestations d'octobre ayant réuni environ 100 000 personnes"
+        "Gard : inondations à répétition dans plusieurs communes en trois semaines.",
+        "Cyberattaque chez Maileva (groupe La Poste), environ 22 millions de personnes potentiellement concernées.",
+        "Budget 2027 : le Sénat prend le relais d'une Assemblée nationale dans l'impasse ; rejet le 12 novembre d'une réforme des majorations de pension pour les familles nombreuses."
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 5,
-      "rubrique": "GEOECONOMIE",
-      "titre": "Wall Street plonge dans un marché baissier sur l'intelligence artificielle, la pire semaine depuis la crise du Covid",
-      "chapeau": "Les valeurs technologiques américaines ont enregistré leur pire semaine depuis la pandémie, Anthropic et Nvidia en tête des reculs, sur fond de doutes croissants quant à la soutenabilité des investissements massifs dans l'intelligence artificielle.",
-      "dureeLectureMin": 4,
-      "corpsArticle": [
-        "Les valeurs technologiques américaines ont connu une semaine particulièrement brutale, plusieurs grands indices enregistrant leur plus forte baisse hebdomadaire depuis la crise du Covid-19, selon la presse économique. Les actions d'Anthropic et de Nvidia comptent parmi les plus touchées, dans un mouvement qui traduit l'inquiétude grandissante des investisseurs quant à la rentabilité réelle des sommes colossales engagées dans la course à l'intelligence artificielle depuis plusieurs années.",
-        "Ce repli intervient alors même que les bénéfices habituels de la diversification des portefeuilles semblent s'éroder : plusieurs classes d'actifs généralement considérées comme des valeurs refuges évoluent désormais de façon plus corrélée aux valeurs technologiques, rendant plus difficile pour les investisseurs de se protéger d'un retournement généralisé du secteur.",
-        "Les analystes restent divisés sur la nature de cet épisode : simple correction après plusieurs années de hausse quasi ininterrompue des valeurs liées à l'intelligence artificielle, ou signe avant-coureur d'un dégonflement plus large d'une bulle spéculative dont les répercussions dépasseraient le seul secteur technologique pour affecter l'ensemble de l'économie."
-      ],
-      "essentiel": [
-        "Pire semaine pour les valeurs technologiques américaines depuis la crise du Covid-19",
-        "Anthropic et Nvidia parmi les titres les plus affectés par le repli",
-        "Les bénéfices habituels de la diversification des portefeuilles s'érodent",
-        "Les investisseurs restent divisés entre simple correction et dégonflement plus large de la bulle de l'IA"
-      ],
-      "signature": "Par la rédaction du Diplomate"
-    },
-    {
-      "ordre": 6,
-      "rubrique": "GEOECONOMIE",
-      "titre": "L'affaire d'espionnage visant Nvidia relance les inquiétudes sur l'ampleur du renseignement chinois",
-      "chapeau": "Des informations selon lesquelles le renseignement chinois aurait recruté une proche du PDG de Nvidia pour obtenir des informations sur les puces d'intelligence artificielle ravivent les inquiétudes sur les méthodes d'espionnage économique de Pékin, dans un contexte de rivalité technologique déjà tendue entre Washington et la Chine.",
-      "dureeLectureMin": 4,
-      "corpsArticle": [
-        "Selon des informations de presse américaine non démenties par Nvidia, les services de renseignement américains auraient averti l'administration Trump qu'une femme d'affaires proche de Jensen Huang, le fondateur de Nvidia, aurait été recrutée par le ministère chinois de la Sécurité d'État pour recueillir des informations sur les puces d'intelligence artificielle de l'entreprise. Cette affaire, qui mêle allégations d'espionnage économique et questions sur les contacts personnels du dirigeant, a conduit plusieurs responsables de commissions parlementaires républicaines à demander des explications à Jensen Huang.",
-        "Cette controverse s'inscrit dans un climat de rivalité technologique déjà vif entre Washington et Pékin sur les semi-conducteurs avancés, quelques jours après que les autorités américaines ont autorisé la vente de puces d'intelligence artificielle Nvidia et AMD à une vingtaine d'entreprises chinoises, malgré les réserves du Pentagone sur les liens de certaines d'entre elles avec l'armée chinoise. Les autorités chinoises ont, pour leur part, rejeté les accusations d'espionnage comme non fondées.",
-        "Au-delà du cas individuel, cette affaire illustre la difficulté, pour les grandes entreprises technologiques occidentales, de protéger leurs avancées stratégiques dans un secteur où la frontière entre coopération commerciale et captation de savoir-faire sensible devient de plus en plus poreuse."
-      ],
-      "essentiel": [
-        "Le renseignement américain soupçonne une proche du PDG de Nvidia d'avoir été recrutée par les services secrets chinois",
-        "Des commissions parlementaires républicaines demandent des explications à Jensen Huang",
-        "L'affaire survient peu après l'autorisation de vente de puces IA à des entreprises chinoises par Washington",
-        "Pékin rejette les accusations d'espionnage"
-      ],
-      "signature": "Par la rédaction du Diplomate"
-    },
-    {
-      "ordre": 7,
-      "rubrique": "GEOECONOMIE",
-      "titre": "COP31 : les négociations climatiques d'Antalya s'achèvent dans la confusion, sans feuille de route sur les énergies fossiles",
-      "chapeau": "La conférence climatique des Nations unies à Antalya s'est prolongée au-delà de son terme, les divisions sur la sortie des énergies fossiles ayant conduit les délégations à privilégier des engagements sur la sécurité énergétique et les technologies de captage du carbone.",
-      "dureeLectureMin": 4,
-      "corpsArticle": [
-        "La COP31, qui se tenait à Antalya en Turquie du 9 au 20 novembre sous la présidence turque et la conduite des négociations par l'Australie, s'est prolongée en séances de nuit, les délégations restant profondément divisées sur la question d'une feuille de route contraignante vers la sortie des énergies fossiles. Selon la presse économique britannique, les discussions finales se sont davantage concentrées sur la sécurité énergétique que sur l'objectif initial de réduction des émissions, les pays producteurs d'énergies fossiles ayant résisté aux appels à des engagements plus contraignants.",
-        "Ce basculement s'accompagne d'une attention accrue portée aux technologies de captage et de stockage du carbone, présentées par certains États comme une voie alternative permettant de concilier maintien de la production d'énergies fossiles et objectifs climatiques. Des organisations militant pour un traité de sortie des énergies fossiles ont dénoncé ce qu'elles considèrent comme des solutions « spéculatives » détournant l'attention des réductions d'émissions nécessaires.",
-        "Position de la France : la France plaidait, à l'ouverture de la conférence, pour une décision contraignante allant au-delà d'un simple objectif inscrit à l'agenda, conditionnant son soutien à l'électrification à une décarbonation effective de la production électrique et réclamant des engagements sur le méthane. Paris a par ailleurs rappelé avoir atteint, pour la cinquième année consécutive, son objectif de financement climatique envers les pays en développement, avec 7,4 milliards d'euros versés en 2025. Aucune prise de position officielle française n'a pu être identifiée sur l'issue précise des négociations à l'heure de la clôture de la conférence."
-      ],
-      "essentiel": [
-        "La COP31 à Antalya s'achève en négociations de nuit, sans feuille de route contraignante sur la sortie des énergies fossiles",
-        "Les discussions finales se recentrent sur la sécurité énergétique et les technologies de captage du carbone",
-        "La France réclamait une décision contraignante et des engagements sur le méthane, sans réaction connue sur l'issue finale",
-        "Paris revendique l'atteinte, pour la cinquième année consécutive, de son objectif de financement climatique (7,4 milliards d'euros en 2025)"
-      ],
-      "signature": "Par la rédaction du Diplomate"
-    },
-    {
-      "ordre": 8,
-      "rubrique": "FRANCE",
-      "titre": "Budget 2027 : le Sénat prend le relais d'une Assemblée nationale dans l'impasse, sur fond de mobilisation sociale persistante",
-      "chapeau": "Après le rejet unanime, début novembre, du volet recettes du budget de l'État par les députés, c'est désormais au Sénat d'examiner le projet de loi de finances, dans un climat de tensions sociales continues et de menace persistante d'un recours à l'article 49.3.",
-      "dureeLectureMin": 4,
-      "corpsArticle": [
-        "Le projet de budget de l'État pour 2027 poursuit son parcours parlementaire chaotique. Après le rejet unanime, le 4 novembre, du volet recettes par l'Assemblée nationale — empêchant de fait tout examen de la partie dépenses dans cette chambre —, le texte a été transmis au Sénat, qui en a commencé l'examen le 20 novembre, pour une discussion devant se poursuivre jusqu'au 9 décembre. Les sénateurs avaient, quelques jours plus tôt, adopté en première lecture le projet de loi de financement de la Sécurité sociale pour 2027, après l'avoir amendé sur plusieurs mesures, notamment relatives aux retraites.",
-        "Les objectifs budgétaires eux-mêmes restent disputés : alors que le gouvernement visait initialement un déficit nettement supérieur en l'absence d'accord sur les recettes, le Sénat affiche son ambition de ramener le déficit public à 5 % du produit intérieur brut en 2027, contre 5,4 % attendus pour 2026. Le Premier ministre Sébastien Lecornu n'a pas encore tranché sur un éventuel recours à l'article 49.3 de la Constitution, déjà utilisé l'an dernier pour faire adopter le budget 2026, une option qui l'exposerait au risque d'une motion de censure.",
-        "Ce climat institutionnel tendu se double d'une mobilisation sociale qui ne faiblit pas depuis le début du mois : les journées de grève interprofessionnelle des 5 et 17 novembre ont rassemblé plusieurs centaines de milliers de manifestants selon les syndicats, avec des taux de grève particulièrement marqués dans l'éducation et les transports ferroviaires. Une journée d'action européenne contre le coût de la vie était par ailleurs prévue le 20 novembre, et un préavis de grève couvrant les salariés d'EDF, d'Enedis et de RTE reste en vigueur jusqu'à la fin de l'année."
-      ],
-      "essentiel": [
-        "Le Sénat examine depuis le 20 novembre le projet de loi de finances 2027, après le rejet unanime du volet recettes par l'Assemblée le 4 novembre",
-        "Le Sénat vise un déficit public ramené à 5 % du PIB en 2027, contre 5,4 % attendus en 2026",
-        "Sébastien Lecornu n'a pas tranché sur un recours à l'article 49.3, qui l'exposerait à une motion de censure",
-        "Mobilisation sociale continue : grèves interprofessionnelles des 5 et 17 novembre, préavis de grève à EDF, Enedis et RTE jusqu'à fin décembre"
-      ],
-      "signature": "Par la rédaction du Diplomate"
-    },
-    {
-      "ordre": 9,
       "rubrique": "REGARD_DIPLOMATE",
-      "titre": "Qui est à la table, et qui en subit les conséquences",
-      "chapeau": "Un fil relie le sommet de Shenzhen, l'intervention salvadorienne en Haïti et la pression du calendrier électoral américain sur l'Ukraine : la question de savoir qui façonne un ordre, et qui se contente d'en hériter.",
+      "titre": "Les calendriers électoraux des autres : la diplomatie comme pari sur le temps",
       "dureeLectureMin": 3,
       "corpsArticle": [
-        "Trois actualités du jour, prises isolément, semblent sans rapport : une échéance électorale américaine qui accélère la diplomatie ukrainienne, des soldats salvadoriens qui étendent leur présence en Haïti, des négociations climatiques qui se referment sur un compromis a minima. Mais un même mécanisme diplomatique les traverse : dans chacun de ces cas, les décisions structurantes se prennent largement en dehors des populations et des États les plus directement concernés — l'Ukraine et l'Europe pour l'une, Haïti pour l'autre, les pays les plus vulnérables au changement climatique pour la troisième —, qui n'en subiront pas moins pleinement les conséquences.",
-        "Ce n'est pas un phénomène nouveau dans l'histoire diplomatique, mais sa répétition mérite d'être lue comme un principe de méthode plutôt que comme une série d'épisodes isolés : la capacité à peser sur un dossier dépend moins de la légitimité à y être associé que de la capacité matérielle, militaire ou calendaire à l'imposer. Pour une diplomatie comme celle de la France, qui revendique régulièrement une voix au nom des absents de la table — l'Ukraine hier, les pays du Sud sur le climat aujourd'hui —, la leçon de ces dossiers est moins de dénoncer cet état de fait que d'investir, en amont, dans les formats où cette présence peut encore se négocier avant que les décisions ne soient prises ailleurs."
+        "L'épisode britannique de cette édition illustre une contrainte structurelle trop souvent sous-estimée dans l'analyse diplomatique : la crédibilité d'un engagement international dépend rarement du seul gouvernement qui le signe, mais aussi des calendriers électoraux des pays tiers sur lesquels il n'a aucune prise. Qu'Andy Burnham cherche sincèrement à rapprocher le Royaume-Uni de l'Union européenne ne change rien au fait que cette trajectoire pourrait être interrompue en 2027 par un scrutin français sur lequel Londres n'a strictement aucune influence. Construire une politique étrangère, c'est donc aussi apprendre à parier sur la durée de vie politique de ses partenaires — et, de plus en plus, sur celle de leurs opposants.",
+        "Cette lecture invite à une forme de prudence méthodique face à toute annonce diplomatique spectaculaire : un sommet, une déclaration, une « conversation nationale » ne valent, en pratique, que ce que vaudra leur résistance aux prochaines échéances électorales de chacun des partenaires concernés. Juger une initiative diplomatique uniquement à l'aune de son ambition affichée, sans la rapporter aux fragilités politiques internes de ceux qui la portent ou qui pourraient la défaire, revient à confondre l'intention et la trajectoire réelle des relations entre États."
       ],
       "essentiel": [
-        "Un même mécanisme relie Ukraine, Haïti et climat : les décisions se prennent souvent sans les acteurs les plus directement concernés",
-        "La capacité à peser dépend davantage du rapport de force que de la légitimité formelle à être associé",
-        "Pour une diplomatie de second rang, l'enjeu est d'investir les formats de négociation en amont, avant que les choix ne soient actés ailleurs"
+        "Un engagement diplomatique dépend aussi des calendriers électoraux de pays tiers, hors du contrôle direct des signataires.",
+        "Juger une initiative à son ambition affichée, sans tenir compte des fragilités politiques qui pourraient la défaire, revient à confondre intention et trajectoire réelle."
       ],
       "signature": "L'éditorial du Diplomate"
     }
