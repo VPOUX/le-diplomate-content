@@ -1,0 +1,475 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Le Diplomate</title>
+<style>
+/* Layout: single-column broadsheet, masthead + rule, sections as articles, sticky nav rail on wide screens */
+:root{
+  --paper:#f3ecdc;
+  --paper-2:#ece2cb;
+  --ink:#201a12;
+  --ink-soft:#4a4030;
+  --rule:#201a12;
+  --accent:#7a1f1f;
+  --gold:#8a6a2f;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1b1812;
+    --paper-2:#242019;
+    --ink:#ece2cb;
+    --ink-soft:#c9bb9c;
+    --rule:#ece2cb;
+    --accent:#d98c6b;
+    --gold:#c9a66b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1b1812;
+  --paper-2:#242019;
+  --ink:#ece2cb;
+  --ink-soft:#c9bb9c;
+  --rule:#ece2cb;
+  --accent:#d98c6b;
+  --gold:#c9a66b;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+.wrap{max-width:720px;margin:0 auto;padding-bottom:4rem;}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0 0 auto;
+  height:env(safe-area-inset-top,0px);
+  z-index:10;
+  background:var(--paper);
+}
+
+header.masthead{
+  margin-top:calc(-1 * env(safe-area-inset-top,0px));
+  padding-top:calc(env(safe-area-inset-top,0px) + 1.75rem);
+  padding-bottom:1rem;
+  text-align:center;
+  border-bottom:3px double var(--rule);
+}
+.kicker{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size:.68rem;
+  color:var(--ink-soft);
+  margin:0 0 .4rem;
+}
+h1.title{
+  font-family:"Playfair Display", Georgia, serif;
+  font-weight:900;
+  font-size:clamp(2.4rem, 9vw, 3.4rem);
+  letter-spacing:.01em;
+  margin:0;
+  text-wrap:balance;
+}
+.meta-row{
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.74rem;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin-top:.65rem;
+  flex-wrap:wrap;
+}
+
+.listen-bar{
+  display:flex;
+  justify-content:center;
+  margin:1.1rem 0 0;
+}
+#listenBtn{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.82rem;
+  letter-spacing:.03em;
+  background:var(--paper-2);
+  color:var(--ink);
+  border:1px solid var(--rule);
+  border-radius:999px;
+  padding:.55rem 1.3rem;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  transition:background .15s ease;
+}
+#listenBtn:hover{background:var(--paper);}
+#listenBtn[data-playing="true"]{background:var(--accent);color:var(--paper);border-color:var(--accent);}
+
+nav.toc{
+  margin:1.5rem 0 0;
+  padding:.9rem 1rem;
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:8px;
+}
+nav.toc .toc-label{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.68rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin:0 0 .5rem;
+}
+nav.toc ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.35rem;}
+nav.toc a{
+  color:var(--ink);
+  text-decoration:none;
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.85rem;
+  display:flex;
+  gap:.5rem;
+  border-bottom:1px dotted transparent;
+}
+nav.toc a:hover{border-bottom-color:var(--ink-soft);}
+nav.toc a .num{color:var(--gold);font-variant-numeric:tabular-nums;}
+
+section.article{
+  padding:2.2rem 0;
+  border-bottom:1px solid var(--rule);
+}
+section.article:last-of-type{border-bottom:none;}
+
+.rubrique{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.72rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin:0 0 .6rem;
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+}
+.rubrique::before{content:"";width:1.4rem;height:2px;background:var(--accent);display:inline-block;}
+
+h2.art-title{
+  font-family:"Playfair Display", Georgia, serif;
+  font-weight:800;
+  font-size:clamp(1.35rem, 4.6vw, 1.85rem);
+  line-height:1.2;
+  margin:0 0 .7rem;
+  text-wrap:balance;
+}
+p.chapeau{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:1rem;
+  font-weight:500;
+  color:var(--ink-soft);
+  margin:0 0 1rem;
+  line-height:1.5;
+}
+.art-meta{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.72rem;
+  color:var(--ink-soft);
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  margin:0 0 1.1rem;
+}
+
+.corps p{margin:0 0 1rem; max-width:65ch;}
+.corps p:first-of-type::first-letter{
+  font-family:"Playfair Display", Georgia, serif;
+  font-size:2.6em;
+  float:left;
+  line-height:.82;
+  padding-right:.08em;
+  color:var(--accent);
+  font-weight:800;
+}
+
+.essentiel{
+  margin-top:1.3rem;
+  padding:1rem 1.1rem;
+  background:var(--paper-2);
+  border-left:3px solid var(--gold);
+  border-radius:0 6px 6px 0;
+}
+.essentiel .label{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.68rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin:0 0 .5rem;
+}
+.essentiel ul{margin:0;padding-left:1.1rem;}
+.essentiel li{margin-bottom:.35rem;font-size:.92rem;}
+.essentiel li:last-child{margin-bottom:0;}
+
+.signature{
+  margin-top:1rem;
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.78rem;
+  font-style:italic;
+  color:var(--ink-soft);
+}
+
+.editorial h2.art-title{font-style:italic;}
+.editorial p.chapeau{font-style:italic;}
+
+footer{
+  text-align:center;
+  padding:2rem 0 1rem;
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.72rem;
+  color:var(--ink-soft);
+  letter-spacing:.05em;
+}
+
+@media (max-width:480px){
+  .meta-row{font-size:.68rem;}
+}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Space+Grotesk:wght@500;600;700&display=swap">
+
+<div class="wrap">
+  <header class="masthead">
+    <p class="kicker">Revue de presse diplomatique &middot; édition du matin</p>
+    <h1 class="title">Le Diplomate</h1>
+    <div class="meta-row">
+      <span>N&deg; 47</span>
+      <span>Lundi 23 novembre 2026</span>
+      <span>07:40</span>
+    </div>
+    <div class="listen-bar">
+      <button id="listenBtn" type="button" aria-pressed="false">
+        <span id="listenIcon">&#128266;</span>
+        <span id="listenLabel">Écouter</span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire">
+    <p class="toc-label">Sommaire</p>
+    <ul>
+      <li><a href="#sec-1"><span class="num">01</span> La COP31 s'achève à Antalya sur l'aveu d'un échec autour d…</a></li>
+      <li><a href="#sec-2"><span class="num">02</span> Ukraine, Soudan, mer Baltique : les fronts diplomatiques e…</a></li>
+      <li><a href="#sec-3"><span class="num">03</span> Rivalité technologique Washington-Pékin et nervosité des m…</a></li>
+      <li><a href="#sec-4"><span class="num">04</span> Budget, pouvoir d'achat et mobilisation sociale : l'automn…</a></li>
+      <li><a href="#sec-5"><span class="num">05</span> Quand le consensus se fissure, la diplomatie se déplace ai…</a></li>
+    </ul>
+  </nav>
+
+  <main id="articles">
+    <!-- Articles injected by script from data below -->
+  </main>
+
+  <footer>
+    Le Diplomate &middot; revue de presse pour études de diplomatie &middot; contenu résumé à partir de sources publiques
+  </footer>
+</div>
+
+<script>
+const EDITION = {
+  "sections": [
+    {
+      "id": "sec-1",
+      "rubrique": "UNE",
+      "titre": "La COP31 s'achève à Antalya sur l'aveu d'un échec autour des combustibles fossiles",
+      "chapeau": "Après deux semaines de négociations sous présidence turco-australienne, la conférence des Nations unies sur le climat se termine sans accord sur une trajectoire de sortie des énergies fossiles, les lignes de fracture entre pays producteurs et pays vulnérables s'étant révélées, selon plusieurs délégations, \"infranchissables\".",
+      "duree": 5,
+      "corps": [
+        "La COP31, qui se tenait à Antalya du 9 au 20 novembre sous la coprésidence de la Turquie et de l'Australie, s'est conclue sans l'adoption d'une feuille de route contraignante sur la sortie des combustibles fossiles. Selon la presse économique et plusieurs comptes rendus des négociateurs, les derniers projets de texte avaient fini par ne plus mentionner les énergies fossiles, un recul jugé lourd de consequences par les pays les plus exposés au changement climatique.",
+        "Le point de blocage a opposé, d'un côté, un groupe de grands producteurs et consommateurs d'hydrocarbures, et de l'autre, une coalition menée par l'Union européenne et des petits États insulaires, qui réclamait un calendrier explicite de transition. Le groupe arabe a qualifié certaines formulations proposées de \"ligne rouge\", rendant tout compromis de dernière minute très difficile. La ministre brésilienne de l'Environnement avait pourtant estimé, en cours de négociation, qu'un simple \"ajustement de formulation\" pouvait encore débloquer la situation ; cet espoir n'a, semble-t-il, pas suffi.",
+        "Fait notable, les États-Unis, premier consommateur mondial de pétrole, ont boycotté la conférence pour la deuxième année consécutive, laissant le leadership diplomatique du dossier climatique aux seules puissances européennes et à un bloc de pays émergents de plus en plus affirmé. Plus d'une dizaine de ministres avaient par ailleurs appelé, en amont, les présidences turque et australienne à porter des feuilles de route sectorielles de sortie des fossiles, sans obtenir de résultat tangible dans le texte final.",
+        "Au-delà du constat d'échec, plusieurs délégations évoquent désormais une crise plus profonde de la méthode de négociation par consensus des COP elles-mêmes, un format qui permet à un petit nombre d'États de bloquer un accord soutenu par une large majorité. Ce débat sur la gouvernance climatique mondiale devrait occuper les capitales dans les prochaines semaines, à l'approche d'échéances de financement climatique déjà sous tension."
+      ],
+      "essentiel": [
+        "La COP31 à Antalya se termine sans accord sur une trajectoire de sortie des combustibles fossiles.",
+        "Le blocage oppose pays producteurs d'hydrocarbures et coalition UE / États vulnérables, qui jugent la rupture \"infranchissable\".",
+        "Les États-Unis ont boycotté la conférence pour la deuxième année consécutive.",
+        "L'échec relance le débat sur la méthode du consensus dans les négociations climatiques onusiennes."
+      ],
+      "signature": "Par la rédaction du Diplomate",
+      "editorial": false
+    },
+    {
+      "id": "sec-2",
+      "rubrique": "GÉOPOLITIQUE",
+      "titre": "Ukraine, Soudan, mer Baltique : les fronts diplomatiques et militaires sous tension",
+      "chapeau": "Entre la poursuite incertaine des pourparlers russo-ukrainiens à Abou Dabi, l'avancée de l'armée soudanaise au Kordofan et la multiplication des incidents dans la zone baltique, plusieurs crises restent en suspens cette semaine.",
+      "duree": 6,
+      "corps": [
+        "Le nouveau cycle de pourparlers entre la Russie, l'Ukraine et les États-Unis, ouvert à Abou Dabi le 10 novembre sous médiation américaine, se poursuit sans accord de cessez-le-feu formel. Washington évoque une \"légère flexibilité territoriale\" des deux parties, tandis que Kiev et Moscou restent, selon plusieurs sources diplomatiques, en profond désaccord sur les garanties de sécurité et le tracé final des lignes de front. Lors du sommet européen de Dublin, le 12 novembre, Emmanuel Macron a plaidé pour que les Européens définissent d'abord une position unie avant de désigner un émissaire commun chargé de dialoguer avec Moscou, ce qui a conduit Paris et Berlin à temporiser sur cette option.",
+        "Position de la France : le président Macron a affirmé, lors du sommet de Dublin du 12 novembre, que l'Europe devait disposer d'une \"vision claire et unie\" de ses objectifs avant toute nouvelle initiative diplomatique bilatérale avec la Russie. Le ministre des Affaires étrangères Jean-Noël Barrot a confirmé la participation de pays européens, dont la France, aux échanges autour du format d'Abou Dabi, sans toutefois y disposer d'un siège de négociation direct.",
+        "Au Soudan, l'armée régulière affirme avoir consolidé ses positions dans l'État du Kordofan occidental, où plusieurs localités stratégiques seraient passées sous son contrôle au cours des dernières semaines. Ce regain militaire s'accompagne d'une vague de défections de combattants des Forces de soutien rapide (FSR), le groupe paramilitaire rival, dont plusieurs centaines d'hommes auraient rejoint les rangs gouvernementaux depuis l'été. Les analystes restent toutefois divisés sur la portée réelle de ces défections, certains y voyant un tournant du conflit, d'autres une possible manœuvre d'infiltration des FSR.",
+        "Position de la France : le Quai d'Orsay n'a pas publié, à ce stade, de déclaration spécifique sur les développements militaires récents au Kordofan. La dernière prise de position connue du ministère, datée du 6 octobre, condamnait une frappe aérienne ayant tué le chauffeur d'un convoi humanitaire du Programme alimentaire mondial dans le sud du Kordofan, et réitérait l'appel de la France à un cessez-le-feu immédiat et à un accès humanitaire sûr. Aucune réaction officielle française plus récente n'a pu être identifiée à ce stade sur l'évolution du front.",
+        "En mer Baltique et dans le Golfe de Finlande, la tension entre la Russie et ses voisins reste élevée. Helsinki a confirmé qu'un navire de guerre russe, la corvette Naro-Fominsk, avait été visée le 11 novembre par une frappe de drone que les services ukrainiens revendiquent, avant de rentrer vers Saint-Pétersbourg en dégageant de la fumée. Le Premier ministre finlandais a averti que \"la guerre déborde désormais jusque dans notre voisinage immédiat\". Plusieurs navires pétroliers liés à la \"flotte fantôme\" russe, utilisée pour contourner les sanctions occidentales, ont également été la cible d'incidents similaires en mer Noire et en Méditerranée ces dernières semaines.",
+        "Position de la France : aucune réaction officielle française n'a été identifiée à ce stade concernant spécifiquement les incidents dans le Golfe de Finlande ou visant la flotte pétrolière russe sous sanctions."
+      ],
+      "essentiel": [
+        "Les pourparlers russo-ukrainiens d'Abou Dabi se poursuivent sans cessez-le-feu, Paris plaidant pour une position européenne unie avant tout émissaire commun.",
+        "L'armée soudanaise progresse au Kordofan occidental, portée par des défections de combattants des FSR ; aucune réaction française récente n'a été identifiée sur ce point précis.",
+        "Un navire de guerre russe a été frappé par un drone dans le Golfe de Finlande, dans un contexte de tensions croissantes en mer Baltique.",
+        "Aucune réaction officielle française n'a été identifiée à ce stade sur les incidents baltiques."
+      ],
+      "signature": "Par la rédaction du Diplomate",
+      "editorial": false
+    },
+    {
+      "id": "sec-3",
+      "rubrique": "GÉOÉCONOMIE",
+      "titre": "Rivalité technologique Washington-Pékin et nervosité des marchés liée à l'IA",
+      "chapeau": "La rencontre Trump-Xi de Shenzhen n'a pas levé les incertitudes sur les contrôles d'exportation de semi-conducteurs, tandis que les marchés asiatiques subissent les premières secousses d'un possible retournement de la bulle de l'intelligence artificielle.",
+      "duree": 5,
+      "corps": [
+        "Réunis à Shenzhen en marge du sommet de l'APEC, Donald Trump et Xi Jinping ont tenu un entretien bilatéral suivi d'une rencontre à trois avec Vladimir Poutine, sans qu'un accord formel sur les droits de douane ou les contrôles d'exportation de puces électroniques ne soit annoncé. La trêve tarifaire conclue à Busan en 2025 expire le 10 janvier, et la plupart des observateurs n'attendaient pas d'extension immédiate à l'issue de ce sommet, les deux délégations se réservant pour de nouvelles négociations avant l'échéance.",
+        "Le dossier des semi-conducteurs reste l'un des points les plus sensibles : Washington a récemment restreint l'accès à distance aux puces d'intelligence artificielle via des centres de données situés hors des États-Unis, et Nvidia a suspendu ses ventes de puces Hopper vers la Chine, provoquant une réaction de Pékin qui menace de contre-mesures. La Chine affiche par ailleurs une avance commerciale croissante dans l'automobile électrique, consolidée par une décision de justice européenne qui vient d'interdire la commercialisation d'un modèle de SUV du constructeur chinois BYD, jugé trop proche du design d'un véhicule Land Rover, un revers pour les ambitions du groupe chinois sur le marché européen.",
+        "Sur les marchés financiers, l'euphorie entourant les valeurs liées à l'intelligence artificielle montre des signes d'essoufflement. Les régulateurs asiatiques sont intervenus ce lundi pour soutenir des marchés chahutés par les craintes d'un dégonflement de la \"bulle de l'IA\", les valeurs des fabricants de semi-conducteurs et de matériel informatique de la région étant jugées particulièrement vulnérables à un retournement de sentiment des investisseurs. Les économistes s'interrogent également sur la solidité des montages de financement croisés entre fournisseurs et clients du secteur de l'IA, qualifiés par certains commentateurs de \"tour de Jenga\".",
+        "En Amérique latine, l'Argentine de Javier Milei voit ses coûts d'emprunt remonter fortement, la popularité déclinante du président libertaire et les interrogations sur ses projets de financement inquiétant les investisseurs à l'approche d'échéances électorales. Ce regain de nervosité illustre la fragilité persistante des équilibres macroéconomiques de plusieurs économies émergentes dans un contexte de taux et de dollars toujours incertains."
+      ],
+      "essentiel": [
+        "Le sommet Trump-Xi de Shenzhen n'aboutit à aucun accord formel sur les tarifs douaniers ou les contrôles d'exportation de puces.",
+        "Nvidia suspend ses ventes de puces Hopper à la Chine ; l'UE bloque un SUV chinois BYD pour contrefaçon de design.",
+        "Les régulateurs asiatiques interviennent pour soutenir des marchés inquiets d'un possible dégonflement de la bulle de l'IA.",
+        "En Argentine, le coût de la dette grimpe sur fond de recul de la popularité de Javier Milei."
+      ],
+      "signature": "Par la rédaction du Diplomate",
+      "editorial": false
+    },
+    {
+      "id": "sec-4",
+      "rubrique": "FRANCE",
+      "titre": "Budget, pouvoir d'achat et mobilisation sociale : l'automne français sous tension",
+      "chapeau": "Entre le rejet du projet de budget 2027 par l'Assemblée nationale, la revalorisation anticipée du Smic et une mobilisation sociale contre la vie chère, l'actualité intérieure reste dominée par les questions économiques et sociales.",
+      "duree": 4,
+      "corps": [
+        "L'Assemblée nationale a rejeté massivement, le 4 novembre, le projet de loi de finances pour 2027 en première lecture, un scénario qui rappelle le sort réservé l'an dernier au budget 2026, lui-même rejeté en novembre 2025 avant une adoption définitive repoussée à février. Le texte budgétaire est désormais renvoyé au Sénat, où les débats s'annoncent tout aussi disputés, dans un paysage parlementaire toujours fragmenté.",
+        "Sur le plan du pouvoir d'achat, le Premier ministre Sébastien Lecornu a annoncé une revalorisation anticipée du salaire minimum, porté à 1 502 euros mensuels dès le 1er décembre, une mesure présentée comme une réponse aux inquiétudes exprimées lors de la mobilisation sociale du 5 novembre contre la vie chère, qui avait réuni plusieurs centaines de milliers de manifestants selon les chiffres syndicaux.",
+        "Au Sénat, les parlementaires ont par ailleurs rejeté, le 12 novembre, une réforme des majorations de pensions pour les familles nombreuses, tout en adoptant un nouveau mode de calcul des allégements de cotisations patronales dont l'entrée en vigueur est provisoirement fixée au 1er avril. Ces arbitrages interviennent alors que plusieurs figures politiques, à l'approche de l'échéance présidentielle de 2027, multiplient déjà les prises de position sur les services publics et la fiscalité."
+      ],
+      "essentiel": [
+        "Le budget 2027 est rejeté en première lecture par l'Assemblée nationale et renvoyé au Sénat.",
+        "Le Smic sera porté à 1 502 euros par mois dès le 1er décembre, annonce Sébastien Lecornu.",
+        "Une mobilisation sociale contre la vie chère a réuni plusieurs centaines de milliers de personnes le 5 novembre.",
+        "Le Sénat rejette une réforme des majorations de pensions pour les familles nombreuses."
+      ],
+      "signature": "Par la rédaction du Diplomate",
+      "editorial": false
+    },
+    {
+      "id": "sec-5",
+      "rubrique": "REGARD DIPLOMATE",
+      "titre": "Quand le consensus se fissure, la diplomatie se déplace ailleurs",
+      "chapeau": "",
+      "duree": 3,
+      "corps": [
+        "L'échec de la COP31 et l'enlisement relatif des pourparlers d'Abou Dabi partagent un même enseignement, trop souvent négligé : les formats multilatéraux fondés sur le consensus unanime offrent à une minorité déterminée un pouvoir de blocage disproportionné. Quand un seul groupe de pays peut qualifier une clause de \"ligne rouge\" et faire s'effondrer deux semaines de négociations, la question n'est plus seulement celle du contenu de l'accord, mais celle de la méthode elle-même. Ce constat n'est pas nouveau, mais il se répète avec une régularité qui devrait interroger les chancelleries sur la pertinence de formats alternatifs, plus restreints, pour avancer sur les dossiers les plus bloqués.",
+        "À l'inverse, le sommet de Shenzhen illustre la vitalité persistante d'une diplomatie bilatérale, voire trilatérale, entre grandes puissances, qui continue d'avancer par petits pas même sans accord spectaculaire. Pour un lecteur attentif aux affaires diplomatiques, la leçon de la semaine tient peut-être à ce contraste : plus une négociation implique de parties aux intérêts disparates, plus elle devient vulnérable au blocage ; plus elle se concentre entre un petit nombre d'acteurs à fort pouvoir de contrainte réciproque, plus elle progresse, fût-ce lentement et de manière imparfaite. C'est un point de vue éditorial, non un verdict définitif sur l'avenir du multilatéralisme, mais il invite à lire différemment les grands rendez-vous internationaux à venir."
+      ],
+      "essentiel": [
+        "L'échec de la COP31 illustre les limites du consensus unanime face à des minorités de blocage.",
+        "Le sommet de Shenzhen montre la persistance d'une diplomatie bilatérale efficace entre grandes puissances.",
+        "Point de vue éditorial : la taille et l'hétérogénéité d'un format de négociation conditionnent ses chances de succès."
+      ],
+      "signature": "L'éditorial du Diplomate",
+      "editorial": true
+    }
+  ]
+};
+
+function render(){
+  const main = document.getElementById('articles');
+  const frag = document.createDocumentFragment();
+  EDITION.sections.forEach(s=>{
+    const art = document.createElement('section');
+    art.className = 'article' + (s.editorial ? ' editorial' : '');
+    art.id = s.id;
+    art.innerHTML = `
+      <p class="rubrique">${s.rubrique}</p>
+      <h2 class="art-title">${s.titre}</h2>
+      <p class="chapeau">${s.chapeau}</p>
+      <p class="art-meta">${s.duree} min de lecture</p>
+      <div class="corps">${s.corps.map(p=>`<p>${p}</p>`).join('')}</div>
+      <div class="essentiel">
+        <p class="label">L'essentiel</p>
+        <ul>${s.essentiel.map(e=>`<li>${e}</li>`).join('')}</ul>
+      </div>
+      <p class="signature">${s.signature}</p>
+    `;
+    frag.appendChild(art);
+  });
+  main.appendChild(frag);
+}
+render();
+
+// Speech synthesis toggle — never autostarts, only on user click.
+(function(){
+  const btn = document.getElementById('listenBtn');
+  const label = document.getElementById('listenLabel');
+  const icon = document.getElementById('listenIcon');
+  let utterances = [];
+  let speaking = false;
+
+  function buildText(){
+    return EDITION.sections.map(s=>{
+      return `${s.rubrique}. ${s.titre}. ${s.chapeau} ${s.corps.join(' ')}`;
+    }).join(' ... ');
+  }
+
+  function stop(){
+    try{ window.speechSynthesis.cancel(); }catch(e){}
+    speaking = false;
+    btn.dataset.playing = "false";
+    btn.setAttribute('aria-pressed','false');
+    icon.textContent = '\u{1F50A}';
+    label.textContent = 'Écouter';
+  }
+
+  function start(){
+    if(!('speechSynthesis' in window)){
+      label.textContent = 'Lecture indisponible';
+      return;
+    }
+    try{
+      window.speechSynthesis.cancel();
+      const text = buildText();
+      const chunks = text.match(/[\s\S]{1,180}(?:\s|$)/g) || [text];
+      utterances = chunks.map(c=>{
+        const u = new SpeechSynthesisUtterance(c);
+        u.lang = 'fr-FR';
+        u.rate = 1;
+        return u;
+      });
+      utterances[utterances.length-1].onend = stop;
+      utterances.forEach(u=> u.onerror = stop);
+      utterances.forEach(u=> window.speechSynthesis.speak(u));
+      speaking = true;
+      btn.dataset.playing = "true";
+      btn.setAttribute('aria-pressed','true');
+      icon.textContent = '⏹';
+      label.textContent = 'Arrêter';
+    }catch(e){
+      stop();
+    }
+  }
+
+  btn.addEventListener('click', ()=>{
+    if(speaking){ stop(); } else { start(); }
+  });
+
+  document.addEventListener('visibilitychange', ()=>{
+    if(document.hidden && speaking){ stop(); }
+  });
+})();
+</script>
