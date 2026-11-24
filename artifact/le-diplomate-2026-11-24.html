@@ -1,0 +1,476 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Le Diplomate</title>
+<style>
+/* Layout: single-column broadsheet, masthead + rule, sections as articles, sticky nav rail on wide screens */
+:root{
+  --paper:#f3ecdc;
+  --paper-2:#ece2cb;
+  --ink:#201a12;
+  --ink-soft:#4a4030;
+  --rule:#201a12;
+  --accent:#7a1f1f;
+  --gold:#8a6a2f;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1b1812;
+    --paper-2:#242019;
+    --ink:#ece2cb;
+    --ink-soft:#c9bb9c;
+    --rule:#ece2cb;
+    --accent:#d98c6b;
+    --gold:#c9a66b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1b1812;
+  --paper-2:#242019;
+  --ink:#ece2cb;
+  --ink-soft:#c9bb9c;
+  --rule:#ece2cb;
+  --accent:#d98c6b;
+  --gold:#c9a66b;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+.wrap{max-width:720px;margin:0 auto;padding-bottom:4rem;}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0 0 auto;
+  height:env(safe-area-inset-top,0px);
+  z-index:10;
+  background:var(--paper);
+}
+
+header.masthead{
+  margin-top:calc(-1 * env(safe-area-inset-top,0px));
+  padding-top:calc(env(safe-area-inset-top,0px) + 1.75rem);
+  padding-bottom:1rem;
+  text-align:center;
+  border-bottom:3px double var(--rule);
+}
+.kicker{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size:.68rem;
+  color:var(--ink-soft);
+  margin:0 0 .4rem;
+}
+h1.title{
+  font-family:"Playfair Display", Georgia, serif;
+  font-weight:900;
+  font-size:clamp(2.4rem, 9vw, 3.4rem);
+  letter-spacing:.01em;
+  margin:0;
+  text-wrap:balance;
+}
+.meta-row{
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.74rem;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin-top:.65rem;
+  flex-wrap:wrap;
+}
+
+.listen-bar{
+  display:flex;
+  justify-content:center;
+  margin:1.1rem 0 0;
+}
+#listenBtn{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.82rem;
+  letter-spacing:.03em;
+  background:var(--paper-2);
+  color:var(--ink);
+  border:1px solid var(--rule);
+  border-radius:999px;
+  padding:.55rem 1.3rem;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  transition:background .15s ease;
+}
+#listenBtn:hover{background:var(--paper);}
+#listenBtn[data-playing="true"]{background:var(--accent);color:var(--paper);border-color:var(--accent);}
+
+nav.toc{
+  margin:1.5rem 0 0;
+  padding:.9rem 1rem;
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:8px;
+}
+nav.toc .toc-label{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.68rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin:0 0 .5rem;
+}
+nav.toc ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.35rem;}
+nav.toc a{
+  color:var(--ink);
+  text-decoration:none;
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.85rem;
+  display:flex;
+  gap:.5rem;
+  border-bottom:1px dotted transparent;
+}
+nav.toc a:hover{border-bottom-color:var(--ink-soft);}
+nav.toc a .num{color:var(--gold);font-variant-numeric:tabular-nums;}
+
+section.article{
+  padding:2.2rem 0;
+  border-bottom:1px solid var(--rule);
+}
+section.article:last-of-type{border-bottom:none;}
+
+.rubrique{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.72rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin:0 0 .6rem;
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+}
+.rubrique::before{content:"";width:1.4rem;height:2px;background:var(--accent);display:inline-block;}
+
+h2.art-title{
+  font-family:"Playfair Display", Georgia, serif;
+  font-weight:800;
+  font-size:clamp(1.35rem, 4.6vw, 1.85rem);
+  line-height:1.2;
+  margin:0 0 .7rem;
+  text-wrap:balance;
+}
+p.chapeau{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:1rem;
+  font-weight:500;
+  color:var(--ink-soft);
+  margin:0 0 1rem;
+  line-height:1.5;
+}
+.art-meta{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.72rem;
+  color:var(--ink-soft);
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  margin:0 0 1.1rem;
+}
+
+.corps p{margin:0 0 1rem; max-width:65ch;}
+.corps p:first-of-type::first-letter{
+  font-family:"Playfair Display", Georgia, serif;
+  font-size:2.6em;
+  float:left;
+  line-height:.82;
+  padding-right:.08em;
+  color:var(--accent);
+  font-weight:800;
+}
+
+.essentiel{
+  margin-top:1.3rem;
+  padding:1rem 1.1rem;
+  background:var(--paper-2);
+  border-left:3px solid var(--gold);
+  border-radius:0 6px 6px 0;
+}
+.essentiel .label{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.68rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin:0 0 .5rem;
+}
+.essentiel ul{margin:0;padding-left:1.1rem;}
+.essentiel li{margin-bottom:.35rem;font-size:.92rem;}
+.essentiel li:last-child{margin-bottom:0;}
+
+.signature{
+  margin-top:1rem;
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.78rem;
+  font-style:italic;
+  color:var(--ink-soft);
+}
+
+.editorial h2.art-title{font-style:italic;}
+.editorial p.chapeau{font-style:italic;}
+
+footer{
+  text-align:center;
+  padding:2rem 0 1rem;
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.72rem;
+  color:var(--ink-soft);
+  letter-spacing:.05em;
+}
+
+@media (max-width:480px){
+  .meta-row{font-size:.68rem;}
+}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Space+Grotesk:wght@500;600;700&display=swap">
+
+<div class="wrap">
+  <header class="masthead">
+    <p class="kicker">Revue de presse diplomatique &middot; édition du matin</p>
+    <h1 class="title">Le Diplomate</h1>
+    <div class="meta-row">
+      <span>N&deg; 48</span>
+      <span>Mardi 24 novembre 2026</span>
+      <span>07:36</span>
+    </div>
+    <div class="listen-bar">
+      <button id="listenBtn" type="button" aria-pressed="false">
+        <span id="listenIcon">&#128266;</span>
+        <span id="listenLabel">Écouter</span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire">
+    <p class="toc-label">Sommaire</p>
+    <ul>
+      <li><a href="#sec-1"><span class="num">01</span> La COP31 s'achève dans l'acrimonie à Antalya, Bruxelles ve…</a></li>
+      <li><a href="#sec-2"><span class="num">02</span> Menace nucléaire dans l'espace, guerre élargie en Méditerr…</a></li>
+      <li><a href="#sec-3"><span class="num">03</span> Puces, cobalt, intelligence artificielle : la bataille des…</a></li>
+      <li><a href="#sec-4"><span class="num">04</span> Budget 2027 et mobilisations sociales : une rentrée parle…</a></li>
+      <li><a href="#sec-5"><span class="num">05</span> Quand l'échec devient la norme : lire les sommets ratés co…</a></li>
+    </ul>
+  </nav>
+
+  <main id="articles">
+    <!-- Articles injected by script from data below -->
+  </main>
+
+  <footer>
+    Le Diplomate &middot; revue de presse pour études de diplomatie &middot; contenu résumé à partir de sources publiques
+  </footer>
+</div>
+
+<script>
+const EDITION = {
+  "sections": [
+    {
+      "id": "sec-1",
+      "rubrique": "UNE",
+      "titre": "La COP31 s'achève dans l'acrimonie à Antalya, Bruxelles veut réformer le processus climatique onusien",
+      "chapeau": "Après deux semaines de négociations tendues en Turquie, la conférence climat de l'ONU se termine sans texte clair sur la sortie des énergies fossiles. L'Union européenne annonce son intention de revoir la méthode même des négociations climatiques internationales.",
+      "duree": 6,
+      "corps": [
+        "La COP31, qui s'est tenue du 9 au 20 novembre à Antalya sous présidence turque, devait transformer en actes les engagements pris un an plus tôt à Belém. Elle s'achève à l'inverse sur des accusations réciproques entre délégations, après une dernière semaine marquée par des blocages sur le financement, le calendrier des rapports du GIEC et, surtout, la mention d'une sortie des énergies fossiles dans le texte final.",
+        "Selon le Financial Times, l'acrimonie et les échanges d'accusations qui ont suivi l'échec des discussions interviennent après une année marquée par des catastrophes climatiques d'une intensité croissante. Les versions successives du projet de décision ont vu la référence à une sortie des combustibles fossiles s'amenuiser puis disparaître, provoquant la colère des organisations non gouvernementales et de plusieurs délégations européennes, qui en avaient fait une priorité affichée.",
+        "L'absence de plusieurs chefs d'État et de gouvernement a pesé sur la dynamique des discussions. Emmanuel Macron, Xi Jinping, Friedrich Merz, Narendra Modi et Donald Trump ne se sont pas rendus à Antalya ; le président français était retenu par les commémorations de l'Armistice de 1918 et par un sommet européen en Irlande. Le commissaire européen au climat, Wopke Hoekstra, avait prévenu en amont que les attentes n'étaient « pas nécessairement élevées » dans ce contexte.",
+        "Face à ce constat d'échec, l'Union européenne a fait savoir qu'elle entendait désormais chercher à faire évoluer le processus même des négociations climatiques de l'ONU, jugé trop lent et trop vulnérable aux blocages d'un petit nombre de délégations. C'est la deuxième conférence climatique consécutive, après Belém, à s'achever sans accord ambitieux sur la sortie des fossiles.",
+        "Côté français, la ministre de la Transition écologique, Monique Barbut, avait plaidé avant la conférence pour que la sortie des énergies fossiles reste au cœur des discussions et pour qu'un compromis soit trouvé sur le calendrier de publication des rapports du GIEC. Aucune réaction officielle française n'a en revanche été identifiée à ce stade sur le bilan final de la conférence et sur l'annonce européenne de réforme du processus."
+      ],
+      "essentiel": [
+        "La COP31 (9-20 novembre, Antalya) s'achève sur des accusations réciproques, sans texte clair sur la sortie des énergies fossiles.",
+        "L'Union européenne annonce vouloir réformer le processus même des négociations climatiques onusiennes.",
+        "Absence remarquée de plusieurs dirigeants, dont Emmanuel Macron, retenu par les commémorations de l'Armistice et un sommet européen en Irlande.",
+        "Deuxième conférence consécutive, après Belém, sans accord ambitieux sur la sortie des fossiles."
+      ],
+      "signature": "Par la rédaction du Diplomate",
+      "editorial": false
+    },
+    {
+      "id": "sec-2",
+      "rubrique": "GÉOPOLITIQUE",
+      "titre": "Menace nucléaire dans l'espace, guerre élargie en Méditerranée : les lignes de front se multiplient",
+      "chapeau": "De l'orbite terrestre aux côtes libyennes, plusieurs dossiers rappellent que les théâtres de confrontation se diversifient, loin des seuls fronts déjà identifiés.",
+      "duree": 6,
+      "corps": [
+        "Le renseignement occidental continue de s'inquiéter d'un éventuel armement nucléaire russe en orbite. Des responsables allemands ont évoqué la possibilité que Moscou cherche à placer, dans un délai rapproché, un engin de ce type en orbite basse, où son emploi pourrait neutraliser une large part des satellites commerciaux et militaires occidentaux par effet d'impulsion électromagnétique. Ces alertes s'appuient notamment sur le suivi du satellite russe Cosmos 2553, sans qu'aucune preuve d'un déploiement opérationnel n'ait été rendue publique. La Russie avait déjà opposé en 2024 son veto à une résolution de l'ONU réaffirmant l'interdiction des armes de destruction massive dans l'espace, prévue par le traité de l'espace de 1967.",
+        "Position de la France : aucune réaction officielle française n'a été identifiée à ce stade sur ces dernières alertes allemandes et américaines concernant un possible armement nucléaire spatial russe.",
+        "La guerre en Ukraine continue par ailleurs d'étendre sa géographie. Selon des informations rapportées par le Financial Times, les forces ukrainiennes auraient mené une opération de drones maritimes contre un navire de guerre russe lié à une base navale proche de Benghazi, en Libye, que le président Volodymyr Zelensky aurait qualifiée d'opération « exemplaire ». Cette information s'ajoute à plusieurs signalements, non confirmés de façon indépendante, de la présence de forces ukrainiennes en Libye occidentale, utilisées selon certaines sources pour frapper des pétroliers de la « flotte fantôme » russe en Méditerranée ; Tripoli a toujours démenti avoir autorisé l'usage de son territoire à ces fins.",
+        "Position de la France : Paris soutient de manière générale les actions visant à perturber la flotte fantôme russe, sa marine ayant notamment procédé à l'arraisonnement d'un pétrolier suspect au large de la Sicile, et le Quai d'Orsay a par ailleurs condamné les attaques visant la navigation en mer Noire ainsi que les incursions de drones russes au-dessus de la Roumanie. Aucune réaction officielle française spécifique à l'opération rapportée près de Benghazi n'a toutefois été identifiée à ce stade.",
+        "Enfin, au Royaume-Uni, le maire du Grand Manchester Andy Burnham a jugé « impensable » un retour du pays dans l'Union européenne sans référendum, relançant un débat que le premier ministre Keir Starmer tente de maintenir à distance en refusant d'afficher une position arrêtée sur l'avenir des relations entre Londres et Bruxelles.",
+        "Position de la France : aucune réaction officielle française n'a été identifiée à ce stade sur ces déclarations relatives à un éventuel retour du Royaume-Uni dans l'Union européenne."
+      ],
+      "essentiel": [
+        "Des responsables allemands évoquent un risque d'arme nucléaire russe en orbite dans un délai rapproché ; aucune réaction officielle française identifiée.",
+        "Le FT rapporte une opération ukrainienne de drones maritimes contre un navire russe lié à une base proche de Benghazi, en Libye.",
+        "La France soutient la lutte générale contre la flotte fantôme russe, sans réaction spécifique sur l'épisode libyen.",
+        "Au Royaume-Uni, Andy Burnham juge « impensable » une réadhésion à l'UE sans référendum."
+      ],
+      "signature": "Par la rédaction du Diplomate",
+      "editorial": false
+    },
+    {
+      "id": "sec-3",
+      "rubrique": "GÉOÉCONOMIE",
+      "titre": "Puces, cobalt, intelligence artificielle : la bataille des technologies et des matières critiques s'intensifie",
+      "chapeau": "Entre le retour controversé de Jensen Huang à la tête de Nvidia, le durcissement de la RDC sur ses exportations de cobalt et la fermeté affichée par Singapour sur les contrôles américains, la géoéconomie des chaînes d'approvisionnement stratégiques reste sous tension.",
+      "duree": 6,
+      "corps": [
+        "Nvidia a annoncé la réintégration de Jensen Huang à la présidence, à la direction générale et au conseil d'administration, dix jours après l'avoir évincé dans le cadre d'une enquête interne. Selon le document transmis aux autorités boursières américaines, le conseil d'administration a reçu des éléments de « hauts niveaux » du gouvernement américain avant de conclure que ce retour ne présentait pas de risque pour la sécurité nationale. L'enquête interne du comité indépendant doit néanmoins se poursuivre jusqu'à son terme. Cet épisode illustre le degré d'imbrication désormais atteint entre la gouvernance d'une entreprise technologique américaine, considérée comme stratégique dans la course à l'intelligence artificielle, et les arbitrages de sécurité nationale de Washington.",
+        "En République démocratique du Congo, premier producteur mondial de cobalt, les autorités ont de nouveau restreint les exportations du métal afin de soutenir les prix, selon le Financial Times. C'est la seconde fois en deux ans que Kinshasa utilise ce levier, après l'embargo de février 2025 puis l'instauration d'un système de quotas annuels fixés à environ 96 600 tonnes à partir de 2026. Le cobalt congolais, essentiel aux batteries des véhicules électriques, reste un point de passage obligé pour les chaînes d'approvisionnement mondiales, ce qui donne à la RDC un levier de négociation disproportionné par rapport à son poids économique global.",
+        "À Singapour, le premier ministre Lawrence Wong a affirmé que la cité-État ne servirait pas de porte dérobée pour contourner les contrôles américains à l'exportation de semi-conducteurs avancés, et qu'il ne laisserait aucune entreprise enfreindre la loi à cette fin. Cette prise de position intervient alors que plusieurs affaires de contournement présumé des restrictions américaines vers la Chine, impliquant des sociétés basées en Asie du Sud-Est, continuent d'alimenter les tensions entre Washington et Pékin sur le contrôle des technologies critiques."
+      ],
+      "essentiel": [
+        "Nvidia réintègre Jensen Huang après un feu vert implicite de « hauts niveaux » du gouvernement américain sur le plan de la sécurité nationale.",
+        "La RDC resserre de nouveau ses exportations de cobalt pour soutenir les prix, une seconde fois en deux ans.",
+        "Singapour affirme ne pas vouloir servir de porte dérobée aux contournements des contrôles américains sur les semi-conducteurs.",
+        "Ces trois dossiers illustrent l'imbrication croissante entre sécurité nationale, souveraineté technologique et matières premières stratégiques."
+      ],
+      "signature": "Par la rédaction du Diplomate",
+      "editorial": false
+    },
+    {
+      "id": "sec-4",
+      "rubrique": "FRANCE",
+      "titre": "Budget 2027 et mobilisations sociales : une rentrée parlementaire sous tension",
+      "chapeau": "Entre rejet d'une partie du projet de budget à l'Assemblée, mobilisations dans la fonction publique et faits divers marquants, l'actualité intérieure reste dominée par les tensions budgétaires et sociales.",
+      "duree": 5,
+      "corps": [
+        "Les députés ont rejeté la première partie du projet de loi de finances pour 2027, dans un contexte parlementaire sans majorité absolue, à moins de six mois de l'élection présidentielle. Les organisations syndicales ont appelé à une nouvelle journée de mobilisation le 17 novembre, qui a réuni plus de 100 000 manifestants selon les chiffres rapportés par la presse, en retrait par rapport aux précédentes journées d'action. Les 5,8 millions d'agents publics étaient appelés à se mobiliser pour obtenir des hausses de salaires, alors que le projet de budget ferme la porte à toute revalorisation générale pour une quatrième année consécutive. Le premier ministre Sébastien Lecornu avait proposé aux syndicats une conférence sociale début novembre, sans que cela apaise la contestation.",
+        "La question des retraites reste également présente dans le débat budgétaire, certaines indemnités liées à la pénibilité n'étant toujours pas prises en compte dans le calcul des pensions, ce qui alimente la colère d'une partie des agents publics et des retraités.",
+        "Par ailleurs, le régime d'indemnisation des accidents du travail a changé depuis le 1er novembre, avec une revalorisation qui doit permettre à certaines victimes de percevoir une compensation plus élevée qu'auparavant.",
+        "Enfin, un sapeur-pompier a été blessé par un tir d'arme à feu lors d'une intervention près de Marseille, un épisode qui relance les interrogations récurrentes sur la sécurité des services de secours dans certains quartiers."
+      ],
+      "essentiel": [
+        "Rejet par l'Assemblée de la première partie du budget 2027 ; nouvelle journée de mobilisation le 17 novembre (plus de 100 000 manifestants).",
+        "Quatrième année consécutive sans revalorisation générale des salaires dans la fonction publique selon le projet de budget.",
+        "Revalorisation de l'indemnisation des accidents du travail depuis le 1er novembre.",
+        "Un sapeur-pompier blessé par balle lors d'une intervention près de Marseille."
+      ],
+      "signature": "Par la rédaction du Diplomate",
+      "editorial": false
+    },
+    {
+      "id": "sec-5",
+      "rubrique": "REGARD DIPLOMATE",
+      "titre": "Quand l'échec devient la norme : lire les sommets ratés comme des signaux, pas comme des impasses",
+      "chapeau": "Un regard éditorial sur ce que les blocages du jour disent de l'état du multilatéralisme et des rapports de force économiques.",
+      "duree": 4,
+      "corps": [
+        "Un sommet climatique qui s'achève dans l'acrimonie, un débat sur une arme spatiale qui reste à l'état de soupçon depuis plusieurs années, une guerre dont la géographie continue de s'étendre sans jamais se refermer : la tentation est grande de lire ces épisodes comme des échecs ponctuels. Une lecture diplomatique de plus long terme y verrait plutôt des signaux récurrents sur l'état d'épuisement des grands cadres multilatéraux hérités du tournant des années 1990 et 2000, qu'il s'agisse du régime climatique onusien ou de l'architecture de contrôle des armements. Ce n'est pas un hasard si l'Union européenne choisit, après l'échec d'Antalya, de s'attaquer non plus au contenu d'un texte mais à la méthode même de négociation : quand un format ne produit plus de résultat deux fois de suite, la question qui se pose n'est plus celle du compromis, mais celle de l'architecture.",
+        "Il en va de même sur le terrain économique, où la RDC et Singapour, deux pays de taille modeste, démontrent qu'un point de passage obligé dans une chaîne d'approvisionnement, ou la simple promesse de rester intègre dans l'application de contrôles étrangers, suffit à transformer un petit État en acteur de premier plan sur l'échiquier des grandes puissances. C'est un rappel utile pour qui veut comprendre la diplomatie contemporaine : la puissance ne se mesure plus seulement en divisions militaires ou en sièges au Conseil de sécurité, mais aussi en capacité à contrôler un goulot d'étranglement, qu'il soit minier, technologique ou normatif. Ceci reste un point de vue éditorial, non un constat établi."
+      ],
+      "essentiel": [
+        "Les sommets ratés répétés (Belém puis Antalya) interrogent moins un texte qu'une méthode de négociation.",
+        "Les petits États dotés d'un goulot d'étranglement stratégique (cobalt, semi-conducteurs) pèsent désormais autant que certaines grandes puissances.",
+        "Point de vue éditorial de la rédaction, non un constat factuel établi."
+      ],
+      "signature": "L'éditorial du Diplomate",
+      "editorial": true
+    }
+  ]
+};
+
+function render(){
+  const main = document.getElementById('articles');
+  const frag = document.createDocumentFragment();
+  EDITION.sections.forEach(s=>{
+    const art = document.createElement('section');
+    art.className = 'article' + (s.editorial ? ' editorial' : '');
+    art.id = s.id;
+    art.innerHTML = `
+      <p class="rubrique">${s.rubrique}</p>
+      <h2 class="art-title">${s.titre}</h2>
+      <p class="chapeau">${s.chapeau}</p>
+      <p class="art-meta">${s.duree} min de lecture</p>
+      <div class="corps">${s.corps.map(p=>`<p>${p}</p>`).join('')}</div>
+      <div class="essentiel">
+        <p class="label">L'essentiel</p>
+        <ul>${s.essentiel.map(e=>`<li>${e}</li>`).join('')}</ul>
+      </div>
+      <p class="signature">${s.signature}</p>
+    `;
+    frag.appendChild(art);
+  });
+  main.appendChild(frag);
+}
+render();
+
+// Speech synthesis toggle — never autostarts, only on user click.
+(function(){
+  const btn = document.getElementById('listenBtn');
+  const label = document.getElementById('listenLabel');
+  const icon = document.getElementById('listenIcon');
+  let utterances = [];
+  let speaking = false;
+
+  function buildText(){
+    return EDITION.sections.map(s=>{
+      return `${s.rubrique}. ${s.titre}. ${s.chapeau} ${s.corps.join(' ')}`;
+    }).join(' ... ');
+  }
+
+  function stop(){
+    try{ window.speechSynthesis.cancel(); }catch(e){}
+    speaking = false;
+    btn.dataset.playing = "false";
+    btn.setAttribute('aria-pressed','false');
+    icon.textContent = '\u{1F50A}';
+    label.textContent = 'Écouter';
+  }
+
+  function start(){
+    if(!('speechSynthesis' in window)){
+      label.textContent = 'Lecture indisponible';
+      return;
+    }
+    try{
+      window.speechSynthesis.cancel();
+      const text = buildText();
+      const chunks = text.match(/[\s\S]{1,180}(?:\s|$)/g) || [text];
+      utterances = chunks.map(c=>{
+        const u = new SpeechSynthesisUtterance(c);
+        u.lang = 'fr-FR';
+        u.rate = 1;
+        return u;
+      });
+      utterances[utterances.length-1].onend = stop;
+      utterances.forEach(u=> u.onerror = stop);
+      utterances.forEach(u=> window.speechSynthesis.speak(u));
+      speaking = true;
+      btn.dataset.playing = "true";
+      btn.setAttribute('aria-pressed','true');
+      icon.textContent = '⏹';
+      label.textContent = 'Arrêter';
+    }catch(e){
+      stop();
+    }
+  }
+
+  btn.addEventListener('click', ()=>{
+    if(speaking){ stop(); } else { start(); }
+  });
+
+  document.addEventListener('visibilitychange', ()=>{
+    if(document.hidden && speaking){ stop(); }
+  });
+})();
+</script>
