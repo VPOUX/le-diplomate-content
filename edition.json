@@ -1,102 +1,104 @@
 {
-  "date": "2026-11-23",
-  "numero": 47,
-  "heureGeneration": "07:40",
+  "date": "2026-11-24",
+  "numero": 48,
+  "heureGeneration": "07:36",
   "sections": [
     {
       "ordre": 1,
       "rubrique": "UNE",
-      "titre": "La COP31 s'achève à Antalya sur l'aveu d'un échec autour des combustibles fossiles",
-      "chapeau": "Après deux semaines de négociations sous présidence turco-australienne, la conférence des Nations unies sur le climat se termine sans accord sur une trajectoire de sortie des énergies fossiles, les lignes de fracture entre pays producteurs et pays vulnérables s'étant révélées, selon plusieurs délégations, \"infranchissables\".",
-      "dureeLectureMin": 5,
+      "titre": "La COP31 s'achève dans l'acrimonie à Antalya, Bruxelles veut réformer le processus climatique onusien",
+      "chapeau": "Après deux semaines de négociations tendues en Turquie, la conférence climat de l'ONU se termine sans texte clair sur la sortie des énergies fossiles. L'Union européenne annonce son intention de revoir la méthode même des négociations climatiques internationales.",
+      "dureeLectureMin": 6,
       "corpsArticle": [
-        "La COP31, qui se tenait à Antalya du 9 au 20 novembre sous la coprésidence de la Turquie et de l'Australie, s'est conclue sans l'adoption d'une feuille de route contraignante sur la sortie des combustibles fossiles. Selon la presse économique et plusieurs comptes rendus des négociateurs, les derniers projets de texte avaient fini par ne plus mentionner les énergies fossiles, un recul jugé lourd de consequences par les pays les plus exposés au changement climatique.",
-        "Le point de blocage a opposé, d'un côté, un groupe de grands producteurs et consommateurs d'hydrocarbures, et de l'autre, une coalition menée par l'Union européenne et des petits États insulaires, qui réclamait un calendrier explicite de transition. Le groupe arabe a qualifié certaines formulations proposées de \"ligne rouge\", rendant tout compromis de dernière minute très difficile. La ministre brésilienne de l'Environnement avait pourtant estimé, en cours de négociation, qu'un simple \"ajustement de formulation\" pouvait encore débloquer la situation ; cet espoir n'a, semble-t-il, pas suffi.",
-        "Fait notable, les États-Unis, premier consommateur mondial de pétrole, ont boycotté la conférence pour la deuxième année consécutive, laissant le leadership diplomatique du dossier climatique aux seules puissances européennes et à un bloc de pays émergents de plus en plus affirmé. Plus d'une dizaine de ministres avaient par ailleurs appelé, en amont, les présidences turque et australienne à porter des feuilles de route sectorielles de sortie des fossiles, sans obtenir de résultat tangible dans le texte final.",
-        "Au-delà du constat d'échec, plusieurs délégations évoquent désormais une crise plus profonde de la méthode de négociation par consensus des COP elles-mêmes, un format qui permet à un petit nombre d'États de bloquer un accord soutenu par une large majorité. Ce débat sur la gouvernance climatique mondiale devrait occuper les capitales dans les prochaines semaines, à l'approche d'échéances de financement climatique déjà sous tension."
+        "La COP31, qui s'est tenue du 9 au 20 novembre à Antalya sous présidence turque, devait transformer en actes les engagements pris un an plus tôt à Belém. Elle s'achève à l'inverse sur des accusations réciproques entre délégations, après une dernière semaine marquée par des blocages sur le financement, le calendrier des rapports du GIEC et, surtout, la mention d'une sortie des énergies fossiles dans le texte final.",
+        "Selon le Financial Times, l'acrimonie et les échanges d'accusations qui ont suivi l'échec des discussions interviennent après une année marquée par des catastrophes climatiques d'une intensité croissante. Les versions successives du projet de décision ont vu la référence à une sortie des combustibles fossiles s'amenuiser puis disparaître, provoquant la colère des organisations non gouvernementales et de plusieurs délégations européennes, qui en avaient fait une priorité affichée.",
+        "L'absence de plusieurs chefs d'État et de gouvernement a pesé sur la dynamique des discussions. Emmanuel Macron, Xi Jinping, Friedrich Merz, Narendra Modi et Donald Trump ne se sont pas rendus à Antalya ; le président français était retenu par les commémorations de l'Armistice de 1918 et par un sommet européen en Irlande. Le commissaire européen au climat, Wopke Hoekstra, avait prévenu en amont que les attentes n'étaient « pas nécessairement élevées » dans ce contexte.",
+        "Face à ce constat d'échec, l'Union européenne a fait savoir qu'elle entendait désormais chercher à faire évoluer le processus même des négociations climatiques de l'ONU, jugé trop lent et trop vulnérable aux blocages d'un petit nombre de délégations. C'est la deuxième conférence climatique consécutive, après Belém, à s'achever sans accord ambitieux sur la sortie des fossiles.",
+        "Côté français, la ministre de la Transition écologique, Monique Barbut, avait plaidé avant la conférence pour que la sortie des énergies fossiles reste au cœur des discussions et pour qu'un compromis soit trouvé sur le calendrier de publication des rapports du GIEC. Aucune réaction officielle française n'a en revanche été identifiée à ce stade sur le bilan final de la conférence et sur l'annonce européenne de réforme du processus."
       ],
       "essentiel": [
-        "La COP31 à Antalya se termine sans accord sur une trajectoire de sortie des combustibles fossiles.",
-        "Le blocage oppose pays producteurs d'hydrocarbures et coalition UE / États vulnérables, qui jugent la rupture \"infranchissable\".",
-        "Les États-Unis ont boycotté la conférence pour la deuxième année consécutive.",
-        "L'échec relance le débat sur la méthode du consensus dans les négociations climatiques onusiennes."
+        "La COP31 (9-20 novembre, Antalya) s'achève sur des accusations réciproques, sans texte clair sur la sortie des énergies fossiles.",
+        "L'Union européenne annonce vouloir réformer le processus même des négociations climatiques onusiennes.",
+        "Absence remarquée de plusieurs dirigeants, dont Emmanuel Macron, retenu par les commémorations de l'Armistice et un sommet européen en Irlande.",
+        "Deuxième conférence consécutive, après Belém, sans accord ambitieux sur la sortie des fossiles."
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 2,
       "rubrique": "GEOPOLITIQUE",
-      "titre": "Ukraine, Soudan, mer Baltique : les fronts diplomatiques et militaires sous tension",
-      "chapeau": "Entre la poursuite incertaine des pourparlers russo-ukrainiens à Abou Dabi, l'avancée de l'armée soudanaise au Kordofan et la multiplication des incidents dans la zone baltique, plusieurs crises restent en suspens cette semaine.",
+      "titre": "Menace nucléaire dans l'espace, guerre élargie en Méditerranée : les lignes de front se multiplient",
+      "chapeau": "De l'orbite terrestre aux côtes libyennes, plusieurs dossiers rappellent que les théâtres de confrontation se diversifient, loin des seuls fronts déjà identifiés.",
       "dureeLectureMin": 6,
       "corpsArticle": [
-        "Le nouveau cycle de pourparlers entre la Russie, l'Ukraine et les États-Unis, ouvert à Abou Dabi le 10 novembre sous médiation américaine, se poursuit sans accord de cessez-le-feu formel. Washington évoque une \"légère flexibilité territoriale\" des deux parties, tandis que Kiev et Moscou restent, selon plusieurs sources diplomatiques, en profond désaccord sur les garanties de sécurité et le tracé final des lignes de front. Lors du sommet européen de Dublin, le 12 novembre, Emmanuel Macron a plaidé pour que les Européens définissent d'abord une position unie avant de désigner un émissaire commun chargé de dialoguer avec Moscou, ce qui a conduit Paris et Berlin à temporiser sur cette option.",
-        "Position de la France : le président Macron a affirmé, lors du sommet de Dublin du 12 novembre, que l'Europe devait disposer d'une \"vision claire et unie\" de ses objectifs avant toute nouvelle initiative diplomatique bilatérale avec la Russie. Le ministre des Affaires étrangères Jean-Noël Barrot a confirmé la participation de pays européens, dont la France, aux échanges autour du format d'Abou Dabi, sans toutefois y disposer d'un siège de négociation direct.",
-        "Au Soudan, l'armée régulière affirme avoir consolidé ses positions dans l'État du Kordofan occidental, où plusieurs localités stratégiques seraient passées sous son contrôle au cours des dernières semaines. Ce regain militaire s'accompagne d'une vague de défections de combattants des Forces de soutien rapide (FSR), le groupe paramilitaire rival, dont plusieurs centaines d'hommes auraient rejoint les rangs gouvernementaux depuis l'été. Les analystes restent toutefois divisés sur la portée réelle de ces défections, certains y voyant un tournant du conflit, d'autres une possible manœuvre d'infiltration des FSR.",
-        "Position de la France : le Quai d'Orsay n'a pas publié, à ce stade, de déclaration spécifique sur les développements militaires récents au Kordofan. La dernière prise de position connue du ministère, datée du 6 octobre, condamnait une frappe aérienne ayant tué le chauffeur d'un convoi humanitaire du Programme alimentaire mondial dans le sud du Kordofan, et réitérait l'appel de la France à un cessez-le-feu immédiat et à un accès humanitaire sûr. Aucune réaction officielle française plus récente n'a pu être identifiée à ce stade sur l'évolution du front.",
-        "En mer Baltique et dans le Golfe de Finlande, la tension entre la Russie et ses voisins reste élevée. Helsinki a confirmé qu'un navire de guerre russe, la corvette Naro-Fominsk, avait été visée le 11 novembre par une frappe de drone que les services ukrainiens revendiquent, avant de rentrer vers Saint-Pétersbourg en dégageant de la fumée. Le Premier ministre finlandais a averti que \"la guerre déborde désormais jusque dans notre voisinage immédiat\". Plusieurs navires pétroliers liés à la \"flotte fantôme\" russe, utilisée pour contourner les sanctions occidentales, ont également été la cible d'incidents similaires en mer Noire et en Méditerranée ces dernières semaines.",
-        "Position de la France : aucune réaction officielle française n'a été identifiée à ce stade concernant spécifiquement les incidents dans le Golfe de Finlande ou visant la flotte pétrolière russe sous sanctions."
+        "Le renseignement occidental continue de s'inquiéter d'un éventuel armement nucléaire russe en orbite. Des responsables allemands ont évoqué la possibilité que Moscou cherche à placer, dans un délai rapproché, un engin de ce type en orbite basse, où son emploi pourrait neutraliser une large part des satellites commerciaux et militaires occidentaux par effet d'impulsion électromagnétique. Ces alertes s'appuient notamment sur le suivi du satellite russe Cosmos 2553, sans qu'aucune preuve d'un déploiement opérationnel n'ait été rendue publique. La Russie avait déjà opposé en 2024 son veto à une résolution de l'ONU réaffirmant l'interdiction des armes de destruction massive dans l'espace, prévue par le traité de l'espace de 1967.",
+        "Position de la France : aucune réaction officielle française n'a été identifiée à ce stade sur ces dernières alertes allemandes et américaines concernant un possible armement nucléaire spatial russe.",
+        "La guerre en Ukraine continue par ailleurs d'étendre sa géographie. Selon des informations rapportées par le Financial Times, les forces ukrainiennes auraient mené une opération de drones maritimes contre un navire de guerre russe lié à une base navale proche de Benghazi, en Libye, que le président Volodymyr Zelensky aurait qualifiée d'opération « exemplaire ». Cette information s'ajoute à plusieurs signalements, non confirmés de façon indépendante, de la présence de forces ukrainiennes en Libye occidentale, utilisées selon certaines sources pour frapper des pétroliers de la « flotte fantôme » russe en Méditerranée ; Tripoli a toujours démenti avoir autorisé l'usage de son territoire à ces fins.",
+        "Position de la France : Paris soutient de manière générale les actions visant à perturber la flotte fantôme russe, sa marine ayant notamment procédé à l'arraisonnement d'un pétrolier suspect au large de la Sicile, et le Quai d'Orsay a par ailleurs condamné les attaques visant la navigation en mer Noire ainsi que les incursions de drones russes au-dessus de la Roumanie. Aucune réaction officielle française spécifique à l'opération rapportée près de Benghazi n'a toutefois été identifiée à ce stade.",
+        "Enfin, au Royaume-Uni, le maire du Grand Manchester Andy Burnham a jugé « impensable » un retour du pays dans l'Union européenne sans référendum, relançant un débat que le premier ministre Keir Starmer tente de maintenir à distance en refusant d'afficher une position arrêtée sur l'avenir des relations entre Londres et Bruxelles.",
+        "Position de la France : aucune réaction officielle française n'a été identifiée à ce stade sur ces déclarations relatives à un éventuel retour du Royaume-Uni dans l'Union européenne."
       ],
       "essentiel": [
-        "Les pourparlers russo-ukrainiens d'Abou Dabi se poursuivent sans cessez-le-feu, Paris plaidant pour une position européenne unie avant tout émissaire commun.",
-        "L'armée soudanaise progresse au Kordofan occidental, portée par des défections de combattants des FSR ; aucune réaction française récente n'a été identifiée sur ce point précis.",
-        "Un navire de guerre russe a été frappé par un drone dans le Golfe de Finlande, dans un contexte de tensions croissantes en mer Baltique.",
-        "Aucune réaction officielle française n'a été identifiée à ce stade sur les incidents baltiques."
+        "Des responsables allemands évoquent un risque d'arme nucléaire russe en orbite dans un délai rapproché ; aucune réaction officielle française identifiée.",
+        "Le FT rapporte une opération ukrainienne de drones maritimes contre un navire russe lié à une base proche de Benghazi, en Libye.",
+        "La France soutient la lutte générale contre la flotte fantôme russe, sans réaction spécifique sur l'épisode libyen.",
+        "Au Royaume-Uni, Andy Burnham juge « impensable » une réadhésion à l'UE sans référendum."
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 3,
       "rubrique": "GEOECONOMIE",
-      "titre": "Rivalité technologique Washington-Pékin et nervosité des marchés liée à l'IA",
-      "chapeau": "La rencontre Trump-Xi de Shenzhen n'a pas levé les incertitudes sur les contrôles d'exportation de semi-conducteurs, tandis que les marchés asiatiques subissent les premières secousses d'un possible retournement de la bulle de l'intelligence artificielle.",
-      "dureeLectureMin": 5,
+      "titre": "Puces, cobalt, intelligence artificielle : la bataille des technologies et des matières critiques s'intensifie",
+      "chapeau": "Entre le retour controversé de Jensen Huang à la tête de Nvidia, le durcissement de la RDC sur ses exportations de cobalt et la fermeté affichée par Singapour sur les contrôles américains, la géoéconomie des chaînes d'approvisionnement stratégiques reste sous tension.",
+      "dureeLectureMin": 6,
       "corpsArticle": [
-        "Réunis à Shenzhen en marge du sommet de l'APEC, Donald Trump et Xi Jinping ont tenu un entretien bilatéral suivi d'une rencontre à trois avec Vladimir Poutine, sans qu'un accord formel sur les droits de douane ou les contrôles d'exportation de puces électroniques ne soit annoncé. La trêve tarifaire conclue à Busan en 2025 expire le 10 janvier, et la plupart des observateurs n'attendaient pas d'extension immédiate à l'issue de ce sommet, les deux délégations se réservant pour de nouvelles négociations avant l'échéance.",
-        "Le dossier des semi-conducteurs reste l'un des points les plus sensibles : Washington a récemment restreint l'accès à distance aux puces d'intelligence artificielle via des centres de données situés hors des États-Unis, et Nvidia a suspendu ses ventes de puces Hopper vers la Chine, provoquant une réaction de Pékin qui menace de contre-mesures. La Chine affiche par ailleurs une avance commerciale croissante dans l'automobile électrique, consolidée par une décision de justice européenne qui vient d'interdire la commercialisation d'un modèle de SUV du constructeur chinois BYD, jugé trop proche du design d'un véhicule Land Rover, un revers pour les ambitions du groupe chinois sur le marché européen.",
-        "Sur les marchés financiers, l'euphorie entourant les valeurs liées à l'intelligence artificielle montre des signes d'essoufflement. Les régulateurs asiatiques sont intervenus ce lundi pour soutenir des marchés chahutés par les craintes d'un dégonflement de la \"bulle de l'IA\", les valeurs des fabricants de semi-conducteurs et de matériel informatique de la région étant jugées particulièrement vulnérables à un retournement de sentiment des investisseurs. Les économistes s'interrogent également sur la solidité des montages de financement croisés entre fournisseurs et clients du secteur de l'IA, qualifiés par certains commentateurs de \"tour de Jenga\".",
-        "En Amérique latine, l'Argentine de Javier Milei voit ses coûts d'emprunt remonter fortement, la popularité déclinante du président libertaire et les interrogations sur ses projets de financement inquiétant les investisseurs à l'approche d'échéances électorales. Ce regain de nervosité illustre la fragilité persistante des équilibres macroéconomiques de plusieurs économies émergentes dans un contexte de taux et de dollars toujours incertains."
+        "Nvidia a annoncé la réintégration de Jensen Huang à la présidence, à la direction générale et au conseil d'administration, dix jours après l'avoir évincé dans le cadre d'une enquête interne. Selon le document transmis aux autorités boursières américaines, le conseil d'administration a reçu des éléments de « hauts niveaux » du gouvernement américain avant de conclure que ce retour ne présentait pas de risque pour la sécurité nationale. L'enquête interne du comité indépendant doit néanmoins se poursuivre jusqu'à son terme. Cet épisode illustre le degré d'imbrication désormais atteint entre la gouvernance d'une entreprise technologique américaine, considérée comme stratégique dans la course à l'intelligence artificielle, et les arbitrages de sécurité nationale de Washington.",
+        "En République démocratique du Congo, premier producteur mondial de cobalt, les autorités ont de nouveau restreint les exportations du métal afin de soutenir les prix, selon le Financial Times. C'est la seconde fois en deux ans que Kinshasa utilise ce levier, après l'embargo de février 2025 puis l'instauration d'un système de quotas annuels fixés à environ 96 600 tonnes à partir de 2026. Le cobalt congolais, essentiel aux batteries des véhicules électriques, reste un point de passage obligé pour les chaînes d'approvisionnement mondiales, ce qui donne à la RDC un levier de négociation disproportionné par rapport à son poids économique global.",
+        "À Singapour, le premier ministre Lawrence Wong a affirmé que la cité-État ne servirait pas de porte dérobée pour contourner les contrôles américains à l'exportation de semi-conducteurs avancés, et qu'il ne laisserait aucune entreprise enfreindre la loi à cette fin. Cette prise de position intervient alors que plusieurs affaires de contournement présumé des restrictions américaines vers la Chine, impliquant des sociétés basées en Asie du Sud-Est, continuent d'alimenter les tensions entre Washington et Pékin sur le contrôle des technologies critiques."
       ],
       "essentiel": [
-        "Le sommet Trump-Xi de Shenzhen n'aboutit à aucun accord formel sur les tarifs douaniers ou les contrôles d'exportation de puces.",
-        "Nvidia suspend ses ventes de puces Hopper à la Chine ; l'UE bloque un SUV chinois BYD pour contrefaçon de design.",
-        "Les régulateurs asiatiques interviennent pour soutenir des marchés inquiets d'un possible dégonflement de la bulle de l'IA.",
-        "En Argentine, le coût de la dette grimpe sur fond de recul de la popularité de Javier Milei."
+        "Nvidia réintègre Jensen Huang après un feu vert implicite de « hauts niveaux » du gouvernement américain sur le plan de la sécurité nationale.",
+        "La RDC resserre de nouveau ses exportations de cobalt pour soutenir les prix, une seconde fois en deux ans.",
+        "Singapour affirme ne pas vouloir servir de porte dérobée aux contournements des contrôles américains sur les semi-conducteurs.",
+        "Ces trois dossiers illustrent l'imbrication croissante entre sécurité nationale, souveraineté technologique et matières premières stratégiques."
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 4,
       "rubrique": "FRANCE",
-      "titre": "Budget, pouvoir d'achat et mobilisation sociale : l'automne français sous tension",
-      "chapeau": "Entre le rejet du projet de budget 2027 par l'Assemblée nationale, la revalorisation anticipée du Smic et une mobilisation sociale contre la vie chère, l'actualité intérieure reste dominée par les questions économiques et sociales.",
-      "dureeLectureMin": 4,
+      "titre": "Budget 2027 et mobilisations sociales : une rentrée parlementaire sous tension",
+      "chapeau": "Entre rejet d'une partie du projet de budget à l'Assemblée, mobilisations dans la fonction publique et faits divers marquants, l'actualité intérieure reste dominée par les tensions budgétaires et sociales.",
+      "dureeLectureMin": 5,
       "corpsArticle": [
-        "L'Assemblée nationale a rejeté massivement, le 4 novembre, le projet de loi de finances pour 2027 en première lecture, un scénario qui rappelle le sort réservé l'an dernier au budget 2026, lui-même rejeté en novembre 2025 avant une adoption définitive repoussée à février. Le texte budgétaire est désormais renvoyé au Sénat, où les débats s'annoncent tout aussi disputés, dans un paysage parlementaire toujours fragmenté.",
-        "Sur le plan du pouvoir d'achat, le Premier ministre Sébastien Lecornu a annoncé une revalorisation anticipée du salaire minimum, porté à 1 502 euros mensuels dès le 1er décembre, une mesure présentée comme une réponse aux inquiétudes exprimées lors de la mobilisation sociale du 5 novembre contre la vie chère, qui avait réuni plusieurs centaines de milliers de manifestants selon les chiffres syndicaux.",
-        "Au Sénat, les parlementaires ont par ailleurs rejeté, le 12 novembre, une réforme des majorations de pensions pour les familles nombreuses, tout en adoptant un nouveau mode de calcul des allégements de cotisations patronales dont l'entrée en vigueur est provisoirement fixée au 1er avril. Ces arbitrages interviennent alors que plusieurs figures politiques, à l'approche de l'échéance présidentielle de 2027, multiplient déjà les prises de position sur les services publics et la fiscalité."
+        "Les députés ont rejeté la première partie du projet de loi de finances pour 2027, dans un contexte parlementaire sans majorité absolue, à moins de six mois de l'élection présidentielle. Les organisations syndicales ont appelé à une nouvelle journée de mobilisation le 17 novembre, qui a réuni plus de 100 000 manifestants selon les chiffres rapportés par la presse, en retrait par rapport aux précédentes journées d'action. Les 5,8 millions d'agents publics étaient appelés à se mobiliser pour obtenir des hausses de salaires, alors que le projet de budget ferme la porte à toute revalorisation générale pour une quatrième année consécutive. Le premier ministre Sébastien Lecornu avait proposé aux syndicats une conférence sociale début novembre, sans que cela apaise la contestation.",
+        "La question des retraites reste également présente dans le débat budgétaire, certaines indemnités liées à la pénibilité n'étant toujours pas prises en compte dans le calcul des pensions, ce qui alimente la colère d'une partie des agents publics et des retraités.",
+        "Par ailleurs, le régime d'indemnisation des accidents du travail a changé depuis le 1er novembre, avec une revalorisation qui doit permettre à certaines victimes de percevoir une compensation plus élevée qu'auparavant.",
+        "Enfin, un sapeur-pompier a été blessé par un tir d'arme à feu lors d'une intervention près de Marseille, un épisode qui relance les interrogations récurrentes sur la sécurité des services de secours dans certains quartiers."
       ],
       "essentiel": [
-        "Le budget 2027 est rejeté en première lecture par l'Assemblée nationale et renvoyé au Sénat.",
-        "Le Smic sera porté à 1 502 euros par mois dès le 1er décembre, annonce Sébastien Lecornu.",
-        "Une mobilisation sociale contre la vie chère a réuni plusieurs centaines de milliers de personnes le 5 novembre.",
-        "Le Sénat rejette une réforme des majorations de pensions pour les familles nombreuses."
+        "Rejet par l'Assemblée de la première partie du budget 2027 ; nouvelle journée de mobilisation le 17 novembre (plus de 100 000 manifestants).",
+        "Quatrième année consécutive sans revalorisation générale des salaires dans la fonction publique selon le projet de budget.",
+        "Revalorisation de l'indemnisation des accidents du travail depuis le 1er novembre.",
+        "Un sapeur-pompier blessé par balle lors d'une intervention près de Marseille."
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 5,
       "rubrique": "REGARD_DIPLOMATE",
-      "titre": "Quand le consensus se fissure, la diplomatie se déplace ailleurs",
-      "dureeLectureMin": 3,
+      "titre": "Quand l'échec devient la norme : lire les sommets ratés comme des signaux, pas comme des impasses",
+      "chapeau": "Un regard éditorial sur ce que les blocages du jour disent de l'état du multilatéralisme et des rapports de force économiques.",
+      "dureeLectureMin": 4,
       "corpsArticle": [
-        "L'échec de la COP31 et l'enlisement relatif des pourparlers d'Abou Dabi partagent un même enseignement, trop souvent négligé : les formats multilatéraux fondés sur le consensus unanime offrent à une minorité déterminée un pouvoir de blocage disproportionné. Quand un seul groupe de pays peut qualifier une clause de \"ligne rouge\" et faire s'effondrer deux semaines de négociations, la question n'est plus seulement celle du contenu de l'accord, mais celle de la méthode elle-même. Ce constat n'est pas nouveau, mais il se répète avec une régularité qui devrait interroger les chancelleries sur la pertinence de formats alternatifs, plus restreints, pour avancer sur les dossiers les plus bloqués.",
-        "À l'inverse, le sommet de Shenzhen illustre la vitalité persistante d'une diplomatie bilatérale, voire trilatérale, entre grandes puissances, qui continue d'avancer par petits pas même sans accord spectaculaire. Pour un lecteur attentif aux affaires diplomatiques, la leçon de la semaine tient peut-être à ce contraste : plus une négociation implique de parties aux intérêts disparates, plus elle devient vulnérable au blocage ; plus elle se concentre entre un petit nombre d'acteurs à fort pouvoir de contrainte réciproque, plus elle progresse, fût-ce lentement et de manière imparfaite. C'est un point de vue éditorial, non un verdict définitif sur l'avenir du multilatéralisme, mais il invite à lire différemment les grands rendez-vous internationaux à venir."
+        "Un sommet climatique qui s'achève dans l'acrimonie, un débat sur une arme spatiale qui reste à l'état de soupçon depuis plusieurs années, une guerre dont la géographie continue de s'étendre sans jamais se refermer : la tentation est grande de lire ces épisodes comme des échecs ponctuels. Une lecture diplomatique de plus long terme y verrait plutôt des signaux récurrents sur l'état d'épuisement des grands cadres multilatéraux hérités du tournant des années 1990 et 2000, qu'il s'agisse du régime climatique onusien ou de l'architecture de contrôle des armements. Ce n'est pas un hasard si l'Union européenne choisit, après l'échec d'Antalya, de s'attaquer non plus au contenu d'un texte mais à la méthode même de négociation : quand un format ne produit plus de résultat deux fois de suite, la question qui se pose n'est plus celle du compromis, mais celle de l'architecture.",
+        "Il en va de même sur le terrain économique, où la RDC et Singapour, deux pays de taille modeste, démontrent qu'un point de passage obligé dans une chaîne d'approvisionnement, ou la simple promesse de rester intègre dans l'application de contrôles étrangers, suffit à transformer un petit État en acteur de premier plan sur l'échiquier des grandes puissances. C'est un rappel utile pour qui veut comprendre la diplomatie contemporaine : la puissance ne se mesure plus seulement en divisions militaires ou en sièges au Conseil de sécurité, mais aussi en capacité à contrôler un goulot d'étranglement, qu'il soit minier, technologique ou normatif. Ceci reste un point de vue éditorial, non un constat établi."
       ],
       "essentiel": [
-        "L'échec de la COP31 illustre les limites du consensus unanime face à des minorités de blocage.",
-        "Le sommet de Shenzhen montre la persistance d'une diplomatie bilatérale efficace entre grandes puissances.",
-        "Point de vue éditorial : la taille et l'hétérogénéité d'un format de négociation conditionnent ses chances de succès."
+        "Les sommets ratés répétés (Belém puis Antalya) interrogent moins un texte qu'une méthode de négociation.",
+        "Les petits États dotés d'un goulot d'étranglement stratégique (cobalt, semi-conducteurs) pèsent désormais autant que certaines grandes puissances.",
+        "Point de vue éditorial de la rédaction, non un constat factuel établi."
       ],
       "signature": "L'éditorial du Diplomate"
     }
