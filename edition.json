@@ -1,104 +1,100 @@
 {
-  "date": "2026-11-24",
-  "numero": 48,
-  "heureGeneration": "07:36",
+  "date": "2026-11-25",
+  "numero": 49,
+  "heureGeneration": "07:38",
   "sections": [
     {
       "ordre": 1,
       "rubrique": "UNE",
-      "titre": "La COP31 s'achève dans l'acrimonie à Antalya, Bruxelles veut réformer le processus climatique onusien",
-      "chapeau": "Après deux semaines de négociations tendues en Turquie, la conférence climat de l'ONU se termine sans texte clair sur la sortie des énergies fossiles. L'Union européenne annonce son intention de revoir la méthode même des négociations climatiques internationales.",
-      "dureeLectureMin": 6,
+      "titre": "Ukraine : Washington abandonne les « deals » avec Moscou et recentre la paix sur le territoire",
+      "chapeau": "L'administration Trump a mis de côté l'idée d'attirer la Russie vers la paix par des contrats économiques. Le dossier se joue désormais presque uniquement sur les lignes de front et les garanties de sécurité, pendant que la guerre s'intensifie et que de nouveaux risques apparaissent, jusque dans l'espace.",
+      "dureeLectureMin": 5,
       "corpsArticle": [
-        "La COP31, qui s'est tenue du 9 au 20 novembre à Antalya sous présidence turque, devait transformer en actes les engagements pris un an plus tôt à Belém. Elle s'achève à l'inverse sur des accusations réciproques entre délégations, après une dernière semaine marquée par des blocages sur le financement, le calendrier des rapports du GIEC et, surtout, la mention d'une sortie des énergies fossiles dans le texte final.",
-        "Selon le Financial Times, l'acrimonie et les échanges d'accusations qui ont suivi l'échec des discussions interviennent après une année marquée par des catastrophes climatiques d'une intensité croissante. Les versions successives du projet de décision ont vu la référence à une sortie des combustibles fossiles s'amenuiser puis disparaître, provoquant la colère des organisations non gouvernementales et de plusieurs délégations européennes, qui en avaient fait une priorité affichée.",
-        "L'absence de plusieurs chefs d'État et de gouvernement a pesé sur la dynamique des discussions. Emmanuel Macron, Xi Jinping, Friedrich Merz, Narendra Modi et Donald Trump ne se sont pas rendus à Antalya ; le président français était retenu par les commémorations de l'Armistice de 1918 et par un sommet européen en Irlande. Le commissaire européen au climat, Wopke Hoekstra, avait prévenu en amont que les attentes n'étaient « pas nécessairement élevées » dans ce contexte.",
-        "Face à ce constat d'échec, l'Union européenne a fait savoir qu'elle entendait désormais chercher à faire évoluer le processus même des négociations climatiques de l'ONU, jugé trop lent et trop vulnérable aux blocages d'un petit nombre de délégations. C'est la deuxième conférence climatique consécutive, après Belém, à s'achever sans accord ambitieux sur la sortie des fossiles.",
-        "Côté français, la ministre de la Transition écologique, Monique Barbut, avait plaidé avant la conférence pour que la sortie des énergies fossiles reste au cœur des discussions et pour qu'un compromis soit trouvé sur le calendrier de publication des rapports du GIEC. Aucune réaction officielle française n'a en revanche été identifiée à ce stade sur le bilan final de la conférence et sur l'annonce européenne de réforme du processus."
+        "L'administration américaine a mis de côté ses projets consistant à utiliser des accords économiques comme levier pour convaincre la Russie de mettre fin à la guerre en Ukraine, a appris le Financial Times auprès de responsables européens informés du dossier. Jared Kushner, gendre du président, et l'émissaire spécial Steve Witkoff ont indiqué à des responsables européens que les rapprochements d'entreprises ne constituaient plus un axe central de la proposition américaine à Moscou. Ces derniers mois, les deux hommes avaient évoqué des pistes telles que des investissements de groupes américains dans des projets pétroliers russes ou la reprise de ventes de gaz par gazoduc vers l'Europe, présentées comme une incitation financière pour que Vladimir Poutine mette fin à son invasion de l'Ukraine.",
+        "Si les responsables russes avaient d'abord réagi positivement à ces suggestions américaines, le Kremlin s'est depuis refroidi, insistant pour que l'Ukraine cède du territoire en échange de la paix. La discussion porte désormais presque exclusivement sur les questions territoriales et sécuritaires, sans contrepartie économique mise en avant.",
+        "Ce repli diplomatique intervient alors que les combats ne faiblissent pas : le président ukrainien Volodymyr Zelensky a indiqué que la Russie avait lancé en une semaine plus de 2 300 drones d'attaque, 1 590 bombes planantes et 15 missiles contre son pays, tandis que l'Ukraine a multiplié les frappes en profondeur contre des raffineries et un site de production de composants de missiles en territoire russe. Côté matériel, environ soixante intercepteurs Patriot déjà promis à l'Ukraine par Washington attendraient toujours le feu vert final du Pentagone pour leur envoi.",
+        "La fiabilité de la chaîne d'approvisionnement occidentale vers Kyiv a par ailleurs été mise en cause par une enquête du Financial Times : l'unité britannique chargée de l'armement de l'Ukraine aurait acheté plusieurs tonnes de faux explosifs plastiques de type C4 à un ancien policier américain, à temps partiel et précédemment en faillite personnelle — des explosifs dépourvus de RDX, le composant principal du C4 militaire réel.",
+        "Autre signal préoccupant relevé par la presse économique : l'Allemagne prendrait « au sérieux » des éléments de renseignement partagés par ses alliés occidentaux selon lesquels la Russie se préparerait à placer en orbite, dès le mois prochain, un dispositif à capacité nucléaire. Une telle arme, si elle était confirmée, violerait le traité de 1967 sur l'espace extra-atmosphérique et menacerait une large part des satellites en orbite basse ; le commandement spatial de la Bundeswehr avait déjà évoqué ce risque, et Berlin prévoit environ 35 milliards d'euros de dépenses spatiales de défense d'ici 2030.",
+        "Position de la France : aucune réaction officielle française spécifique à ce recentrage américain sur le seul volet territorial n'a été identifiée à ce stade. Paris s'inscrit toutefois dans la continuité de ses dernières prises de position : le 22 novembre, la France a participé à une déclaration commune des dirigeants de la « coalition des volontaires » sur l'Ukraine, et le Quai d'Orsay avait, le 3 novembre, dénoncé la violence de frappes russes massives contre l'Ukraine en réaffirmant sa « solidarité inébranlable » avec Kyiv et sa volonté d'accroître la pression sur Moscou. Paris, avec Berlin, Londres et Varsovie, maintient par ailleurs que les avoirs russes gelés doivent le rester jusqu'à la fin de la guerre d'agression et l'indemnisation de l'Ukraine."
       ],
       "essentiel": [
-        "La COP31 (9-20 novembre, Antalya) s'achève sur des accusations réciproques, sans texte clair sur la sortie des énergies fossiles.",
-        "L'Union européenne annonce vouloir réformer le processus même des négociations climatiques onusiennes.",
-        "Absence remarquée de plusieurs dirigeants, dont Emmanuel Macron, retenu par les commémorations de l'Armistice et un sommet européen en Irlande.",
-        "Deuxième conférence consécutive, après Belém, sans accord ambitieux sur la sortie des fossiles."
+        "Washington renonce à l'incitation économique envers Moscou et recentre les discussions sur le territoire et la sécurité",
+        "La guerre s'intensifie : frappes massives, livraisons de Patriot retardées, et une enquête révèle de faux explosifs achetés pour l'Ukraine",
+        "L'Allemagne dit prendre au sérieux le risque d'une arme nucléaire russe placée en orbite dès le mois prochain",
+        "La France réaffirme sa solidarité avec Kyiv sans commenter directement ce repositionnement américain"
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 2,
       "rubrique": "GEOPOLITIQUE",
-      "titre": "Menace nucléaire dans l'espace, guerre élargie en Méditerranée : les lignes de front se multiplient",
-      "chapeau": "De l'orbite terrestre aux côtes libyennes, plusieurs dossiers rappellent que les théâtres de confrontation se diversifient, loin des seuls fronts déjà identifiés.",
+      "titre": "Cyberattaque iranienne contre les supermarchés français, procès Huawei et purge à Shanghai",
+      "chapeau": "Trois dossiers distincts illustrent la multiplication des fronts gris de la rivalité internationale : guerre hybride visant la France, bras de fer technologique sino-américain devant les tribunaux, et consolidation du pouvoir à Pékin.",
       "dureeLectureMin": 6,
       "corpsArticle": [
-        "Le renseignement occidental continue de s'inquiéter d'un éventuel armement nucléaire russe en orbite. Des responsables allemands ont évoqué la possibilité que Moscou cherche à placer, dans un délai rapproché, un engin de ce type en orbite basse, où son emploi pourrait neutraliser une large part des satellites commerciaux et militaires occidentaux par effet d'impulsion électromagnétique. Ces alertes s'appuient notamment sur le suivi du satellite russe Cosmos 2553, sans qu'aucune preuve d'un déploiement opérationnel n'ait été rendue publique. La Russie avait déjà opposé en 2024 son veto à une résolution de l'ONU réaffirmant l'interdiction des armes de destruction massive dans l'espace, prévue par le traité de l'espace de 1967.",
-        "Position de la France : aucune réaction officielle française n'a été identifiée à ce stade sur ces dernières alertes allemandes et américaines concernant un possible armement nucléaire spatial russe.",
-        "La guerre en Ukraine continue par ailleurs d'étendre sa géographie. Selon des informations rapportées par le Financial Times, les forces ukrainiennes auraient mené une opération de drones maritimes contre un navire de guerre russe lié à une base navale proche de Benghazi, en Libye, que le président Volodymyr Zelensky aurait qualifiée d'opération « exemplaire ». Cette information s'ajoute à plusieurs signalements, non confirmés de façon indépendante, de la présence de forces ukrainiennes en Libye occidentale, utilisées selon certaines sources pour frapper des pétroliers de la « flotte fantôme » russe en Méditerranée ; Tripoli a toujours démenti avoir autorisé l'usage de son territoire à ces fins.",
-        "Position de la France : Paris soutient de manière générale les actions visant à perturber la flotte fantôme russe, sa marine ayant notamment procédé à l'arraisonnement d'un pétrolier suspect au large de la Sicile, et le Quai d'Orsay a par ailleurs condamné les attaques visant la navigation en mer Noire ainsi que les incursions de drones russes au-dessus de la Roumanie. Aucune réaction officielle française spécifique à l'opération rapportée près de Benghazi n'a toutefois été identifiée à ce stade.",
-        "Enfin, au Royaume-Uni, le maire du Grand Manchester Andy Burnham a jugé « impensable » un retour du pays dans l'Union européenne sans référendum, relançant un débat que le premier ministre Keir Starmer tente de maintenir à distance en refusant d'afficher une position arrêtée sur l'avenir des relations entre Londres et Bruxelles.",
-        "Position de la France : aucune réaction officielle française n'a été identifiée à ce stade sur ces déclarations relatives à un éventuel retour du Royaume-Uni dans l'Union européenne."
+        "La France a formellement mis en cause l'Iran dans la cyberattaque ayant visé, dans la nuit du 11 au 12 octobre, les systèmes de réfrigération d'environ 700 points de vente de la distribution alimentaire française, provoquant d'importantes pertes de denrées et une vingtaine de départs de feu. Le ministre de l'Europe et des Affaires étrangères Jean-Noël Barrot a désigné le 9 novembre une unité cyber des Gardiens de la révolution comme responsable de l'attaque, annonçant des sanctions « à l'échelle européenne » et la convocation de l'ambassade iranienne. Le parquet de Paris a ouvert une information judiciaire et des juges d'instruction ont été désignés. Téhéran a rejeté ces accusations comme « infondées ».",
+        "Position de la France : c'est ici la France elle-même qui est à l'origine de la mise en cause. Le 10 novembre, M. Barrot a précisé sur France Info que Paris « ne s'interdit rien » dans sa riposte à l'Iran. L'Agence nationale de la sécurité des systèmes d'information (Anssi) a par ailleurs relevé que les enseignes concernées n'avaient pas systématiquement suivi ses recommandations de sécurité de base, sans que cela ne remette en cause l'attribution retenue par les autorités françaises.",
+        "Aux États-Unis, Huawei Technologies a été reconnu coupable à l'issue d'un procès fédéral de plusieurs mois à l'issue d'une bataille judiciaire vieille de près de huit ans, portant notamment sur une conspiration de racket, le vol de secrets industriels, la fraude bancaire et le contournement des sanctions américaines visant l'Iran. L'entreprise, qui plaidait non coupable, s'expose à une confiscation de biens ou de profits liés à ces activités lors de sa condamnation. Cette décision marque une victoire pour les procureurs fédéraux dans le bras de fer technologique et sécuritaire que Washington mène contre le géant chinois des télécommunications depuis plusieurs années.",
+        "Position de la France : aucune réaction officielle française n'a été identifiée à ce stade concernant ce verdict, qui relève d'une procédure judiciaire américaine.",
+        "En Chine, le puissant secrétaire du Parti communiste à Shanghai aurait été écarté et placé sous enquête, selon le Financial Times, dans le cadre d'une purge anticorruption que le président Xi Jinping continue d'étendre aux plus hauts échelons du pôle économique du pays — après la mise en cause, en juin dernier, du vice-maire de la ville, Chen Yujian. Pékin a par ailleurs lancé sa première mission spatiale habitée incluant un astronaute étranger, un pilote de chasse pakistanais devant passer une semaine à bord de la station spatiale chinoise, dans un geste de rapprochement avec Islamabad.",
+        "Position de la France : aucune réaction officielle française identifiée à ce stade, ces deux dossiers relevant de la politique intérieure chinoise et de sa diplomatie spatiale bilatérale avec le Pakistan."
       ],
       "essentiel": [
-        "Des responsables allemands évoquent un risque d'arme nucléaire russe en orbite dans un délai rapproché ; aucune réaction officielle française identifiée.",
-        "Le FT rapporte une opération ukrainienne de drones maritimes contre un navire russe lié à une base proche de Benghazi, en Libye.",
-        "La France soutient la lutte générale contre la flotte fantôme russe, sans réaction spécifique sur l'épisode libyen.",
-        "Au Royaume-Uni, Andy Burnham juge « impensable » une réadhésion à l'UE sans référendum."
+        "Paris accuse officiellement une unité cyber des Gardiens de la révolution iraniens d'avoir visé 700 supermarchés français et promet des sanctions européennes",
+        "Huawei reconnu coupable aux États-Unis après huit ans de bataille judiciaire pour racket, vol de secrets industriels et contournement de sanctions",
+        "Pékin poursuit sa purge anticorruption jusqu'au sommet de l'appareil shanghaïen et renforce ses liens spatiaux avec le Pakistan"
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 3,
       "rubrique": "GEOECONOMIE",
-      "titre": "Puces, cobalt, intelligence artificielle : la bataille des technologies et des matières critiques s'intensifie",
-      "chapeau": "Entre le retour controversé de Jensen Huang à la tête de Nvidia, le durcissement de la RDC sur ses exportations de cobalt et la fermeté affichée par Singapour sur les contrôles américains, la géoéconomie des chaînes d'approvisionnement stratégiques reste sous tension.",
-      "dureeLectureMin": 6,
+      "titre": "Nouvelle salve tarifaire de Trump, industrie européenne sous tension et course à la BCE",
+      "chapeau": "Washington prépare nouvelles taxes douanières contre ses principaux partenaires, tandis qu'en Europe l'industrie plie sous les coûts et que la succession à la tête de la Banque centrale européenne s'annonce disputée.",
+      "dureeLectureMin": 5,
       "corpsArticle": [
-        "Nvidia a annoncé la réintégration de Jensen Huang à la présidence, à la direction générale et au conseil d'administration, dix jours après l'avoir évincé dans le cadre d'une enquête interne. Selon le document transmis aux autorités boursières américaines, le conseil d'administration a reçu des éléments de « hauts niveaux » du gouvernement américain avant de conclure que ce retour ne présentait pas de risque pour la sécurité nationale. L'enquête interne du comité indépendant doit néanmoins se poursuivre jusqu'à son terme. Cet épisode illustre le degré d'imbrication désormais atteint entre la gouvernance d'une entreprise technologique américaine, considérée comme stratégique dans la course à l'intelligence artificielle, et les arbitrages de sécurité nationale de Washington.",
-        "En République démocratique du Congo, premier producteur mondial de cobalt, les autorités ont de nouveau restreint les exportations du métal afin de soutenir les prix, selon le Financial Times. C'est la seconde fois en deux ans que Kinshasa utilise ce levier, après l'embargo de février 2025 puis l'instauration d'un système de quotas annuels fixés à environ 96 600 tonnes à partir de 2026. Le cobalt congolais, essentiel aux batteries des véhicules électriques, reste un point de passage obligé pour les chaînes d'approvisionnement mondiales, ce qui donne à la RDC un levier de négociation disproportionné par rapport à son poids économique global.",
-        "À Singapour, le premier ministre Lawrence Wong a affirmé que la cité-État ne servirait pas de porte dérobée pour contourner les contrôles américains à l'exportation de semi-conducteurs avancés, et qu'il ne laisserait aucune entreprise enfreindre la loi à cette fin. Cette prise de position intervient alors que plusieurs affaires de contournement présumé des restrictions américaines vers la Chine, impliquant des sociétés basées en Asie du Sud-Est, continuent d'alimenter les tensions entre Washington et Pékin sur le contrôle des technologies critiques."
+        "Donald Trump prépare une nouvelle série de droits de douane visant plusieurs grandes économies, Chine, Union européenne, Japon et Corée du Sud en tête, dans la continuité d'une stratégie commerciale qu'il approfondit plutôt qu'il n'assouplit. Cette annonce s'inscrit dans la suite d'une précédente salve de taxes de 10 à 12,5 % imposée en juillet à soixante partenaires commerciaux au motif de manquements supposés dans l'application d'interdictions sur les importations issues du travail forcé ; le Japon avait alors dit « regretter » ces droits et la Chine avait averti qu'une guerre commerciale ne sert « les intérêts d'aucune partie ». Une enquête distincte au titre de la section 301, portant sur les surcapacités de production industrielle et visant seize économies dont la Chine et l'UE, reste par ailleurs ouverte et pourrait déboucher sur des mesures supplémentaires. Le cadre juridique de ces taxes demeure fragile : la Cour du commerce international des États-Unis a récemment jugé invalide une proclamation tarifaire antérieure fondée sur la section 122.",
+        "En Europe, une enquête exclusive du Financial Times fait état d'une situation de tension financière significative pour la moitié des entreprises industrielles du continent, prises en étau entre des coûts de main-d'œuvre et d'énergie élevés et la concurrence de rivaux chinois. La Suisse illustre un phénomène voisin : son industrie de l'armement, pourtant adossée à une stricte neutralité militaire, souffre de coupes dans les budgets de défense nationaux tout en voyant ses propres lois d'exportation, très restrictives, pousser certains fabricants à délocaliser une partie de leur production.",
+        "Sur le plan monétaire, la succession à la présidence de la Banque centrale européenne s'annonce disputée : plusieurs capitales de la zone euro chercheraient à offrir un lot de consolation au candidat néerlandais Klaas Knot, les dirigeants européens s'orientant plutôt vers son rival espagnol pour ce poste à forte portée géopolitique, qui conditionne en partie l'autonomie stratégique monétaire de l'Union face à Washington et Pékin."
       ],
       "essentiel": [
-        "Nvidia réintègre Jensen Huang après un feu vert implicite de « hauts niveaux » du gouvernement américain sur le plan de la sécurité nationale.",
-        "La RDC resserre de nouveau ses exportations de cobalt pour soutenir les prix, une seconde fois en deux ans.",
-        "Singapour affirme ne pas vouloir servir de porte dérobée aux contournements des contrôles américains sur les semi-conducteurs.",
-        "Ces trois dossiers illustrent l'imbrication croissante entre sécurité nationale, souveraineté technologique et matières premières stratégiques."
+        "Washington prépare de nouveaux droits de douane contre la Chine, l'UE, le Japon et la Corée du Sud, dans un cadre juridique déjà contesté devant les tribunaux américains",
+        "La moitié des industriels européens seraient en tension financière significative, entre coûts énergétiques et concurrence chinoise",
+        "La succession à la présidence de la BCE s'oriente vers le candidat espagnol, au détriment du Néerlandais Klaas Knot"
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 4,
       "rubrique": "FRANCE",
-      "titre": "Budget 2027 et mobilisations sociales : une rentrée parlementaire sous tension",
-      "chapeau": "Entre rejet d'une partie du projet de budget à l'Assemblée, mobilisations dans la fonction publique et faits divers marquants, l'actualité intérieure reste dominée par les tensions budgétaires et sociales.",
-      "dureeLectureMin": 5,
+      "titre": "Présidentielle 2027, bras de fer sur les pesticides et fractures persistantes",
+      "chapeau": "À dix-huit mois du scrutin présidentiel, les sondages dessinent un paysage politique toujours plus éclaté, tandis que la contestation agricole et environnementale se poursuit à Strasbourg.",
+      "dureeLectureMin": 4,
       "corpsArticle": [
-        "Les députés ont rejeté la première partie du projet de loi de finances pour 2027, dans un contexte parlementaire sans majorité absolue, à moins de six mois de l'élection présidentielle. Les organisations syndicales ont appelé à une nouvelle journée de mobilisation le 17 novembre, qui a réuni plus de 100 000 manifestants selon les chiffres rapportés par la presse, en retrait par rapport aux précédentes journées d'action. Les 5,8 millions d'agents publics étaient appelés à se mobiliser pour obtenir des hausses de salaires, alors que le projet de budget ferme la porte à toute revalorisation générale pour une quatrième année consécutive. Le premier ministre Sébastien Lecornu avait proposé aux syndicats une conférence sociale début novembre, sans que cela apaise la contestation.",
-        "La question des retraites reste également présente dans le débat budgétaire, certaines indemnités liées à la pénibilité n'étant toujours pas prises en compte dans le calcul des pensions, ce qui alimente la colère d'une partie des agents publics et des retraités.",
-        "Par ailleurs, le régime d'indemnisation des accidents du travail a changé depuis le 1er novembre, avec une revalorisation qui doit permettre à certaines victimes de percevoir une compensation plus élevée qu'auparavant.",
-        "Enfin, un sapeur-pompier a été blessé par un tir d'arme à feu lors d'une intervention près de Marseille, un épisode qui relance les interrogations récurrentes sur la sécurité des services de secours dans certains quartiers."
+        "Les derniers sondages pour la présidentielle de 2027 confirment un paysage politique fragmenté : plusieurs enquêtes d'opinion publiées en novembre placent Jean-Luc Mélenchon en position de qualification pour le second tour face à Marine Le Pen, selon certaines hypothèses, tandis que David Lisnard poursuit sa percée à droite et qu'Édouard Philippe reste en embuscade, les écarts entre ces deux derniers restant ténus et variables selon les instituts et les scénarios testés. Les instituts soulignent la difficulté du bloc central à se stabiliser, plusieurs configurations plaçant Mélenchon devant Philippe au premier tour.",
+        "Une étude annuelle sur les « fractures françaises », menée pour un collectif de médias dont Le Monde, examine les limites de la stratégie de « dédiabolisation » du Rassemblement national dans l'opinion, signe de la persistance de lignes de fracture profondes dans la société française à l'approche de l'échéance présidentielle.",
+        "Sur le terrain européen, des organisations non gouvernementales ont de nouveau manifesté le 24 novembre devant le siège du Parlement européen à Strasbourg contre le projet « Omnibus X » de la Commission européenne, qui viserait à assouplir l'encadrement réglementaire des pesticides en révisant leur réexamen périodique. Le vote parlementaire sur ce texte, déjà repoussé à plusieurs reprises depuis l'automne, a de nouveau été ajourné et n'est désormais pas attendu avant le mois de décembre."
       ],
       "essentiel": [
-        "Rejet par l'Assemblée de la première partie du budget 2027 ; nouvelle journée de mobilisation le 17 novembre (plus de 100 000 manifestants).",
-        "Quatrième année consécutive sans revalorisation générale des salaires dans la fonction publique selon le projet de budget.",
-        "Revalorisation de l'indemnisation des accidents du travail depuis le 1er novembre.",
-        "Un sapeur-pompier blessé par balle lors d'une intervention près de Marseille."
+        "Les sondages pour 2027 confirment un paysage éclaté, avec Mélenchon en position de second tour selon plusieurs hypothèses et Lisnard en progression à droite",
+        "Une étude sur les « fractures françaises » interroge les limites de la dédiabolisation du RN dans l'opinion",
+        "Nouvelle manifestation à Strasbourg contre l'assouplissement européen des règles sur les pesticides, vote repoussé à décembre"
       ],
       "signature": "Par la rédaction du Diplomate"
     },
     {
       "ordre": 5,
       "rubrique": "REGARD_DIPLOMATE",
-      "titre": "Quand l'échec devient la norme : lire les sommets ratés comme des signaux, pas comme des impasses",
-      "chapeau": "Un regard éditorial sur ce que les blocages du jour disent de l'état du multilatéralisme et des rapports de force économiques.",
-      "dureeLectureMin": 4,
+      "titre": "Quand la diplomatie redevient affaire de territoire et de rapport de force",
+      "dureeLectureMin": 3,
       "corpsArticle": [
-        "Un sommet climatique qui s'achève dans l'acrimonie, un débat sur une arme spatiale qui reste à l'état de soupçon depuis plusieurs années, une guerre dont la géographie continue de s'étendre sans jamais se refermer : la tentation est grande de lire ces épisodes comme des échecs ponctuels. Une lecture diplomatique de plus long terme y verrait plutôt des signaux récurrents sur l'état d'épuisement des grands cadres multilatéraux hérités du tournant des années 1990 et 2000, qu'il s'agisse du régime climatique onusien ou de l'architecture de contrôle des armements. Ce n'est pas un hasard si l'Union européenne choisit, après l'échec d'Antalya, de s'attaquer non plus au contenu d'un texte mais à la méthode même de négociation : quand un format ne produit plus de résultat deux fois de suite, la question qui se pose n'est plus celle du compromis, mais celle de l'architecture.",
-        "Il en va de même sur le terrain économique, où la RDC et Singapour, deux pays de taille modeste, démontrent qu'un point de passage obligé dans une chaîne d'approvisionnement, ou la simple promesse de rester intègre dans l'application de contrôles étrangers, suffit à transformer un petit État en acteur de premier plan sur l'échiquier des grandes puissances. C'est un rappel utile pour qui veut comprendre la diplomatie contemporaine : la puissance ne se mesure plus seulement en divisions militaires ou en sièges au Conseil de sécurité, mais aussi en capacité à contrôler un goulot d'étranglement, qu'il soit minier, technologique ou normatif. Ceci reste un point de vue éditorial, non un constat établi."
+        "Ce point de vue est celui de la rédaction, non un constat établi. Il frappe, à lire l'actualité de ce mercredi, que plusieurs dossiers convergent vers une même leçon : l'ère où l'on espérait acheter la paix ou la coopération par l'intérêt économique partagé semble reculer devant une logique plus classique de rapport de force. Washington abandonne l'idée d'attirer Moscou vers la paix par des contrats pétroliers ou gaziers, et revient à l'arithmétique brute du territoire et des garanties de sécurité. Pékin, de son côté, consolide son pouvoir interne par la purge plutôt que par le seul développement économique, et cultive sa diplomatie spatiale comme un outil d'influence régionale aussi tangible qu'un accord commercial.",
+        "Plus frappant encore, la frontière entre guerre et paix, entre dehors et dedans, continue de s'effacer : une cyberattaque attribuée à une puissance étrangère peut désormais viser les réfrigérateurs des supermarchés d'une ville française ordinaire, et un partenariat industriel devenir un angle mort dans la fourniture d'explosifs destinés à un pays en guerre. Pour qui pratique la lecture diplomatique, la leçon de fond n'est peut-être pas tant le retour de la force que la dissolution progressive des catégories qui permettaient de la circonscrire : il devient de plus en plus difficile de dire où s'arrête la diplomatie classique et où commence une guerre hybride déjà engagée, jusque dans les rayons d'un hypermarché ou l'orbite basse."
       ],
       "essentiel": [
-        "Les sommets ratés répétés (Belém puis Antalya) interrogent moins un texte qu'une méthode de négociation.",
-        "Les petits États dotés d'un goulot d'étranglement stratégique (cobalt, semi-conducteurs) pèsent désormais autant que certaines grandes puissances.",
-        "Point de vue éditorial de la rédaction, non un constat factuel établi."
+        "Un recul observé de la diplomatie par l'incitation économique, au profit d'un rapport de force plus classique sur le territoire et la sécurité",
+        "La frontière entre guerre et paix s'estompe, la guerre hybride touchant désormais des cibles civiles ordinaires",
+        "Point de vue éditorial de la rédaction, non un fait établi"
       ],
       "signature": "L'éditorial du Diplomate"
     }
