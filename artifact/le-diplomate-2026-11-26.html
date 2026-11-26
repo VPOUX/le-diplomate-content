@@ -1,0 +1,477 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Le Diplomate</title>
+<style>
+/* Layout: single-column broadsheet, masthead + rule, sections as articles, sticky nav rail on wide screens */
+:root{
+  --paper:#f3ecdc;
+  --paper-2:#ece2cb;
+  --ink:#201a12;
+  --ink-soft:#4a4030;
+  --rule:#201a12;
+  --accent:#7a1f1f;
+  --gold:#8a6a2f;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1b1812;
+    --paper-2:#242019;
+    --ink:#ece2cb;
+    --ink-soft:#c9bb9c;
+    --rule:#ece2cb;
+    --accent:#d98c6b;
+    --gold:#c9a66b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1b1812;
+  --paper-2:#242019;
+  --ink:#ece2cb;
+  --ink-soft:#c9bb9c;
+  --rule:#ece2cb;
+  --accent:#d98c6b;
+  --gold:#c9a66b;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+  line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+.wrap{max-width:720px;margin:0 auto;padding-bottom:4rem;}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0 0 auto;
+  height:env(safe-area-inset-top,0px);
+  z-index:10;
+  background:var(--paper);
+}
+
+header.masthead{
+  margin-top:calc(-1 * env(safe-area-inset-top,0px));
+  padding-top:calc(env(safe-area-inset-top,0px) + 1.75rem);
+  padding-bottom:1rem;
+  text-align:center;
+  border-bottom:3px double var(--rule);
+}
+.kicker{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size:.68rem;
+  color:var(--ink-soft);
+  margin:0 0 .4rem;
+}
+h1.title{
+  font-family:"Playfair Display", Georgia, serif;
+  font-weight:900;
+  font-size:clamp(2.4rem, 9vw, 3.4rem);
+  letter-spacing:.01em;
+  margin:0;
+  text-wrap:balance;
+}
+.meta-row{
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.74rem;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin-top:.65rem;
+  flex-wrap:wrap;
+}
+
+.listen-bar{
+  display:flex;
+  justify-content:center;
+  margin:1.1rem 0 0;
+}
+#listenBtn{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.82rem;
+  letter-spacing:.03em;
+  background:var(--paper-2);
+  color:var(--ink);
+  border:1px solid var(--rule);
+  border-radius:999px;
+  padding:.55rem 1.3rem;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  transition:background .15s ease;
+}
+#listenBtn:hover{background:var(--paper);}
+#listenBtn[data-playing="true"]{background:var(--accent);color:var(--paper);border-color:var(--accent);}
+
+nav.toc{
+  margin:1.5rem 0 0;
+  padding:.9rem 1rem;
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:8px;
+}
+nav.toc .toc-label{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.68rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin:0 0 .5rem;
+}
+nav.toc ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.35rem;}
+nav.toc a{
+  color:var(--ink);
+  text-decoration:none;
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.85rem;
+  display:flex;
+  gap:.5rem;
+  border-bottom:1px dotted transparent;
+}
+nav.toc a:hover{border-bottom-color:var(--ink-soft);}
+nav.toc a .num{color:var(--gold);font-variant-numeric:tabular-nums;}
+
+section.article{
+  padding:2.2rem 0;
+  border-bottom:1px solid var(--rule);
+}
+section.article:last-of-type{border-bottom:none;}
+
+.rubrique{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.72rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin:0 0 .6rem;
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+}
+.rubrique::before{content:"";width:1.4rem;height:2px;background:var(--accent);display:inline-block;}
+
+h2.art-title{
+  font-family:"Playfair Display", Georgia, serif;
+  font-weight:800;
+  font-size:clamp(1.35rem, 4.6vw, 1.85rem);
+  line-height:1.2;
+  margin:0 0 .7rem;
+  text-wrap:balance;
+}
+p.chapeau{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:1rem;
+  font-weight:500;
+  color:var(--ink-soft);
+  margin:0 0 1rem;
+  line-height:1.5;
+}
+.art-meta{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.72rem;
+  color:var(--ink-soft);
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  margin:0 0 1.1rem;
+}
+
+.corps p{margin:0 0 1rem; max-width:65ch;}
+.corps p:first-of-type::first-letter{
+  font-family:"Playfair Display", Georgia, serif;
+  font-size:2.6em;
+  float:left;
+  line-height:.82;
+  padding-right:.08em;
+  color:var(--accent);
+  font-weight:800;
+}
+
+.essentiel{
+  margin-top:1.3rem;
+  padding:1rem 1.1rem;
+  background:var(--paper-2);
+  border-left:3px solid var(--gold);
+  border-radius:0 6px 6px 0;
+}
+.essentiel .label{
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.68rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin:0 0 .5rem;
+}
+.essentiel ul{margin:0;padding-left:1.1rem;}
+.essentiel li{margin-bottom:.35rem;font-size:.92rem;}
+.essentiel li:last-child{margin-bottom:0;}
+
+.signature{
+  margin-top:1rem;
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.78rem;
+  font-style:italic;
+  color:var(--ink-soft);
+}
+
+.editorial h2.art-title{font-style:italic;}
+.editorial p.chapeau{font-style:italic;}
+
+footer{
+  text-align:center;
+  padding:2rem 0 1rem;
+  font-family:"Space Grotesk", Arial, sans-serif;
+  font-size:.72rem;
+  color:var(--ink-soft);
+  letter-spacing:.05em;
+}
+
+@media (max-width:480px){
+  .meta-row{font-size:.68rem;}
+}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Space+Grotesk:wght@500;600;700&display=swap">
+
+<div class="wrap">
+  <header class="masthead">
+    <p class="kicker">Revue de presse diplomatique &middot; édition du matin</p>
+    <h1 class="title">Le Diplomate</h1>
+    <div class="meta-row">
+      <span>N&deg; 50</span>
+      <span>Jeudi 26 novembre 2026</span>
+      <span>06:50</span>
+    </div>
+    <div class="listen-bar">
+      <button id="listenBtn" type="button" aria-pressed="false">
+        <span id="listenIcon">&#128266;</span>
+        <span id="listenLabel">Écouter</span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sommaire">
+    <p class="toc-label">Sommaire</p>
+    <ul>
+      <li><a href="#sec-1"><span class="num">01</span> Huawei reconnu coupable aux Etats-Unis…</a></li>
+      <li><a href="#sec-2"><span class="num">02</span> Ukraine, Corée du Nord, cyberattaques iraniennes…</a></li>
+      <li><a href="#sec-3"><span class="num">03</span> Puces, tarifs douaniers et minerais stratégiques…</a></li>
+      <li><a href="#sec-4"><span class="num">04</span> Violences contre les élus, affaire Nahel…</a></li>
+      <li><a href="#sec-5"><span class="num">05</span> La diplomatie par petits dossiers</a></li>
+    </ul>
+  </nav>
+
+  <main id="articles">
+    <!-- Articles injected by script from data below -->
+  </main>
+
+  <footer>
+    Le Diplomate &middot; revue de presse pour études de diplomatie &middot; contenu résumé à partir de sources publiques
+  </footer>
+</div>
+
+<script>
+const EDITION = {
+  "sections": [
+    {
+      "id": "sec-1",
+      "rubrique": "UNE",
+      "titre": "Huawei reconnu coupable aux Etats-Unis : la guerre technologique sino-américaine franchit un nouveau seuil",
+      "chapeau": "Un jury fédéral de Brooklyn a déclaré le géant chinois des télécommunications coupable de 10 des 12 chefs d'accusation retenus contre lui, au terme d'un procès-fleuve qui cristallise sept ans d'affrontement entre Washington et Pékin sur la technologie et les sanctions.",
+      "duree": 5,
+      "corps": [
+        "Un jury fédéral de Brooklyn a reconnu Huawei Technologies coupable, le 24 novembre, de dix des douze chefs d'accusation retenus contre lui : association de malfaiteurs en vue de voler des secrets commerciaux, fraude électronique, fraude bancaire, violation de sanctions économiques américaines et blanchiment d'argent. L'entreprise a en revanche été acquittée des deux chefs les plus lourds, l'association de malfaiteurs de type racketeering (RICO) et l'entrave à la justice, au terme d'un procès de onze semaines devant la juge Ann Donnelly et après environ quatre jours de délibération du jury.",
+        "L'affaire remonte à des enquêtes ouvertes il y a près de sept ans et avait déjà valu, en 2018, l'arrestation au Canada de la directrice financière du groupe, Meng Wanzhou, fille du fondateur Ren Zhengfei. Les procureurs américains ont présenté Huawei comme ayant utilisé sa filiale Skycom pour contourner les sanctions américaines visant l'Iran, tout en dissimulant ces opérations à des banques américaines et en dérobant des secrets commerciaux à des concurrents sur plusieurs continents.",
+        "L'avocat de Huawei, Brian Heberlig, a qualifié l'acquittement sur le volet racketeering de « vindication » de l'entreprise et de sa « culture de conformité de bonne foi », tandis que le groupe a indiqué son intention de faire appel des condamnations prononcées. La question des peines, qui pourraient inclure des mesures de confiscation des biens ou profits tirés des activités jugées illégales, reste en suspens.",
+        "Ce verdict intervient alors que Washington vient tout juste de durcir, le 16 novembre, l'encadrement des exportations de semi-conducteurs avancés vers l'Asie du Sud-Est, pour éviter qu'ils ne soient réacheminés vers la Chine via des centres de données tiers — un dossier dans lequel Nvidia est également englué. Les deux affaires, bien que juridiquement distinctes, renforcent la perception d'un front technologique unique où sanctions, contrôles à l'exportation et poursuites pénales sont désormais mobilisés de façon combinée contre les champions technologiques chinois.",
+        "Pour l'Europe et la France, où les équipementiers télécoms chinois font l'objet depuis la loi de 2019 dite « anti-Huawei » d'un encadrement strict de leur déploiement dans les réseaux mobiles sensibles, ce verdict américain est susceptible d'alimenter de nouveaux débats sur la confiance à accorder aux fournisseurs chinois d'infrastructures critiques, sans qu'aucune réaction officielle française n'ait pour l'heure été rendue publique."
+      ],
+      "essentiel": [
+        "Huawei jugé coupable de 10 des 12 chefs d'accusation (secrets commerciaux, fraude, sanctions Iran, blanchiment), acquitté du racketeering.",
+        "Le groupe annonce faire appel ; les peines restent à déterminer.",
+        "Le verdict s'inscrit dans l'escalade plus large des contrôles américains sur les technologies chinoises, en parallèle du dossier Nvidia/export de puces IA.",
+        "En France, l'équipement télécom chinois reste encadré depuis 2019 ; aucune réaction officielle à ce verdict n'a été identifiée."
+      ],
+      "signature": "Par la rédaction du Diplomate",
+      "editorial": false
+    },
+    {
+      "id": "sec-2",
+      "rubrique": "GÉOPOLITIQUE",
+      "titre": "Ukraine, Corée du Nord, cyberattaques iraniennes : les lignes de fracture du moment",
+      "chapeau": "Entre un processus de paix ukrainien toujours suspendu, une Corée du Nord qui ferme la porte à l'un de ses derniers intermédiaires occidentaux et une unité cyber iranienne accusée de viser l'Europe, trois dossiers rappellent la permanence des tensions, même loin des grands sommets.",
+      "duree": 7,
+      "corps": [
+        "Le processus visant à mettre fin à la guerre en Ukraine reste dans une phase de négociation incertaine. Après la présentation d'un plan américain en 28 points jugé très proche des exigences russes, puis d'une version ukrainienne révisée à 20 points et d'une contre-proposition européenne à 12 points élaborée avec Kiev, aucun accord définitif n'a été acté à ce stade. Washington a par ailleurs mis en pause, à la mi-octobre, un nouveau paquet de sanctions contre la Russie qu'il venait de signer, invoquant l'intérêt national et un accord conclu avec Moscou sur la fourniture de gazole russe destiné à faire baisser les prix mondiaux du carburant — une décision critiquée à Kiev comme au Congrès américain, où des élus des deux partis y voient un signal d'affaiblissement de la pression sur la Russie.",
+        "Position de la France : Paris, dans la ligne de la déclaration conjointe des dirigeants européens de novembre 2025 — non démentie depuis par un texte plus récent identifié dans nos recherches — continue de défendre un cessez-le-feu le long de la ligne de contact actuelle comme préalable à toute négociation territoriale, l'implication pleine et entière de l'Ukraine dans toute discussion sur son propre sort, et des garanties de sécurité solides pour Kiev. Aucune déclaration française spécifique sur la pause des sanctions américaines ou sur l'accord gazole n'a pu être identifiée à ce jour.",
+        "La Corée du Nord a par ailleurs annoncé la fermeture du bureau diplomatique suisse qui représentait les intérêts occidentaux à Pyongyang, dans le cadre d'un différend portant sur des sanctions visant le camp international pour enfants de Songdowon. Pyongyang a qualifié ces sanctions de « acte hostile flagrant ». L'incident illustre la fragilité persistante des derniers canaux diplomatiques occidentaux vers la Corée du Nord, la Suisse étant l'un des rares pays occidentaux encore présents sur place.",
+        "Position de la France : la France n'entretient pas de relations diplomatiques avec la Corée du Nord. Aucune réaction officielle française à la fermeture du bureau suisse n'a été identifiée à ce stade.",
+        "Enfin, une unité cyber liée aux Gardiens de la révolution iraniens, désignée sous le nom de Shahid Kaveh, a été identifiée par des chercheurs comme responsable d'une série d'intrusions visant des systèmes de réfrigération industrielle en Europe, la même entité ayant déjà été associée à des attaques contre des dispositifs de contrôle industriel aux Etats-Unis en 2024. Ce type d'opération, qui vise des infrastructures jugées secondaires mais interconnectées à des réseaux plus sensibles, s'inscrit dans une stratégie iranienne de harcèlement cyber à bas bruit en réponse aux tensions régionales et aux sanctions occidentales.",
+        "Position de la France : aucune réaction officielle française identifiée à ce stade concernant ces intrusions attribuées à Shahid Kaveh."
+      ],
+      "essentiel": [
+        "Ukraine : négociations toujours ouvertes entre plans américain, ukrainien et européen ; Washington a suspendu de nouvelles sanctions russes après un accord sur le gazole.",
+        "Position française constante : cessez-le-feu sur la ligne de contact, implication de Kiev, garanties de sécurité — mais silence sur la pause américaine des sanctions.",
+        "Corée du Nord : fermeture du bureau diplomatique suisse à Pyongyang sur fond de différend lié à des sanctions visant un camp pour enfants.",
+        "Une unité cyber iranienne, Shahid Kaveh, visée pour des intrusions dans des systèmes de réfrigération industrielle en Europe."
+      ],
+      "signature": "Par la rédaction du Diplomate",
+      "editorial": false
+    },
+    {
+      "id": "sec-3",
+      "rubrique": "GÉOÉCONOMIE",
+      "titre": "Puces, tarifs douaniers et minerais stratégiques : l'économie mondiale sous contrainte géopolitique",
+      "chapeau": "Washington referme les derniers points de passage permettant à la Chine d'accéder indirectement aux puces d'intelligence artificielle américaines, rebâtit un régime tarifaire après plusieurs revers judiciaires, tandis que l'Arabie saoudite reporte son grand rendez-vous minier faute de stabilité régionale.",
+      "duree": 5,
+      "corps": [
+        "Le département du Commerce américain a publié, le 16 novembre, une règle imposant désormais une licence d'exportation pour l'envoi de semi-conducteurs avancés vers des centres de données situés en Indonésie, en Malaisie, à Singapour, en Thaïlande et au Brésil, jugés exposés à un « risque de détournement inacceptable » vers des entreprises chinoises. Les opérateurs de centres de données fournissant une part significative de puissance de calcul à des sociétés basées en Chine devront obtenir une licence américaine dans un délai de 90 jours, sous peine de restrictions futures. Cette décision fait suite au scandale Nvidia, marqué par des tensions internes révélées entre le secrétaire au Trésor Scott Bessent, qui a accusé le secrétaire au Commerce Howard Lutnick d'avoir retardé des restrictions visant la société singapourienne Megaspeed, et une annonce de Nvidia elle-même, le 18 novembre, confirmant l'arrêt des expéditions de ses puces les plus avancées vers la Chine.",
+        "La Malaisie a pour sa part affirmé accueillir favorablement les investissements dans les centres de données et les technologies, tout en refusant d'être utilisée pour contourner les contrôles à l'exportation américains. Ce dossier illustre la manière dont la rivalité technologique sino-américaine redessine désormais la carte des investissements numériques en Asie du Sud-Est, bien au-delà des deux puissances directement concernées.",
+        "Sur le front commercial plus large, l'administration Trump reconstruit son dispositif tarifaire après plusieurs revers judiciaires : la Cour du commerce international a jugé illégales, en mai, les tarifs dits de la section 122, et la Cour suprême s'est prononcée contre l'usage de tarifs fondés sur l'IEEPA en février. De nouveaux tarifs ont depuis été annoncés sur une soixantaine de partenaires commerciaux, avec des taux de base de l'ordre de 10 à 12,5 %, tandis que l'Union européenne, le Japon, la Corée du Sud et la Suisse bénéficient de certains allègements liés aux accords-cadres conclus précédemment, notamment un plafond de 15 % sur les automobiles. La Chine, de son côté, verrait ses tarifs remonter vers le niveau de 20 % convenu lors de la trêve commerciale de novembre 2025 avec le président Xi Jinping.",
+        "Enfin, en Arabie saoudite, le Future Minerals Forum, grand rendez-vous international consacré à l'investissement minier et aux minerais stratégiques, serait reporté au-delà de son créneau habituel de janvier en raison de la persistance de conflits régionaux. Ce report, s'il se confirme, rappellerait combien l'instabilité sécuritaire du Golfe et du Moyen-Orient continue de peser sur les grands rendez-vous économiques consacrés aux chaînes d'approvisionnement en matières premières critiques, un secteur où Riyad cherche pourtant à s'imposer comme plaque tournante alternative à la Chine."
+      ],
+      "essentiel": [
+        "Washington étend le contrôle des exportations de puces IA aux centres de données d'Asie du Sud-Est pour empêcher leur détournement vers la Chine.",
+        "Nvidia confirme l'arrêt de ses livraisons de puces avancées vers la Chine ; tensions internes révélées entre le Trésor et le Commerce américains.",
+        "Le régime tarifaire américain est reconstruit après des revers judiciaires ; nouveaux tarifs sur une soixantaine de partenaires, Chine visée à 20 %.",
+        "L'Arabie saoudite envisagerait de reporter son Future Minerals Forum en raison de l'instabilité régionale."
+      ],
+      "signature": "Par la rédaction du Diplomate",
+      "editorial": false
+    },
+    {
+      "id": "sec-4",
+      "rubrique": "FRANCE",
+      "titre": "Violences contre les élus, affaire Nahel, saisie record de drogue dans le Pacifique",
+      "chapeau": "Une hausse marquée des violences visant les élus locaux, le renvoi du policier impliqué dans la mort de Nahel M. devant la justice pour meurtre, et une saisie exceptionnelle de méthamphétamine par la Marine nationale figurent parmi les principales actualités françaises du jour.",
+      "duree": 4,
+      "corps": [
+        "Plus de 3 100 faits de violences visant des élus ont été recensés en France depuis le début de l'année 2026, soit une hausse d'environ 25 % par rapport à 2025, selon les chiffres rapportés par franceinfo. Cette progression continue, suivie de près par les associations d'élus locaux et le ministère de l'Intérieur, relance le débat sur la protection des maires et conseillers municipaux, régulièrement exposés à des intimidations, voire des agressions physiques, dans l'exercice de leurs fonctions.",
+        "Le policier impliqué dans la mort de Nahel M., tué par un tir lors d'un contrôle routier à Nanterre en 2023, sera jugé pour meurtre et non plus seulement pour homicide involontaire, selon les informations rapportées par franceinfo. Cette qualification plus lourde, si elle se confirme au terme de l'instruction, marquerait une étape importante dans un dossier qui avait suscité d'importantes violences urbaines à l'été 2023 et continue de cristalliser le débat sur l'usage des armes par les forces de l'ordre.",
+        "Une enquête a par ailleurs été ouverte après le signalement de messages à caractère raciste au sein d'une école de police, un dossier sensible pour une institution déjà régulièrement questionnée sur la déontologie de certains de ses personnels en formation.",
+        "Sur un autre registre, la Marine nationale a annoncé la saisie de plus de trois tonnes de méthamphétamine dans l'océan Pacifique, une opération d'ampleur qui illustre l'intensification de la lutte contre les routes de trafic de stupéfiants transitant par les zones maritimes sous juridiction ou surveillance françaises."
+      ],
+      "essentiel": [
+        "Hausse de 25 % des violences contre les élus locaux en 2026, plus de 3 100 faits recensés.",
+        "Le policier impliqué dans la mort de Nahel M. sera jugé pour meurtre.",
+        "Enquête ouverte sur des messages racistes signalés dans une école de police.",
+        "La Marine nationale saisit plus de trois tonnes de méthamphétamine dans le Pacifique."
+      ],
+      "signature": "Par la rédaction du Diplomate",
+      "editorial": false
+    },
+    {
+      "id": "sec-5",
+      "rubrique": "REGARD DIPLOMATE",
+      "titre": "La diplomatie par petits dossiers : ce que disent les silences",
+      "chapeau": "Entre la pause américaine sur les sanctions russes et le tour de vis simultané sur les puces chinoises, la diplomatie économique d'aujourd'hui avance moins par grandes doctrines que par ajustements successifs, dossier par dossier.",
+      "duree": 3,
+      "corps": [
+        "La journée illustre, à sa façon, une tendance de fond : l'outil économique — sanctions, contrôles à l'exportation, poursuites judiciaires — est de moins en moins déployé selon une doctrine unique et cohérente, et de plus en plus comme un ensemble de leviers activés ou désactivés dossier par dossier, parfois en apparente contradiction. Washington suspend des sanctions contre la Russie au nom d'un accord sur le gazole, tout en durcissant au même moment les contrôles sur les semi-conducteurs destinés, indirectement, à la Chine, et en obtenant la condamnation pénale de Huawei. Ce n'est pas nécessairement de l'incohérence : c'est la marque d'une diplomatie économique devenue transactionnelle, où chaque dossier se négocie selon sa propre logique de rapport de force, sans qu'un principe général — la défense inconditionnelle de la démocratie ukrainienne, par exemple — ne s'impose uniformément à tous les autres. Pour qui étudie la diplomatie, la leçon est méthodologique autant que politique : il devient difficile de lire la politique étrangère d'une puissance à partir d'un seul fil directeur ; il faut désormais suivre plusieurs dossiers en parallèle pour comprendre où se situe, à un instant donné, le curseur réel de la pression.",
+        "Cette journée rappelle aussi, par son silence plus que par son bruit, une autre leçon de lecture diplomatique : l'absence de réaction officielle française sur la fermeture du bureau suisse à Pyongyang, sur les intrusions cyber attribuées à l'Iran ou sur la pause américaine des sanctions russes ne signifie pas nécessairement indifférence. Une diplomatie, surtout celle d'une puissance moyenne comme la France, dispose d'un capital d'attention et de prise de parole limité, qu'elle doit arbitrer entre de nombreux dossiers simultanés. Savoir repérer ces silences, et se demander s'ils relèvent d'un choix délibéré de réserve, d'un arbitrage de priorités ou simplement d'un évènement jugé trop périphérique pour mériter une déclaration, est un exercice de lecture au moins aussi informatif que l'analyse des discours eux-mêmes. C'est un point de vue éditorial, non un constat établi : il invite simplement à ne jamais confondre absence de déclaration et absence de position."
+      ],
+      "essentiel": [
+        "La diplomatie économique actuelle procède par ajustements dossier par dossier plutôt que par doctrine unique.",
+        "Suivre plusieurs dossiers en parallèle est nécessaire pour situer la pression réelle d'une puissance à un instant donné.",
+        "Les silences diplomatiques méritent d'être lus comme des arbitrages d'attention, pas comme des vides de position — un point de vue éditorial, pas un fait."
+      ],
+      "signature": "L'éditorial du Diplomate",
+      "editorial": true
+    }
+  ]
+};
+
+function render(){
+  const main = document.getElementById('articles');
+  const frag = document.createDocumentFragment();
+  EDITION.sections.forEach(s=>{
+    const art = document.createElement('section');
+    art.className = 'article' + (s.editorial ? ' editorial' : '');
+    art.id = s.id;
+    art.innerHTML = `
+      <p class="rubrique">${s.rubrique}</p>
+      <h2 class="art-title">${s.titre}</h2>
+      <p class="chapeau">${s.chapeau}</p>
+      <p class="art-meta">${s.duree} min de lecture</p>
+      <div class="corps">${s.corps.map(p=>`<p>${p}</p>`).join('')}</div>
+      <div class="essentiel">
+        <p class="label">L'essentiel</p>
+        <ul>${s.essentiel.map(e=>`<li>${e}</li>`).join('')}</ul>
+      </div>
+      <p class="signature">${s.signature}</p>
+    `;
+    frag.appendChild(art);
+  });
+  main.appendChild(frag);
+}
+render();
+
+// Speech synthesis toggle — never autostarts, only on user click.
+(function(){
+  const btn = document.getElementById('listenBtn');
+  const label = document.getElementById('listenLabel');
+  const icon = document.getElementById('listenIcon');
+  let utterances = [];
+  let speaking = false;
+
+  function buildText(){
+    return EDITION.sections.map(s=>{
+      return `${s.rubrique}. ${s.titre}. ${s.chapeau} ${s.corps.join(' ')}`;
+    }).join(' ... ');
+  }
+
+  function stop(){
+    try{ window.speechSynthesis.cancel(); }catch(e){}
+    speaking = false;
+    btn.dataset.playing = "false";
+    btn.setAttribute('aria-pressed','false');
+    icon.textContent = '\u{1F50A}';
+    label.textContent = 'Écouter';
+  }
+
+  function start(){
+    if(!('speechSynthesis' in window)){
+      label.textContent = 'Lecture indisponible';
+      return;
+    }
+    try{
+      window.speechSynthesis.cancel();
+      const text = buildText();
+      const chunks = text.match(/[\s\S]{1,180}(?:\s|$)/g) || [text];
+      utterances = chunks.map(c=>{
+        const u = new SpeechSynthesisUtterance(c);
+        u.lang = 'fr-FR';
+        u.rate = 1;
+        return u;
+      });
+      utterances[utterances.length-1].onend = stop;
+      utterances.forEach(u=> u.onerror = stop);
+      utterances.forEach(u=> window.speechSynthesis.speak(u));
+      speaking = true;
+      btn.dataset.playing = "true";
+      btn.setAttribute('aria-pressed','true');
+      icon.textContent = '⏹';
+      label.textContent = 'Arrêter';
+    }catch(e){
+      stop();
+    }
+  }
+
+  btn.addEventListener('click', ()=>{
+    if(speaking){ stop(); } else { start(); }
+  });
+
+  document.addEventListener('visibilitychange', ()=>{
+    if(document.hidden && speaking){ stop(); }
+  });
+})();
+</script>
