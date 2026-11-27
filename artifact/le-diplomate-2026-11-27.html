@@ -1,0 +1,424 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Le Diplomate</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  /* Layout: a single broadsheet column on aged paper, masthead up top, rubriques as dated dispatches, rule-lines between sections */
+  :root{
+    --paper:#f2ecdd;
+    --paper-2:#eae2cc;
+    --ink:#2a2420;
+    --ink-soft:#54493f;
+    --rule:#2a2420;
+    --accent:#7a2b22;
+    --accent-soft:#9c5a4c;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#1c1812;
+      --paper-2:#242019;
+      --ink:#ece3d2;
+      --ink-soft:#c9bca7;
+      --rule:#ece3d2;
+      --accent:#d98a73;
+      --accent-soft:#c97a63;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#1c1812;
+    --paper-2:#242019;
+    --ink:#ece3d2;
+    --ink-soft:#c9bca7;
+    --rule:#ece3d2;
+    --accent:#d98a73;
+    --accent-soft:#c97a63;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Source Serif 4", Georgia, serif;
+    line-height:1.55;
+  }
+  .wrap{
+    max-width:720px;
+    margin:0 auto;
+    padding-left:max(18px, env(safe-area-inset-left,0px));
+    padding-right:max(18px, env(safe-area-inset-right,0px));
+    padding-block: 28px 56px;
+  }
+
+  .masthead{
+    text-align:center;
+    border-bottom:3px solid var(--rule);
+    padding-bottom:14px;
+    margin-bottom:10px;
+  }
+  .masthead .kicker{
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .masthead h1{
+    font-family:"Fraunces", serif;
+    font-weight:700;
+    font-size:clamp(2.4rem, 9vw, 3.6rem);
+    letter-spacing:-0.01em;
+    margin:6px 0 8px;
+  }
+  .masthead .meta-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:12px;
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px;
+    letter-spacing:0.05em;
+    color:var(--ink-soft);
+    border-top:1px solid var(--ink-soft);
+    padding-top:8px;
+    flex-wrap:wrap;
+  }
+
+  .listen-bar{
+    display:flex;
+    justify-content:center;
+    margin:16px 0 4px;
+  }
+  #listenBtn{
+    font-family:"JetBrains Mono", monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    background:var(--paper-2);
+    color:var(--ink);
+    border:1.5px solid var(--ink);
+    border-radius:999px;
+    padding:9px 18px;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:background .15s ease, color .15s ease;
+  }
+  #listenBtn:hover{ background:var(--ink); color:var(--paper); }
+  #listenBtn[data-playing="true"]{ background:var(--accent); color:var(--paper); border-color:var(--accent); }
+
+  article.section{
+    margin-top:34px;
+    padding-top:22px;
+    border-top:1px solid var(--ink-soft);
+  }
+  article.section:first-of-type{ margin-top:26px; }
+
+  .rubrique-label{
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .rubrique-label::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--ink-soft);
+    opacity:.5;
+  }
+
+  h2.titre{
+    font-family:"Fraunces", serif;
+    font-weight:600;
+    font-size:clamp(1.5rem, 5.5vw, 2.05rem);
+    line-height:1.18;
+    margin:10px 0 8px;
+    text-wrap:balance;
+  }
+  .chapeau{
+    font-family:"Fraunces", serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:1.08rem;
+    color:var(--ink-soft);
+    margin:0 0 14px;
+    text-wrap:balance;
+  }
+  .duree{
+    font-family:"JetBrains Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.05em;
+    color:var(--ink-soft);
+    margin-bottom:16px;
+  }
+
+  .corps p{
+    margin:0 0 14px;
+    font-size:1.02rem;
+  }
+  .corps p:first-of-type::first-letter{
+    font-family:"Fraunces", serif;
+    font-weight:700;
+    font-size:2.9em;
+    float:left;
+    line-height:0.85;
+    padding-right:7px;
+    padding-top:3px;
+    color:var(--accent);
+  }
+
+  .essentiel{
+    background:var(--paper-2);
+    border:1px solid var(--ink-soft);
+    border-radius:4px;
+    padding:14px 16px;
+    margin:18px 0;
+  }
+  .essentiel-label{
+    font-family:"JetBrains Mono", monospace;
+    font-size:10px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--accent-soft);
+    margin-bottom:8px;
+  }
+  .essentiel ul{
+    margin:0;
+    padding-left:1.1em;
+  }
+  .essentiel li{
+    font-size:0.92rem;
+    margin-bottom:5px;
+    color:var(--ink-soft);
+  }
+  .essentiel li::marker{ color:var(--accent); }
+
+  .signature{
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px;
+    letter-spacing:0.05em;
+    color:var(--ink-soft);
+    text-align:right;
+    margin-top:14px;
+  }
+
+  .editorial .titre{ font-style:italic; }
+  .editorial{
+    background:linear-gradient(180deg, transparent, var(--paper-2) 40%);
+    padding-bottom:10px;
+  }
+
+  footer{
+    margin-top:40px;
+    padding-top:16px;
+    border-top:3px solid var(--rule);
+    text-align:center;
+    font-family:"JetBrains Mono", monospace;
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+  }
+
+  @media (max-width:440px){
+    .masthead h1{ font-size:2.2rem; }
+    .meta-row{ font-size:10px; }
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="kicker">Revue matinale de géopolitique</div>
+    <h1>Le Diplomate</h1>
+    <div class="meta-row">
+      <span>Édition n° 51</span>
+      <span>Vendredi 27 novembre 2026</span>
+      <span>06:40</span>
+    </div>
+  </div>
+
+  <div class="listen-bar">
+    <button id="listenBtn" data-playing="false" aria-pressed="false">🔊 Écouter la revue</button>
+  </div>
+
+  <article class="section" data-rubrique="UNE">
+    <div class="rubrique-label">À la une</div>
+    <h2 class="titre">Le Golfe retombe dans la guerre : deux Italiens tués au Koweït, l'escalade menace toute la région</h2>
+    <p class="chapeau">Une frappe de drone sur une base militaire italo-américaine au Koweït a fait deux morts italiens, les premiers décès de la zone depuis la reprise des tirs entre Washington et Téhéran ce mois-ci. Le Qatar s'active pour éviter que l'embrasement ne compromette tout règlement avec l'Iran.</p>
+    <div class="duree">⏱ 6 min de lecture</div>
+    <div class="corps">
+      <p>Selon les informations relayées ce vendredi par le Financial Times, deux ressortissants italiens ont été tués dans une frappe de drone visant une base militaire accueillant des forces italiennes et américaines au Koweït. Il s'agit des premiers morts rapportés dans la région depuis que les États-Unis et l'Iran ont repris leurs échanges de tirs ce mois-ci, après plusieurs mois d'un conflit en dents de scie.</p>
+      <p>Ce nouvel épisode s'inscrit dans une séquence longue : la confrontation entre Washington et Téhéran a débuté le 28 février 2026 avec des frappes américano-israéliennes contre l'Iran, avant qu'un cessez-le-feu ne soit obtenu en juin. Ce dernier s'est effondré en juillet, avec de nouvelles frappes américaines autour du détroit d'Ormuz et des représailles iraniennes contre les bases américaines du Golfe. La résurgence des combats ce mois de novembre confirme la fragilité de chaque trêve successive et la difficulté à transformer les pauses militaires en désescalade durable.</p>
+      <p>Le Qatar, qui s'efforce depuis plusieurs semaines de relancer des pourparlers avec Téhéran, a averti que cette nouvelle escalade dans le Golfe menaçait les chances mêmes d'un accord entre les États-Unis et l'Iran. Doha cherche à éviter que les frappes réciproques ne ferment la fenêtre diplomatique encore ouverte.</p>
+      <p>Les répercussions économiques et régionales se font déjà sentir : l'Arabie saoudite s'apprêterait à repousser son Future Minerals Forum, rendez-vous phare consacré aux minerais stratégiques, en raison des tensions régionales persistantes. La hausse des prix du carburant liée au conflit a par ailleurs contribué à une vague de faillites parmi les compagnies aériennes européennes à faible marge, après la suspension des vols de la compagnie norvégienne Norse.</p>
+      <p>Position de la France : aucune déclaration française n'a pu être directement rattachée à la frappe de ce jour au Koweït. Paris s'est néanmoins montré actif sur le dossier iranien ces dernières semaines : une réunion de travail sur le Moyen-Orient s'est tenue le 10 novembre à Paris en marge du G7, réunissant le Premier ministre et le ministre de l'Europe et des Affaires étrangères, Jean-Noël Barrot. Selon des relais de presse arabophones, la France estime qu'un éventuel règlement avec l'Iran devrait inclure la question des missiles balistiques et celle des réseaux de groupes armés alliés à Téhéran. M. Barrot devait par ailleurs participer le 25 novembre à un événement intitulé « Voix iraniennes ». Ces éléments, bien que non directement liés à l'incident du Koweït, témoignent d'un engagement diplomatique français soutenu sur le dossier.</p>
+    </div>
+    <div class="essentiel">
+      <div class="essentiel-label">L'essentiel</div>
+      <ul>
+        <li>Deux Italiens tués dans une frappe de drone sur une base italo-américaine au Koweït, premiers morts depuis la reprise des tirs US-Iran ce mois-ci</li>
+        <li>Le conflit, né le 28 février 2026, a connu un cessez-le-feu en juin rompu en juillet, puis une nouvelle flambée en novembre</li>
+        <li>Le Qatar redoute que l'escalade ne compromette les chances d'un accord avec Téhéran</li>
+        <li>Conséquences économiques en cascade : report possible d'un forum minier saoudien, faillites dans l'aviation européenne</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <article class="section" data-rubrique="GEOPOLITIQUE">
+    <div class="rubrique-label">Géopolitique</div>
+    <h2 class="titre">Méditerranée, Dacca, Wellington, Bruxelles : les autres fronts diplomatiques du jour</h2>
+    <p class="chapeau">De la mise en garde de Giorgia Meloni sur la Méditerranée au retour annoncé de Sheikh Hasina à Dacca, en passant par l'incertitude post-électorale néo-zélandaise et le « reset » UE-Royaume-Uni, tour d'horizon des autres dossiers qui comptent.</p>
+    <div class="duree">⏱ 7 min de lecture</div>
+    <div class="corps">
+      <p>Lors d'un sommet européen, la présidente du Conseil italien Giorgia Meloni a publiquement rappelé à l'ordre l'Ukraine après de nouvelles attaques contre des navires russes en Méditerranée, déclarant que « cette guerre ne doit pas, ne peut pas s'étendre à la Méditerranée ». Cette déclaration intervient après plusieurs épisodes documentés de frappes de drones ukrainiens contre des pétroliers liés à la « flotte fantôme » russe, au large des côtes italiennes et maltaises, qui avaient déjà suscité l'inquiétude de Rome pour la sécurité maritime et la pollution potentielle. Position de la France : aucune réaction officielle française à la déclaration de Mme Meloni n'a pu être identifiée à ce stade. Paris reste toutefois engagé sur le dossier plus large de la flotte fantôme russe : le Quai d'Orsay a confirmé qu'une conférence ministérielle consacrée à ce sujet se tiendrait à Paris le 4 décembre.</p>
+      <p>Au Bangladesh, l'ex-Première ministre Sheikh Hasina, condamnée à mort par contumace pour son rôle dans la répression meurtrière des manifestations de l'été 2024, maintient son intention de rentrer à Dacca en décembre, malgré les avertissements du parquet selon lesquels elle ne pourrait échapper à son exécution. Des organisations comme Amnesty International et Human Rights Watch ont dénoncé l'équité du procès. Position de la France : aucune réaction officielle française identifiée à ce stade.</p>
+      <p>En Nouvelle-Zélande, les élections législatives du 7 novembre ont débouché sur un résultat trop serré pour être décisif. Le Premier ministre sortant Christopher Luxon affirme disposer d'une marge pour former le prochain gouvernement, mais son sort dépend désormais de l'appui d'un petit parti centriste mené par un ancien consultant de KPMG, une situation inédite dans le paysage politique néo-zélandais. Position de la France : aucune réaction officielle française identifiée à ce stade.</p>
+      <p>À Bruxelles, le sommet UE-Royaume-Uni du 20 novembre a permis de valider plusieurs textes destinés à relancer la relation post-Brexit. Le gouvernement britannique devra toutefois s'acquitter d'une « participation fee » qualifiée par certains diplomates européens d'arrangement de type « pay-to-play », signe que ce rapprochement reste strictement encadré par Bruxelles. Le ministre travailliste Andy Burnham a lui-même reconnu l'échec du Brexit avant ce sommet, promettant d'ouvrir un débat national sur la relation de long terme du Royaume-Uni avec l'Union. Position de la France : aucune prise de position officielle spécifique à l'issue de ce sommet n'a été identifiée ; la France poursuit en parallèle son dialogue stratégique bilatéral avec Londres, notamment autour de l'idée d'un noyau de défense européen élargi associant la France, le Royaume-Uni, l'Allemagne, l'Italie et la Pologne.</p>
+    </div>
+    <div class="essentiel">
+      <div class="essentiel-label">L'essentiel</div>
+      <ul>
+        <li>Meloni met en garde contre une extension de la guerre russo-ukrainienne à la Méditerranée après des frappes sur des navires russes</li>
+        <li>Sheikh Hasina maintient son projet de retour à Dacca en décembre malgré sa condamnation à mort</li>
+        <li>Nouvelle-Zélande : l'avenir du gouvernement Luxon dépend d'un petit parti centriste après des législatives indécises</li>
+        <li>UE-Royaume-Uni : accord de principe sur un « reset » post-Brexit, Londres devra payer une contribution financière</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <article class="section" data-rubrique="GEOECONOMIE">
+    <div class="rubrique-label">Géoéconomie</div>
+    <h2 class="titre">Tarifs douaniers, taux d'intérêt et minerais stratégiques : la guerre économique se poursuit</h2>
+    <p class="chapeau">Entre la relance des tensions tarifaires américaines, un ton plus restrictif de la Fed, les coupes d'emplois chez SAP et la course européenne à l'indépendance industrielle, l'actualité économique du jour reste traversée par la géopolitique.</p>
+    <div class="duree">⏱ 6 min de lecture</div>
+    <div class="corps">
+      <p>Le Financial Times souligne dans son édition du jour que l'administration Trump « persiste dans son agenda tarifaire », avec de nouvelles taxes à l'importation visant quatorze partenaires commerciaux. Cette relance tarifaire s'inscrit dans une séquence mouvementée depuis le printemps : après l'invalidation par la Cour suprême de ses tarifs les plus larges fondés sur l'IEEPA, Washington a dû rembourser certains droits perçus, avant de s'appuyer sur d'autres bases légales, dont une enquête sur le travail forcé, pour reconstruire son dispositif tarifaire. Les détails précis de la mesure visant ces quatorze partenaires n'ont pu être vérifiés de façon indépendante à l'heure de la rédaction de cette édition.</p>
+      <p>Sur le front monétaire, la Réserve fédérale américaine semble déterminée à poursuivre la hausse de ses taux d'intérêt pour contenir l'inflation, malgré une semaine boursière particulièrement agitée. Les valeurs technologiques ont connu leur pire mois en quatre ans, les investisseurs s'interrogeant sur la soutenabilité du boom de l'intelligence artificielle après des années de valorisations extrêmes.</p>
+      <p>Dans ce climat d'incertitude technologique, l'éditeur allemand de logiciels SAP envisagerait de supprimer au moins 10 000 emplois, illustrant la restructuration en cours du secteur du logiciel européen sous l'effet de l'intelligence artificielle.</p>
+      <p>Sur le plan industriel, une série d'articles du Financial Times consacrée à la souveraineté de défense européenne met en lumière les efforts des fabricants d'armement du continent pour réduire leur dépendance aux chaînes d'approvisionnement chinoises et américaines pour des composants critiques, un enjeu désormais jugé stratégique par plusieurs capitales européennes.</p>
+      <p>Autre signe de la recomposition des actifs liés à la Russie sous sanctions : l'investisseur américain Todd Boehly aurait conclu un accord pour racheter des actifs du groupe pétrolier russe Lukoil, gelés depuis l'invasion de l'Ukraine en 2022.</p>
+      <p>Enfin, les tensions au Moyen-Orient documentées dans notre Une du jour ont une traduction économique directe : l'Arabie saoudite envisagerait de repousser son Future Minerals Forum, rendez-vous majeur pour les minerais critiques, du fait de l'instabilité régionale persistante.</p>
+    </div>
+    <div class="essentiel">
+      <div class="essentiel-label">L'essentiel</div>
+      <ul>
+        <li>Washington relance son offensive tarifaire avec de nouvelles taxes visant quatorze partenaires commerciaux</li>
+        <li>La Fed maintient le cap sur la hausse des taux malgré le pire mois boursier des valeurs tech en quatre ans</li>
+        <li>SAP envisagerait de supprimer plus de 10 000 emplois dans la restructuration du logiciel européen</li>
+        <li>Les industriels européens de la défense accélèrent la réduction de leur dépendance aux chaînes d'approvisionnement chinoises et américaines</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <article class="section" data-rubrique="FRANCE">
+    <div class="rubrique-label">France</div>
+    <h2 class="titre">Budget 2027 : la mobilisation sociale ne faiblit pas</h2>
+    <p class="chapeau">Grèves dans la fonction publique, mobilisation dans l'éducation : le climat social reste tendu à l'approche des débats budgétaires pour 2027.</p>
+    <div class="duree">⏱ 4 min de lecture</div>
+    <div class="corps">
+      <p>Le mouvement social engagé depuis la mi-septembre contre les orientations du budget 2027 ne montre pas de signe d'essoufflement. Une nouvelle journée de grève dans la fonction publique, le 17 novembre, a réuni plus de 100 000 manifestants selon l'AFP, les syndicats réclamant des hausses de salaires alors que le gouvernement peine à faire adopter son projet de budget dans un contexte de finances publiques sous tension. Cette mobilisation fait suite à des journées d'action similaires fin septembre et début novembre.</p>
+      <p>Dans le secteur de l'éducation, des manifestations ont également eu lieu le 10 novembre dans plusieurs villes de France, enseignants et étudiants réclamant notamment davantage de recrutements et la suppression de la plateforme Parcoursup, régulièrement critiquée pour son fonctionnement.</p>
+      <p>Sur un plan plus technique, le régime d'indemnisation des accidents du travail a été modifié depuis le 1er novembre, avec une revalorisation de la prise en charge pour certaines catégories de victimes.</p>
+    </div>
+    <div class="essentiel">
+      <div class="essentiel-label">L'essentiel</div>
+      <ul>
+        <li>Plus de 100 000 manifestants dans la fonction publique le 17 novembre contre le budget 2027</li>
+        <li>Nouvelle mobilisation dans l'éducation le 10 novembre, recrutements et avenir de Parcoursup en jeu</li>
+        <li>Revalorisation de l'indemnisation de certains accidents du travail depuis le 1er novembre</li>
+      </ul>
+    </div>
+    <div class="signature">Par la rédaction du Diplomate</div>
+  </article>
+
+  <article class="section editorial" data-rubrique="REGARD_DIPLOMATE">
+    <div class="rubrique-label">Le regard du diplomate</div>
+    <h2 class="titre">Des trêves qui ne tiennent pas : la paix comme processus, jamais comme point final</h2>
+    <div class="duree">⏱ 3 min de lecture</div>
+    <div class="corps">
+      <p>L'actualité du jour offre une illustration frappante d'un principe que l'histoire diplomatique enseigne sans relâche, mais que chaque génération semble devoir redécouvrir : un cessez-le-feu n'est pas une paix, c'est une pause dont la durée dépend entièrement de ce qui a, ou non, été réglé pendant qu'elle durait. Le Golfe en fait une nouvelle fois la démonstration, avec un conflit qui s'est rallumé pour la troisième fois en neuf mois, chaque interruption des combats ayant laissé intactes les questions de fond — missiles balistiques, réseaux de milices alliées, contrôle des détroits — qui avaient permis le déclenchement initial. De même, les mises en garde de Giorgia Meloni sur une Méditerranée qui ne doit pas devenir un nouveau théâtre de la guerre russo-ukrainienne rappellent que les lignes rouges déclaratoires n'ont de valeur que si elles s'accompagnent de mécanismes concrets de dissuasion ou de vérification ; à défaut, elles ne font que mesurer, après coup, l'ampleur du franchissement déjà survenu.</p>
+      <p>Ce constat invite à une forme de prudence dans la lecture diplomatique des « bonnes nouvelles » : une trêve qui s'annonce, un sommet qui débouche sur un accord, un cessez-le-feu qui tient quelques semaines, ne doivent être interprétés ni comme des résolutions ni comme des échecs en germe, mais comme des fenêtres temporaires dont l'issue dépendra des choix faits pendant qu'elles sont ouvertes. C'est un point de vue, pas un fait établi, mais il invite à juger les diplomaties non sur leurs annonces, mais sur leur capacité à transformer un répit en architecture durable — ce qui, de Téhéran à Kiev, reste rarement acquis.</p>
+    </div>
+    <div class="essentiel">
+      <div class="essentiel-label">L'essentiel</div>
+      <ul>
+        <li>Un cessez-le-feu n'est qu'une pause tant que les causes profondes du conflit restent non traitées</li>
+        <li>Les lignes rouges déclaratoires ne valent que si elles sont adossées à des mécanismes de dissuasion concrets</li>
+        <li>Point de vue éditorial : juger la diplomatie sur sa capacité à transformer un répit en solution durable</li>
+      </ul>
+    </div>
+    <div class="signature">L'éditorial du Diplomate</div>
+  </article>
+
+  <footer>Le Diplomate · Revue matinale générée automatiquement · 27 novembre 2026</footer>
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById('listenBtn');
+  var synth = window.speechSynthesis;
+  var utter = null;
+
+  function collectText(){
+    var parts = [];
+    document.querySelectorAll('article.section').forEach(function(sec){
+      var label = sec.querySelector('.rubrique-label');
+      var titre = sec.querySelector('.titre');
+      if(label) parts.push(label.textContent.trim() + '.');
+      if(titre) parts.push(titre.textContent.trim() + '.');
+      sec.querySelectorAll('.corps p').forEach(function(p){
+        parts.push(p.textContent.trim());
+      });
+      var sig = sec.querySelector('.signature');
+      if(sig) parts.push(sig.textContent.trim() + '.');
+    });
+    return parts.join(' ');
+  }
+
+  function stop(){
+    try{ synth.cancel(); }catch(e){}
+    btn.dataset.playing = 'false';
+    btn.setAttribute('aria-pressed','false');
+    btn.textContent = '🔊 Écouter la revue';
+  }
+
+  btn.addEventListener('click', function(){
+    if(!synth){
+      btn.textContent = 'Lecture vocale indisponible';
+      return;
+    }
+    if(btn.dataset.playing === 'true'){
+      stop();
+      return;
+    }
+    try{
+      synth.cancel();
+      utter = new SpeechSynthesisUtterance(collectText());
+      utter.lang = 'fr-FR';
+      utter.rate = 0.98;
+      utter.onend = stop;
+      utter.onerror = stop;
+      synth.speak(utter);
+      btn.dataset.playing = 'true';
+      btn.setAttribute('aria-pressed','true');
+      btn.textContent = '⏸ Arrêter la lecture';
+    }catch(e){
+      stop();
+    }
+  });
+
+  window.addEventListener('beforeunload', function(){
+    try{ synth.cancel(); }catch(e){}
+  });
+})();
+</script>
